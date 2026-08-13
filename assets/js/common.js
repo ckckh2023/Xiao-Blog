@@ -525,8 +525,9 @@
     }
 
     return '<article class="card friend-card">' +
-      '<div class="fc-header">' + avatarNode + "</div>" +
-      '<div class="fc-id">' + utils.escapeHTML(id) + "</div>" +
+      '<div class="fc-header">' + avatarNode +
+        '<div class="fc-id">' + utils.escapeHTML(id) + "</div>" +
+      "</div>" +
       '<div class="fc-bio">' + bio + "</div>" +
       '<div class="fc-actions">' +
         '<a class="btn btn-primary" href="' + url + '" target="_blank" rel="noopener">访问主页</a>' +

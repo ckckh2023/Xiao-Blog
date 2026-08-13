@@ -12,8 +12,15 @@
     "url": "https://github.com/torvalds"
   },
   {
-    "id": "anonymous",
-    "bio": "一位没有头像的朋友，卡片将显示 ID 首字母 A 作为占位。",
-    "url": "https://example.com"
+    "id": "Songline-music",
+	"avatar": "https://blog.songline-blog.com/uploads/songline/snowMan.png",
+    "bio": "共同完成了BTIR项目的开发者，喜爱压榨Codex",
+    "url": "https://blog.songline-blog.com"
+  },
+  {
+	"id": "TangibleDreams913",
+	"avatar": "https://github.com/TangibleDreams913.png",
+    "bio": "共同完成了TrashGo项目的开发者，喜爱打CSGO",
+    "url": "https://github.com/TangibleDreams913"
   }
 ]
