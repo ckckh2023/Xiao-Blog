@@ -51,23 +51,24 @@
   var utils = new Utils();
   global.Utils = utils;
 
-  /* ---------- localStorage 缓存（降低 GitHub API 调用，规避速率限制） ---------- */
+  /* ---------- localStorage 缓存（GitHub API 数据） ----------
+     配合 GitHub REST API 的 ETag 条件请求（If-None-Match）：
+     数据未变化时返回 304（不计入速率限制），变化时返回 200 并更新缓存，
+     因此每次访问都能拿到最新数据，又不会耗尽 API 配额；
+     缓存仅在离线 / 限流 / 接口报错时作为兜底。 */
   var CACHE_PREFIX = "gh_cache:";
-  var CACHE_TTL = 6 * 60 * 60 * 1000; // 6 小时
 
-  function cacheGet(key) {
+  function cacheRead(key) {
     try {
       var raw = localStorage.getItem(CACHE_PREFIX + key);
       if (!raw) return undefined;
       var obj = JSON.parse(raw);
-      if (Date.now() - obj.t < CACHE_TTL) return obj.d;
-    } catch (e) {}
-    return undefined;
+      return (obj && typeof obj === "object" && "d" in obj) ? obj : undefined;
+    } catch (e) { return undefined; }
   }
-  function cacheSet(key, data) {
+  function cacheWrite(key, entry) {
     try {
-      localStorage.setItem(CACHE_PREFIX + key,
-        JSON.stringify({ t: Date.now(), d: data }));
+      localStorage.setItem(CACHE_PREFIX + key, JSON.stringify(entry));
     } catch (e) {}
   }
   function cacheClear() {
@@ -78,6 +79,32 @@
     } catch (e) {}
   }
   global.cacheClear = cacheClear;
+
+  /* 带 ETag 条件请求的 GitHub API 获取：
+     有缓存时带 If-None-Match 重新校验；304 复用缓存并刷新时间戳；
+     200 更新缓存并记录新 ETag；离线 / 限流 / 报错时回退缓存 */
+  function fetchGitHubJSON(url, key) {
+    var entry = cacheRead(key);
+    var headers = {};
+    if (entry && entry.etag) headers["If-None-Match"] = entry.etag;
+    return fetch(url, { headers: headers }).then(function (r) {
+      if (r.status === 304 && entry) {
+        cacheWrite(key, { t: Date.now(), etag: entry.etag, d: entry.d });
+        return entry.d;
+      }
+      if (!r.ok) throw new Error("HTTP " + r.status + " @ " + url);
+      return r.json().then(function (json) {
+        cacheWrite(key, { t: Date.now(), etag: r.headers.get("ETag") || null, d: json });
+        return json;
+      });
+    }).catch(function (err) {
+      if (entry) {
+        console.warn("[gh-api] 请求失败，回退缓存 " + key + "：", err);
+        return entry.d;
+      }
+      throw err;
+    });
+  }
 
   /* ---------- 主题切换 ---------- */
   function getStoredTheme() {
@@ -204,9 +231,7 @@
   };
 
   function fetchGitHubProfile() {
-    var cached = cacheGet("profile");
-    if (cached) return Promise.resolve(cached);
-    return utils.fetchJSON(GITHUB_API).then(function (data) {
+    return fetchGitHubJSON(GITHUB_API, "profile").then(function (data) {
       var p = {
         name: data.name || FALLBACK_PROFILE.name,
         bio: data.bio || FALLBACK_PROFILE.bio,
@@ -217,7 +242,6 @@
         followers: data.followers || 0,
         public_repos: data.public_repos || 0
       };
-      cacheSet("profile", p);
       return p;
     }).catch(function (err) {
       console.warn("[profile] 加载失败，使用兜底数据：", err);
@@ -269,12 +293,8 @@
   /* 获取仓库简介 + 真实 star 数 */
   function fetchRepoInfo(fullName) {
     var key = "repo:" + fullName;
-    var cached = cacheGet(key);
-    if (cached) return Promise.resolve(cached);
-    return utils.fetchJSON(REPO_API + fullName).then(function (d) {
-      var info = { desc: d.description || "", stars: d.stargazers_count || 0 };
-      cacheSet(key, info);
-      return info;
+    return fetchGitHubJSON(REPO_API + fullName, key).then(function (d) {
+      return { desc: d.description || "", stars: d.stargazers_count || 0 };
     }).catch(function (err) {
       console.warn("[repo] info 获取失败 " + fullName + "：", err);
       return null;
@@ -285,12 +305,8 @@
   /* 获取仓库语言列表（技术栈） */
   function fetchRepoLanguages(fullName) {
     var key = "lang:" + fullName;
-    var cached = cacheGet(key);
-    if (cached) return Promise.resolve(cached);
-    return utils.fetchJSON(REPO_API + fullName + "/languages").then(function (d) {
-      var keys = Object.keys(d || {});
-      cacheSet(key, keys);
-      return keys;
+    return fetchGitHubJSON(REPO_API + fullName + "/languages", key).then(function (d) {
+      return Object.keys(d || {});
     }).catch(function (err) {
       console.warn("[repo] languages 获取失败 " + fullName + "：", err);
       return [];
