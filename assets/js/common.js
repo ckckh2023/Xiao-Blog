@@ -571,7 +571,7 @@
   global.fetchDocsList = fetchDocsList;
 
   /* 渲染左侧目录侧边栏；currentId 为当前一级 id，currentSub 为当前二级 id（目录页均可传 null）
-     有 children 的一级显示为分组：标题可点（跳第一个子章节），其下缩进列出二级链接 */
+     有 children 的一级显示为分组：标题可点（跳第一个子章节），右侧 "v" 按钮折叠/展开子列表 */
   function renderSidebar(currentId, currentSub) {
     var holder = document.getElementById("docs-sidebar");
     if (!holder) return Promise.resolve();
@@ -580,11 +580,18 @@
       list.forEach(function (it) {
         if (it.children && it.children.length) {
           var firstHref = docHref(it.id, it.children[0].id);
-          var groupActive = (currentId === it.id) ? " sidebar-group-active" : "";
+          var isActive = (currentId === it.id);
+          var groupActive = isActive ? " sidebar-group-active" : "";
+          /* 默认：当前组展开，其他组在文章页折叠；目录页(currentId=null)全展开 */
+          var collapsed = (currentId && !isActive) ? " collapsed" : "";
+          var toggleChar = collapsed ? ">" : "v";
           html += '<div class="sidebar-group' + groupActive + '">' +
-            '<a class="sidebar-link sidebar-group-title" href="' + firstHref + '">' +
-              utils.escapeHTML(it.title) + "</a>" +
-            '<div class="sidebar-sub">';
+            '<div class="sidebar-group-header">' +
+              '<a class="sidebar-link sidebar-group-title" href="' + firstHref + '">' +
+                utils.escapeHTML(it.title) + "</a>" +
+              '<button class="sidebar-toggle" type="button" aria-label="折叠/展开">' + toggleChar + "</button>" +
+            "</div>" +
+            '<div class="sidebar-sub' + collapsed + '">';
           it.children.forEach(function (c) {
             var href = docHref(it.id, c.id);
             var cls = "sidebar-link sidebar-sub-link";
@@ -602,6 +609,20 @@
         }
       });
       holder.innerHTML = html;
+      /* 折叠/展开事件委托：点 v 切换子列表显隐（仅绑定一次） */
+      if (!holder.__sidebarToggleBound) {
+        holder.addEventListener("click", function (e) {
+          var btn = e.target.closest(".sidebar-toggle");
+          if (!btn) return;
+          var group = btn.closest(".sidebar-group");
+          if (!group) return;
+          var sub = group.querySelector(".sidebar-sub");
+          if (!sub) return;
+          var isCollapsed = sub.classList.toggle("collapsed");
+          btn.textContent = isCollapsed ? ">" : "v";
+        });
+        holder.__sidebarToggleBound = true;
+      }
     });
   }
   global.renderSidebar = renderSidebar;

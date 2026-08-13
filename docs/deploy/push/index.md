@@ -1,5 +1,3 @@
-# 推送即部署
-
 ```sh
 git add .
 git commit -m "deploy: update site"
