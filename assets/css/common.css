@@ -638,6 +638,68 @@ img { max-width: 100%; display: block; }
   transform: translateX(4px);
 }
 
+/* 列表页嵌套分组 */
+.docs-index-list .doc-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.docs-index-list .doc-group-title {
+  font-size: 16px;
+}
+.docs-index-list .doc-sub-list {
+  margin-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.docs-index-list .doc-sub-item {
+  font-size: 14px;
+  padding: 10px 14px;
+}
+.docs-index-list .doc-sub-item .doc-title {
+  font-weight: 500;
+}
+
+/* 侧边栏嵌套分组 */
+.docs-sidebar .sidebar-group {
+  margin-bottom: 6px;
+}
+.docs-sidebar .sidebar-group-title {
+  font-weight: 700;
+}
+.docs-sidebar .sidebar-group-active .sidebar-group-title {
+  color: var(--link);
+}
+.docs-sidebar .sidebar-sub {
+  margin-left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 2px;
+}
+.docs-sidebar .sidebar-sub-link {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+/* 文章页面包屑 */
+.doc-breadcrumb {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.doc-breadcrumb a { color: var(--text-muted); }
+.doc-breadcrumb a:hover { color: var(--link); }
+.doc-breadcrumb .breadcrumb-sep {
+  margin: 0 6px;
+  color: var(--text-muted);
+}
+.doc-breadcrumb .breadcrumb-current {
+  color: var(--text);
+  font-weight: 600;
+}
+
 /* ---------- 页脚 ---------- */
 .site-footer {
   text-align: center;
