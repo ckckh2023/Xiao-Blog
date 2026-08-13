@@ -30,8 +30,11 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* 全部项目：简介 / star / 技术栈由 GitHub API enrich，自适应网格 */
-    mountProjectGrid("#all-projects", PROJECTS, null);
+    /* 全部项目：从 /repo/RepoList.json 加载，复用首页卡片设计，每行 2 个；
+       简介 / star / 技术栈由 GitHub API enrich */
+    fetchRepoList().then(function (list) {
+      mountProjectGrid("#all-projects", list, 2);
+    });
   </script>
 </body>
 </html>

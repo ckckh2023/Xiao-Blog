@@ -199,30 +199,37 @@
   }
   global.fetchGitHubProfile = fetchGitHubProfile;
 
-  /* ---------- 硬编码项目数据（基础信息，详情由 GitHub API enrich） ---------- */
-  var PROJECTS = [
-    {
-      id: "BTIR-BrainTumor-ImageRecognition",
-      name: "BTIR-BrainTumor-ImageRecognition",
-      full_name: "ckckh2023/BTIR-BrainTumor-ImageRecognition",
-      desc: "加载中…",
-      tags: [],
-      stars: 0,
-      url: "https://ckckh2023.github.io/BTIR-BrainTumor-ImageRecognition/",
-      repo: "https://github.com/ckckh2023/BTIR-BrainTumor-ImageRecognition"
-    },
-    {
-      id: "TrashGo_AIRecognition",
-      name: "TrashGo_AIRecognition",
-      full_name: "ckckh2023/TrashGo_AIRecognition",
-      desc: "加载中…",
-      tags: [],
-      stars: 0,
-      url: "https://ckckh2023.github.io/TrashGo_AIRecognition/",
-      repo: "https://github.com/ckckh2023/TrashGo_AIRecognition"
-    }
-  ];
-  global.PROJECTS = PROJECTS;
+  /* ---------- star.json 数据加载（精选项目 / 精选 Wiki） ---------- */
+  function fetchStarProjects() {
+    return utils.fetchJSON(root() + "repo/star.json").then(function (list) {
+      return Array.isArray(list) ? list : [];
+    }).catch(function (err) {
+      console.warn("[star] repo/star.json 加载失败：", err);
+      return [];
+    });
+  }
+  global.fetchStarProjects = fetchStarProjects;
+
+  /* 项目页全部仓库列表（格式与 star.json 一致，独立接口） */
+  function fetchRepoList() {
+    return utils.fetchJSON(root() + "repo/RepoList.json").then(function (list) {
+      return Array.isArray(list) ? list : [];
+    }).catch(function (err) {
+      console.warn("[repo] RepoList.json 加载失败：", err);
+      return [];
+    });
+  }
+  global.fetchRepoList = fetchRepoList;
+
+  function fetchStarDocs() {
+    return utils.fetchJSON(root() + "docs/star.json").then(function (list) {
+      return Array.isArray(list) ? list : [];
+    }).catch(function (err) {
+      console.warn("[star] docs/star.json 加载失败：", err);
+      return [];
+    });
+  }
+  global.fetchStarDocs = fetchStarDocs;
 
   /* ---------- GitHub 仓库详情获取 ---------- */
   var REPO_API = "https://api.github.com/repos/";
@@ -335,6 +342,36 @@
     }).mount(selector);
   }
   global.mountProjectGrid = mountProjectGrid;
+
+  /* ---------- 精选 Wiki 卡片渲染（纯 DOM，硬编码数据） ----------
+     selector: 挂载点选择器
+     list:     精选 wiki 数组 [{ id, title, excerpt }]
+     perRow:   每行列数（默认 2）
+  ---------- */
+  function wikiCardHTML(item) {
+    var href = root() + "docs/" + item.id + "/index.html";
+    return '<article class="card wiki-card">' +
+      '<div class="wc-title">' + utils.escapeHTML(item.title || "") + "</div>" +
+      '<div class="wc-excerpt">' + utils.escapeHTML(item.excerpt || "") + "</div>" +
+      '<div class="wc-actions">' +
+        '<a class="btn btn-primary" href="' + href + '">查看</a>' +
+      "</div>" +
+    "</article>";
+  }
+
+  function mountWikiCards(selector, list, perRow) {
+    var box = document.querySelector(selector);
+    if (!box) return;
+    var items = (list || []).slice(0, perRow || 2);
+    if (!items.length) {
+      box.innerHTML = '<div class="status-box">暂无精选 Wiki。</div>';
+      return;
+    }
+    var cls = "project-grid project-grid-" + (perRow || 2);
+    box.innerHTML = '<div class="' + cls + '">' +
+      items.map(wikiCardHTML).join("") + "</div>";
+  }
+  global.mountWikiCards = mountWikiCards;
 
   /* ============================================================
      Wiki 子系统：fetchDocsList / renderSidebar /

@@ -266,6 +266,29 @@ img { max-width: 100%; display: block; }
   padding-top: 14px;
 }
 
+/* ---------- 精选 Wiki 卡片 ---------- */
+.wiki-card {
+  display: flex;
+  flex-direction: column;
+}
+.wiki-card .wc-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.wiki-card .wc-excerpt {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1;
+}
+.wiki-card .wc-actions {
+  display: flex;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
 /* ---------- 按钮 ---------- */
 .btn {
   display: inline-flex;

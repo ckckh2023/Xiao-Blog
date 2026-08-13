@@ -34,6 +34,17 @@
         <!-- Vue 挂载点（每行 2 个） -->
       </div>
     </section>
+
+    <!-- 精选 Wiki 区块 -->
+    <section>
+      <div class="section-title">
+        <span>精选 Wiki</span>
+        <a class="more-link" href="/docs/index.html">查看全部 Wiki »</a>
+      </div>
+      <div id="featured-wiki">
+        <!-- 精选 Wiki 挂载点（每行 2 个） -->
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -71,10 +82,17 @@
       }
     });
 
-    /* 精选项目：每行 2 个，简介 / star / 技术栈由 GitHub API enrich */
-    mountProjectGrid("#featured-projects", PROJECTS.slice(0, 2), 2, {
-      primary: "访问主页",
-      secondary: "项目源码"
+    /* 精选项目：从 /repo/star.json 加载，每行 2 个，简介 / star / 技术栈由 GitHub API enrich */
+    fetchStarProjects().then(function (list) {
+      mountProjectGrid("#featured-projects", list.slice(0, 2), 2, {
+        primary: "访问主页",
+        secondary: "项目源码"
+      });
+    });
+
+    /* 精选 Wiki：从 /docs/star.json 加载，每行 2 个，点击查看跳转 /docs/{id}/ */
+    fetchStarDocs().then(function (list) {
+      mountWikiCards("#featured-wiki", list, 2);
     });
   </script>
 </body>
