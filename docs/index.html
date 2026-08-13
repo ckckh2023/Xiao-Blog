@@ -42,41 +42,22 @@
     /* 渲染左侧侧边栏（目录页无当前文章） */
     renderSidebar(null);
 
-    /* 渲染右侧文章列表（支持嵌套：有 children 的一级展开为分组） */
+    /* 渲染右侧文章列表（仅一级：有子章节的跳第一章，否则跳自身） */
     fetchDocsList().then(function (list) {
       var box = document.getElementById("docs-index-list");
       if (!list.length) {
         box.innerHTML = '<div class="status-box">暂无文章。</div>';
         return;
       }
-      var html = "";
-      list.forEach(function (item) {
-        if (item.children && item.children.length) {
-          /* 一级分组：标题跳第一个子章节，其下列出子项 */
-          var firstHref = docHref(item.id, item.children[0].id);
-          html += '<div class="doc-group">' +
-            '<a class="doc-item doc-group-title" href="' + firstHref + '">' +
-              '<span class="doc-title">' + Utils.escapeHTML(item.title) + "</span>" +
-              '<span class="doc-arrow">→</span>' +
-            "</a>" +
-            '<div class="doc-sub-list">';
-          item.children.forEach(function (c) {
-            var href = docHref(item.id, c.id);
-            html += '<a class="doc-item doc-sub-item" href="' + href + '">' +
-              '<span class="doc-title">' + Utils.escapeHTML(c.title) + "</span>" +
-              '<span class="doc-arrow">→</span>' +
-            "</a>";
-          });
-          html += "</div></div>";
-        } else {
-          var href = docHref(item.id);
-          html += '<a class="doc-item" href="' + href + '">' +
-            '<span class="doc-title">' + Utils.escapeHTML(item.title) + "</span>" +
-            '<span class="doc-arrow">→</span>' +
-          "</a>";
-        }
-      });
-      box.innerHTML = html;
+      box.innerHTML = list.map(function (item) {
+        var href = (item.children && item.children.length)
+          ? docHref(item.id, item.children[0].id)
+          : docHref(item.id);
+        return '<a class="doc-item" href="' + href + '">' +
+          '<span class="doc-title">' + Utils.escapeHTML(item.title) + "</span>" +
+          '<span class="doc-arrow">→</span>' +
+        "</a>";
+      }).join("");
     });
   </script>
 </body>

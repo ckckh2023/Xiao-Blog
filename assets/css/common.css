@@ -638,30 +638,7 @@ img { max-width: 100%; display: block; }
   transform: translateX(4px);
 }
 
-/* 列表页嵌套分组 */
-.docs-index-list .doc-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.docs-index-list .doc-group-title {
-  font-size: 16px;
-}
-.docs-index-list .doc-sub-list {
-  margin-left: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.docs-index-list .doc-sub-item {
-  font-size: 14px;
-  padding: 10px 14px;
-}
-.docs-index-list .doc-sub-item .doc-title {
-  font-weight: 500;
-}
-
-/* 侧边栏嵌套分组 */
+/* 侧边栏嵌套分组（可折叠） */
 .docs-sidebar .sidebar-group {
   margin-bottom: 6px;
 }
@@ -673,22 +650,28 @@ img { max-width: 100%; display: block; }
 .docs-sidebar .sidebar-group-title {
   flex: 1;
   font-weight: 700;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.docs-sidebar .sidebar-group-title:hover {
+  color: var(--link);
+  background: var(--active-bg);
 }
 .docs-sidebar .sidebar-group-active .sidebar-group-title {
   color: var(--link);
 }
 .docs-sidebar .sidebar-toggle {
   flex-shrink: 0;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border: none;
   background: transparent;
   color: var(--text-muted);
-  font-size: 12px;
-  font-family: monospace;
-  line-height: 1;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -698,15 +681,28 @@ img { max-width: 100%; display: block; }
   color: var(--link);
   background: var(--active-bg);
 }
+.docs-sidebar .sidebar-toggle svg {
+  transform: rotate(90deg);
+  transition: transform 0.25s ease;
+}
+.docs-sidebar .sidebar-group.collapsed .sidebar-toggle svg {
+  transform: rotate(0deg);
+}
 .docs-sidebar .sidebar-sub {
   margin-left: 14px;
   display: flex;
   flex-direction: column;
   gap: 2px;
   margin-top: 2px;
+  overflow: hidden;
+  max-height: 600px;
+  opacity: 1;
+  transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.25s ease;
 }
-.docs-sidebar .sidebar-sub.collapsed {
-  display: none;
+.docs-sidebar .sidebar-group.collapsed .sidebar-sub {
+  max-height: 0;
+  margin-top: 0;
+  opacity: 0;
 }
 .docs-sidebar .sidebar-sub-link {
   font-size: 13px;
