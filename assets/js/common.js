@@ -582,8 +582,11 @@
         if (it.children && it.children.length) {
           var isActive = (currentId === it.id);
           var groupActive = isActive ? " sidebar-group-active" : "";
-          html += '<div class="sidebar-group' + groupActive + ' collapsed">' +
-            '<div class="sidebar-group-header" role="button" tabindex="0" aria-expanded="false">' +
+          /* 在分支里（当前组）展开，不在分支里折叠；目录页无当前章节则全折叠 */
+          var collapsed = isActive ? "" : " collapsed";
+          var expanded = isActive ? "true" : "false";
+          html += '<div class="sidebar-group' + groupActive + collapsed + '">' +
+            '<div class="sidebar-group-header" role="button" tabindex="0" aria-expanded="' + expanded + '">' +
               '<span class="sidebar-group-title">' + utils.escapeHTML(it.title) + "</span>" +
               '<span class="sidebar-toggle" aria-hidden="true">' + TOGGLE_SVG + "</span>" +
             "</div>" +
