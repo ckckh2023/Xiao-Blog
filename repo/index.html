@@ -16,8 +16,8 @@
       <a class="more-link" href="/index.html">« 返回首页</a>
     </div>
 
-    <div id="all-projects" class="project-grid">
-      <!-- Vue 挂载点 -->
+    <div id="all-projects">
+      <!-- Vue 挂载点（自适应网格） -->
     </div>
   </main>
 
@@ -30,45 +30,8 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    var { createApp, h } = Vue;
-    createApp({
-      setup() {
-        var projects = PROJECTS;
-        return function () {
-          return h("div", { class: "project-grid" },
-            projects.map(function (p) {
-              return h("article", { class: "card project-card", key: p.id }, [
-                h("div", { class: "pc-title" }, p.name),
-                h("div", { class: "pc-desc" }, p.desc),
-                h("div", { class: "pc-tags" },
-                  (p.tags || []).map(function (t) {
-                    return h("span", { class: "pc-tag" }, t);
-                  })
-                ),
-                h("div", { class: "pc-meta" }, [
-                  h("span", { class: "star" }, "★ " + (p.stars || 0)),
-                  h("span", "#" + p.id)
-                ]),
-                h("div", { class: "pc-actions" }, [
-                  h("a", {
-                    class: "btn btn-primary",
-                    href: p.url,
-                    target: "_blank",
-                    rel: "noopener"
-                  }, "访问"),
-                  h("a", {
-                    class: "btn",
-                    href: p.repo,
-                    target: "_blank",
-                    rel: "noopener"
-                  }, "源码")
-                ])
-              ]);
-            })
-          );
-        };
-      }
-    }).mount("#all-projects");
+    /* 全部项目：简介 / star / 技术栈由 GitHub API enrich，自适应网格 */
+    mountProjectGrid("#all-projects", PROJECTS, null);
   </script>
 </body>
 </html>

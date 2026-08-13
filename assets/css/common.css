@@ -204,6 +204,14 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 20px;
 }
+/* 每行 2 列（首页精选项目水平平铺） */
+.project-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+/* 每行 3 列 */
+.project-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
 
 .project-card .pc-title {
   font-size: 17px;
@@ -230,6 +238,9 @@ img { max-width: 100%; display: block; }
   color: var(--text-muted);
   border-radius: 10px;
   border: 1px solid var(--border);
+}
+.project-card .pc-tag-loading {
+  opacity: 0.6;
 }
 .project-card .pc-meta {
   display: flex;
@@ -543,6 +554,7 @@ img { max-width: 100%; display: block; }
   }
   .docs-content { padding: 24px 16px 48px; }
   .project-grid { grid-template-columns: 1fr; }
+  .project-grid-2, .project-grid-3 { grid-template-columns: 1fr; }
   .site-nav { padding: 0 12px; gap: 8px; }
   .site-nav .nav-id { display: none; }
 }

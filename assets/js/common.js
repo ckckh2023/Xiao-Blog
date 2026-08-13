@@ -199,13 +199,14 @@
   }
   global.fetchGitHubProfile = fetchGitHubProfile;
 
-  /* ---------- 硬编码项目数据 ---------- */
+  /* ---------- 硬编码项目数据（基础信息，详情由 GitHub API enrich） ---------- */
   var PROJECTS = [
     {
       id: "BTIR-BrainTumor-ImageRecognition",
       name: "BTIR-BrainTumor-ImageRecognition",
-      desc: "基于深度学习的脑肿瘤图像识别系统，支持 MRI 影像自动分类与可视化诊断辅助。",
-      tags: ["Python", "PyTorch", "CNN", "Medical AI"],
+      full_name: "ckckh2023/BTIR-BrainTumor-ImageRecognition",
+      desc: "加载中…",
+      tags: [],
       stars: 0,
       url: "https://ckckh2023.github.io/BTIR-BrainTumor-ImageRecognition/",
       repo: "https://github.com/ckckh2023/BTIR-BrainTumor-ImageRecognition"
@@ -213,8 +214,9 @@
     {
       id: "TrashGo_AIRecognition",
       name: "TrashGo_AIRecognition",
-      desc: "智能垃圾分类识别应用，利用卷积神经网络对常见垃圾进行实时识别与分类建议。",
-      tags: ["Python", "TensorFlow", "CV", "Edge AI"],
+      full_name: "ckckh2023/TrashGo_AIRecognition",
+      desc: "加载中…",
+      tags: [],
       stars: 0,
       url: "https://ckckh2023.github.io/TrashGo_AIRecognition/",
       repo: "https://github.com/ckckh2023/TrashGo_AIRecognition"
@@ -222,28 +224,117 @@
   ];
   global.PROJECTS = PROJECTS;
 
-  /* 项目卡片 HTML */
-  function projectCardHTML(p) {
-    var tags = (p.tags || []).map(function (t) {
-      return '<span class="pc-tag">' + utils.escapeHTML(t) + "</span>";
-    }).join("");
-    return (
-      '<article class="card project-card">' +
-        '<div class="pc-title">' + utils.escapeHTML(p.name) + "</div>" +
-        '<div class="pc-desc">' + utils.escapeHTML(p.desc) + "</div>" +
-        (tags ? '<div class="pc-tags">' + tags + "</div>" : "") +
-        '<div class="pc-meta">' +
-          '<span class="star">★ ' + (p.stars || 0) + "</span>" +
-          '<span>#' + utils.escapeHTML(p.id) + "</span>" +
-        "</div>" +
-        '<div class="pc-actions">' +
-          '<a class="btn btn-primary" href="' + p.url + '" target="_blank" rel="noopener">访问</a>' +
-          '<a class="btn" href="' + p.repo + '" target="_blank" rel="noopener">源码</a>' +
-        "</div>" +
-      "</article>"
-    );
+  /* ---------- GitHub 仓库详情获取 ---------- */
+  var REPO_API = "https://api.github.com/repos/";
+
+  /* 获取仓库简介 + 真实 star 数 */
+  function fetchRepoInfo(fullName) {
+    return utils.fetchJSON(REPO_API + fullName).then(function (d) {
+      return { desc: d.description || "", stars: d.stargazers_count || 0 };
+    }).catch(function (err) {
+      console.warn("[repo] info 获取失败 " + fullName + "：", err);
+      return null;
+    });
   }
-  global.projectCardHTML = projectCardHTML;
+  global.fetchRepoInfo = fetchRepoInfo;
+
+  /* 获取仓库语言列表（技术栈） */
+  function fetchRepoLanguages(fullName) {
+    return utils.fetchJSON(REPO_API + fullName + "/languages").then(function (d) {
+      return Object.keys(d || {});
+    }).catch(function (err) {
+      console.warn("[repo] languages 获取失败 " + fullName + "：", err);
+      return [];
+    });
+  }
+  global.fetchRepoLanguages = fetchRepoLanguages;
+
+  /* 并发 enrich 单个项目：简介 / star / 技术栈 */
+  function enrichProject(p) {
+    if (!p || !p.full_name) return Promise.resolve(p);
+    return Promise.all([
+      fetchRepoInfo(p.full_name),
+      fetchRepoLanguages(p.full_name)
+    ]).then(function (arr) {
+      var info = arr[0], langs = arr[1];
+      if (info) {
+        if (info.desc) p.desc = info.desc;
+        p.stars = info.stars;
+      } else {
+        p.desc = "暂无简介";
+      }
+      p.tags = (langs && langs.length) ? langs : [];
+      return p;
+    });
+  }
+  global.enrichProject = enrichProject;
+
+  /* ---------- Vue 项目卡片渲染（封装，供页面调用） ----------
+     selector: 挂载点选择器
+     list:     项目数组
+     perRow:   每行列数（2 / 3 / null=自适应）
+  ---------- */
+  function projectCardVNode(h, p, labels) {
+    var tags = (p.tags || []).map(function (t) {
+      return h("span", { class: "pc-tag" }, t);
+    });
+    var descText = p.loading ? "加载中…" : (p.desc || "暂无简介");
+    var tagsNode = p.loading
+      ? h("div", { class: "pc-tags" }, [h("span", { class: "pc-tag pc-tag-loading" }, "…")])
+      : (tags.length ? h("div", { class: "pc-tags" }, tags) : h("div", { class: "pc-tags" }, []));
+    return h("article", { class: "card project-card", key: p.id }, [
+      h("div", { class: "pc-title" }, p.name),
+      h("div", { class: "pc-desc" }, descText),
+      tagsNode,
+      h("div", { class: "pc-meta" }, [
+        h("span", { class: "star" }, "★ " + (p.stars || 0)),
+        h("span", "#" + p.id)
+      ]),
+      h("div", { class: "pc-actions" }, [
+        h("a", { class: "btn btn-primary", href: p.url, target: "_blank", rel: "noopener" }, labels.primary),
+        h("a", { class: "btn", href: p.repo, target: "_blank", rel: "noopener" }, labels.secondary)
+      ])
+    ]);
+  }
+
+  function mountProjectGrid(selector, list, perRow, labels) {
+    if (!window.Vue) {
+      console.warn("[project-grid] Vue 未加载，跳过渲染");
+      return;
+    }
+    var V = window.Vue;
+    var createApp = V.createApp, ref = V.ref, onMounted = V.onMounted, h = V.h;
+    var container = document.querySelector(selector);
+    if (!container) return;
+    var cls = "project-grid" + (perRow ? " project-grid-" + perRow : "");
+    var lab = Object.assign({ primary: "访问", secondary: "源码" }, labels || {});
+
+    var initial = list.map(function (p) {
+      return Object.assign({}, p, {
+        tags: (p.tags || []).slice(),
+        loading: true
+      });
+    });
+
+    createApp({
+      setup: function () {
+        var projects = ref(initial);
+        onMounted(function () {
+          projects.value.forEach(function (p, i) {
+            enrichProject(p).then(function () {
+              projects.value[i] = Object.assign({}, p, { loading: false });
+            });
+          });
+        });
+        return function () {
+          return h("div", { class: cls },
+            projects.value.map(function (p) { return projectCardVNode(h, p, lab); })
+          );
+        };
+      }
+    }).mount(selector);
+  }
+  global.mountProjectGrid = mountProjectGrid;
 
   /* ============================================================
      Wiki 子系统：fetchDocsList / renderSidebar /
