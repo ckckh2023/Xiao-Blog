@@ -571,7 +571,7 @@
   global.fetchDocsList = fetchDocsList;
 
   /* 渲染左侧目录侧边栏；currentId 为当前一级 id，currentSub 为当前二级 id（目录页均可传 null）
-     有 children 的一级：标题点击跳第一章（新页自动展开当前组），右侧 v 图标折叠/展开子列表 */
+     有 children 的一级：整行（标题+图标）点击折叠/展开，默认全部折叠 */
   function renderSidebar(currentId, currentSub) {
     var holder = document.getElementById("docs-sidebar");
     if (!holder) return Promise.resolve();
@@ -580,17 +580,12 @@
       var html = "<h3>目录</h3>";
       list.forEach(function (it) {
         if (it.children && it.children.length) {
-          var firstHref = docHref(it.id, it.children[0].id);
           var isActive = (currentId === it.id);
           var groupActive = isActive ? " sidebar-group-active" : "";
-          /* 默认：当前组展开，其他组在文章页折叠；目录页(currentId=null)全展开 */
-          var collapsed = (currentId && !isActive) ? " collapsed" : "";
-          var expanded = collapsed ? "false" : "true";
-          html += '<div class="sidebar-group' + groupActive + collapsed + '">' +
-            '<div class="sidebar-group-header">' +
-              '<a class="sidebar-group-title" href="' + firstHref + '">' +
-                utils.escapeHTML(it.title) + "</a>" +
-              '<button class="sidebar-toggle" type="button" aria-label="折叠/展开" aria-expanded="' + expanded + '">' + TOGGLE_SVG + "</button>" +
+          html += '<div class="sidebar-group' + groupActive + ' collapsed">' +
+            '<div class="sidebar-group-header" role="button" tabindex="0" aria-expanded="false">' +
+              '<span class="sidebar-group-title">' + utils.escapeHTML(it.title) + "</span>" +
+              '<span class="sidebar-toggle" aria-hidden="true">' + TOGGLE_SVG + "</span>" +
             "</div>" +
             '<div class="sidebar-sub">';
           it.children.forEach(function (c) {
@@ -610,15 +605,26 @@
         }
       });
       holder.innerHTML = html;
-      /* 折叠/展开：点 v 图标 toggle 子列表（标题点击跳第一章，仅绑定一次） */
+      /* 折叠/展开：点整行（标题或图标）或键盘 Enter/Space 切换（仅绑定一次） */
       if (!holder.__sidebarToggleBound) {
-        holder.addEventListener("click", function (e) {
-          var btn = e.target.closest(".sidebar-toggle");
-          if (!btn) return;
-          var group = btn.closest(".sidebar-group");
-          if (!group) return;
+        var toggleGroup = function (group) {
           var isCollapsed = group.classList.toggle("collapsed");
-          btn.setAttribute("aria-expanded", isCollapsed ? "false" : "true");
+          var header = group.querySelector(".sidebar-group-header");
+          if (header) header.setAttribute("aria-expanded", isCollapsed ? "false" : "true");
+        };
+        holder.addEventListener("click", function (e) {
+          var header = e.target.closest(".sidebar-group-header");
+          if (!header) return;
+          var group = header.closest(".sidebar-group");
+          if (group) toggleGroup(group);
+        });
+        holder.addEventListener("keydown", function (e) {
+          if (e.key !== "Enter" && e.key !== " ") return;
+          var header = e.target.closest(".sidebar-group-header");
+          if (!header) return;
+          e.preventDefault();
+          var group = header.closest(".sidebar-group");
+          if (group) toggleGroup(group);
         });
         holder.__sidebarToggleBound = true;
       }
