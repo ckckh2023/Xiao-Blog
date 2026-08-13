@@ -385,13 +385,13 @@
   }
   global.mountProjectGrid = mountProjectGrid;
 
-  /* ---------- 精选 Wiki 卡片渲染（纯 DOM，硬编码数据） ----------
+  /* ---------- 精选 Wiki 卡片渲染（纯 DOM） ----------
      selector: 挂载点选择器
      list:     精选 wiki 数组 [{ id, title, excerpt }]
      perRow:   每行列数（默认 2）
   ---------- */
   function wikiCardHTML(item) {
-    var href = root() + "docs/" + item.id + "/index.html";
+    var href = docHref(item.id);
     return '<article class="card wiki-card">' +
       '<div class="wc-title">' + utils.escapeHTML(item.title || "") + "</div>" +
       '<div class="wc-excerpt">' + utils.escapeHTML(item.excerpt || "") + "</div>" +
@@ -417,7 +417,7 @@
 
   /* ============================================================
      Wiki 子系统：fetchDocsList / renderSidebar /
-     renderPagination / initDocsPage
+     renderPagination / docHref / initArticlePage
      ============================================================ */
   var DOCS_BASE = root() + "docs/";
   var DOCS_LIST_URL = DOCS_BASE + "DocsList.json";
@@ -442,7 +442,7 @@
     if (!holder) return Promise.resolve();
     return fetchDocsList().then(function (list) {
       var items = list.map(function (item) {
-        var href = DOCS_BASE + item.id + "/index.html";
+        var href = docHref(item.id);
         var cls = "sidebar-link" + (currentId && item.id === currentId ? " active" : "");
         return '<a class="' + cls + '" href="' + href + '">' +
           utils.escapeHTML(item.title) + "</a>";
@@ -475,7 +475,7 @@
         }
         var arrow = type === "prev" ? "← " : " →";
         var labelText = type === "prev" ? "上一页" : "下一页";
-        var href = DOCS_BASE + item.id + "/index.html";
+        var href = docHref(item.id);
         return '<a class="page-btn ' + type + '" href="' + href + '">' +
           '<span class="label">' + labelText + "</span>" +
           '<span class="title">' + arrow + utils.escapeHTML(item.title) + "</span></a>";
@@ -489,25 +489,36 @@
   }
   global.renderPagination = renderPagination;
 
-  /* 从 pathname 解析当前文章 id */
-  function parseCurrentDocId() {
-    var path = window.location.pathname;
-    /* 形如 /docs/vue-guide/ 或 /docs/vue-guide/index.html */
-    var m = path.match(/^\/docs\/([^\/]+?)(?:\/(?:index\.html)?)?$/);
-    return m ? m[1] : null;
+  /* 文章详情页链接：/docs/article.html?id=xxx */
+  function docHref(id) {
+    return DOCS_BASE + "article.html?id=" + encodeURIComponent(id);
   }
-  global.parseCurrentDocId = parseCurrentDocId;
+  global.docHref = docHref;
 
-  /* 文章详情页初始化：渲染侧边栏 + 分页 */
-  function initDocsPage() {
-    var id = parseCurrentDocId();
-    if (!id) return;
-    return Promise.all([
-      renderSidebar(id),
-      renderPagination(id)
-    ]);
+  /* 文章模板页初始化：按 ?id= 渲染标题、正文、侧边栏 + 分页 */
+  function initArticlePage() {
+    var query = new URLSearchParams(window.location.search);
+    var id = query.get("id") || "";
+    if (!id) {
+      window.location.replace(DOCS_BASE + "index.html");
+      return;
+    }
+    var title = id;
+    return fetchDocsList().then(function (list) {
+      list.forEach(function (it) {
+        if (it.id === id) title = it.title || title;
+      });
+      document.title = title + " - ckckh2023 Wiki";
+      var h1 = document.getElementById("doc-title");
+      if (h1) h1.textContent = title;
+      return Promise.all([
+        renderDocMarkdown("#doc-body", DOCS_BASE + id + "/index.md"),
+        renderSidebar(id),
+        renderPagination(id)
+      ]);
+    });
   }
-  global.initDocsPage = initDocsPage;
+  global.initArticlePage = initArticlePage;
 
   /* ---------- Markdown 正文渲染 ----------
      selector: 正文容器选择器
@@ -533,8 +544,17 @@
   }
   global.renderDocMarkdown = renderDocMarkdown;
 
+  /* ---------- 版权年份自动填充 ---------- */
+  function mountYear() {
+    var y = new Date().getFullYear();
+    var spans = document.querySelectorAll("#year");
+    for (var i = 0; i < spans.length; i++) spans[i].textContent = y;
+  }
+  global.mountYear = mountYear;
+
   /* ---------- 自动挂载 ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     mountNav();
+    mountYear();
   });
 })(window);

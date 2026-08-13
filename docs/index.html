@@ -38,8 +38,6 @@
 
   <script src="/assets/js/common.js"></script>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
     /* 渲染左侧侧边栏（目录页无当前文章） */
     renderSidebar(null);
 
@@ -51,7 +49,7 @@
         return;
       }
       box.innerHTML = list.map(function (item) {
-        var href = "/docs/" + item.id + "/index.html";
+        var href = "/docs/article.html?id=" + encodeURIComponent(item.id);
         return '<a class="doc-item" href="' + href + '">' +
           '<span class="doc-title">' + Utils.escapeHTML(item.title) + "</span>" +
           '<span class="doc-arrow">→</span>' +

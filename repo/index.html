@@ -29,8 +29,6 @@
   <script src="/assets/js/common.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
     /* 全部项目：从 /repo/RepoList.json 加载，复用首页卡片设计，每行 2 个；
        简介 / star / 技术栈由 GitHub API enrich */
     fetchRepoList().then(function (list) {

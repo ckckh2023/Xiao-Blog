@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Git 常见冲突解决 - ckckh2023 Wiki</title>
+  <title>ckckh2023 Wiki</title>
+  <meta name="description" content="ckckh2023 的 Wiki 知识库文章">
   <script src="/assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="/assets/css/common.css">
 </head>
@@ -11,13 +12,15 @@
   <header id="site-nav"></header>
 
   <div class="docs-layout">
+    <!-- 左侧目录侧边栏（common.js 渲染） -->
     <aside id="docs-sidebar" class="docs-sidebar">
       <h3>目录</h3>
       <div class="status-box">加载中…</div>
     </aside>
 
+    <!-- 右侧内容：标题 / 正文 / 分页由 common.js 按 ?id= 渲染 -->
     <article class="docs-content">
-      <h1>Git 常见冲突解决</h1>
+      <h1 id="doc-title">加载中…</h1>
       <div id="doc-body" class="doc-body">
         <div class="status-box">正文加载中…</div>
       </div>
@@ -32,9 +35,7 @@
   <script src="/assets/js/common.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    renderDocMarkdown("#doc-body", "./index.md");
-    initDocsPage();
+    initArticlePage();
   </script>
 </body>
 </html>
