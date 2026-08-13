@@ -322,6 +322,61 @@ img { max-width: 100%; display: block; }
   padding-top: 14px;
 }
 
+/* ---------- 好友卡片 ---------- */
+.friend-card {
+  display: flex;
+  flex-direction: column;
+}
+.friend-card .fc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.friend-card .fc-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.friend-card .fc-avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--link);
+}
+.friend-card .fc-id {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.friend-card .fc-bio {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 14px;
+  min-height: 44px;
+}
+.friend-card .fc-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
 /* ---------- 按钮 ---------- */
 .btn {
   display: inline-flex;

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "octocat",
+    "avatar": "https://avatars.githubusercontent.com/octocat",
+    "bio": "GitHub 吉祥物，开源世界的传奇人物。",
+    "url": "https://github.com/octocat"
+  },
+  {
+    "id": "torvalds",
+    "avatar": "https://avatars.githubusercontent.com/torvalds",
+    "bio": "Linux 内核之父，Git 的创造者。",
+    "url": "https://github.com/torvalds"
+  },
+  {
+    "id": "anonymous",
+    "bio": "一位没有头像的朋友，卡片将显示 ID 首字母 A 作为占位。",
+    "url": "https://example.com"
+  }
+]
