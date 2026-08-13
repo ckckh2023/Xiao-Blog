@@ -188,7 +188,6 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: baseline;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 /* 小标签样式 */
