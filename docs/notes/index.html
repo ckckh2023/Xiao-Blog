@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开发笔记 · Wiki</title>
+  <meta name="description" content="项目开发过程中的踩坑记录、架构选型思考与工程实践小结。">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/138387398?v=4">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-brand" href="../../">
+          <span class="site-brand-mark">X</span>
+          <span>Xander Xiao</span>
+        </a>
+        <nav class="site-nav">
+          <a href="../../">首页</a>
+          <a href="../" class="active">Wiki</a>
+          <a href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+        <div class="site-header-actions">
+          <a class="btn btn-sm" href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wiki-layout">
+      <aside class="wiki-sidebar" id="wikiSidebar"></aside>
+      <main class="wiki-content">
+        <h1 class="doc-title">📝 开发笔记</h1>
+        <div class="doc-meta">
+          <span class="tag">随笔</span>
+          <span class="tag">工程</span>
+          <span class="tag">架构</span>
+          <span style="margin-left:6px">持续更新 · 2026-08-13</span>
+        </div>
+
+        <p>这里收录项目开发过程中的踩坑记录、架构选型思考与工程实践小结。后续会按主题拆分为独立子页（每个子页对应 <code>/docs/notes/&lt;topic&gt;/index.html</code>），并在 <code>manifest.js</code> 中扩展分组。</p>
+
+        <h2>已规划主题</h2>
+        <ul>
+          <li><strong>Qt 6 + OpenCV 桌面端打包</strong>：vcpkg 依赖管理、CMake 跨平台构建、各平台安装包制作与签名踩坑。</li>
+          <li><strong>ONNX Runtime 模型部署</strong>：ResNet / MobileNet 量化、推理性能对比、CPU/GPU 后端选择。</li>
+          <li><strong>FastAPI 异步任务队列</strong>：Redis + RQ 长任务调度、进度回传、取消与重试策略。</li>
+          <li><strong>WebGL2 医学影像体渲染</strong>：NiiVue 集成、掩码叠加、四模态切换与三视图同步。</li>
+          <li><strong>GitHub Pages 多项目共存</strong>：本仓库作为个人主页入口，子目录承载各项目 Pages 的组织方式。</li>
+        </ul>
+
+        <h2>本站架构</h2>
+        <p>本个人主页与 Wiki 完全静态，无构建步骤：</p>
+        <ul>
+          <li>Vue 3 通过 CDN 引入，<code>index.html</code> 用数据驱动渲染项目卡片。</li>
+          <li>Wiki 侧边栏由 <code>wiki-layout.js</code> 读取 <code>manifest.js</code> 渲染，每个 <code>docs/&lt;folder&gt;/index.html</code> 自组装内容。</li>
+          <li>新增 Wiki 条目 = 新建文件夹写 <code>index.html</code> + 在 <code>manifest.js</code> 加一条登记。</li>
+        </ul>
+
+        <blockquote>
+          想给某个主题单独开页？在 <code>/docs/notes/</code> 下新建子文件夹，复制任意一个已有 wiki 页面结构，把 <code>renderWikiSidebar</code> 的 <code>activeId</code> 改为新条目 id，并在 <code>manifest.js</code> 的"技术笔记"分组里登记即可。
+        </blockquote>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div>
+        <a href="../../">首页</a>
+        <a href="../">Wiki</a>
+        <a href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <div class="copy">© 2026 Xander Xiao · Powered by Vue 3 + GitHub Pages</div>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    window.SITE_ROOT = '../../';
+    window.WIKI_ROOT = '../';
+  </script>
+  <script src="../../assets/js/manifest.js"></script>
+  <script src="../../assets/js/wiki-layout.js"></script>
+  <script>
+    renderWikiSidebar('#wikiSidebar', 'notes');
+  </script>
+</body>
+</html>

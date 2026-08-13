@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTIR 脑肿瘤 MRI 分析 · Wiki</title>
+  <meta name="description" content="BTIR 项目档案：面向临床与科研的脑肿瘤 MRI 一站式分析平台。">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/138387398?v=4">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-brand" href="../../">
+          <span class="site-brand-mark">X</span>
+          <span>Xander Xiao</span>
+        </a>
+        <nav class="site-nav">
+          <a href="../../">首页</a>
+          <a href="../" class="active">Wiki</a>
+          <a href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+        <div class="site-header-actions">
+          <a class="btn btn-sm" href="https://github.com/ckckh2023/BTIR-BrainTumor-ImageRecognition" target="_blank" rel="noopener noreferrer">仓库</a>
+          <a class="btn btn-sm btn-primary" href="../../BTIR-BrainTumor-ImageRecognition/">项目主页</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wiki-layout">
+      <aside class="wiki-sidebar" id="wikiSidebar"></aside>
+      <main class="wiki-content">
+        <h1 class="doc-title">🧠 BTIR 脑肿瘤 MRI 分析</h1>
+        <div class="doc-meta">
+          <span class="tag">Python</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">WebGL2</span>
+          <span class="tag">MIT</span>
+          <span style="margin-left:6px">★ 5 · ⑂ 0 · 更新于 2026-08-13</span>
+        </div>
+
+        <p>BTIR 是一个面向临床与科研的脑肿瘤 MRI 一站式分析平台。只需在浏览器中拖入 DICOM 或 NIfTI 文件夹，即可自动完成模态匹配、病灶分类与三维分割，并生成综合结论与 AI 解读。内置多用户隔离、异步任务队列与 3D 体渲染，开箱即用。</p>
+
+        <h2>核心能力</h2>
+        <ul>
+          <li><strong>灵活的病例输入</strong>：支持四模态 NIfTI、原始 DICOM 文件夹与 ZIP，自动匹配并转换 FLAIR、T1CE、T1、T2，异常时提供人工校正。</li>
+          <li><strong>双模型协同分析</strong>：本地 ViT 多切片分类与 SuperLightNet 三维分割相互补充，组合病例级判断、空间定位与体积证据。</li>
+          <li><strong>可理解的结果呈现</strong>：以综合结论为先，结合切片概率曲线、分割叠加、区域明细和结构化 AI 解读，降低阅读成本。</li>
+          <li><strong>三维与随访视角</strong>：切换四模态、三视图与体渲染，叠加预测掩码；同一病例可选择历史检查并进行变化对比。</li>
+        </ul>
+
+        <h2>分析流程</h2>
+        <ol>
+          <li><strong>上传并核对病例</strong>：导入影像，系统完成模态匹配、DICOM 转换和输入完整性检查。</li>
+          <li><strong>执行本地模型分析</strong>：分类与三维分割任务异步运行，可实时查看排队、推理与完成状态。</li>
+          <li><strong>审阅并对比结果</strong>：综合查看概率、区域、切片与三维影像，按需进行随访对比。</li>
+        </ol>
+
+        <h2>技术架构</h2>
+        <table>
+          <thead><tr><th>层级</th><th>选型</th><th>职责</th></tr></thead>
+          <tbody>
+            <tr><td>前端</td><td>原生 JS + WebGL2 + NiiVue</td><td>影像上传、3D 体渲染、掩码叠加、随访对比</td></tr>
+            <tr><td>API</td><td>FastAPI + JWT</td><td>鉴权、任务接口、用户配额、管理员审计</td></tr>
+            <tr><td>任务队列</td><td>Redis + RQ</td><td>异步推理调度、进度轮询、取消、重试、归档</td></tr>
+            <tr><td>分类模型</td><td>ViT（多切片）</td><td>病例级是否含肿瘤判断与置信度</td></tr>
+            <tr><td>分割模型</td><td>SuperLightNet（3D）</td><td>WT / TC / ET 区域分割与体积量化</td></tr>
+            <tr><td>存储</td><td>SQLite + 文件系统</td><td>用户、任务记录与原始/结果影像</td></tr>
+            <tr><td>部署</td><td>CPU / CUDA / ROCm</td><td>按环境选择推理后端</td></tr>
+          </tbody>
+        </table>
+
+        <h2>数据流</h2>
+        <pre><code>浏览器前端  →  FastAPI（鉴权/任务接口）
+                →  SQLite（用户与任务记录）
+                →  Redis + RQ（异步调度）
+                    →  ViT（多切片分类）
+                    →  SuperLightNet（3D 分割）
+                →  结构化结果回写 → 前端 3D 查看</code></pre>
+
+        <blockquote>
+          原始影像不会发送给 AI 解读服务，AI 辅助分析只接收本地模型产生的定量信息，符合 local-first 隐私边界。
+        </blockquote>
+
+        <h2>相关链接</h2>
+        <p>
+          <a class="btn btn-sm btn-primary" href="../../BTIR-BrainTumor-ImageRecognition/">项目主页</a>
+          <a class="btn btn-sm" href="https://github.com/ckckh2023/BTIR-BrainTumor-ImageRecognition" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>
+          <a class="btn btn-sm" href="https://github.com/ckckh2023/BTIR-BrainTumor-ImageRecognition#readme" target="_blank" rel="noopener noreferrer">使用说明</a>
+        </p>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div>
+        <a href="../../">首页</a>
+        <a href="../">Wiki</a>
+        <a href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <div class="copy">© 2026 Xander Xiao · Powered by Vue 3 + GitHub Pages</div>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    window.SITE_ROOT = '../../';
+    window.WIKI_ROOT = '../';
+  </script>
+  <script src="../../assets/js/manifest.js"></script>
+  <script src="../../assets/js/wiki-layout.js"></script>
+  <script>
+    renderWikiSidebar('#wikiSidebar', 'btir');
+  </script>
+</body>
+</html>

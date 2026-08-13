@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiki 目录 · Xander Xiao</title>
+  <meta name="description" content="Xander Xiao 的 Wiki 档案目录：项目档案与技术笔记。">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/138387398?v=4">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <!-- 顶部导航 -->
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-brand" href="../">
+          <span class="site-brand-mark">X</span>
+          <span>Xander Xiao</span>
+        </a>
+        <nav class="site-nav">
+          <a href="../">首页</a>
+          <a href="./" class="active">Wiki</a>
+          <a href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+        <div class="site-header-actions">
+          <a class="btn btn-sm" href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Wiki 布局 -->
+    <div class="wiki-layout">
+      <aside class="wiki-sidebar" id="wikiSidebar"></aside>
+      <main class="wiki-content">
+        <h1 class="doc-title">Wiki 目录</h1>
+        <div class="doc-meta">
+          <span class="tag">项目档案</span>
+          <span class="tag">技术笔记</span>
+          <span class="tag">自组装</span>
+          <span style="margin-left:6px">最近更新 · 2026-08-13</span>
+        </div>
+
+        <p>本 Wiki 用于整理我的项目档案与开发笔记。左侧侧边栏按分组导航，<code>/docs</code> 下每个文件夹即一页，新增条目只需新建文件夹并写入 <code>index.html</code>，再在 <code>assets/js/manifest.js</code> 中登记一条即可被自动收录到本目录与侧边栏。</p>
+
+        <div id="wikiCatalog"></div>
+
+        <h2>结构说明</h2>
+        <pre><code>/
+├── index.html                    # 博客首页
+├── assets/
+│   ├── css/main.css              # 共享样式
+│   └── js/
+│       ├── manifest.js           # wiki 目录清单
+│       └── wiki-layout.js        # 共享侧边栏组件
+└── docs/
+    ├── index.html                # 本页（目录首页）
+    ├── trashgo/index.html        # 项目档案：TrashGo
+    ├── btir/index.html           # 项目档案：BTIR
+    └── notes/index.html          # 技术笔记</code></pre>
+
+        <p>每个 <code>docs/&lt;folder&gt;/index.html</code> 引入相同的 <code>manifest.js</code> 与 <code>wiki-layout.js</code> 渲染侧边栏，主体内容直接写在 HTML 中，无需构建步骤。</p>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div>
+        <a href="../">首页</a>
+        <a href="./">Wiki</a>
+        <a href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <div class="copy">© 2026 Xander Xiao · Powered by Vue 3 + GitHub Pages</div>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    window.SITE_ROOT = '../';
+    window.WIKI_ROOT = './';
+  </script>
+  <script src="../assets/js/manifest.js"></script>
+  <script src="../assets/js/wiki-layout.js"></script>
+  <script>
+    renderWikiSidebar('#wikiSidebar', null);
+    renderWikiCatalog('#wikiCatalog');
+  </script>
+</body>
+</html>
