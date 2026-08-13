@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github Pages 部署流程 - ckckh2023 Wiki</title>
+  <link rel="stylesheet" href="/assets/css/common.css">
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <div class="docs-layout">
+    <aside id="docs-sidebar" class="docs-sidebar">
+      <h3>目录</h3>
+      <div class="status-box">加载中…</div>
+    </aside>
+
+    <article class="docs-content">
+      <h1>Github Pages 部署流程</h1>
+      <p>记录将静态站点部署到 GitHub Pages 的完整流程，含用户页与项目页两种模式。</p>
+
+      <h2>1. 两种部署模式</h2>
+      <ul>
+        <li><strong>用户/组织页</strong>：仓库名形如 <code>username.github.io</code>，部署后访问地址为 <code>https://username.github.io/</code>，站点根目录为仓库根。</li>
+        <li><strong>项目页</strong>：任意仓库，部署后访问地址为 <code>https://username.github.io/repo-name/</code>，路径需带子目录前缀。</li>
+      </ul>
+
+      <h2>2. 配置发布源</h2>
+      <p>在仓库 <code>Settings → Pages</code> 中选择发布源：</p>
+      <ul>
+        <li>部署整个 <code>main</code> 分支根目录</li>
+        <li>部署 <code>main</code> 分支下的 <code>/docs</code> 目录</li>
+        <li>部署 GitHub Actions 构建产物</li>
+      </ul>
+
+      <h2>3. 推送即部署</h2>
+      <pre><code>git add .
+git commit -m "deploy: update site"
+git push origin main</code></pre>
+      <p>推送后可在 Pages 设置页查看构建进度，约 1-2 分钟生效。</p>
+
+      <h2>4. 自定义域名</h2>
+      <p>在仓库根放置 <code>CNAME</code> 文件写入域名，并在域名解析处添加 CNAME 记录指向 <code>username.github.io</code>。</p>
+
+      <blockquote>提示：启用 HTTPS 可在 Pages 设置中勾选 Enforce HTTPS，GitHub 会自动签发证书。</blockquote>
+
+      <h2>5. 常见问题</h2>
+      <ul>
+        <li>资源 404：多为路径未使用根相对路径（<code>/assets/...</code>），项目页需加子目录前缀。</li>
+        <li>缓存未更新：强刷浏览器或等待 CDN 缓存过期。</li>
+        <li>Jekyll 处理干扰：在根目录添加 <code>.nojekyll</code> 文件可跳过 Jekyll 构建。</li>
+      </ul>
+
+      <!-- 上下页分页导航 -->
+      <div id="pagination" class="docs-pagination"></div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    © <span id="year"></span> ckckh2023 · Powered by GitHub Pages
+  </footer>
+
+  <script src="/assets/js/common.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    initDocsPage();
+  </script>
+</body>
+</html>

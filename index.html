@@ -3,184 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xander Xiao · ckckh2023</title>
-  <meta name="description" content="Xander Xiao (ckckh2023) 的个人主页与项目档案：TrashGo AI 垃圾分类识别、BTIR 脑肿瘤 MRI 图像分析。">
-  <link rel="icon" href="https://avatars.githubusercontent.com/u/138387398?v=4">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <title>ckckh2023 - 首页</title>
+  <meta name="description" content="ckckh2023 的个人博客 - 首页">
+  <link rel="stylesheet" href="/assets/css/common.css">
 </head>
 <body>
-  <div id="app" v-cloak>
-    <!-- 顶部导航 -->
-    <header class="site-header">
-      <div class="site-header-inner">
-        <a class="site-brand" href="index.html">
-          <span class="site-brand-mark">X</span>
-          <span>Xander Xiao</span>
-        </a>
-        <nav class="site-nav">
-          <a href="index.html" class="active">首页</a>
-          <a href="docs/">Wiki</a>
-          <a href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </nav>
-        <div class="site-header-actions">
-          <a class="btn btn-sm" href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-    </header>
+  <!-- 顶部导航栏（由 common.js 渲染） -->
+  <header id="site-nav"></header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-eyebrow">
-        <span class="dot"></span> 开发者主页 · GitHub @ckckh2023
-      </div>
-      <h1 class="hero-title">{{ profile.name }}</h1>
-      <p class="hero-subtitle">{{ profile.tagline }}</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="docs/">
-          <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h5l1.5 2H14v8H2z"/></svg>
-          浏览 Wiki 档案
-        </a>
-        <a class="btn" :href="profile.github" target="_blank" rel="noopener noreferrer">在 GitHub 查看</a>
-      </div>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.75A1.75 1.75 0 0 1 3.75 1h8.5A1.75 1.75 0 0 1 14 2.75v10.5A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25zM3.75 2.5a.25.25 0 0 0-.25.25v10.5c0 .14.11.25.25.25h8.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25zM4 4h6v1.5H4zm0 3h6v1.5H4zm0 3h4v1.5H4z"/></svg>
-          <strong>{{ profile.publicRepos }}</strong> 个公开仓库
-        </div>
-        <div class="hero-meta-item">
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0m6.5-4.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M4.5 7.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5m7 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5"/></svg>
-          <strong>{{ profile.followers }}</strong> followers · <strong>{{ profile.following }}</strong> following
-        </div>
-        <div class="hero-meta-item">
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.75 1.5a.75.75 0 0 1 .75.75v3.5h3.5a.75.75 0 0 1 0 1.5H5.5v3.5a.75.75 0 0 1-1.5 0v-3.5H.5a.75.75 0 0 1 0-1.5h3.5v-3.5a.75.75 0 0 1 .75-.75M11.25 1.5a.75.75 0 0 1 .75.75v3.5h3.5a.75.75 0 0 1 0 1.5H12v3.5a.75.75 0 0 1-1.5 0v-3.5H7a.75.75 0 0 1 0-1.5h3.5v-3.5a.75.75 0 0 1 .75-.75"/></svg>
-          加入 GitHub 于 <strong>{{ profile.joinedYear }}</strong>
-        </div>
-        <div class="hero-meta-item">
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="m7.175 1.215.641.239a.75.75 0 0 1 .474.702V4h1.21a.75.75 0 0 1 0 1.5H8.29v2.5h1.21a.75.75 0 0 1 0 1.5H8.29v2.75a.75.75 0 0 1-1.5 0V9.5H5.58a.75.75 0 0 1 0-1.5h1.21V5.5H5.58a.75.75 0 0 1 0-1.5h1.21V2.156a.75.75 0 0 1 .474-.702z"/></svg>
-          {{ profile.bio }}
-        </div>
+  <main class="container">
+    <!-- 个人信息区块 -->
+    <section id="profile-section" class="profile-card">
+      <img class="profile-avatar" id="profile-avatar"
+           src="https://avatars.githubusercontent.com/ckckh2023"
+           alt="avatar" onerror="this.style.visibility='hidden'">
+      <div class="profile-info">
+        <h1 id="profile-name">加载中…</h1>
+        <div class="bio" id="profile-bio"></div>
+        <div class="meta" id="profile-meta"></div>
       </div>
     </section>
 
-    <!-- 项目区 -->
-    <section class="section">
-      <div class="section-head">
-        <h2 class="section-title">精选项目</h2>
-        <p class="section-desc">两个已上线 GitHub Pages 的开源项目，点击卡片进入项目主页，或在 Wiki 档案中查看详细介绍。</p>
+    <!-- 精选项目区块（Vue 渲染） -->
+    <section>
+      <div class="section-title">
+        <span>精选项目</span>
+        <a class="more-link" href="/repo/index.html">查看全部项目 »</a>
       </div>
-      <div class="project-grid">
-        <a v-for="p in projects" :key="p.id" class="project-card" :href="p.homepage" target="_blank" rel="noopener noreferrer">
-          <div class="project-card-head">
-            <span class="project-card-icon" :style="{ background: p.iconBg }">{{ p.iconText }}</span>
-            <div>
-              <div class="project-card-title">{{ p.title }}</div>
-              <div class="project-card-path">{{ p.path }}</div>
-            </div>
-          </div>
-          <p class="project-card-desc">{{ p.desc }}</p>
-          <div class="project-card-foot">
-            <span class="meta-item">
-              <span class="lang-dot" :style="{ background: p.langColor }"></span>{{ p.lang }}
-            </span>
-            <span class="meta-item">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25"/></svg>
-              {{ p.stars }}
-            </span>
-            <span class="meta-item">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0M5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0m6.75.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0"/></svg>
-              {{ p.forks }}
-            </span>
-            <span class="meta-item" style="margin-left:auto;color:var(--accent)">进入主页 →</span>
-          </div>
-        </a>
+      <div id="featured-projects" class="project-grid">
+        <!-- Vue 挂载点 -->
       </div>
     </section>
+  </main>
 
-    <!-- 特性区 -->
-    <section class="section">
-      <div class="section-head">
-        <h2 class="section-title">Wiki 档案</h2>
-        <p class="section-desc">通过 /docs 路径访问，左侧侧边栏分组导航，每个文件夹自组装为一页。</p>
-      </div>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📂</div>
-          <h3>项目档案</h3>
-          <p>TrashGo 与 BTIR 的架构、技术栈与功能详解。</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📝</div>
-          <h3>技术笔记</h3>
-          <p>开发过程中的踩坑记录、选型思考与工程实践小结。</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔌</div>
-          <h3>自组装结构</h3>
-          <p>/docs 下每个文件夹即一页，新增条目只需新建文件夹并登记清单。</p>
-        </div>
-      </div>
-      <div style="margin-top:20px">
-        <a class="btn btn-primary" href="docs/">进入 Wiki 目录</a>
-      </div>
-    </section>
+  <footer class="site-footer">
+    © <span id="year"></span> ckckh2023 · Powered by GitHub Pages
+  </footer>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div>
-        <a href="index.html">首页</a>
-        <a href="docs/">Wiki</a>
-        <a href="https://github.com/ckckh2023" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </div>
-      <div class="copy">© {{ year }} Xander Xiao · Powered by Vue 3 + GitHub Pages</div>
-    </footer>
-  </div>
-
-  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <!-- 全局共享逻辑 -->
+  <script src="/assets/js/common.js"></script>
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    Vue.createApp({
-      setup: function () {
-        var profile = {
-          name: 'Xander Xiao',
-          login: 'ckckh2023',
-          tagline: 'AI · 影像 · 桌面应用开发记录 —— 把每个项目从想法到上线的过程写下来。',
-          bio: '没招了没招了没招了',
-          github: 'https://github.com/ckckh2023',
-          publicRepos: 4,
-          followers: 3,
-          following: 0,
-          joinedYear: 2023
-        };
-        var projects = [
-          {
-            id: 'trashgo',
-            title: 'TrashGo 智识助手',
-            path: 'ckckh2023/TrashGo_AIRecognition',
-            desc: '基于 Qt 6 + OpenCV 的桌面端 AI 垃圾分类识别应用，支持 4 大类 120 种细分类别，本地 ONNX 模型与百度云 API 双引擎切换。',
-            iconText: 'T',
-            iconBg: 'linear-gradient(135deg,#1a7f37,#0a6b2d)',
-            lang: 'C++', langColor: '#f34b7d',
-            stars: 14, forks: 2,
-            homepage: 'TrashGo_AIRecognition/'
-          },
-          {
-            id: 'btir',
-            title: 'BTIR 脑肿瘤 MRI 分析',
-            path: 'ckckh2023/BTIR-BrainTumor-ImageRecognition',
-            desc: '面向临床与科研的脑肿瘤 MRI 一站式分析平台，浏览器内完成 ViT 分类与 SuperLightNet 3D 分割，多用户隔离与异步任务队列。',
-            iconText: 'B',
-            iconBg: 'linear-gradient(135deg,#0969da,#0a4f9e)',
-            lang: 'Python', langColor: '#3572A5',
-            stars: 5, forks: 0,
-            homepage: 'BTIR-BrainTumor-ImageRecognition/'
-          }
-        ];
-        var year = new Date().getFullYear();
-        return { profile: profile, projects: projects, year: year };
+    /* 年份 */
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* 个人信息加载（带兜底） */
+    fetchGitHubProfile().then(function (p) {
+      document.getElementById("profile-name").textContent = p.name;
+      document.getElementById("profile-bio").textContent = p.bio || "";
+      var meta = [];
+      if (p.company) meta.push("🏢 " + p.company);
+      if (p.location) meta.push("📍 " + p.location);
+      if (p.public_repos) meta.push("📦 " + p.public_repos + " repos");
+      if (p.followers) meta.push("👥 " + p.followers + " followers");
+      document.getElementById("profile-meta").innerHTML =
+        meta.map(function (t) { return "<span>" + t + "</span>"; }).join("");
+      if (p.avatar) {
+        var av = document.getElementById("profile-avatar");
+        av.src = p.avatar;
       }
-    }).mount('#app');
+    });
+
+    /* Vue 渲染精选项目卡片 */
+    var { createApp, h } = Vue;
+    createApp({
+      setup() {
+        var projects = PROJECTS.slice(0, 2);
+        return function () {
+          return h("div", { class: "project-grid" },
+            projects.map(function (p) {
+              return h("article", { class: "card project-card", key: p.id }, [
+                h("div", { class: "pc-title" }, p.name),
+                h("div", { class: "pc-desc" }, p.desc),
+                h("div", { class: "pc-tags" },
+                  (p.tags || []).map(function (t) {
+                    return h("span", { class: "pc-tag" }, t);
+                  })
+                ),
+                h("div", { class: "pc-meta" }, [
+                  h("span", { class: "star" }, "★ " + (p.stars || 0)),
+                  h("span", "#" + p.id)
+                ]),
+                h("div", { class: "pc-actions" }, [
+                  h("a", {
+                    class: "btn btn-primary",
+                    href: p.url,
+                    target: "_blank",
+                    rel: "noopener"
+                  }, "访问"),
+                  h("a", {
+                    class: "btn",
+                    href: p.repo,
+                    target: "_blank",
+                    rel: "noopener"
+                  }, "源码")
+                ])
+              ]);
+            })
+          );
+        };
+      }
+    }).mount("#featured-projects");
   </script>
 </body>
 </html>

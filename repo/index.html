@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ckckh2023 - 项目</title>
+  <meta name="description" content="ckckh2023 的全部项目列表">
+  <link rel="stylesheet" href="/assets/css/common.css">
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <main class="container wide">
+    <div class="section-title">
+      <span>全部项目</span>
+      <a class="more-link" href="/index.html">« 返回首页</a>
+    </div>
+
+    <div id="all-projects" class="project-grid">
+      <!-- Vue 挂载点 -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> ckckh2023 · Powered by GitHub Pages
+  </footer>
+
+  <script src="/assets/js/common.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    var { createApp, h } = Vue;
+    createApp({
+      setup() {
+        var projects = PROJECTS;
+        return function () {
+          return h("div", { class: "project-grid" },
+            projects.map(function (p) {
+              return h("article", { class: "card project-card", key: p.id }, [
+                h("div", { class: "pc-title" }, p.name),
+                h("div", { class: "pc-desc" }, p.desc),
+                h("div", { class: "pc-tags" },
+                  (p.tags || []).map(function (t) {
+                    return h("span", { class: "pc-tag" }, t);
+                  })
+                ),
+                h("div", { class: "pc-meta" }, [
+                  h("span", { class: "star" }, "★ " + (p.stars || 0)),
+                  h("span", "#" + p.id)
+                ]),
+                h("div", { class: "pc-actions" }, [
+                  h("a", {
+                    class: "btn btn-primary",
+                    href: p.url,
+                    target: "_blank",
+                    rel: "noopener"
+                  }, "访问"),
+                  h("a", {
+                    class: "btn",
+                    href: p.repo,
+                    target: "_blank",
+                    rel: "noopener"
+                  }, "源码")
+                ])
+              ]);
+            })
+          );
+        };
+      }
+    }).mount("#all-projects");
+  </script>
+</body>
+</html>

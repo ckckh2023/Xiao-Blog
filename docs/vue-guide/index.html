@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue3 开发踩坑记 - ckckh2023 Wiki</title>
+  <link rel="stylesheet" href="/assets/css/common.css">
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <div class="docs-layout">
+    <aside id="docs-sidebar" class="docs-sidebar">
+      <h3>目录</h3>
+      <div class="status-box">加载中…</div>
+    </aside>
+
+    <article class="docs-content">
+      <h1>Vue3 开发踩坑记</h1>
+      <p>本文整理在使用 Vue 3 过程中遇到的一些常见问题与解决方案，供后续查阅。</p>
+
+      <h2>1. reactive 解构丢失响应性</h2>
+      <p>使用 <code>reactive</code> 创建的对象，对其属性进行解构后会丢失响应性。需要使用 <code>toRefs</code> 包装：</p>
+      <pre><code>import { reactive, toRefs } from 'vue';
+const state = reactive({ count: 0 });
+const { count } = toRefs(state);</code></pre>
+
+      <h2>2. ref 与 reactive 的选择</h2>
+      <p>基本类型使用 <code>ref</code>，对象/数组使用 <code>reactive</code>。在模板中 <code>ref</code> 会自动解包，但在 JS 中需 <code>.value</code>。</p>
+
+      <h2>3. watch 监听多个源</h2>
+      <pre><code>watch([refA, refB], ([a, b], [prevA, prevB]) => {
+  // ...
+});</code></pre>
+
+      <h2>4. v-model 多绑定</h2>
+      <p>Vue 3 支持多个 <code>v-model</code>，通过 <code>defineEmits</code> 与 <code>update:propName</code> 实现。</p>
+
+      <blockquote>提示：组合式 API 中逻辑复用优先使用可组合函数（Composables），命名以 <code>use</code> 开头。</blockquote>
+
+      <h2>5. Teleport 组件</h2>
+      <p>需要将子组件渲染到 DOM 树其他位置时，使用 <code>&lt;Teleport to="body"&gt;</code> 包裹即可，常用于弹窗。</p>
+
+      <!-- 上下页分页导航 -->
+      <div id="pagination" class="docs-pagination"></div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    © <span id="year"></span> ckckh2023 · Powered by GitHub Pages
+  </footer>
+
+  <script src="/assets/js/common.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    initDocsPage();
+  </script>
+</body>
+</html>
