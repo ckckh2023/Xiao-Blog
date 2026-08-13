@@ -307,7 +307,7 @@
     var container = document.querySelector(selector);
     if (!container) return;
     var cls = "project-grid" + (perRow ? " project-grid-" + perRow : "");
-    var lab = Object.assign({ primary: "访问", secondary: "源码" }, labels || {});
+    var lab = Object.assign({ primary: "访问主页", secondary: "项目源码" }, labels || {});
 
     var initial = list.map(function (p) {
       return Object.assign({}, p, {

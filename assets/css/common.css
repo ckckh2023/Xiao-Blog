@@ -213,6 +213,10 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(3, 1fr);
 }
 
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
 .project-card .pc-title {
   font-size: 17px;
   font-weight: 700;
@@ -258,6 +262,8 @@ img { max-width: 100%; display: block; }
 .project-card .pc-actions {
   display: flex;
   gap: 10px;
+  margin-top: auto;
+  padding-top: 14px;
 }
 
 /* ---------- 按钮 ---------- */
