@@ -509,6 +509,30 @@
   }
   global.initDocsPage = initDocsPage;
 
+  /* ---------- Markdown 正文渲染 ----------
+     selector: 正文容器选择器
+     mdUrl:    markdown 文件 URL（相对路径即可，如 ./index.md）
+  ---------- */
+  function renderDocMarkdown(selector, mdUrl) {
+    var box = document.querySelector(selector);
+    if (!box) return Promise.resolve();
+    var parse = window.marked && (window.marked.parse || window.marked);
+    if (!parse) {
+      box.innerHTML = '<p class="status-box">Markdown 解析器未加载。</p>';
+      return Promise.resolve();
+    }
+    return fetch(mdUrl).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.text();
+    }).then(function (md) {
+      box.innerHTML = parse(md);
+    }).catch(function (err) {
+      console.warn("[doc] markdown 加载失败 " + mdUrl + "：", err);
+      box.innerHTML = '<p class="status-box">正文加载失败。</p>';
+    });
+  }
+  global.renderDocMarkdown = renderDocMarkdown;
+
   /* ---------- 自动挂载 ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     mountNav();

@@ -18,34 +18,9 @@
 
     <article class="docs-content">
       <h1>Git 常见冲突解决</h1>
-      <p>多人协作时难免遇到冲突，本文记录几种典型场景的处理方法。</p>
-
-      <h2>1. 合并冲突（Merge Conflict）</h2>
-      <p>执行 <code>git merge</code> 后若出现冲突，文件中会出现标记：</p>
-      <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-当前分支内容
-=======
-被合并分支内容
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/x</code></pre>
-      <p>手动编辑保留正确内容后，执行 <code>git add</code> 再 <code>git commit</code> 完成合并。</p>
-
-      <h2>2. 变基冲突（Rebase Conflict）</h2>
-      <p>变基时遇到冲突，解决后需执行 <code>git rebase --continue</code>；若想放弃可使用 <code>git rebase --abort</code>。</p>
-
-      <h2>3. 撤销已推送的提交</h2>
-      <pre><code>git revert &lt;commit-id&gt;
-git push origin &lt;branch&gt;</code></pre>
-      <blockquote>注意：避免在公共分支使用 <code>git reset --hard</code> 或 <code>push --force</code>，以免覆盖他人提交。</blockquote>
-
-      <h2>4. 误删分支恢复</h2>
-      <pre><code>git reflog
-git branch &lt;new-branch&gt; &lt;commit-id&gt;</code></pre>
-
-      <h2>5. cherry-pick 跨分支取提交</h2>
-      <p>需要把某个提交单独应用到当前分支时：</p>
-      <pre><code>git cherry-pick &lt;commit-id&gt;</code></pre>
-
-      <!-- 上下页分页导航 -->
+      <div id="doc-body" class="doc-body">
+        <div class="status-box">正文加载中…</div>
+      </div>
       <div id="pagination" class="docs-pagination"></div>
     </article>
   </div>
@@ -55,8 +30,10 @@ git branch &lt;new-branch&gt; &lt;commit-id&gt;</code></pre>
   </footer>
 
   <script src="/assets/js/common.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    renderDocMarkdown("#doc-body", "./index.md");
     initDocsPage();
   </script>
 </body>
