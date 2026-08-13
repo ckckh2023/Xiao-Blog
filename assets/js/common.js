@@ -81,6 +81,47 @@
   }
   global.cacheClear = cacheClear;
 
+  /* ---------- 公告条（通用接口） ----------
+     showNotice(message, options)：在顶栏下方弹出公告
+       message:  公告文本（纯文本，会自动转义）
+       options.level    公告类型，默认 "warn"（黄色警示样式），预留其他类型
+       options.closable 是否显示红色 X 关闭按钮，默认 true
+       options.autoHide 自动关闭毫秒数，0=不自动关闭
+     返回关闭函数；后续其他场景（如站点公告）可直接复用该接口。 */
+  function showNotice(message, options) {
+    var body = document.body;
+    if (!body || !message) return function () {};
+    var opts = Object.assign({ level: "warn", closable: true, autoHide: 0 }, options || {});
+
+    var bar = utils.el("div", { class: "notice-bar notice-bar-" + opts.level, role: "alert" });
+    bar.appendChild(utils.el("span", { class: "notice-text" }, message));
+
+    var close = function () { bar.remove(); };
+    if (opts.closable) {
+      bar.appendChild(utils.el("button", {
+        type: "button",
+        class: "notice-close",
+        "aria-label": "关闭公告",
+        onclick: close
+      }, "✕"));
+    }
+    if (opts.autoHide > 0) setTimeout(close, opts.autoHide);
+
+    var header = document.getElementById("site-nav");
+    if (header && header.parentNode) header.insertAdjacentElement("afterend", bar);
+    else body.insertBefore(bar, body.firstChild);
+    return close;
+  }
+  global.showNotice = showNotice;
+
+  /* GitHub API 不可用时，页面内只提醒一次 */
+  var ghIssuesNoticed = false;
+  function notifyGitHubIssues() {
+    if (ghIssuesNoticed) return;
+    ghIssuesNoticed = true;
+    showNotice("GitHub API 暂时不可用或已达请求上限，部分数据可能不是最新，请稍后访问重试。");
+  }
+
   /* 带 ETag 条件请求的 GitHub API 获取：
      有缓存时带 If-None-Match 重新校验；304 复用缓存并刷新时间戳；
      200 更新缓存并记录新 ETag；离线 / 限流 / 报错时回退缓存 */
@@ -93,12 +134,20 @@
         cacheWrite(key, { t: Date.now(), etag: entry.etag, d: entry.d });
         return entry.d;
       }
-      if (!r.ok) throw new Error("HTTP " + r.status + " @ " + url);
+      if (!r.ok) {
+        var err = new Error("HTTP " + r.status + " @ " + url);
+        err.status = r.status;
+        throw err;
+      }
       return r.json().then(function (json) {
         cacheWrite(key, { t: Date.now(), etag: r.headers.get("ETag") || null, d: json });
         return json;
       });
     }).catch(function (err) {
+      /* 网络异常 / 服务端 5xx / 限流(403,429) → 视为 GitHub API 不可用，弹公告提醒 */
+      if (!err.status || err.status >= 500 || err.status === 403 || err.status === 429) {
+        notifyGitHubIssues();
+      }
       if (entry) {
         console.warn("[gh-api] 请求失败，回退缓存 " + key + "：", err);
         return entry.d;
