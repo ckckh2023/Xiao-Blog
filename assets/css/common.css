@@ -619,4 +619,5 @@ img { max-width: 100%; display: block; }
   .project-grid-2, .project-grid-3 { grid-template-columns: 1fr; }
   .site-nav { padding: 0 12px; gap: 8px; }
   .site-nav .nav-id { display: none; }
+  .site-nav .gitee-link { display: none; }
 }

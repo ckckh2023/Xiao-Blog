@@ -186,7 +186,7 @@
       '<div class="nav-right">' +
         '<a class="github-link" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
           GITHUB_ICON_SVG + "<span>GitHub</span></a>" +
-        '<a class="github-link" href="' + GITEE_HOME + '" target="_blank" rel="noopener">' +
+        '<a class="github-link gitee-link" href="' + GITEE_HOME + '" target="_blank" rel="noopener">' +
           GITEE_ICON_SVG + "<span>Gitee</span></a>" +
         '<button class="theme-toggle" type="button" aria-label="切换主题">' +
           SUN_SVG + MOON_SVG + "</button>" +
