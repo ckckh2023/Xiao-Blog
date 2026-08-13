@@ -51,6 +51,34 @@
   var utils = new Utils();
   global.Utils = utils;
 
+  /* ---------- localStorage 缓存（降低 GitHub API 调用，规避速率限制） ---------- */
+  var CACHE_PREFIX = "gh_cache:";
+  var CACHE_TTL = 6 * 60 * 60 * 1000; // 6 小时
+
+  function cacheGet(key) {
+    try {
+      var raw = localStorage.getItem(CACHE_PREFIX + key);
+      if (!raw) return undefined;
+      var obj = JSON.parse(raw);
+      if (Date.now() - obj.t < CACHE_TTL) return obj.d;
+    } catch (e) {}
+    return undefined;
+  }
+  function cacheSet(key, data) {
+    try {
+      localStorage.setItem(CACHE_PREFIX + key,
+        JSON.stringify({ t: Date.now(), d: data }));
+    } catch (e) {}
+  }
+  function cacheClear() {
+    try {
+      Object.keys(localStorage).forEach(function (k) {
+        if (k.indexOf(CACHE_PREFIX) === 0) localStorage.removeItem(k);
+      });
+    } catch (e) {}
+  }
+  global.cacheClear = cacheClear;
+
   /* ---------- 主题切换 ---------- */
   function getStoredTheme() {
     try { return localStorage.getItem("theme"); } catch (e) { return null; }
@@ -176,8 +204,10 @@
   };
 
   function fetchGitHubProfile() {
+    var cached = cacheGet("profile");
+    if (cached) return Promise.resolve(cached);
     return utils.fetchJSON(GITHUB_API).then(function (data) {
-      return {
+      var p = {
         name: data.name || FALLBACK_PROFILE.name,
         bio: data.bio || FALLBACK_PROFILE.bio,
         location: data.location || FALLBACK_PROFILE.location,
@@ -187,6 +217,8 @@
         followers: data.followers || 0,
         public_repos: data.public_repos || 0
       };
+      cacheSet("profile", p);
+      return p;
     }).catch(function (err) {
       console.warn("[profile] 加载失败，使用兜底数据：", err);
       var p = Object.assign({}, FALLBACK_PROFILE);
@@ -236,8 +268,13 @@
 
   /* 获取仓库简介 + 真实 star 数 */
   function fetchRepoInfo(fullName) {
+    var key = "repo:" + fullName;
+    var cached = cacheGet(key);
+    if (cached) return Promise.resolve(cached);
     return utils.fetchJSON(REPO_API + fullName).then(function (d) {
-      return { desc: d.description || "", stars: d.stargazers_count || 0 };
+      var info = { desc: d.description || "", stars: d.stargazers_count || 0 };
+      cacheSet(key, info);
+      return info;
     }).catch(function (err) {
       console.warn("[repo] info 获取失败 " + fullName + "：", err);
       return null;
@@ -247,8 +284,13 @@
 
   /* 获取仓库语言列表（技术栈） */
   function fetchRepoLanguages(fullName) {
+    var key = "lang:" + fullName;
+    var cached = cacheGet(key);
+    if (cached) return Promise.resolve(cached);
     return utils.fetchJSON(REPO_API + fullName + "/languages").then(function (d) {
-      return Object.keys(d || {});
+      var keys = Object.keys(d || {});
+      cacheSet(key, keys);
+      return keys;
     }).catch(function (err) {
       console.warn("[repo] languages 获取失败 " + fullName + "：", err);
       return [];
