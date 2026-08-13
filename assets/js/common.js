@@ -12,6 +12,7 @@
   var GITHUB_AVATAR = "https://avatars.githubusercontent.com/" + GITHUB_USER;
   var GITHUB_HOME = "https://github.com/" + GITHUB_USER;
   var GITHUB_API = "https://api.github.com/users/" + GITHUB_USER;
+  var GITEE_HOME = "https://gitee.com/" + GITHUB_USER;
 
   /* 根路径（用户页站点部署在域名根目录） */
   function root() { return "/"; }
@@ -151,6 +152,11 @@
     '54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-' +
     '4.42-3.58-8-8-8z"/></svg>';
 
+  var GITEE_ICON_SVG =
+    '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+    '<path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 ' +
+    '.593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"/></svg>';
+
   var SUN_SVG =
     '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
     'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" ' +
@@ -180,6 +186,8 @@
       '<div class="nav-right">' +
         '<a class="github-link" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
           GITHUB_ICON_SVG + "<span>GitHub</span></a>" +
+        '<a class="github-link" href="' + GITEE_HOME + '" target="_blank" rel="noopener">' +
+          GITEE_ICON_SVG + "<span>Gitee</span></a>" +
         '<button class="theme-toggle" type="button" aria-label="切换主题">' +
           SUN_SVG + MOON_SVG + "</button>" +
       "</div>"
