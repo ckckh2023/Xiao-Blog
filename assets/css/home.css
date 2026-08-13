@@ -1,0 +1,92 @@
+/* ============================================================
+   home.css - 首页专属样式
+   加载页面：/index.html
+   ============================================================ */
+
+/* 标题行 flex 布局 */
+.profile-name-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+/* 小标签样式 */
+.handle-tag {
+  font-size: 14px;
+  font-weight: 400;
+  color: #8e9aaf;
+  background: #f0f2f5;
+  padding: 2px 12px 3px 12px;
+  border-radius: 30px;
+  white-space: nowrap;
+  line-height: 1.6;
+  user-select: none;
+}
+
+/* ---------- 首页：个人信息 ---------- */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+.profile-card .profile-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.profile-card .profile-info h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.profile-card .profile-info .bio {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.profile-card .profile-info .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.profile-card .profile-info .meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeInUp 0.5s ease forwards; }
+
+/* ---------- 精选 Wiki 卡片 ---------- */
+.wiki-card {
+  display: flex;
+  flex-direction: column;
+}
+.wiki-card .wc-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.wiki-card .wc-excerpt {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1;
+}
+.wiki-card .wc-actions {
+  display: flex;
+  margin-top: auto;
+  padding-top: 14px;
+}

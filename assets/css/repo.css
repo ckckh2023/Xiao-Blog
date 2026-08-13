@@ -1,0 +1,58 @@
+/* ============================================================
+   repo.css - 项目卡片样式
+   加载页面：/index.html（精选项目）、/repo/index.html（全部项目）
+   网格容器 .project-grid 在 common.css 中定义（多页面共用）
+   ============================================================ */
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+.project-card .pc-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.project-card .pc-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+  min-height: 44px;
+}
+.project-card .pc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.project-card .pc-tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  background: var(--code-bg);
+  color: var(--text-muted);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.project-card .pc-tag-loading {
+  opacity: 0.6;
+}
+.project-card .pc-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.project-card .pc-meta .star {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.project-card .pc-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 14px;
+}
