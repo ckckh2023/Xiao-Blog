@@ -183,6 +183,27 @@ img { max-width: 100%; display: block; }
 }
 .container.wide { max-width: 1280px; }
 
+/* 标题行 flex 布局*/
+.profile-name-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 小标签样式 */
+.handle-tag {
+  font-size: 14px;
+  font-weight: 400;
+  color: #8e9aaf;
+  background: #f0f2f5;
+  padding: 2px 12px 3px 12px;
+  border-radius: 30px;
+  white-space: nowrap;
+  line-height: 1.6;
+  user-select: none;
+}
+
 /* ---------- 大卡片面板（包装区块） ---------- */
 .panel {
   background: var(--surface);
