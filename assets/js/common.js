@@ -472,11 +472,11 @@
 
   /* ---------- 精选 Wiki 卡片渲染（纯 DOM） ----------
      selector: 挂载点选择器
-     list:     精选 wiki 数组 [{ id, title, excerpt }]
+     list:     精选 wiki 数组 [{ url, title, excerpt }]
      perRow:   每行列数（默认 2）
   ---------- */
   function wikiCardHTML(item) {
-    var href = docHref(item.id);
+    var href = utils.escapeHTML(item.url || "#");
     return '<article class="card wiki-card">' +
       '<div class="wc-title">' + utils.escapeHTML(item.title || "") + "</div>" +
       '<div class="wc-excerpt">' + utils.escapeHTML(item.excerpt || "") + "</div>" +

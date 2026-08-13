@@ -92,7 +92,7 @@
       });
     });
 
-    /* 精选 Wiki：从 /docs/star.json 加载，每行 2 个，点击查看跳转 /docs/{id}/ */
+    /* 精选 Wiki：从 /docs/star.json 加载，每行 2 个，点击查看直接跳转对应 url */
     fetchStarDocs().then(function (list) {
       mountWikiCards("#featured-wiki", list, 2);
     });

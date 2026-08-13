@@ -1,11 +1,11 @@
 [
   {
-    "id": "vue-guide",
+    "url": "https://xiao-blog.top/docs/article.html?id=vue-guide",
     "title": "Vue3 开发踩坑记",
     "excerpt": "整理 Vue 3 组合式 API、reactive 解构丢失响应性、watch 多源监听、v-model 多绑定与 Teleport 等常见踩坑及解决方案。"
   },
   {
-    "id": "git-tips",
+    "url": "https://xiao-blog.top/docs/article.html?id=git-tips",
     "title": "Git 常见冲突解决",
     "excerpt": "合并冲突、变基冲突、撤销已推送提交、误删分支恢复与 cherry-pick 跨分支取提交等典型场景的处理方法。"
   }
