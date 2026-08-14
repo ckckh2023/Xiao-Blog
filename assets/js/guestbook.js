@@ -42,6 +42,13 @@
     return GB_CLIENT_ID.indexOf("YOUR_") !== 0 && GB_CLIENT_SECRET.indexOf("YOUR_") !== 0;
   }
 
+  /* GitHub API 认证头：用 OAuth App 的 clientID/clientSecret 作 Basic 认证，
+     速率上限 5000 次/小时（与 Gitalk 内部请求一致），不受匿名 60 次/小时限流影响 */
+  function ghHeaders() {
+    if (!isConfigured()) return undefined;
+    return { "Authorization": "Basic " + btoa(GB_CLIENT_ID + ":" + GB_CLIENT_SECRET) };
+  }
+
   /* 格式化时间：ISO → YYYY-MM-DD HH:mm（本地时区） */
   function formatTime(iso) {
     var d = new Date(iso);
@@ -131,7 +138,8 @@
     var labels = encodeURIComponent([GB_LABEL, GB_ID].join(","));
     return global.fetchGitHubJSON(
       GB_API + "/issues?labels=" + labels + "&state=all&per_page=" + GB_PER_PAGE,
-      "gb_issue_" + labels
+      "gb_issue_" + labels,
+      ghHeaders()
     ).then(function (list) {
       var arr = (list || []).filter(function (i) { return !i.pull_request; });
       return arr.length ? arr[0] : null;
@@ -141,7 +149,8 @@
   function fetchComments(number) {
     return global.fetchGitHubJSON(
       GB_API + "/issues/" + number + "/comments?per_page=" + GB_PER_PAGE,
-      "gb_comments_" + number
+      "gb_comments_" + number,
+      ghHeaders()
     ).then(function (list) { return list || []; })
     .catch(function () { return []; });
   }

@@ -126,10 +126,12 @@
 
   /* 带 ETag 条件请求的 GitHub API 获取：
      有缓存时带 If-None-Match 重新校验；304 复用缓存并刷新时间戳；
-     200 更新缓存并记录新 ETag；离线 / 限流 / 报错时回退缓存 */
-  function fetchGitHubJSON(url, key) {
+     200 更新缓存并记录新 ETag；离线 / 限流 / 报错时回退缓存
+     extraHeaders：可选，追加到请求头（如 OAuth client 认证头，用于提高速率上限） */
+  function fetchGitHubJSON(url, key, extraHeaders) {
     var entry = cacheRead(key);
     var headers = {};
+    if (extraHeaders) Object.assign(headers, extraHeaders);
     if (entry && entry.etag) headers["If-None-Match"] = entry.etag;
     return fetch(url, { headers: headers }).then(function (r) {
       if (r.status === 304 && entry) {
