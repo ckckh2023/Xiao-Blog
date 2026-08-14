@@ -121,11 +121,11 @@
 /* ---------- 编辑器里的 Markdown 提示：去链接化 + 图标文字水平对齐 ---------- */
 #guestbook-form .gt-container .gt-header-controls-tip {
   position: relative;
-  top: -10px;
+  top: -8px;
   display: inline-flex;
   align-items: center;
-  gap: 0.3125em;
-  color: var(--text-muted);
+  gap: 2px;
+  color: var(--link);
   text-decoration: none;
   cursor: default;
   pointer-events: none;

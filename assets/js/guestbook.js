@@ -39,6 +39,25 @@
   var gitalkInstance = null;   /* Gitalk 实例引用（用于合并其权威评论数据） */
   var wallData = [];           /* 当前已展示的留言列表 */
 
+  /* ---------- 留言墙本地缓存 ----------
+     留言变动慢，每次进页面都打 GitHub API 既慢又耗配额；
+     进页面时优先用缓存即时展示，点"刷新留言"按钮才真正拉新。 */
+  var GB_WALL_CACHE_KEY = "gb_wall";
+  function readWallCache() {
+    try {
+      var raw = localStorage.getItem(GB_WALL_CACHE_KEY);
+      if (!raw) return null;
+      var obj = JSON.parse(raw);
+      if (obj && Array.isArray(obj.list)) return obj.list;
+      return null;
+    } catch (e) { return null; }
+  }
+  function writeWallCache(list) {
+    try {
+      localStorage.setItem(GB_WALL_CACHE_KEY, JSON.stringify({ t: Date.now(), list: list || [] }));
+    } catch (e) {}
+  }
+
   function isConfigured() {
     return GB_CLIENT_ID.indexOf("YOUR_") !== 0 && GB_CLIENT_SECRET.indexOf("YOUR_") !== 0;
   }
@@ -205,6 +224,7 @@
       if (moreLink) moreLink.href = issue.html_url || LABEL_SEARCH_URL;
       return fetchComments(issue.number).then(function (comments) {
         setWall(comments);
+        writeWallCache(comments);
         if (gitalkInstance && gitalkInstance.state) {
           mergeComments(gitalkInstance.state.comments);
         }
@@ -297,7 +317,12 @@
     if (!isConfigured()) {
       global.showNotice("留言功能需要 GitHub OAuth App 配置，请在 assets/js/guestbook.js 顶部填写 clientID / clientSecret。", { level: "warn", autoHide: 0 });
     }
-    refreshWall();
+    var cached = readWallCache();
+    if (cached) {
+      setWall(cached);
+    } else {
+      refreshWall();
+    }
     initGitalk();
     watchForm();
   });
