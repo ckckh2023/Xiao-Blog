@@ -393,22 +393,22 @@ img { max-width: 100%; display: block; }
 .search-box .search-clear:hover { background: var(--active-bg); color: var(--text); }
 .search-box.has-value .search-clear { display: inline-flex; }
 
-/* 区块标题右侧容器：搜索框 + 返回链接同行排列 */
-.section-title .title-right {
+/* 区块标题左侧容器：标题 + 搜索框 紧挨排列（间距约 1.5 汉字） */
+.section-title .title-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1.5em;
 }
 
-/* Wiki 首页标题行：h1 + 搜索框 同行 */
+/* Wiki 首页标题行：h1 + 搜索框 紧挨靠左（间距约 1.5 汉字） */
 .docs-head-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 1.5em;
+  font-size: 26px; /* em 基准对齐 h1 字号，使 1.5em ≈ 1.5 个汉字 */
   margin-bottom: 16px;
 }
-.docs-head-row h1 { margin-bottom: 0; }
+.docs-head-row h1 { margin: 0; }
 
 /* ---------- 响应式（导航栏 + 卡片网格） ---------- */
 @media (max-width: 900px) {
