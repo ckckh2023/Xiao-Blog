@@ -118,23 +118,9 @@
 .gb-body table { border-collapse: collapse; margin: 0 0 10px; font-size: 13px; }
 .gb-body th, .gb-body td { border: 1px solid var(--border); padding: 6px 10px; }
 
-/* ---------- 编辑器里的 Markdown 提示：去链接化 + 图标文字水平对齐 ---------- */
+/* ---------- 隐藏 Gitalk 编辑器下方的"支持 Markdown 语法"提示 ---------- */
 #guestbook-form .gt-container .gt-header-controls-tip {
-  position: relative;
-  top: -8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  color: var(--link);
-  text-decoration: none;
-  cursor: default;
-  pointer-events: none;
-}
-#guestbook-form .gt-container .gt-header-controls-tip .gt-svg {
-  vertical-align: baseline;
-}
-#guestbook-form .gt-container .gt-header-controls-tip .gt-ico-text {
-  margin-left: 0;
+  display: none;
 }
 
 /* ---------- Gitalk 网络错误提示 ---------- */
