@@ -16,6 +16,83 @@
   var DOCS_LIST_URL = DOCS_BASE + "DocsList.json";
   var docsListCache = null;
 
+  /* ---------- SEO 元数据（OG / Twitter Card / canonical / JSON-LD） ----------
+     文章页正文由 JS 运行时渲染，初始 <head> 仅有占位 meta；
+     此处根据当前文章的标题 / 正文 / URL 动态补全社交分享与结构化数据，
+     Googlebot 等支持 JS 的爬虫可在执行后抓到完整元信息。 */
+  var SITE_ORIGIN = "https://xiao-blog.top";
+  var SITE_AUTHOR = "ckckh2023";
+  var SITE_AVATAR = "https://avatars.githubusercontent.com/ckckh2023";
+
+  function setMetaAttr(selector, attr, value) {
+    var el = document.head.querySelector(selector);
+    if (!el) return;
+    el.setAttribute(attr, value);
+  }
+
+  function upsertMeta(name, content) {
+    var el = document.head.querySelector('meta[name="' + name + '"]');
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute("name", name);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("content", content);
+  }
+
+  function upsertJSONLD(obj) {
+    var el = document.head.querySelector('script[type="application/ld+json"][data-seo="article"]');
+    if (!el) {
+      el = document.createElement("script");
+      el.setAttribute("type", "application/ld+json");
+      el.setAttribute("data-seo", "article");
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(obj);
+  }
+
+  function setArticleMeta(opt) {
+    var fullTitle = opt.parentTitle
+      ? (opt.title + " - " + opt.parentTitle + " - ckckh2023 Wiki")
+      : (opt.title + " - ckckh2023 Wiki");
+    document.title = fullTitle;
+    upsertMeta("description", opt.description);
+
+    setMetaAttr('meta[property="og:title"]', "content", fullTitle);
+    setMetaAttr('meta[property="og:description"]', "content", opt.description);
+    setMetaAttr('meta[property="og:url"]', "content", opt.url);
+    setMetaAttr('meta[property="og:image"]', "content", opt.image || SITE_AVATAR);
+
+    setMetaAttr('meta[name="twitter:title"]', "content", fullTitle);
+    setMetaAttr('meta[name="twitter:description"]', "content", opt.description);
+    setMetaAttr('meta[name="twitter:image"]', "content", opt.image || SITE_AVATAR);
+
+    var canonical = document.head.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", opt.url);
+
+    upsertJSONLD({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": opt.title,
+      "description": opt.description,
+      "url": opt.url,
+      "image": opt.image || SITE_AVATAR,
+      "author": { "@type": "Person", "name": SITE_AUTHOR, "url": "https://github.com/" + SITE_AUTHOR },
+      "publisher": { "@type": "Person", "name": SITE_AUTHOR, "url": "https://github.com/" + SITE_AUTHOR },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": opt.url }
+    });
+  }
+
+  /* 从渲染后的正文容器提取首段纯文本作为摘要（最多 120 字） */
+  function extractDescription(box) {
+    if (!box) return "";
+    var p = box.querySelector("p");
+    var text = p ? p.textContent : box.textContent;
+    text = (text || "").replace(/\s+/g, " ").trim();
+    if (text.length > 120) text = text.slice(0, 120) + "…";
+    return text;
+  }
+
   function fetchDocsList() {
     if (docsListCache) return Promise.resolve(docsListCache);
     return utils.fetchJSON(DOCS_LIST_URL).then(function (list) {
@@ -204,9 +281,13 @@
         mdUrl = DOCS_BASE + id + "/index.md";
       }
 
-      document.title = parentTitle
-        ? (title + " - " + parentTitle + " - ckckh2023 Wiki")
-        : (title + " - ckckh2023 Wiki");
+      var articleUrl = SITE_ORIGIN + docHref(id, sub || null);
+      setArticleMeta({
+        title: title,
+        parentTitle: parentTitle,
+        description: "ckckh2023 的 Wiki 知识库文章",
+        url: articleUrl
+      });
 
       var h1 = document.getElementById("doc-title");
       if (h1) h1.textContent = title;
@@ -226,7 +307,22 @@
       }
 
       return Promise.all([
-        renderDocMarkdown("#doc-body", mdUrl),
+        renderDocMarkdown("#doc-body", mdUrl).then(function () {
+          /* 正文渲染完成后，用首段文本更新 description / OG / JSON-LD */
+          var desc = extractDescription(document.querySelector("#doc-body"));
+          if (!desc) return;
+          upsertMeta("description", desc);
+          setMetaAttr('meta[property="og:description"]', "content", desc);
+          setMetaAttr('meta[name="twitter:description"]', "content", desc);
+          var ld = document.head.querySelector('script[type="application/ld+json"][data-seo="article"]');
+          if (ld) {
+            try {
+              var obj = JSON.parse(ld.textContent);
+              obj.description = desc;
+              ld.textContent = JSON.stringify(obj);
+            } catch (e) {}
+          }
+        }),
         renderSidebar(id, sub || null),
         renderPagination(id, sub || null)
       ]);
