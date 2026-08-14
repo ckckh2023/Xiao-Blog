@@ -29,34 +29,31 @@
     return { cls: "sc-status-unknown", label: "状态未知" };
   }
 
-  /* ---------- 按钮渲染 ----------
-     有链接：可用 <a>；无链接：灰色禁用 <button> */
-  function actionBtn(label, url) {
-    if (url) {
-      return '<a class="btn" href="' + utils.escapeHTML(url) +
-        '" target="_blank" rel="noopener">' + utils.escapeHTML(label) + "</a>";
+  /* ---------- 主按钮：只展示一个，优先主页，次仓库，都没有则灰色 ----------
+     有 officialUrl → "访问主页"（主样式）；否则有 repoUrl → "访问仓库"；都没有灰色禁用 */
+  function primaryBtn(item) {
+    if (item.officialUrl) {
+      return '<a class="btn btn-primary" href="' + utils.escapeHTML(item.officialUrl) +
+        '" target="_blank" rel="noopener">访问主页</a>';
     }
-    return '<button class="btn disabled" type="button" disabled>' +
-      utils.escapeHTML(label) + "</button>";
+    if (item.repoUrl) {
+      return '<a class="btn" href="' + utils.escapeHTML(item.repoUrl) +
+        '" target="_blank" rel="noopener">访问仓库</a>';
+    }
+    return '<button class="btn disabled" type="button" disabled>访问主页</button>';
   }
 
   /* 下载按钮：installType 三态
-     null      → 无安装包，灰色禁用
-     "manual"  → 跳转官网手动下载（官网也没有则灰色）
+     null      → 无安装包，不显示
+     "manual"  → 需手动下载，灰色禁用
      "https://"→ 直链下载 */
   function downloadBtn(item) {
     var t = item.installType;
-    if (t == null) {
-      return '<button class="btn disabled" type="button" disabled>下载</button>';
-    }
+    if (t == null) return "";
     if (t === "manual") {
-      if (item.officialUrl) {
-        return '<a class="btn" href="' + utils.escapeHTML(item.officialUrl) +
-          '" target="_blank" rel="noopener">手动下载</a>';
-      }
       return '<button class="btn disabled" type="button" disabled>手动下载</button>';
     }
-    return '<a class="btn btn-primary" href="' + utils.escapeHTML(t) +
+    return '<a class="btn" href="' + utils.escapeHTML(t) +
       '" target="_blank" rel="noopener">下载</a>';
   }
 
@@ -97,10 +94,7 @@
       '<div class="sc-desc">' + desc + "</div>" +
       tagsHTML +
       '<div class="sc-actions">' +
-        '<div class="sc-actions-left">' +
-          actionBtn("访问主页", item.officialUrl) +
-          actionBtn("访问仓库", item.repoUrl) +
-        "</div>" +
+        primaryBtn(item) +
         downloadBtn(item) +
       "</div>" +
     "</article>";

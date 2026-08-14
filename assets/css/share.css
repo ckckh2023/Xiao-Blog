@@ -208,7 +208,7 @@
   border-radius: 999px;
 }
 
-/* 底部按钮区：左侧主页+仓库，右侧下载 */
+/* 底部按钮区：左侧主页/仓库，右侧下载 */
 .share-card .sc-actions {
   display: flex;
   align-items: center;
@@ -216,11 +216,6 @@
   gap: 8px;
   margin-top: auto;
   padding-top: 14px;
-}
-.share-card .sc-actions-left {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
 }
 
 /* ---------- 响应式：窄屏侧边栏置顶，标签横向排列 ---------- */
