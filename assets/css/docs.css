@@ -222,7 +222,7 @@
   gap: 2px;
   margin-top: 2px;
   overflow: hidden;
-  max-height: 600px;
+  max-height: 2000px;
   opacity: 1;
   transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.25s ease;
 }
@@ -231,10 +231,11 @@
   margin-top: 0;
   opacity: 0;
 }
-.docs-sidebar .sidebar-sub-link {
-  font-size: 13px;
-  padding: 6px 12px;
-}
+/* 层级缩进字号微调（depth-0 一级、depth-1 二级、depth-2 三级）；
+   嵌套 .sidebar-sub 的 margin-left 自动累加形成层级缩进 */
+.docs-sidebar .sidebar-depth-1 { font-size: 13px; }
+.docs-sidebar .sidebar-depth-2 { font-size: 13px; }
+.docs-sidebar .sidebar-depth-1 > .sidebar-group-header { padding: 6px 12px; }
 
 /* 文章页面包屑 */
 .doc-breadcrumb {

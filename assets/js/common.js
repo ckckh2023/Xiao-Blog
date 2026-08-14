@@ -290,8 +290,8 @@
       var item = NAV_ITEMS.filter(function (it) { return it.href === href; })[0];
       if (item && item.match.test(path)) a.classList.add("active");
     });
-    /* 兜底：根路径且未匹配时高亮首页 */
-    if (!matched) {
+    /* 兜底：根路径且未匹配时高亮首页（其他未匹配路径如 404 不高亮任何项） */
+    if (!matched && /^\/(index\.html)?$/.test(path)) {
       var home = document.querySelector('.site-nav .nav-item[data-href="' + root() + 'index.html"]');
       if (home) home.classList.add("active");
     }
