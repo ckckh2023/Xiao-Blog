@@ -1,31 +1,25 @@
 [
   {
-    "id": "octocat",
-    "avatar": "https://avatars.githubusercontent.com/octocat",
-    "bio": "GitHub 吉祥物，开源世界的传奇人物。",
-    "url": "https://github.com/octocat"
-  },
-  {
-    "id": "torvalds",
-    "avatar": "https://avatars.githubusercontent.com/torvalds",
-    "bio": "Linux 内核之父，Git 的创造者。",
-    "url": "https://github.com/torvalds"
-  },
-  {
     "id": "Songline-music",
-	"avatar": "https://blog.songline-blog.com/uploads/songline/snowMan.png",
+	  "avatar": "https://blog.songline-blog.com/uploads/songline/snowMan.png",
     "bio": "共同完成了BTIR项目的开发者，喜爱压榨Codex",
     "url": "https://blog.songline-blog.com"
   },
   {
-	"id": "TangibleDreams913",
-	"avatar": "https://github.com/TangibleDreams913.png",
+	  "id": "TangibleDreams913",
+	  "avatar": "https://github.com/TangibleDreams913.png",
     "bio": "共同完成了TrashGo项目的开发者，喜爱打CSGO",
     "url": "https://github.com/TangibleDreams913"
   },
   {
-	"id": "cloudy-rhh",
-	"avatar": "https://github.com/cloudy-rhh.png",
+    "id": "xiaomian124",
+    "avatar": "https://github.com/xiaomian124.png",
+    "bio": "BDWL基岩荒地服务器运营者，正在开发多款Minecraft插件",
+    "url": "https://github.com/xiaomian124"
+  },
+  {
+	  "id": "cloudy-rhh",
+	  "avatar": "https://github.com/cloudy-rhh.png",
     "bio": "喜爱探讨计算机知识，目前仍在确定自己的方向",
     "url": "https://github.com/cloudy-rhh"
   }
