@@ -173,6 +173,19 @@
     observer.observe(form, { childList: true, subtree: true });
   }
 
+  /* 清理 OAuth 残留：GitHub 登录失败/取消后地址栏可能留下空查询串（如 …index.html?），
+     而 Gitalk 登录会把当前完整 URL 作为 redirect_uri，带着 ? 会反复触发
+     "redirect_uri is not associated"，这里加载时自动抹掉（不影响带回 code 的正常回跳）。 */
+  (function cleanOAuthResidue() {
+    try {
+      var hasCode = /code=/.test(location.search);
+      var bareQuestion = !location.search && location.href.charAt(location.href.length - 1) === "?";
+      if (!hasCode && (bareQuestion || location.search)) {
+        history.replaceState(null, "", location.pathname + location.hash);
+      }
+    } catch (e) {}
+  })();
+
   document.addEventListener("DOMContentLoaded", function () {
     wallBox = document.getElementById("guestbook-wall");
     moreLink = document.getElementById("guestbook-more-link");
