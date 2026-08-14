@@ -369,7 +369,6 @@ img { max-width: 100%; display: block; }
     display: block;
     position: absolute;
     top: 100%;
-    left: 12px;
     margin-top: 4px;
     min-width: 140px;
     padding: 6px;
@@ -378,8 +377,17 @@ img { max-width: 100%; display: block; }
     border-radius: 8px;
     box-shadow: var(--shadow-md);
     z-index: 101;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top center;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.18s ease, opacity 0.18s ease;
   }
-  .site-nav .nav-more-panel[hidden] { display: none; }
+  .site-nav .nav-more-panel.open {
+    transform: translateX(-50%) scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
   .site-nav .nav-more-link {
     display: block;
     padding: 8px 12px;

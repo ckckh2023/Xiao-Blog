@@ -257,7 +257,7 @@
       '<nav class="nav-items">' + items + "</nav>" +
       '<button class="nav-more" type="button" aria-label="更多导航" aria-expanded="false">' +
         MORE_SVG + "</button>" +
-      '<div class="nav-more-panel" role="menu" hidden>' + panelLinks + "</div>" +
+      '<div class="nav-more-panel" role="menu" aria-hidden="true">' + panelLinks + "</div>" +
       '<div class="nav-spacer"></div>' +
       '<div class="nav-right">' +
         '<a class="github-link" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
@@ -317,12 +317,14 @@
 
     function close() {
       panel.classList.remove("open");
-      panel.setAttribute("hidden", "");
+      panel.setAttribute("aria-hidden", "true");
       btn.setAttribute("aria-expanded", "false");
     }
     function open() {
+      /* 面板水平居中对齐三点按钮：left 设到按钮中心，配合 translateX(-50%) 居中 */
+      panel.style.left = (btn.offsetLeft + btn.offsetWidth / 2) + "px";
       panel.classList.add("open");
-      panel.removeAttribute("hidden");
+      panel.setAttribute("aria-hidden", "false");
       btn.setAttribute("aria-expanded", "true");
     }
 
