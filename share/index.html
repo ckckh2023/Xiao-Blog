@@ -34,8 +34,28 @@
       <a class="more-link" href="/index.html">« 返回首页</a>
     </div>
 
-    <div id="all-shares">
-      <div class="status-box">加载中…</div>
+    <div class="share-layout">
+      <!-- 左侧栏：分类切换 + 标签筛选 -->
+      <aside class="share-sidebar">
+        <div class="share-sidebar-title">分类</div>
+        <div class="share-toggle" id="share-toggle">
+          <span class="share-toggle-indicator" id="share-toggle-indicator"></span>
+          <button class="share-toggle-btn active" type="button" data-cat="software">软件</button>
+          <button class="share-toggle-btn" type="button" data-cat="other">其他</button>
+        </div>
+
+        <div class="share-sidebar-title">标签</div>
+        <div class="share-tags" id="share-tags">
+          <div class="share-tags-empty">暂无标签</div>
+        </div>
+      </aside>
+
+      <!-- 右侧：卡片网格 -->
+      <div class="share-content">
+        <div id="all-shares">
+          <div class="status-box">加载中…</div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -46,13 +66,13 @@
   <script src="/assets/js/common.js"></script>
   <script src="/assets/js/share.js"></script>
   <script>
-    /* 全部分享：从 /share/ShareList.json 加载，每行 2 个卡片；
-       图标缺失时以名称首字母占位；
-       搜索框对 名称 / 简介 / 标签 实时过滤 */
+    /* 全部分享：从 /share/ShareList.json 加载；
+       筛选链路：分类(software/other) → 标签 → 搜索框，三级叠加。
+       侧边栏标签由当前分类下的项目聚合（按频次降序）。 */
     var allShares = [];
+    var filterState = { category: "software", tag: null, query: "" };
 
     function matchShare(it, q) {
-      if (!q) return true;
       var fields = [it.id, it.name, it.description];
       if (Array.isArray(it.tags)) fields = fields.concat(it.tags);
       for (var i = 0; i < fields.length; i++) {
@@ -61,23 +81,98 @@
       return false;
     }
 
-    function renderShares(list, hasQuery) {
+    /* 聚合标签：统计频次，按频次降序（同频按字母序） */
+    function collectTags(list) {
+      var map = {};
+      list.forEach(function (it) {
+        if (Array.isArray(it.tags)) {
+          it.tags.forEach(function (t) { map[t] = (map[t] || 0) + 1; });
+        }
+      });
+      return Object.keys(map).map(function (k) {
+        return { tag: k, count: map[k] };
+      }).sort(function (a, b) {
+        return b.count - a.count || a.tag.localeCompare(b.tag);
+      });
+    }
+
+    function renderTagList() {
+      var catList = allShares.filter(function (it) {
+        return it.category === filterState.category;
+      });
+      var tags = collectTags(catList);
+      var box = document.getElementById("share-tags");
+      if (!tags.length) {
+        box.innerHTML = '<div class="share-tags-empty">暂无标签</div>';
+        return;
+      }
+      box.innerHTML = tags.map(function (t) {
+        var active = t.tag === filterState.tag ? " active" : "";
+        return '<button class="share-tag-btn' + active + '" type="button" data-tag="' +
+          Utils.escapeHTML(t.tag) + '">' + Utils.escapeHTML(t.tag) +
+          '<span class="share-tag-count">' + t.count + "</span></button>";
+      }).join("");
+    }
+
+    /* 应用三级筛选并渲染卡片 */
+    function applyFilter() {
+      var list = allShares.filter(function (it) {
+        return it.category === filterState.category;
+      });
+      if (filterState.tag) {
+        list = list.filter(function (it) {
+          return Array.isArray(it.tags) && it.tags.indexOf(filterState.tag) !== -1;
+        });
+      }
+      if (filterState.query) {
+        list = list.filter(function (it) { return matchShare(it, filterState.query); });
+      }
       var box = document.getElementById("all-shares");
       if (!list.length) {
         box.innerHTML = '<div class="status-box">' +
-          (hasQuery ? "未找到匹配的项目。" : "暂无分享。") + "</div>";
+          (filterState.tag || filterState.query ? "未找到匹配的项目。" : "暂无分享。") +
+          "</div>";
         return;
       }
       mountShareGrid("#all-shares", list, 2);
     }
 
+    /* 分类切换条 */
+    document.getElementById("share-toggle").addEventListener("click", function (e) {
+      var btn = e.target.closest(".share-toggle-btn");
+      if (!btn) return;
+      var cat = btn.getAttribute("data-cat");
+      if (cat === filterState.category) return;
+      filterState.category = cat;
+      filterState.tag = null; /* 切换分类时重置已选标签 */
+      document.querySelectorAll(".share-toggle-btn").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-cat") === cat);
+      });
+      var indicator = document.getElementById("share-toggle-indicator");
+      if (indicator) indicator.classList.toggle("right", cat === "other");
+      renderTagList();
+      applyFilter();
+    });
+
+    /* 标签点击：选中/取消选中 */
+    document.getElementById("share-tags").addEventListener("click", function (e) {
+      var btn = e.target.closest(".share-tag-btn");
+      if (!btn) return;
+      var tag = btn.getAttribute("data-tag");
+      filterState.tag = (filterState.tag === tag) ? null : tag;
+      renderTagList();
+      applyFilter();
+    });
+
     fetchShareList().then(function (list) {
       allShares = list;
-      renderShares(allShares, false);
+      renderTagList();
+      applyFilter();
       mountSearchBox("#share-search", {
         placeholder: "搜索工具…",
         onQuery: function (q) {
-          renderShares(allShares.filter(function (it) { return matchShare(it, q); }), !!q);
+          filterState.query = q;
+          applyFilter();
         }
       });
     });

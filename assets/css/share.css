@@ -3,6 +3,120 @@
    加载页面：/share/index.html
    ============================================================ */
 
+/* ---------- 左侧栏 + 右侧内容 布局 ---------- */
+.share-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.share-sidebar {
+  position: sticky;
+  top: 72px; /* 顶栏 56px + 间距 */
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.share-content { min-width: 0; }
+
+.share-sidebar-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 16px 0 8px;
+}
+.share-sidebar-title:first-child { margin-top: 0; }
+
+/* ---------- 分类切换条（软件 | 其他） ---------- */
+.share-toggle {
+  position: relative;
+  display: flex;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+}
+.share-toggle-indicator {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s ease;
+  z-index: 0;
+}
+.share-toggle-indicator.right { transform: translateX(100%); }
+.share-toggle-btn {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 7px 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+.share-toggle-btn:hover { color: var(--text); }
+.share-toggle-btn.active { color: var(--text); font-weight: 700; }
+
+/* ---------- 标签列表 ---------- */
+.share-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.share-tag-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 7px 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.share-tag-btn:hover { background: var(--active-bg); color: var(--text); }
+.share-tag-btn.active {
+  background: var(--active-bg);
+  color: var(--active-border);
+  font-weight: 600;
+  border-color: var(--active-border);
+}
+.share-tag-count {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--code-bg);
+  border-radius: 999px;
+  padding: 1px 7px;
+  margin-left: 8px;
+}
+.share-tag-btn.active .share-tag-count { background: var(--surface); }
+.share-tags-empty {
+  padding: 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
 /* ---------- 分享卡片 ---------- */
 .share-card {
   position: relative;
@@ -107,4 +221,16 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+/* ---------- 响应式：窄屏侧边栏置顶，标签横向排列 ---------- */
+@media (max-width: 900px) {
+  .share-layout { grid-template-columns: 1fr; }
+  .share-sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+  .share-tags { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+  .share-tag-btn { width: auto; }
 }
