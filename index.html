@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/assets/css/home.css">
   <link rel="stylesheet" href="/assets/css/repo.css">
   <link rel="stylesheet" href="/assets/css/guestbook.css">
+  <link rel="stylesheet" href="/assets/css/share.css">
   <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/ckckh2023">
   <link rel="canonical" href="https://xiao-blog.top/">
   <meta property="og:site_name" content="ckckh2023">
@@ -66,6 +67,17 @@
       </div>
     </section>
 
+    <!-- 精选分享区块 -->
+    <section class="panel">
+      <div class="section-title">
+        <span>精选分享</span>
+        <a class="more-link" href="/share/index.html">查看全部分享 »</a>
+      </div>
+      <div id="featured-share">
+        <!-- 精选分享挂载点（复用分享页卡片样式） -->
+      </div>
+    </section>
+
     <!-- 精选留言区块 -->
     <section class="panel">
       <div class="section-title">
@@ -91,6 +103,8 @@
   <script src="/assets/js/home.js"></script>
   <!-- 项目卡片渲染（首页精选项目 & repo 页共享） -->
   <script src="/assets/js/repo.js"></script>
+  <!-- 分享卡片渲染（首页精选分享 & 分享页共享） -->
+  <script src="/assets/js/share.js"></script>
   <!-- Vue 3 本地构建（同 unpkg vue@3 vue.global.js） -->
   <script src="/assets/vendor/vue.global.js"></script>
   <script>
@@ -128,6 +142,11 @@
     /* 精选文档：从 /docs/star.json 加载，每行 2 个，点击查看直接跳转对应 url */
     fetchStarDocs().then(function (list) {
       mountWikiCards("#featured-wiki", list, 2);
+    });
+
+    /* 精选分享：从 /share/star.json 加载，每行 2 个，复用分享页卡片样式 */
+    fetchStarShares().then(function (list) {
+      mountShareGrid("#featured-share", list, 2);
     });
 
     /* 精选留言：从 /guestbook/star.json 加载链接，按链接拉取 issue comment 渲染 */

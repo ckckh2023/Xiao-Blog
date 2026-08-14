@@ -58,6 +58,17 @@
   }
   global.fetchStarDocs = fetchStarDocs;
 
+  /* ---------- 精选分享 数据加载 ---------- */
+  function fetchStarShares() {
+    return utils.fetchJSON(root() + "share/star.json").then(function (list) {
+      return Array.isArray(list) ? list : [];
+    }).catch(function (err) {
+      console.warn("[star] share/star.json 加载失败：", err);
+      return [];
+    });
+  }
+  global.fetchStarShares = fetchStarShares;
+
   /* ---------- 精选文档 卡片渲染（纯 DOM） ----------
      selector: 挂载点选择器
      list:     精选 wiki 数组 [{ url, title, excerpt }]
