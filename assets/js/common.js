@@ -197,8 +197,8 @@
   var NAV_ITEMS = [
     { label: "首页", href: root() + "index.html", match: /^\/(index\.html)?$/ },
     { label: "项目", href: root() + "repo/index.html", match: /^\/repo\// },
-    { label: "Wiki", href: root() + "docs/index.html", match: /^\/docs\// },
-    { label: "好友", href: root() + "friend/index.html", match: /^\/friend\// }
+    { label: "Wiki", href: root() + "docs/index.html", match: /^\/docs\//, more: true },
+    { label: "好友", href: root() + "friend/index.html", match: /^\/friend\//, more: true }
   ];
 
   var GITHUB_ICON_SVG =
@@ -230,9 +230,22 @@
     'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 ' +
     '12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 
+  /* 三点更多菜单图标（水平三点，居中于 16x16 viewBox） */
+  var MORE_SVG =
+    '<svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">' +
+    '<circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/>' +
+    '<circle cx="13" cy="8" r="1.5"/></svg>';
+
   function buildNavHTML() {
     var items = NAV_ITEMS.map(function (it) {
-      return '<a class="nav-item" href="' + it.href + '" data-href="' + it.href + '">' +
+      var moreAttr = it.more ? ' data-more="true"' : "";
+      return '<a class="nav-item" href="' + it.href + '" data-href="' + it.href + '"' + moreAttr + '>' +
+        utils.escapeHTML(it.label) + "</a>";
+    }).join("");
+
+    /* 折叠进"更多"面板的项（移动端三点菜单）；后续新增导航项只需加 more: true 即自动入此面板 */
+    var panelLinks = NAV_ITEMS.filter(function (it) { return it.more; }).map(function (it) {
+      return '<a class="nav-more-link" href="' + it.href + '" data-href="' + it.href + '" role="menuitem">' +
         utils.escapeHTML(it.label) + "</a>";
     }).join("");
 
@@ -242,6 +255,9 @@
       '<a class="nav-id" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
         GITHUB_USER + "</a>" +
       '<nav class="nav-items">' + items + "</nav>" +
+      '<button class="nav-more" type="button" aria-label="更多导航" aria-expanded="false">' +
+        MORE_SVG + "</button>" +
+      '<div class="nav-more-panel" role="menu" hidden>' + panelLinks + "</div>" +
       '<div class="nav-spacer"></div>' +
       '<div class="nav-right">' +
         '<a class="github-link" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
@@ -268,6 +284,12 @@
         matched = true;
       }
     });
+    /* 三点菜单面板内的链接同步高亮 */
+    document.querySelectorAll(".site-nav .nav-more-link").forEach(function (a) {
+      var href = a.getAttribute("data-href");
+      var item = NAV_ITEMS.filter(function (it) { return it.href === href; })[0];
+      if (item && item.match.test(path)) a.classList.add("active");
+    });
     /* 兜底：根路径且未匹配时高亮首页 */
     if (!matched) {
       var home = document.querySelector('.site-nav .nav-item[data-href="' + root() + 'index.html"]');
@@ -284,6 +306,43 @@
     var toggle = holder.querySelector(".theme-toggle");
     if (toggle) toggle.addEventListener("click", toggleTheme);
     initNav();
+    initMoreMenu(holder);
+  }
+
+  /* initMoreMenu：移动端三点菜单的展开/关闭（点击按钮切换、点击外部/ESC/选择项后关闭） */
+  function initMoreMenu(holder) {
+    var btn = holder.querySelector(".nav-more");
+    var panel = holder.querySelector(".nav-more-panel");
+    if (!btn || !panel) return;
+
+    function close() {
+      panel.classList.remove("open");
+      panel.setAttribute("hidden", "");
+      btn.setAttribute("aria-expanded", "false");
+    }
+    function open() {
+      panel.classList.add("open");
+      panel.removeAttribute("hidden");
+      btn.setAttribute("aria-expanded", "true");
+    }
+
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (panel.classList.contains("open")) close(); else open();
+    });
+    /* 选择某项后关闭面板（不阻止默认跳转） */
+    panel.addEventListener("click", close);
+    /* 点击面板与按钮之外关闭 */
+    document.addEventListener("click", function (e) {
+      if (!panel.classList.contains("open")) return;
+      if (e.target === btn || btn.contains(e.target)) return;
+      if (e.target === panel || panel.contains(e.target)) return;
+      close();
+    });
+    /* ESC 关闭 */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
   }
 
   global.initNav = initNav;
