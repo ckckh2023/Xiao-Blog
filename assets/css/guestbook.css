@@ -90,6 +90,61 @@
   margin-top: 24px;
 }
 
+/* ---------- 留言正文（支持 Markdown） ---------- */
+.gb-body p { margin: 0 0 10px; }
+.gb-body p:last-child { margin-bottom: 0; }
+.gb-body a { color: var(--link); }
+.gb-body a:hover { color: var(--link-hover); }
+.gb-body code {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+.gb-body pre {
+  padding: 12px;
+  border-radius: 6px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+.gb-body pre code { padding: 0; border: none; background: none; }
+.gb-body ul, .gb-body ol { padding-left: 22px; margin: 0 0 10px; }
+.gb-body li + li { margin-top: 4px; }
+.gb-body blockquote {
+  margin: 0 0 10px;
+  padding: 2px 12px;
+  border-left: 4px solid var(--border);
+  color: var(--text-muted);
+}
+.gb-body h1, .gb-body h2, .gb-body h3, .gb-body h4 {
+  margin: 8px 0;
+  font-size: 1.05em;
+  line-height: 1.4;
+}
+.gb-body img { max-width: 100%; border-radius: 6px; margin: 4px 0; }
+.gb-body table { border-collapse: collapse; margin: 0 0 10px; font-size: 13px; }
+.gb-body th, .gb-body td { border: 1px solid var(--border); padding: 6px 10px; }
+
+/* ---------- 编辑器里的 Markdown 按钮上移 2px ---------- */
+#guestbook-form .gt-container .gt-header-controls-tip {
+  position: relative;
+  top: -2px;
+}
+
+/* ---------- Gitalk 网络错误提示 ---------- */
+.gb-network-hint {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 /* ---------- Gitalk 发布区适配 ----------
    留言墙已接管评论展示，隐藏 Gitalk 自带的评论列表 / 元信息 / 加载态，
    仅保留输入框作为发布入口；并关闭聚焦时全屏压暗背景的遮罩。 */

@@ -58,9 +58,21 @@
       " " + p(d.getHours()) + ":" + p(d.getMinutes());
   }
 
-  /* 渲染留言正文：转义 → 链接化 → 换行转 <br> */
+  /* 渲染留言正文：优先用 marked 解析 Markdown（与 GitHub 渲染一致，
+     <br> 等原始 HTML 标签也会正常显示），再经 DOMPurify 消毒；
+     marked 未加载时退化为 转义 → 链接化 → 换行转 <br> */
   function renderBody(text) {
-    var s = utils.escapeHTML(text || "");
+    var src = String(text == null ? "" : text);
+    var parse = window.marked && (window.marked.parse || window.marked);
+    if (parse) {
+      var html = "";
+      try { html = parse(src); } catch (e) { html = ""; }
+      if (html) {
+        if (window.DOMPurify) html = window.DOMPurify.sanitize(html);
+        return html;
+      }
+    }
+    var s = utils.escapeHTML(src);
     s = s.replace(/(https?:\/\/[^\s<>"']+)/g, function (m) {
       return '<a href="' + m + '" target="_blank" rel="noopener">' + m + "</a>";
     });
@@ -209,7 +221,24 @@
     gitalk.render("guestbook-form");
   }
 
-  /* 监听 Gitalk 渲染变化 → 防抖刷新留言墙（发布新留言后自动更新） */
+  /* 监听 Gitalk 渲染变化 → 防抖刷新留言墙（发布新留言后自动更新）；
+     同时检测 Gitalk 的网络错误提示，追加一行环境提示 */
+  var networkHintShown = false;
+  function checkNetworkError() {
+    var form = document.getElementById("guestbook-form");
+    if (!form || networkHintShown) return;
+    var err = form.querySelector(".gt-error");
+    if (!err) return;
+    var text = err.textContent || "";
+    if (/Network Error/i.test(text)) {
+      networkHintShown = true;
+      var hint = document.createElement("div");
+      hint.className = "gb-network-hint";
+      hint.textContent = "提示：连接不上 GitHub 服务器，你可能需要科学的网络环境。";
+      err.insertAdjacentElement("afterend", hint);
+    }
+  }
+
   function watchForm() {
     var form = document.getElementById("guestbook-form");
     if (!form) return;
@@ -217,6 +246,7 @@
     var observer = new MutationObserver(function () {
       clearTimeout(timer);
       timer = setTimeout(refreshWall, 600);
+      checkNetworkError();
     });
     observer.observe(form, { childList: true, subtree: true });
   }
