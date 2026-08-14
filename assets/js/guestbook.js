@@ -304,7 +304,7 @@
       hint.className = "gb-network-hint";
       hint.innerHTML = "无法连接到 GitHub Issue，可以尝试在这里直接发表留言：" +
         '<a class="gb-network-link" href="' + GB_ISSUE_URL +
-        '" target="_blank" rel="noopener">GitHub Issue</a>';
+        '" target="_blank" rel="noopener">网页链接</a>';
       err.insertAdjacentElement("afterend", hint);
     }
   }
