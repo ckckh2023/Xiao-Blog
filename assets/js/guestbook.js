@@ -41,15 +41,18 @@
 
   /* ---------- 留言墙本地缓存 ----------
      留言变动慢，每次进页面都打 GitHub API 既慢又耗配额；
-     进页面时优先用缓存即时展示，点"刷新留言"按钮才真正拉新。 */
+     进页面时优先用缓存即时展示，点"刷新留言"按钮才真正拉新。
+     缓存 1 天后失效，过期视为无缓存。 */
   var GB_WALL_CACHE_KEY = "gb_wall";
+  var GB_WALL_CACHE_TTL = 24 * 60 * 60 * 1000;
   function readWallCache() {
     try {
       var raw = localStorage.getItem(GB_WALL_CACHE_KEY);
       if (!raw) return null;
       var obj = JSON.parse(raw);
-      if (obj && Array.isArray(obj.list)) return obj.list;
-      return null;
+      if (!obj || !Array.isArray(obj.list)) return null;
+      if (Date.now() - (obj.t || 0) > GB_WALL_CACHE_TTL) return null;
+      return obj.list;
     } catch (e) { return null; }
   }
   function writeWallCache(list) {
