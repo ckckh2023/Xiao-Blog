@@ -5,11 +5,15 @@
     "description": "微软开源的跨平台代码编辑器，拥有海量插件生态",
     "officialUrl": "https://code.visualstudio.com",
     "iconUrl": "https://code.visualstudio.com/assets/apple-touch-icon.png",
-    "installType": "https://code.visualstudio.com/download",
+    "installType": [
+      { "title": "Windows 安装包", "url": "https://code.visualstudio.com/docs/?dv=win64" },
+      { "title": "macOS 安装包", "url": "https://code.visualstudio.com/docs/?dv=osx" },
+      { "title": "Linux 下载页", "url": "https://code.visualstudio.com/download" }
+    ],
     "category": "software",
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
-      "https://code.visualstudio.com/blogs/2023/03/30/vscode-copilot"
+      { "title": "VSCode Copilot 官方博客", "url": "https://code.visualstudio.com/blogs/2023/03/30/vscode-copilot" }
     ],
     "status": "active",
     "repoUrl": "https://github.com/microsoft/vscode",
@@ -22,12 +26,12 @@
     "description": "Windows 平台经典的 C/C++ 轻量级集成开发环境",
     "officialUrl": "https://www.bloodshed.net/",
     "iconUrl": "https://a.fsdn.com/allura/p/orwelldevcpp/icon?1480458710",
-    "installType": "null",
+    "installType": [],
     "category": "software",
     "platforms": ["Windows"],
     "blogs": [],
     "status": "unknown",
-    "repoUrl": "null",
+    "repoUrl": null,
     "tags": ["C++", "教育", "轻量级"],
     "recommendReason": "对大学新生非常友好，开箱即用，但官网更新频率存疑"
   }
