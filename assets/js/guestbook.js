@@ -282,9 +282,8 @@
      "redirect_uri is not associated"，这里加载时自动抹掉（不影响带回 code 的正常回跳）。 */
   (function cleanOAuthResidue() {
     try {
-      var hasCode = /code=/.test(location.search);
-      var bareQuestion = !location.search && location.href.charAt(location.href.length - 1) === "?";
-      if (!hasCode && (bareQuestion || location.search)) {
+      var href = location.href;
+      if (href.charAt(href.length - 1) === "?" && !/code=/.test(location.search)) {
         history.replaceState(null, "", location.pathname + location.hash);
       }
     } catch (e) {}
