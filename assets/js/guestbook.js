@@ -30,6 +30,7 @@
   var GB_CLIENT_SECRET = "211191956e7f65f3f44b2965bf00fac8a1c04701";
 
   var GB_API = "https://api.github.com/repos/" + GB_OWNER + "/" + GB_REPO;
+  var GB_ISSUE_URL = "https://github.com/" + GB_OWNER + "/" + GB_REPO + "/issues/1";
   var LABEL_SEARCH_URL = "https://github.com/" + GB_OWNER + "/" + GB_REPO +
     "/issues?q=is%3Aissue+label%3A" + encodeURIComponent(GB_LABEL);
 
@@ -167,10 +168,29 @@
     .catch(function () { return []; });
   }
 
+  /* 刷新按钮转圈：进入/退出刷新状态（用计数防止并发调用提前关闭动画） */
+  var refreshCount = 0;
+  function setRefreshSpinning(on) {
+    var btn = document.getElementById("guestbook-refresh");
+    if (!btn) return;
+    if (on) {
+      refreshCount++;
+      btn.classList.add("gb-refreshing");
+      btn.disabled = true;
+    } else {
+      refreshCount = Math.max(0, refreshCount - 1);
+      if (refreshCount === 0) {
+        btn.classList.remove("gb-refreshing");
+        btn.disabled = false;
+      }
+    }
+  }
+
   /* 刷新留言墙：先定位 Issue，再拉取评论渲染；
      无论匿名 API 是否被限流，都合并 Gitalk 已有评论，保证最新留言可见。 */
   function refreshWall() {
-    findIssue().then(function (issue) {
+    setRefreshSpinning(true);
+    return findIssue().then(function (issue) {
       if (!issue) {
         /* Issue 尚未创建：若 Gitalk 已持有评论（如刚发过）则保留展示，否则显示空态 */
         if (!gitalkInstance || !gitalkInstance.state || !gitalkInstance.state.comments ||
@@ -183,12 +203,16 @@
         return;
       }
       if (moreLink) moreLink.href = issue.html_url || LABEL_SEARCH_URL;
-      fetchComments(issue.number).then(function (comments) {
+      return fetchComments(issue.number).then(function (comments) {
         setWall(comments);
         if (gitalkInstance && gitalkInstance.state) {
           mergeComments(gitalkInstance.state.comments);
         }
       });
+    }).catch(function () {
+      /* findIssue / fetchComments 内部已做缓存兜底，这里只负责结束动画 */
+    }).then(function () {
+      setRefreshSpinning(false);
     });
   }
 
@@ -234,7 +258,9 @@
       networkHintShown = true;
       var hint = document.createElement("div");
       hint.className = "gb-network-hint";
-      hint.textContent = "提示：连接不上 GitHub 服务器，你可能需要科学的网络环境。";
+      hint.innerHTML = "无法连接到 GitHub Issue，可以尝试在这里直接发表留言：" +
+        '<a class="gb-network-link" href="' + GB_ISSUE_URL +
+        '" target="_blank" rel="noopener">GitHub Issue</a>';
       err.insertAdjacentElement("afterend", hint);
     }
   }

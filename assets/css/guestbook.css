@@ -72,6 +72,9 @@
 .gb-body a { color: var(--link); }
 .gb-body a:hover { color: var(--link-hover); }
 
+.gb-network-link { color: var(--link); text-decoration: underline; margin-left: 4px; }
+.gb-network-link:hover { color: var(--link-hover); }
+
 /* ---------- 查看更多按钮 ---------- */
 .guestbook-more {
   text-align: center;
@@ -115,10 +118,10 @@
 .gb-body table { border-collapse: collapse; margin: 0 0 10px; font-size: 13px; }
 .gb-body th, .gb-body td { border: 1px solid var(--border); padding: 6px 10px; }
 
-/* ---------- 编辑器里的 Markdown 按钮上移 4px ---------- */
+/* ---------- 编辑器里的 Markdown 按钮上移 6px ---------- */
 #guestbook-form .gt-container .gt-header-controls-tip {
   position: relative;
-  top: -4px;
+  top: -6px;
 }
 
 /* ---------- Gitalk 网络错误提示 ---------- */
@@ -163,4 +166,39 @@
 }
 [data-theme="dark"] #guestbook-form .gt-container .gt-btn-preview:hover {
   background: var(--code-bg);
+}
+
+/* ---------- 移动端：输入框下方按钮左右排布（覆盖 Gitalk 默认的上下 100% 宽堆叠） ---------- */
+@media (max-width: 479px) {
+  #guestbook-form .gt-container .gt-header-controls {
+    display: flex;
+    gap: 0.75em;
+  }
+  #guestbook-form .gt-container .gt-header-controls .gt-btn {
+    float: none;
+    width: auto;
+    flex: 1 1 auto;
+    margin: 0.75em 0 0;
+  }
+}
+
+/* ---------- 刷新按钮转圈动画 ---------- */
+#guestbook-refresh.gb-refreshing {
+  cursor: wait;
+  opacity: 0.75;
+}
+#guestbook-refresh.gb-refreshing::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: gb-spin 0.8s linear infinite;
+}
+@keyframes gb-spin {
+  to { transform: rotate(360deg); }
 }
