@@ -34,7 +34,10 @@
 
     <!-- 右侧内容 -->
     <section class="docs-content">
-      <h1>Wiki 知识库</h1>
+      <div class="docs-head-row">
+        <h1>Wiki 知识库</h1>
+        <div id="docs-search"></div>
+      </div>
       <p>这里收录我在开发过程中整理的笔记与经验，点击左侧目录或下方列表即可阅读。</p>
 
       <div class="section-title" style="margin-top: 24px;">
@@ -56,11 +59,24 @@
     /* 渲染左侧侧边栏（目录页无当前文章） */
     renderSidebar(null);
 
-    /* 渲染右侧文章列表（仅一级：有子章节的跳第一个叶子，否则跳自身） */
-    fetchDocsList().then(function (list) {
+    /* 渲染右侧文章列表（仅一级：有子章节的跳第一个叶子，否则跳自身）；
+       搜索框对标题 / id 实时过滤 */
+    var allDocs = [];
+
+    function matchDoc(item, q) {
+      if (!q) return true;
+      var fields = [item.title, item.id];
+      for (var i = 0; i < fields.length; i++) {
+        if (fields[i] && String(fields[i]).toLowerCase().indexOf(q) !== -1) return true;
+      }
+      return false;
+    }
+
+    function renderDocsIndex(list, hasQuery) {
       var box = document.getElementById("docs-index-list");
       if (!list.length) {
-        box.innerHTML = '<div class="status-box">暂无文章。</div>';
+        box.innerHTML = '<div class="status-box">' +
+          (hasQuery ? "未找到匹配的文章。" : "暂无文章。") + "</div>";
         return;
       }
       box.innerHTML = list.map(function (item) {
@@ -72,6 +88,17 @@
           '<span class="doc-arrow">→</span>' +
         "</a>";
       }).join("");
+    }
+
+    fetchDocsList().then(function (list) {
+      allDocs = list;
+      renderDocsIndex(allDocs, false);
+      mountSearchBox("#docs-search", {
+        placeholder: "搜索文章…",
+        onQuery: function (q) {
+          renderDocsIndex(allDocs.filter(function (it) { return matchDoc(it, q); }), !!q);
+        }
+      });
     });
   </script>
 </body>

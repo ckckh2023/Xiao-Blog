@@ -362,6 +362,76 @@
   }
   global.mountYear = mountYear;
 
+  /* ---------- 通用搜索框 ----------
+     selector:        挂载点选择器（空元素，渲染后获得 .search-box 类）
+     opts.placeholder:输入框占位文本（同时作为 aria-label）
+     opts.onQuery:    输入回调，参数为 trim 后的字符串（防抖 150ms）
+     返回控制器 { setQuery, getQuery, focus }；opts.onQuery 在 query 变化时触发。
+     样式见 common.css .search-box；明暗主题通过 CSS 变量自动适配。 */
+  var SEARCH_ICON_SVG =
+    '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">' +
+    '<path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-9 0 4.499 4.499 0 0 0 9 0Z"/></svg>';
+  var CLEAR_ICON_SVG =
+    '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">' +
+    '<path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"/></svg>';
+
+  function mountSearchBox(selector, opts) {
+    var holder = document.querySelector(selector);
+    if (!holder) return null;
+    opts = opts || {};
+    var placeholder = opts.placeholder || "搜索…";
+    var onQuery = typeof opts.onQuery === "function" ? opts.onQuery : function () {};
+
+    holder.className = (holder.className ? holder.className + " " : "") + "search-box";
+    holder.innerHTML =
+      '<span class="search-icon" aria-hidden="true">' + SEARCH_ICON_SVG + "</span>" +
+      '<input class="search-input" type="text" autocomplete="off" spellcheck="false" ' +
+        'placeholder="' + utils.escapeHTML(placeholder) + '" aria-label="' +
+        utils.escapeHTML(placeholder) + '">' +
+      '<button class="search-clear" type="button" aria-label="清除搜索">' +
+        CLEAR_ICON_SVG + "</button>";
+
+    var input = holder.querySelector(".search-input");
+    var clearBtn = holder.querySelector(".search-clear");
+    var timer = null;
+
+    function syncHasValue() {
+      if (input.value) holder.classList.add("has-value");
+      else holder.classList.remove("has-value");
+    }
+    function emit(immediate) {
+      var q = input.value.trim();
+      syncHasValue();
+      if (timer) { clearTimeout(timer); timer = null; }
+      if (immediate) onQuery(q);
+      else timer = setTimeout(function () { onQuery(q); }, 150);
+    }
+
+    input.addEventListener("input", function () { emit(false); });
+    clearBtn.addEventListener("click", function () {
+      input.value = "";
+      syncHasValue();
+      if (timer) { clearTimeout(timer); timer = null; }
+      onQuery("");
+      input.focus();
+    });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && input.value) {
+        input.value = "";
+        syncHasValue();
+        if (timer) { clearTimeout(timer); timer = null; }
+        onQuery("");
+      }
+    });
+
+    return {
+      setQuery: function (q) { input.value = q || ""; syncHasValue(); },
+      getQuery: function () { return input.value.trim(); },
+      focus: function () { input.focus(); }
+    };
+  }
+  global.mountSearchBox = mountSearchBox;
+
   /* ---------- 自动挂载 ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     mountNav();

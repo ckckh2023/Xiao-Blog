@@ -341,6 +341,75 @@ img { max-width: 100%; display: block; }
 }
 .notice-close:hover { background: rgba(221, 51, 51, 0.12); }
 
+/* ---------- 通用搜索框 ---------- */
+.search-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 220px;
+  max-width: 40vw;
+}
+.search-box .search-icon {
+  position: absolute;
+  left: 10px;
+  display: inline-flex;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.search-box .search-icon svg { width: 14px; height: 14px; display: block; }
+.search-box .search-input {
+  width: 100%;
+  padding: 6px 30px 6px 32px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-box .search-input::placeholder { color: var(--text-muted); }
+.search-box .search-input:focus {
+  border-color: var(--link);
+  box-shadow: 0 0 0 3px var(--active-bg);
+}
+.search-box .search-clear {
+  position: absolute;
+  right: 6px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.search-box .search-clear svg { width: 12px; height: 12px; display: block; }
+.search-box .search-clear:hover { background: var(--active-bg); color: var(--text); }
+.search-box.has-value .search-clear { display: inline-flex; }
+
+/* 区块标题右侧容器：搜索框 + 返回链接同行排列 */
+.section-title .title-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Wiki 首页标题行：h1 + 搜索框 同行 */
+.docs-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.docs-head-row h1 { margin-bottom: 0; }
+
 /* ---------- 响应式（导航栏 + 卡片网格） ---------- */
 @media (max-width: 900px) {
   .site-nav { padding: 0 12px; gap: 8px; }
@@ -348,6 +417,8 @@ img { max-width: 100%; display: block; }
   .site-nav .gitee-link { display: none; }
   .project-grid { grid-template-columns: 1fr; }
   .project-grid-2, .project-grid-3 { grid-template-columns: 1fr; }
+  .search-box { width: 150px; max-width: 50vw; }
+  .docs-head-row { flex-wrap: wrap; }
 
   /* 三点更多菜单：移动端折叠 Wiki / 好友等 more 项，点击三点按钮在下方展开 */
   .site-nav .nav-item[data-more="true"] { display: none; }

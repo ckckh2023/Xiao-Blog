@@ -28,7 +28,10 @@
   <main class="container wide">
     <div class="section-title">
       <span>全部项目</span>
-      <a class="more-link" href="/index.html">« 返回首页</a>
+      <div class="title-right">
+        <div id="repo-search"></div>
+        <a class="more-link" href="/index.html">« 返回首页</a>
+      </div>
     </div>
 
     <div id="all-projects">
@@ -45,9 +48,15 @@
   <script src="/assets/vendor/vue.global.js"></script>
   <script>
     /* 全部项目：从 /repo/RepoList.json 加载，复用首页卡片设计，每行 2 个；
-       简介 / star / 技术栈由 GitHub API enrich */
+       简介 / star / 技术栈由 GitHub API enrich；
+       搜索框对 name / id / 简介 / 技术栈实时过滤 */
+    var repoGridCtrl = null;
     fetchRepoList().then(function (list) {
-      mountProjectGrid("#all-projects", list, 2);
+      repoGridCtrl = mountProjectGrid("#all-projects", list, 2);
+      mountSearchBox("#repo-search", {
+        placeholder: "搜索项目…",
+        onQuery: function (q) { if (repoGridCtrl) repoGridCtrl.setQuery(q); }
+      });
     });
   </script>
 </body>

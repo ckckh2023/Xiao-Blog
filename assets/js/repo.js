@@ -81,10 +81,24 @@
   }
   global.enrichProject = enrichProject;
 
+  /* 项目搜索匹配：name / id / desc / 技术栈 / full_name 任一含 query（大小写不敏感） */
+  function matchProject(p, q) {
+    if (!q) return true;
+    var fields = [p.name, p.id, p.desc, (p.tags || []).join(" "), p.full_name];
+    for (var i = 0; i < fields.length; i++) {
+      if (fields[i] && String(fields[i]).toLowerCase().indexOf(q) !== -1) return true;
+    }
+    return false;
+  }
+  global.matchProject = matchProject;
+
   /* ---------- Vue 项目卡片渲染（封装，供页面调用） ----------
      selector: 挂载点选择器
      list:     项目数组
      perRow:   每行列数（2 / 3 / null=自适应）
+     labels:   按钮文案 { primary, secondary }
+     返回控制器 { setQuery }：setQuery(q) 触发响应式过滤重渲染；
+     首页精选项目不接收返回值，query 恒为空，行为与原先一致。
   ---------- */
   function projectCardVNode(h, p, labels) {
     var tags = (p.tags || []).map(function (t) {
@@ -112,12 +126,12 @@
   function mountProjectGrid(selector, list, perRow, labels) {
     if (!window.Vue) {
       console.warn("[project-grid] Vue 未加载，跳过渲染");
-      return;
+      return null;
     }
     var V = window.Vue;
-    var createApp = V.createApp, ref = V.ref, onMounted = V.onMounted, h = V.h;
+    var createApp = V.createApp, ref = V.ref, computed = V.computed, onMounted = V.onMounted, h = V.h;
     var container = document.querySelector(selector);
-    if (!container) return;
+    if (!container) return null;
     var cls = "project-grid" + (perRow ? " project-grid-" + perRow : "");
     var lab = Object.assign({ primary: "访问主页", secondary: "项目源码" }, labels || {});
 
@@ -128,9 +142,16 @@
       });
     });
 
-    createApp({
+    /* query 提到 setup 外部，使返回的控制器闭包能访问并触发响应式重渲染 */
+    var query = ref("");
+    var app = createApp({
       setup: function () {
         var projects = ref(initial);
+        var filtered = computed(function () {
+          var q = query.value.toLowerCase().trim();
+          if (!q) return projects.value;
+          return projects.value.filter(function (p) { return matchProject(p, q); });
+        });
         onMounted(function () {
           projects.value.forEach(function (p, i) {
             enrichProject(p).then(function () {
@@ -139,12 +160,20 @@
           });
         });
         return function () {
+          var items = filtered.value;
+          if (!items.length) {
+            return h("div", { class: cls }, [
+              h("div", { class: "status-box" }, "未找到匹配的项目。")
+            ]);
+          }
           return h("div", { class: cls },
-            projects.value.map(function (p) { return projectCardVNode(h, p, lab); })
+            items.map(function (p) { return projectCardVNode(h, p, lab); })
           );
         };
       }
-    }).mount(selector);
+    });
+    app.mount(selector);
+    return { setQuery: function (q) { query.value = q || ""; } };
   }
   global.mountProjectGrid = mountProjectGrid;
 })(window);
