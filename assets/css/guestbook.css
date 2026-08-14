@@ -3,18 +3,6 @@
    加载页面：/guestbook/index.html
    ============================================================ */
 
-/* ---------- 顶部提示 ---------- */
-.guestbook-tip {
-  color: var(--text-muted);
-  font-size: 14px;
-  line-height: 1.7;
-  margin: -8px 0 24px;
-  padding: 12px 16px;
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-
 /* ---------- 留言卡片 ---------- */
 .guestbook-wall {
   display: grid;
@@ -127,10 +115,10 @@
 .gb-body table { border-collapse: collapse; margin: 0 0 10px; font-size: 13px; }
 .gb-body th, .gb-body td { border: 1px solid var(--border); padding: 6px 10px; }
 
-/* ---------- 编辑器里的 Markdown 按钮上移 2px ---------- */
+/* ---------- 编辑器里的 Markdown 按钮上移 4px ---------- */
 #guestbook-form .gt-container .gt-header-controls-tip {
   position: relative;
-  top: -2px;
+  top: -4px;
 }
 
 /* ---------- Gitalk 网络错误提示 ---------- */
