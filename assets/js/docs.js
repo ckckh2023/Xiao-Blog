@@ -122,6 +122,73 @@
     return true;
   }
 
+  /* 文章详情页链接：ids 为 id 路径数组，如 ["deploy","github","overview"]
+     → /docs/article.html?id=deploy&sub=github&sub2=overview
+     单层 ["vue-guide"] → ?id=vue-guide；两层 ["deploy","overview"] → ?id=deploy&sub=overview */
+  function docHref(ids) {
+    var base = DOCS_BASE + "article.html?id=" + encodeURIComponent(ids[0]);
+    if (ids[1]) base += "&sub=" + encodeURIComponent(ids[1]);
+    if (ids[2]) base += "&sub2=" + encodeURIComponent(ids[2]);
+    return base;
+  }
+  global.docHref = docHref;
+
+  /* 沿 id 路径查找节点；返回该层节点或 null */
+  function findNodeByPath(list, idPath) {
+    var nodes = list;
+    var node = null;
+    for (var i = 0; i < idPath.length; i++) {
+      node = (nodes || []).filter(function (n) { return n.id === idPath[i]; })[0];
+      if (!node) return null;
+      nodes = node.children;
+    }
+    return node;
+  }
+
+  /* 沿 id 路径收集标题数组；路径无效返回 null */
+  function findTitlePath(list, idPath) {
+    var nodes = list;
+    var titles = [];
+    for (var i = 0; i < idPath.length; i++) {
+      var node = (nodes || []).filter(function (n) { return n.id === idPath[i]; })[0];
+      if (!node) return null;
+      titles.push(node.title);
+      nodes = node.children;
+    }
+    return titles;
+  }
+
+  /* 从 node 沿第一个 child 递归到叶子，返回完整 id 路径；
+     parentIds 为 node 的父路径（不含 node.id） */
+  function firstLeafIds(node, parentIds) {
+    var ids = parentIds.concat(node.id);
+    if (node.children && node.children.length) {
+      return firstLeafIds(node.children[0], ids);
+    }
+    return ids;
+  }
+  global.firstLeafIds = firstLeafIds;
+
+  /* 将 DocsList 递归展平为叶子分页序列：
+     每个叶子 → { ids: [...], titles: [...] }，均为从根到叶的路径
+     有 children 的非叶子节点不进入序列（点击会重定向到其第一个叶子） */
+  function flattenDocsSequence(list) {
+    var seq = [];
+    function walk(nodes, parentIds, parentTitles) {
+      (nodes || []).forEach(function (n) {
+        var ids = parentIds.concat(n.id);
+        var titles = parentTitles.concat(n.title);
+        if (n.children && n.children.length) {
+          walk(n.children, ids, titles);
+        } else {
+          seq.push({ ids: ids, titles: titles });
+        }
+      });
+    }
+    walk(list, [], []);
+    return seq;
+  }
+
   /* 渲染左侧目录侧边栏；currentPath 为当前文章完整 id 路径（目录页传 null）
      有 children 的节点渲染为折叠组，在当前路径上的组默认展开，其余折叠 */
   function renderSidebar(currentPath) {
@@ -234,73 +301,6 @@
     });
   }
   global.renderPagination = renderPagination;
-
-  /* 文章详情页链接：ids 为 id 路径数组，如 ["deploy","github","overview"]
-     → /docs/article.html?id=deploy&sub=github&sub2=overview
-     单层 ["vue-guide"] → ?id=vue-guide；两层 ["deploy","overview"] → ?id=deploy&sub=overview */
-  function docHref(ids) {
-    var base = DOCS_BASE + "article.html?id=" + encodeURIComponent(ids[0]);
-    if (ids[1]) base += "&sub=" + encodeURIComponent(ids[1]);
-    if (ids[2]) base += "&sub2=" + encodeURIComponent(ids[2]);
-    return base;
-  }
-  global.docHref = docHref;
-
-  /* 沿 id 路径查找节点；返回该层节点或 null */
-  function findNodeByPath(list, idPath) {
-    var nodes = list;
-    var node = null;
-    for (var i = 0; i < idPath.length; i++) {
-      node = (nodes || []).filter(function (n) { return n.id === idPath[i]; })[0];
-      if (!node) return null;
-      nodes = node.children;
-    }
-    return node;
-  }
-
-  /* 沿 id 路径收集标题数组；路径无效返回 null */
-  function findTitlePath(list, idPath) {
-    var nodes = list;
-    var titles = [];
-    for (var i = 0; i < idPath.length; i++) {
-      var node = (nodes || []).filter(function (n) { return n.id === idPath[i]; })[0];
-      if (!node) return null;
-      titles.push(node.title);
-      nodes = node.children;
-    }
-    return titles;
-  }
-
-  /* 从 node 沿第一个 child 递归到叶子，返回完整 id 路径；
-     parentIds 为 node 的父路径（不含 node.id） */
-  function firstLeafIds(node, parentIds) {
-    var ids = parentIds.concat(node.id);
-    if (node.children && node.children.length) {
-      return firstLeafIds(node.children[0], ids);
-    }
-    return ids;
-  }
-  global.firstLeafIds = firstLeafIds;
-
-  /* 将 DocsList 递归展平为叶子分页序列：
-     每个叶子 → { ids: [...], titles: [...] }，均为从根到叶的路径
-     有 children 的非叶子节点不进入序列（点击会重定向到其第一个叶子） */
-  function flattenDocsSequence(list) {
-    var seq = [];
-    function walk(nodes, parentIds, parentTitles) {
-      (nodes || []).forEach(function (n) {
-        var ids = parentIds.concat(n.id);
-        var titles = parentTitles.concat(n.title);
-        if (n.children && n.children.length) {
-          walk(n.children, ids, titles);
-        } else {
-          seq.push({ ids: ids, titles: titles });
-        }
-      });
-    }
-    walk(list, [], []);
-    return seq;
-  }
 
   /* 文章模板页初始化：按 ?id=[&sub][&sub2] 渲染标题、面包屑、正文、侧边栏 + 分页
      URL 层级：  单层 ?id=a          → docs/a/index.md
