@@ -129,11 +129,13 @@
     "</article>";
   }
 
-  function mountWall(list) {
+  function mountWall(list, hasQuery) {
     if (!wallBox) return;
     var items = list || [];
     if (!items.length) {
-      wallBox.innerHTML = '<div class="status-box">还没有留言，登录 GitHub 账号后在上方写下第一条吧。</div>';
+      wallBox.innerHTML = '<div class="status-box">' +
+        (hasQuery ? "未找到匹配的留言。" : "还没有留言，登录 GitHub 账号后在上方写下第一条吧。") +
+        "</div>";
       return;
     }
     /* 最新留言在前 */
@@ -144,10 +146,29 @@
       sorted.map(gbCardHTML).join("") + "</div>";
   }
 
+  /* ---------- 留言搜索 ----------
+     对留言者 login 与正文（Markdown 源文本）做子串匹配，大小写不敏感；
+     wallQuery 为当前搜索词，applyWall 按 wallQuery 过滤 wallData 后渲染，
+     setWall / mergeComments / 搜索框均通过 applyWall 统一出口，保证刷新后仍保留过滤。 */
+  var wallQuery = "";
+  function matchComment(c, q) {
+    if (!q) return true;
+    var login = (c.user && c.user.login) || "";
+    var body = c.body || "";
+    return String(login).toLowerCase().indexOf(q) !== -1 ||
+           String(body).toLowerCase().indexOf(q) !== -1;
+  }
+  function applyWall() {
+    var q = wallQuery.toLowerCase().trim();
+    var list = wallData;
+    if (q) list = wallData.filter(function (c) { return matchComment(c, q); });
+    mountWall(list, !!q);
+  }
+
   /* 记录并渲染留言墙数据 */
   function setWall(list) {
     wallData = (list || []).slice();
-    mountWall(wallData);
+    applyWall();
   }
 
   /* 将 Gitalk 的权威评论数据合并进留言墙（按评论 id 去重）。
@@ -165,7 +186,7 @@
         added = true;
       }
     });
-    if (added) mountWall(wallData);
+    if (added) applyWall();
   }
 
   /* 定位留言线程 Issue（与 Gitalk 规则一致：按「标签 + id」的 labels 查询，取第一个） */
@@ -328,5 +349,11 @@
     }
     initGitalk();
     watchForm();
+
+    /* 搜索框：对留言者 / 正文实时过滤，刷新留言后过滤仍保留 */
+    mountSearchBox("#gb-search", {
+      placeholder: "搜索留言…",
+      onQuery: function (q) { wallQuery = q; applyWall(); }
+    });
   });
 })(window);

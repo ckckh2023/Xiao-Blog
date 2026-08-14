@@ -57,6 +57,8 @@
   min-width: 0;
 }
 .docs-content h1 { font-size: 26px; margin-bottom: 16px; }
+/* 标题行内的 h1 清除 margin，避免 flex 居中时标题文字被上推 */
+.docs-head-row h1 { margin: 0; }
 .docs-content h2 { font-size: 20px; margin: 24px 0 10px; }
 .docs-content h3 { font-size: 17px; margin: 20px 0 8px; }
 .docs-content p { margin-bottom: 14px; color: var(--text); }
