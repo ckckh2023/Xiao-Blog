@@ -35,6 +35,8 @@
 
   var wallBox = null;
   var moreLink = null;
+  var gitalkInstance = null;   /* Gitalk 实例引用（用于合并其权威评论数据） */
+  var wallData = [];           /* 当前已展示的留言列表 */
 
   function isConfigured() {
     return GB_CLIENT_ID.indexOf("YOUR_") !== 0 && GB_CLIENT_SECRET.indexOf("YOUR_") !== 0;
@@ -100,6 +102,30 @@
       sorted.map(gbCardHTML).join("") + "</div>";
   }
 
+  /* 记录并渲染留言墙数据 */
+  function setWall(list) {
+    wallData = (list || []).slice();
+    mountWall(wallData);
+  }
+
+  /* 将 Gitalk 的权威评论数据合并进留言墙（按评论 id 去重）。
+     Gitalk 用 OAuth 凭据拉取评论（5000 次/小时），不受匿名 API 限流影响，
+     保证刚发布的留言即使匿名接口被限流也一定能显示出来。 */
+  function mergeComments(extra) {
+    if (!extra || !extra.length) return;
+    var seen = {};
+    wallData.forEach(function (c) { if (c && c.id) seen[c.id] = true; });
+    var added = false;
+    extra.forEach(function (c) {
+      if (c && c.id && !seen[c.id]) {
+        wallData.push(c);
+        seen[c.id] = true;
+        added = true;
+      }
+    });
+    if (added) mountWall(wallData);
+  }
+
   /* 定位留言线程 Issue（与 Gitalk 规则一致：按「标签 + id」的 labels 查询，取第一个） */
   function findIssue() {
     var labels = encodeURIComponent([GB_LABEL, GB_ID].join(","));
@@ -120,16 +146,28 @@
     .catch(function () { return []; });
   }
 
-  /* 刷新留言墙：先定位 Issue，再拉取评论渲染 */
+  /* 刷新留言墙：先定位 Issue，再拉取评论渲染；
+     无论匿名 API 是否被限流，都合并 Gitalk 已有评论，保证最新留言可见。 */
   function refreshWall() {
     findIssue().then(function (issue) {
       if (!issue) {
-        mountWall([]);
+        /* Issue 尚未创建：若 Gitalk 已持有评论（如刚发过）则保留展示，否则显示空态 */
+        if (!gitalkInstance || !gitalkInstance.state || !gitalkInstance.state.comments ||
+            !gitalkInstance.state.comments.length) {
+          setWall([]);
+        } else {
+          mergeComments(gitalkInstance.state.comments);
+        }
         if (moreLink) moreLink.href = LABEL_SEARCH_URL;
         return;
       }
       if (moreLink) moreLink.href = issue.html_url || LABEL_SEARCH_URL;
-      return fetchComments(issue.number).then(mountWall);
+      fetchComments(issue.number).then(function (comments) {
+        setWall(comments);
+        if (gitalkInstance && gitalkInstance.state) {
+          mergeComments(gitalkInstance.state.comments);
+        }
+      });
     });
   }
 
@@ -154,10 +192,11 @@
       id: GB_ID,
       title: GB_TITLE,
       labels: [GB_LABEL],
-      perPage: 10,
+      perPage: GB_PER_PAGE,
       distractionFreeMode: false,
       language: "zh-CN"
     });
+    gitalkInstance = gitalk;
     gitalk.render("guestbook-form");
   }
 
@@ -189,6 +228,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     wallBox = document.getElementById("guestbook-wall");
     moreLink = document.getElementById("guestbook-more-link");
+    var refreshBtn = document.getElementById("guestbook-refresh");
+    if (refreshBtn) refreshBtn.addEventListener("click", refreshWall);
     if (!isConfigured()) {
       global.showNotice("留言功能需要 GitHub OAuth App 配置，请在 assets/js/guestbook.js 顶部填写 clientID / clientSecret。", { level: "warn", autoHide: 0 });
     }
