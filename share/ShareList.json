@@ -1,0 +1,34 @@
+[
+  {
+    "id": "vscode",
+    "name": "Visual Studio Code",
+    "description": "微软开源的跨平台代码编辑器，拥有海量插件生态",
+    "officialUrl": "https://code.visualstudio.com",
+    "iconUrl": "https://code.visualstudio.com/assets/images/code-stable.png",
+    "installType": "https://code.visualstudio.com/download",
+    "category": "software",
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      "https://code.visualstudio.com/blogs/2023/03/30/vscode-copilot"
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/microsoft/vscode",
+    "tags": ["编辑器", "前端", "微软"],
+    "recommendReason": "插件市场覆盖所有开发场景，启动速度极快"
+  },
+  {
+    "id": "devcpp",
+    "name": "Dev-C++",
+    "description": "Windows 平台经典的 C/C++ 轻量级集成开发环境",
+    "officialUrl": "https://www.bloodshed.net/",
+    "iconUrl": null,
+    "installType": "manual",
+    "category": "software",
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "unknown",
+    "repoUrl": null,
+    "tags": ["C++", "教育", "轻量级"],
+    "recommendReason": "对大学新生非常友好，开箱即用，但官网更新频率存疑"
+  }
+]

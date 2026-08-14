@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ckckh2023 - 分享</title>
+  <meta name="description" content="ckckh2023 的工具软件分享库">
+  <script src="/assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/css/common.css">
+  <link rel="stylesheet" href="/assets/css/share.css">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/ckckh2023">
+  <link rel="canonical" href="https://xiao-blog.top/share/index.html">
+  <meta property="og:site_name" content="ckckh2023">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="ckckh2023 - 工具软件分享库">
+  <meta property="og:description" content="ckckh2023 的工具软件分享库">
+  <meta property="og:url" content="https://xiao-blog.top/share/index.html">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/ckckh2023">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ckckh2023 - 工具软件分享库">
+  <meta name="twitter:description" content="ckckh2023 的工具软件分享库">
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/ckckh2023">
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <main class="container wide">
+    <div class="section-title">
+      <div class="title-left">
+        <span>工具软件分享库</span>
+        <div id="share-search"></div>
+      </div>
+      <a class="more-link" href="/index.html">« 返回首页</a>
+    </div>
+
+    <div id="all-shares">
+      <div class="status-box">加载中…</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> ckckh2023 · Powered by GitHub Pages
+  </footer>
+
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/share.js"></script>
+  <script>
+    /* 全部分享：从 /share/ShareList.json 加载，每行 2 个卡片；
+       图标缺失时以名称首字母占位；
+       搜索框对 名称 / 简介 / 标签 实时过滤 */
+    var allShares = [];
+
+    function matchShare(it, q) {
+      if (!q) return true;
+      var fields = [it.id, it.name, it.description];
+      if (Array.isArray(it.tags)) fields = fields.concat(it.tags);
+      for (var i = 0; i < fields.length; i++) {
+        if (fields[i] && String(fields[i]).toLowerCase().indexOf(q) !== -1) return true;
+      }
+      return false;
+    }
+
+    function renderShares(list, hasQuery) {
+      var box = document.getElementById("all-shares");
+      if (!list.length) {
+        box.innerHTML = '<div class="status-box">' +
+          (hasQuery ? "未找到匹配的项目。" : "暂无分享。") + "</div>";
+        return;
+      }
+      mountShareGrid("#all-shares", list, 2);
+    }
+
+    fetchShareList().then(function (list) {
+      allShares = list;
+      renderShares(allShares, false);
+      mountSearchBox("#share-search", {
+        placeholder: "搜索工具…",
+        onQuery: function (q) {
+          renderShares(allShares.filter(function (it) { return matchShare(it, q); }), !!q);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

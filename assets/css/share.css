@@ -1,0 +1,110 @@
+/* ============================================================
+   share.css - 工具软件分享卡片样式
+   加载页面：/share/index.html
+   ============================================================ */
+
+/* ---------- 分享卡片 ---------- */
+.share-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 右上角状态 LED 圆灯 */
+.share-card .sc-status {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--border);
+  z-index: 1;
+}
+.share-card .sc-status-active { background: #2ea043; }
+.share-card .sc-status-unknown { background: #d29922; }
+.share-card .sc-status-deprecated { background: #d1242f; }
+
+/* 头部：图标 + 名称 */
+.share-card .sc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-right: 24px; /* 给右上角 LED 留位 */
+}
+.share-card .sc-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  object-fit: contain;
+  padding: 4px;
+  background: var(--code-bg);
+  flex-shrink: 0;
+}
+.share-card .sc-icon-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--link);
+}
+.share-card .sc-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+/* 简介 */
+.share-card .sc-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  min-height: 44px;
+}
+
+/* 标签 */
+.share-card .sc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.share-card .sc-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+/* 底部按钮区：左侧主页+仓库，右侧下载 */
+.share-card .sc-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+.share-card .sc-actions-left {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

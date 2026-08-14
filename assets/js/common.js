@@ -201,6 +201,7 @@
     { label: "项目", href: root() + "repo/index.html", match: /^\/repo\// },
     { label: "Wiki", href: root() + "docs/index.html", match: /^\/docs\//, more: true },
     { label: "好友", href: root() + "friend/index.html", match: /^\/friend\//, more: true },
+    { label: "分享", href: root() + "share/index.html", match: /^\/share\//, more: true },
     { label: "留言", href: root() + "guestbook/index.html", match: /^\/guestbook\//, more: true }
   ];
 
