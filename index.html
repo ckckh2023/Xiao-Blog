@@ -55,14 +55,14 @@
       </div>
     </section>
 
-    <!-- 精选 Wiki 区块 -->
+    <!-- 精选文档 区块 -->
     <section class="panel">
       <div class="section-title">
-        <span>精选 Wiki</span>
-        <a class="more-link" href="/docs/index.html">查看全部 Wiki »</a>
+        <span>精选文档</span>
+        <a class="more-link" href="/docs/index.html">查看全部文档 »</a>
       </div>
       <div id="featured-wiki">
-        <!-- 精选 Wiki 挂载点（每行 2 个） -->
+        <!-- 精选文档 挂载点（每行 2 个） -->
       </div>
     </section>
 
@@ -87,7 +87,7 @@
   <!-- Markdown 渲染 + 消毒（精选留言正文，与留言板一致） -->
   <script src="/assets/vendor/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
-  <!-- 首页专属逻辑（GitHub Profile / 精选 Wiki / 精选留言） -->
+  <!-- 首页专属逻辑（GitHub Profile / 精选文档 / 精选留言） -->
   <script src="/assets/js/home.js"></script>
   <!-- 项目卡片渲染（首页精选项目 & repo 页共享） -->
   <script src="/assets/js/repo.js"></script>
@@ -125,7 +125,7 @@
       });
     });
 
-    /* 精选 Wiki：从 /docs/star.json 加载，每行 2 个，点击查看直接跳转对应 url */
+    /* 精选文档：从 /docs/star.json 加载，每行 2 个，点击查看直接跳转对应 url */
     fetchStarDocs().then(function (list) {
       mountWikiCards("#featured-wiki", list, 2);
     });

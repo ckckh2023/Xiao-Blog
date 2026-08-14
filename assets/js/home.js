@@ -1,6 +1,6 @@
 /* ============================================================
    home.js - 首页专属逻辑
-   功能：GitHub 用户信息加载、精选 Wiki 卡片渲染、精选留言卡片渲染
+   功能：GitHub 用户信息加载、精选文档 卡片渲染、精选留言卡片渲染
    依赖：common.js（Utils / fetchGitHubJSON / root）+ marked + DOMPurify（留言正文 Markdown）
    ============================================================ */
 
@@ -47,7 +47,7 @@
   }
   global.fetchGitHubProfile = fetchGitHubProfile;
 
-  /* ---------- 精选 Wiki 数据加载 ---------- */
+  /* ---------- 精选文档 数据加载 ---------- */
   function fetchStarDocs() {
     return utils.fetchJSON(root() + "docs/star.json").then(function (list) {
       return Array.isArray(list) ? list : [];
@@ -58,7 +58,7 @@
   }
   global.fetchStarDocs = fetchStarDocs;
 
-  /* ---------- 精选 Wiki 卡片渲染（纯 DOM） ----------
+  /* ---------- 精选文档 卡片渲染（纯 DOM） ----------
      selector: 挂载点选择器
      list:     精选 wiki 数组 [{ url, title, excerpt }]
      perRow:   每行列数（默认 2）
@@ -79,7 +79,7 @@
     if (!box) return;
     var items = (list || []).slice(0, perRow || 2);
     if (!items.length) {
-      box.innerHTML = '<div class="status-box">暂无精选 Wiki。</div>';
+      box.innerHTML = '<div class="status-box">暂无精选文档。</div>';
       return;
     }
     var cls = "project-grid project-grid-" + (perRow || 2);

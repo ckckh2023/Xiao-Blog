@@ -56,7 +56,7 @@
        fullTitle 反向拼接，headline 取最末一级 */
     var titlePath = opt.titlePath && opt.titlePath.length ? opt.titlePath : [opt.title || ""];
     var headline = titlePath[titlePath.length - 1];
-    var fullTitle = titlePath.slice().reverse().join(" - ") + " - ckckh2023 Wiki";
+    var fullTitle = titlePath.slice().reverse().join(" - ") + " - ckckh2023 文档";
     document.title = fullTitle;
     upsertMeta("description", opt.description);
 
@@ -341,7 +341,7 @@
 
       setArticleMeta({
         titlePath: titlePath,
-        description: "ckckh2023 的 Wiki 知识库文章",
+        description: "ckckh2023 的文档库文章",
         url: articleUrl
       });
 
