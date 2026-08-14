@@ -181,6 +181,18 @@
   }
 }
 
+/* ---------- 移动端：标题在上、搜索框在下，避免拥挤 ---------- */
+@media (max-width: 600px) {
+  .section-title .title-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .section-title:has(.title-left) {
+    align-items: flex-start;
+  }
+}
+
 /* ---------- 刷新按钮转圈动画 ---------- */
 #guestbook-refresh.gb-refreshing {
   cursor: wait;
