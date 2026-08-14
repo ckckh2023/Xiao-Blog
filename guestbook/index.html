@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ckckh2023 - 留言板</title>
+  <meta name="description" content="ckckh2023 的留言板 - 基于 GitHub Issues 的访客留言墙">
+  <script src="/assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/css/common.css">
+  <link rel="stylesheet" href="/assets/css/guestbook.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/ckckh2023">
+  <link rel="canonical" href="https://xiao-blog.top/guestbook/index.html">
+  <meta property="og:site_name" content="ckckh2023">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="ckckh2023 - 留言板">
+  <meta property="og:description" content="ckckh2023 的留言板 - 基于 GitHub Issues 的访客留言墙">
+  <meta property="og:url" content="https://xiao-blog.top/guestbook/index.html">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/ckckh2023">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ckckh2023 - 留言板">
+  <meta name="twitter:description" content="ckckh2023 的留言板 - 基于 GitHub Issues 的访客留言墙">
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/ckckh2023">
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <main class="container">
+    <div class="section-title">
+      <span>留言板</span>
+      <a class="more-link" href="/index.html">« 返回首页</a>
+    </div>
+
+    <p class="guestbook-tip">
+      欢迎在这里留下你的足迹。在下方登录 GitHub 账号即可留言，
+      所有留言都会同步保存到本仓库的 GitHub Issue 中。
+    </p>
+
+    <!-- 发布入口：Gitalk（仅展示输入框，评论列表由下方留言墙接管） -->
+    <section class="panel">
+      <div class="section-title">
+        <span>写下你的留言</span>
+      </div>
+      <div id="guestbook-form">
+        <div class="status-box">留言组件加载中…</div>
+      </div>
+    </section>
+
+    <!-- 留言墙：卡片样式 -->
+    <section class="panel">
+      <div class="section-title">
+        <span>全部留言</span>
+      </div>
+      <div id="guestbook-wall">
+        <div class="status-box">加载中…</div>
+      </div>
+      <div class="guestbook-more">
+        <a class="btn" id="guestbook-more-link"
+           href="https://github.com/ckckh2023/ckckh2023.github.io/issues?q=is%3Aissue+label%3A%E7%95%99%E8%A8%80"
+           target="_blank" rel="noopener">查看更多留言 »</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> ckckh2023 · Powered by GitHub Pages
+  </footer>
+
+  <script src="/assets/js/common.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  <script src="/assets/js/guestbook.js"></script>
+</body>
+</html>
