@@ -355,18 +355,18 @@ img { max-width: 100%; display: block; }
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--border);
+    padding: 8px 10px;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
     border-radius: 6px;
-    background: var(--surface);
-    color: var(--text);
     cursor: pointer;
     margin-left: 4px;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: color 0.2s ease, background 0.2s ease;
   }
-  .site-nav .nav-more:hover { border-color: var(--link); color: var(--link); }
+  .site-nav .nav-more:hover { color: var(--text); background: var(--active-bg); }
   .site-nav .nav-more-panel {
+    display: block;
     position: absolute;
     top: 100%;
     left: 12px;
