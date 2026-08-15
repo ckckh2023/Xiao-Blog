@@ -10,7 +10,7 @@
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
-      { "title": "VSCode Copilot 官方博客", "url": "https://code.visualstudio.com/blogs/2023/03/30/vscode-copilot" }
+      { "title": "VSCode官方文档", "url": "https://code.visualstudio.com/docs" }
     ],
     "status": "active",
     "repoUrl": "https://github.com/microsoft/vscode",
@@ -30,7 +30,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/chatboxai/chatbox",
-    "tags": ["AI","聊天"],
+    "tags": ["AI","聊天","跨平台"],
     "recommendReason": "全平台覆盖，一键切换多种 AI 模型，自定义 API 接入，是 AI 爱好者的随身“瑞士军刀”。"
   },
   {
@@ -49,5 +49,23 @@
     "repoUrl": null,
     "tags": ["C++", "教育", "轻量级"],
     "recommendReason": "对编程新生极其友好，无需复杂配置即可上手，适合课堂作业和刷题练手，但官方已多年未更新，建议仅用于学习场景。"
+  },
+  {
+    "id": "echomusic",
+    "name": "EchoMusic",
+    "description": "一款专为桌面端打造的简约、精致、功能强大的第三方酷狗概念版音乐播放器，支持深色/浅色主题、主题色自定义、外部歌单导入及丰富的音频增强功能。",
+    "officialUrl": "null",
+    "iconUrl": "https://raw.githubusercontent.com/hoowhoami/EchoMusic/main/build/icons/icon.png",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/hoowhoami/EchoMusic/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "EchoMusic官方文档", "url": "https://echomusic.cc.cd/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/hoowhoami/EchoMusic",
+    "tags": ["音乐播放器", "第三方客户端", "Electron", "跨平台"],
+    "recommendReason": "集美观与强大功能于一身，支持多平台歌单导入、10段EQ均衡器、空间音效、桌面歌词、插件扩展等高级特性，完美适配Windows、macOS和Linux，是酷狗音乐用户的理想第三方替代品。"
   }
 ]

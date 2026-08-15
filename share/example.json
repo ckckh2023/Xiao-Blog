@@ -1,0 +1,22 @@
+[
+  {
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "officialUrl": "string or null",
+    "iconUrl": "string or null",
+    "installType": [
+      { "title": "string", "url": "string" },
+      { "title": "string", "url": "string" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "string", "url": "string" },
+      { "title": "string", "url": "string" }
+    ],
+    "status": "active or unknown or deprecated",
+    "repoUrl": "string or null",
+    "tags": ["tags", "tags", "tags"],
+    "recommendReason": "string"
+  }
+]

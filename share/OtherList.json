@@ -2,9 +2,9 @@
   {
     "id": "maple-mono",
     "name": "Maple Mono",
-    "description": "开源圆角等宽字体，专为开发者和极客设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项[reference:0]。",
+    "description": "开源圆角等宽字体，专为开发者和极客设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
     "officialUrl": "https://font.subf.dev",
-    "iconUrl": "https://github.com/subframe7536/maple-font/blob/variable/assets/icon.png?raw=true",
+    "iconUrl": "https://font.subf.dev/favicon.svg",
     "installType": [
       { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
       { "title": "Scoop", "url": "https://github.com/subframe7536/maple-font#download-and-installation" },
@@ -17,5 +17,24 @@
     "repoUrl": "https://github.com/subframe7536/maple-font",
     "tags": ["字体", "等宽字体", "连字", "Nerd-Font", "CJK", "圆角"],
     "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体[reference:1]，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽[reference:2]；可变字体、圆角设计和细粒度 OpenType 配置[reference:3]，让编码体验丝滑且高度个性化。"
+  },
+  {
+    "id": "github-chinese",
+    "name": "GitHub 中文化插件",
+    "description": "一款让 GitHub 界面全面中文化的用户脚本，支持菜单栏、标题、按钮等界面元素的智能汉化，并具备正则匹配、时间本地化等高级功能。",
+    "officialUrl": "null",
+    "iconUrl": "null",
+    "installType": [
+      { "title": "GreasyFork（稳定版）", "url": "https://greasyfork.org/scripts/435208" },
+      { "title": "GitHub（开发版）", "url": "https://github.com/maboloshi/github-chinese/raw/gh-pages/main.user.js" },
+      { "title": "南大镜像（开发版）", "url": "https://mirror.nju.edu.cn/github-chinese/main(nju.edu).user.js" },
+      { "title": "VS Code 扩展", "url": "https://github.com/maboloshi/github-chinese/actions/runs/31630076817/artifacts/9154698976" }
+    ],
+    "platforms": ["Web"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/maboloshi/github-chinese",
+    "tags": ["GitHub", "汉化", "中文化", "用户脚本", "Tampermonkey", "浏览器扩展"],
+    "recommendReason": "源自 52cik/github-hans，持续更新维护，支持 Tampermonkey、Violentmonkey 等多种脚本管理器，提供开发版与稳定版双通道，词库每周自动更新，让中文用户无障碍使用 GitHub。"
   }
 ]
