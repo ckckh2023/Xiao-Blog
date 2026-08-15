@@ -437,5 +437,10 @@
   document.addEventListener("DOMContentLoaded", function () {
     mountNav();
     mountYear();
+    /* 全站公告：GitHub 账号被标记，部分内容不可见 */
+    showNotice(
+      "本站 GitHub 账号目前被标记，部分内容不可见，但文档、分享等内容仍可正常访问。",
+      { level: "warn", closable: true, autoHide: 0 }
+    );
   });
 })(window);
