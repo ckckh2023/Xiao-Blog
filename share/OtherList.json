@@ -7,9 +7,8 @@
     "iconUrl": "https://font.subf.dev/favicon.svg",
     "installType": [
       { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
-      { "title": "Scoop", "url": "https://github.com/subframe7536/maple-font#download-and-installation" },
-      { "title": "Homebrew", "url": "https://github.com/subframe7536/maple-font#download-and-installation" },
-      { "title": "AUR/Paru", "url": "https://github.com/subframe7536/maple-font#download-and-installation" }
+      { "title": "懒人包（GitHub Releases）", "url": "https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN-unhinted.zip" },
+      { "title": "懒人包（123云盘）", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-DeiM" }
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [],
@@ -34,7 +33,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/maboloshi/github-chinese",
-    "tags": ["GitHub", "汉化", "中文化", "用户脚本", "Tampermonkey", "浏览器扩展"],
+    "tags": ["GitHub汉化", "中文", "用户脚本", "Tampermonkey", "浏览器扩展"],
     "recommendReason": "源自 52cik/github-hans，持续更新维护，支持 Tampermonkey、Violentmonkey 等多种脚本管理器，提供开发版与稳定版双通道，词库每周自动更新，让中文用户无障碍使用 GitHub。"
   }
 ]
