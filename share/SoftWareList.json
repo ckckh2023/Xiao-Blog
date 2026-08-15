@@ -2,13 +2,12 @@
   {
     "id": "vscode",
     "name": "Visual Studio Code",
-    "description": "微软开源的跨平台代码编辑器，拥有海量插件生态",
+    "description": "微软出品、开源免费的超级代码编辑器，凭借海量插件和极佳性能，成为全球开发者的桌面标配。",
     "officialUrl": "https://code.visualstudio.com",
     "iconUrl": "https://code.visualstudio.com/assets/apple-touch-icon.png",
     "installType": [
       { "title": "官方", "url": "https://code.visualstudio.com/download" }
     ],
-    "category": "software",
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
       { "title": "VSCode Copilot 官方博客", "url": "https://code.visualstudio.com/blogs/2023/03/30/vscode-copilot" }
@@ -16,41 +15,39 @@
     "status": "active",
     "repoUrl": "https://github.com/microsoft/vscode",
     "tags": ["编辑器", "插件", "微软"],
-    "recommendReason": "插件市场覆盖所有开发场景，启动速度极快"
+    "recommendReason": "插件生态覆盖前后端、AI、云原生等所有热门领域，启动轻快，定制灵活，堪称“编辑器之王”。"
   },
   {
     "id": "chatbox",
     "name": "ChatBox",
-    "description": "通用 AI 聊天工具，支持大部分 AI 模型",
+    "description": "一款颜值与实力并存的通用 AI 聊天客户端（其实颜值并不高），聚合主流模型，支持私有 API，让你自由畅聊。",
     "officialUrl": "https://chatboxai.app/zh/",
     "iconUrl": "https://chatboxai.app/icon.png",
     "installType": [
       { "title": "官方", "url": "https://chatboxai.app/zh#download" }
     ],
-    "category": "software",
     "platforms": ["Windows", "macOS", "Linux", "Web", "Android", "iOS"],
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/chatboxai/chatbox",
     "tags": ["AI","聊天"],
-    "recommendReason": "支持多种 AI 模型，支持自定义 API"
+    "recommendReason": "全平台覆盖，一键切换多种 AI 模型，自定义 API 接入，是 AI 爱好者的随身“瑞士军刀”。"
   },
   {
     "id": "devcpp",
     "name": "Dev-C++",
-    "description": "Windows 平台经典的 C/C++ 轻量级集成开发环境",
+    "description": "Windows 上经典的轻量级 C/C++ IDE，界面简洁，专为入门学习和竞赛调试而设计。",
     "officialUrl": "https://www.bloodshed.net/",
     "iconUrl": "https://a.fsdn.com/allura/p/orwelldevcpp/icon?1480458710",
     "installType": [
       { "title": "SourceForge", "url": "https://sourceforge.net/projects/orwelldevcpp/" },
-      { "title": "123云盘", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-lgiI" }
+      { "title": "123云盘", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-WmjI" }
     ],
-    "category": "software",
     "platforms": ["Windows"],
     "blogs": [],
     "status": "deprecated",
     "repoUrl": null,
     "tags": ["C++", "教育", "轻量级"],
-    "recommendReason": "对大学新生非常友好，开箱即用，但官网更新频率存疑"
+    "recommendReason": "对编程新生极其友好，无需复杂配置即可上手，适合课堂作业和刷题练手，但官方已多年未更新，建议仅用于学习场景。"
   }
 ]

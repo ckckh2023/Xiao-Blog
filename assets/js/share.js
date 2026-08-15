@@ -11,16 +11,27 @@
   var utils = global.Utils;
   var root = global.root;
 
-  /* 分享列表（格式见 /share/ShareList.json） */
+  /* 软件列表（格式见 /share/SoftWareList.json） */
   function fetchShareList() {
-    return utils.fetchJSON(root() + "share/ShareList.json").then(function (list) {
+    return utils.fetchJSON(root() + "share/SoftWareList.json").then(function (list) {
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
-      console.warn("[share] ShareList.json 加载失败：", err);
+      console.warn("[share] SoftWareList.json 加载失败：", err);
       return [];
     });
   }
   global.fetchShareList = fetchShareList;
+
+  /* 其他列表（格式见 /share/OtherList.json） */
+  function fetchOtherList() {
+    return utils.fetchJSON(root() + "share/OtherList.json").then(function (list) {
+      return Array.isArray(list) ? list : [];
+    }).catch(function (err) {
+      console.warn("[share] OtherList.json 加载失败：", err);
+      return [];
+    });
+  }
+  global.fetchOtherList = fetchOtherList;
 
   /* ---------- 状态 LED ---------- */
   function statusInfo(s) {

@@ -302,9 +302,7 @@
       networkHintShown = true;
       var hint = document.createElement("div");
       hint.className = "gb-network-hint";
-      hint.innerHTML = "无法连接到 GitHub Issue，可以尝试在这里直接发表留言：" +
-        '<a class="gb-network-link" href="' + GB_ISSUE_URL +
-        '" target="_blank" rel="noopener">网页链接</a>';
+      hint.innerHTML = "无法连接到 GitHub Issue，可以尝试在<a class='gb-network-link' href='" + GB_ISSUE_URL + "' target='_blank' rel='noopener'>这里</a>直接发表留言，也可以尝试使用魔法重试";
       err.insertAdjacentElement("afterend", hint);
     }
   }
@@ -339,7 +337,7 @@
     var refreshBtn = document.getElementById("guestbook-refresh");
     if (refreshBtn) refreshBtn.addEventListener("click", refreshWall);
     if (!isConfigured()) {
-      global.showNotice("留言功能需要 GitHub OAuth App 配置，请在 assets/js/guestbook.js 顶部填写 clientID / clientSecret。", { level: "warn", autoHide: 0 });
+      global.showNotice("留言功能需要 GitHub OAuth App 配置，请联系网站开发者。", { level: "warn", autoHide: 0 });
     }
     var cached = readWallCache();
     if (cached) {

@@ -8,7 +8,6 @@
     "installType": [
       { "title": "官方", "url": "https://code.visualstudio.com/download" }
     ],
-    "category": "software",
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
       { "title": "VSCode Copilot 官方博客", "url": "https://code.visualstudio.com/blogs/2023/03/30/vscode-copilot" }
@@ -27,7 +26,6 @@
     "installType": [
       { "title": "官方", "url": "https://chatboxai.app/zh#download" }
     ],
-    "category": "software",
     "platforms": ["Windows", "macOS", "Linux", "Web", "Android", "iOS"],
     "blogs": [],
     "status": "active",

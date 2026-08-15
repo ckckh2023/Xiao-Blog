@@ -66,11 +66,18 @@
   <script src="/assets/js/common.js"></script>
   <script src="/assets/js/share.js"></script>
   <script>
-    /* 全部分享：从 /share/ShareList.json 加载；
+    /* 软件列表：/share/SoftWareList.json；其他列表：/share/OtherList.json
+       分类切换条直接切换数据源（不再依赖 item.category 字段）。
        筛选链路：分类(software/other) → 标签 → 搜索框，三级叠加。
+       搜索仅作用于当前分类的数据集（符合直觉：在"软件"下搜只搜软件）。
        侧边栏标签由当前分类下的项目聚合（按频次降序）。 */
-    var allShares = [];
+    var softwareList = [];
+    var otherList = [];
     var filterState = { category: "software", tag: null, query: "" };
+
+    function getCurrentList() {
+      return filterState.category === "other" ? otherList : softwareList;
+    }
 
     function matchShare(it, q) {
       var fields = [it.id, it.name, it.description];
@@ -97,10 +104,7 @@
     }
 
     function renderTagList() {
-      var catList = allShares.filter(function (it) {
-        return it.category === filterState.category;
-      });
-      var tags = collectTags(catList);
+      var tags = collectTags(getCurrentList());
       var box = document.getElementById("share-tags");
       if (!tags.length) {
         box.innerHTML = '<div class="share-tags-empty">暂无标签</div>';
@@ -116,9 +120,7 @@
 
     /* 应用三级筛选并渲染卡片 */
     function applyFilter() {
-      var list = allShares.filter(function (it) {
-        return it.category === filterState.category;
-      });
+      var list = getCurrentList().slice();
       if (filterState.tag) {
         list = list.filter(function (it) {
           return Array.isArray(it.tags) && it.tags.indexOf(filterState.tag) !== -1;
@@ -164,8 +166,10 @@
       applyFilter();
     });
 
-    fetchShareList().then(function (list) {
-      allShares = list;
+    /* 并行加载两个数据源，完成后渲染默认分类（软件） */
+    Promise.all([fetchShareList(), fetchOtherList()]).then(function (results) {
+      softwareList = results[0];
+      otherList = results[1];
       renderTagList();
       applyFilter();
       mountSearchBox("#share-search", {
