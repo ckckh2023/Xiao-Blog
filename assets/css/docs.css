@@ -269,3 +269,29 @@
   }
   .docs-content { padding: 24px 16px 48px; }
 }
+
+/* ---------- 文章正文表格（Markdown table 渲染） ---------- */
+.doc-body table {
+  border-collapse: collapse;
+  margin: 16px 0;
+  width: 100%;
+  font-size: 14px;
+}
+.doc-body th, .doc-body td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.doc-body thead th {
+  background: var(--code-bg);
+  font-weight: 700;
+  color: var(--text);
+}
+.doc-body tbody tr:nth-child(even) {
+  background: var(--active-bg);
+}
+.doc-body table a { color: var(--link); }
+.doc-body table a:hover { color: var(--link-hover); }

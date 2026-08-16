@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ckckh2023 - 关于</title>
+  <meta name="description" content="关于 xiao-blog.top 本站与博主 ckckh2023 的信息、联系方式、隐私政策等">
+  <script src="/assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="/assets/css/common.css">
+  <link rel="stylesheet" href="/assets/css/about.css">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/ckckh2023">
+  <link rel="canonical" href="https://xiao-blog.top/about/index.html">
+  <meta property="og:site_name" content="ckckh2023">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="ckckh2023 - 关于本站">
+  <meta property="og:description" content="关于本站与博主的信息、联系方式、隐私政策">
+  <meta property="og:url" content="https://xiao-blog.top/about/index.html">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/ckckh2023">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ckckh2023 - 关于本站">
+  <meta name="twitter:description" content="关于本站与博主的信息、联系方式、隐私政策">
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/ckckh2023">
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <main class="container wide">
+    <div class="section-title">
+      <span>关于本站</span>
+      <a class="more-link" href="/index.html">« 返回首页</a>
+    </div>
+
+    <!-- 网站统计 -->
+    <section class="about-card">
+      <h2 class="about-card-title">网站统计</h2>
+      <div class="about-stats" id="about-stats">
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-docs">-</span>
+          <span class="about-stat-label">篇文章</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-repos">-</span>
+          <span class="about-stat-label">个项目</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-shares">-</span>
+          <span class="about-stat-label">个分享</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-guestbook">-</span>
+          <span class="about-stat-label">条留言</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num" id="stat-days">-</span>
+          <span class="about-stat-label">天运行</span>
+        </div>
+      </div>
+      <p class="about-updated">最后更新：<span id="stat-updated">-</span></p>
+    </section>
+
+    <!-- 站点信息 -->
+    <section class="about-card" hidden>
+      <h2 class="about-card-title">站点信息</h2>
+      <p class="about-lead" id="about-bio">一个记录学习与开发经验、分享实用工具与资源的小角落。</p>
+      <dl class="about-info-list">
+        <dt>建站初衷</dt>
+        <dd>记录学习与开发过程中的踩坑经验，整理分享实用工具与资源，也作为个人技术成长的留存。</dd>
+        <dt>技术架构</dt>
+        <dd>纯静态 HTML / CSS / JavaScript，零构建零依赖，源码即产物。首页部分卡片使用 Vue 3 渲染。</dd>
+        <dt>部署方式</dt>
+        <dd>Cloudflare Pages + Pages Functions，自定义域名 xiao-blog.top。</dd>
+        <dt>数据存储</dt>
+        <dd>Cloudflare D1（SQLite 托管），仅留言板使用，其余内容均为静态文件。</dd>
+        <dt>建站日期</dt>
+        <dd>2026-08-13</dd>
+      </dl>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="about-card" hidden>
+      <h2 class="about-card-title">联系方式</h2>
+      <ul class="about-contact-list">
+        <li>
+          <span class="about-contact-icon" aria-hidden="true">GH</span>
+          <a href="https://github.com/ckckh2023" target="_blank" rel="noopener">GitHub @ckckh2023</a>
+        </li>
+        <li>
+          <span class="about-contact-icon" aria-hidden="true">GT</span>
+          <a href="https://gitee.com/ckckh2023" target="_blank" rel="noopener">Gitee @ckckh2023</a>
+        </li>
+        <li>
+          <span class="about-contact-icon" aria-hidden="true">@</span>
+          <span id="about-email">fightened2023@foxmail.com</span>
+        </li>
+        <li>
+          <span class="about-contact-icon" aria-hidden="true">★</span>
+          <span id="about-blog">待补充</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- RSS 订阅 -->
+    <section class="about-card" hidden>
+      <h2 class="about-card-title">RSS 订阅</h2>
+      <p>通过 RSS 阅读器订阅本站，及时获取文档更新推送，无需逐页查看。</p>
+      <a class="about-rss-link" href="/rss.xml" target="_blank" rel="noopener">订阅源 /rss.xml</a>
+    </section>
+
+    <!-- 赞赏 / 支持 -->
+    <section class="about-card" hidden>
+      <h2 class="about-card-title">赞赏 / 支持</h2>
+      <p>如果本站内容对你有帮助，可以请博主喝杯咖啡，支持持续更新。</p>
+      <div class="about-qr">
+        <div class="about-qr-item">
+          <div class="about-qr-img">
+            <img src="/about/wechat-qr.png" alt="微信赞赏码"
+                 onerror="this.style.display='none';this.parentElement.textContent='待补充图片'">
+          </div>
+          <span class="about-qr-label">微信</span>
+        </div>
+        <div class="about-qr-item">
+          <div class="about-qr-img">
+            <img src="/about/alipay-qr.png" alt="支付宝赞赏码"
+                 onerror="this.style.display='none';this.parentElement.textContent='待补充图片'">
+          </div>
+          <span class="about-qr-label">支付宝</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 隐私政策 -->
+    <section class="about-card" hidden>
+      <h2 class="about-card-title">隐私政策</h2>
+      <p>本站高度重视你的隐私，整体遵循「最小化收集、不追踪、不贩卖」原则：</p>
+      <ul class="about-privacy-list">
+        <li><strong>留言板</strong>：仅存储你主动填写的昵称、正文与头像信息。IP 地址经 SHA-256 加盐哈希后存储，<em>不保存原始 IP</em>，仅用于 10 分钟频率限制。</li>
+        <li><strong>头像获取</strong>：可选填写 QQ 号以获取头像，QQ 号本身<em>不存储</em>，仅生成头像 URL。</li>
+        <li><strong>GitHub 数据</strong>：项目页通过 GitHub API 拉取公开仓库信息，使用 ETag 条件请求与本地缓存，不涉及你的账号数据。</li>
+        <li><strong>无第三方追踪</strong>：不使用 Google Analytics、百度统计等追踪脚本，不写入追踪 Cookie。</li>
+        <li><strong>主题偏好</strong>：深浅色模式选择存储于浏览器 localStorage，不上传服务器。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> ckckh2023 · Powered by Cloudflare Pages
+  </footer>
+
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/about.js"></script>
+</body>
+</html>

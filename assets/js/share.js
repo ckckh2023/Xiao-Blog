@@ -40,13 +40,17 @@
     return { cls: "sc-status-unknown", label: "状态未知" };
   }
 
-  /* ---------- 主按钮：优先主页，次仓库，都没有则灰色 ---------- */
+  /* ---------- 主按钮：优先主页，次仓库，都没有则灰色 ----------
+     URL 可能是 null / 空串 / 字符串 "null"，统一视为不存在 */
+  function isRealUrl(u) {
+    return !!u && typeof u === "string" && u !== "null" && u.trim() !== "";
+  }
   function primaryBtn(item) {
-    if (item.officialUrl) {
+    if (isRealUrl(item.officialUrl)) {
       return '<a class="btn btn-primary" href="' + utils.escapeHTML(item.officialUrl) +
         '" target="_blank" rel="noopener">访问主页</a>';
     }
-    if (item.repoUrl) {
+    if (isRealUrl(item.repoUrl)) {
       return '<a class="btn" href="' + utils.escapeHTML(item.repoUrl) +
         '" target="_blank" rel="noopener">访问仓库</a>';
     }
@@ -118,7 +122,7 @@
 
     /* 图标节点：有 iconUrl 用 img（onerror 回退首字母方块）；无则直接首字母方块 */
     var iconNode;
-    if (item.iconUrl) {
+    if (isRealUrl(item.iconUrl)) {
       iconNode =
         '<img class="sc-icon" src="' + utils.escapeHTML(item.iconUrl) + '" alt="' +
           utils.escapeHTML(name) + '" ' +

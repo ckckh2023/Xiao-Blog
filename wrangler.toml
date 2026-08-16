@@ -1,0 +1,16 @@
+# Cloudflare Pages 配置：D1 数据库绑定
+# 部署：wrangler pages deploy . --project-name=xiao-blog
+# 本地开发：wrangler pages dev .
+#
+# 获取 database_id：运行 `wrangler d1 list` 查看 xiao-guestbook 的 ID，填到下方。
+# 或在 Cloudflare Dashboard → Pages 项目 → Settings → Functions → D1 bindings 手动绑定：
+#   变量名 GUESTBOOK → 数据库 xiao-guestbook
+
+name = "xiao-blog"
+compatibility_date = "2024-09-01"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "GUESTBOOK"
+database_name = "xiao-guestbook"
+database_id = "ec50a6ab-f132-4217-b000-99a13ddb53aa"

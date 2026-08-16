@@ -18,5 +18,10 @@
       }
     ]
   },
-  { "id": "git-tips", "title": "Git 常见冲突解决" }
+  { "id": "git-tips", "title": "Git 常见冲突解决" },
+  { "id": "image-url", "title": "图片URL讲解",
+    "children": [
+      { "id": "qq-image-url", "title": "QQ头像URL获取" }
+    ]
+  }
 ]

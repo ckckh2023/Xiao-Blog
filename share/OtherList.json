@@ -14,15 +14,15 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/subframe7536/maple-font",
-    "tags": ["字体", "等宽字体", "连字", "Nerd-Font", "CJK", "圆角"],
-    "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体[reference:1]，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽[reference:2]；可变字体、圆角设计和细粒度 OpenType 配置[reference:3]，让编码体验丝滑且高度个性化。"
+    "tags": ["字体", "开发者工具"],
+    "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽；可变字体、圆角设计和细粒度 OpenType 配置，让编码体验丝滑且高度个性化。"
   },
   {
     "id": "github-chinese",
     "name": "GitHub 中文化插件",
     "description": "一款让 GitHub 界面全面中文化的用户脚本，支持菜单栏、标题、按钮等界面元素的智能汉化，并具备正则匹配、时间本地化等高级功能。",
-    "officialUrl": "null",
-    "iconUrl": "null",
+    "officialUrl": null,
+    "iconUrl": null,
     "installType": [
       { "title": "GreasyFork（稳定版）", "url": "https://greasyfork.org/scripts/435208" },
       { "title": "GitHub（开发版）", "url": "https://github.com/maboloshi/github-chinese/raw/gh-pages/main.user.js" },
@@ -33,7 +33,193 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/maboloshi/github-chinese",
-    "tags": ["GitHub汉化", "中文", "用户脚本", "Tampermonkey", "浏览器扩展"],
+    "tags": ["用户脚本", "浏览器扩展"],
     "recommendReason": "源自 52cik/github-hans，持续更新维护，支持 Tampermonkey、Violentmonkey 等多种脚本管理器，提供开发版与稳定版双通道，词库每周自动更新，让中文用户无障碍使用 GitHub。"
+  },
+  {
+    "id": "github-proxy",
+    "name": "GitHub Proxy Website (Akams)",
+    "description": "一个为 GitHub 用户提供文件加速访问的公益服务项目。支持 API、Git Clone、Releases、Archive、Gist、Raw 等多种资源的代理加速下载，用户只需将 GitHub 链接粘贴到输入框或通过 URL 前缀代理方式即可快速下载。",
+    "officialUrl": "https://github.akams.cn/",
+    "iconUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M7.75 11c-.69 0-1.25.56-1.25 1.25v1.5a1.25 1.25 0 1 0 2.5 0v-1.5C9 11.56 8.44 11 7.75 11zm1.27 4.5a.469.469 0 0 1 .48-.5h5a.47.47 0 0 1 .48.5c-.116 1.316-.759 2.5-2.98 2.5s-2.864-1.184-2.98-2.5zm7.23-4.5c-.69 0-1.25.56-1.25 1.25v1.5a1.25 1.25 0 1 0 2.5 0v-1.5c0-.69-.56-1.25-1.25-1.25z\"/><path fill-rule=\"evenodd\" d=\"M21.255 3.82a1.725 1.725 0 0 0-2.141-1.195c-.557.16-1.406.44-2.264.866c-.78.386-1.647.93-2.293 1.677A18.442 18.442 0 0 0 12 5c-.93 0-1.784.059-2.569.17c-.645-.74-1.505-1.28-2.28-1.664a13.876 13.876 0 0 0-2.265-.866a1.725 1.725 0 0 0-2.141 1.196a23.645 23.645 0 0 0-.69 3.292c-.125.97-.191 2.07-.066 3.112C1.254 11.882 1 13.734 1 15.527C1 19.915 3.13 23 12 23c8.87 0 11-3.053 11-7.473c0-1.794-.255-3.647-.99-5.29c.127-1.046.06-2.15-.066-3.125a23.652 23.652 0 0 0-.689-3.292zM20.5 14c.5 3.5-1.5 6.5-8.5 6.5s-9-3-8.5-6.5c.583-4 3-6 8.5-6s7.928 2 8.5 6z\"/></svg>",
+    "installType": [],
+    "platforms": ["Web"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["代理", "网络加速", "公益服务"],
+    "recommendReason": "作为一款公益性质的 GitHub 加速服务，它无需注册、无需搭建服务器即可使用。网站本身也是一个镜像合集站点，汇集了当前可用的数十个镜像站点。支持 API、Git Clone、Releases、Archive、Gist、Raw 等多种资源的代理加速，能有效解决国内访问 GitHub 速度慢或无法访问的问题。"
+  },
+  {
+    "id": "mingw",
+    "name": "Mingw-w64",
+    "description": "Windows 平台上的 GCC 编译工具链，支持 C、C++、Fortran 等多种语言，提供完整的 POSIX 兼容层和 Windows 原生 API 接口，是开发跨平台 C/C++ 应用的基石。",
+    "officialUrl": "https://www.mingw-w64.org/",
+    "iconUrl": "https://www.mingw-w64.org/logo.svg",
+    "installType": [
+      { "title": "SourceForge", "url": "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/mingw-w64/mingw-w64",
+    "tags": ["C++", "编译器"],
+    "recommendReason": "作为 Windows 上最成熟的开源编译环境，它支持 32/64 位应用编译，与 MSYS2、CMake 等工具无缝集成，被 Code::Blocks、CLion 等 IDE 广泛采用，是开源开发者从 Linux 迁移到 Windows 的首选编译工具。"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "description": "一个基于 Chrome V8 引擎的免费、开源、跨平台 JavaScript 运行时环境，让开发者能够使用 JavaScript 编写命令行工具和服务器端脚本，AI agent工具很多都需要它。",
+    "officialUrl": "https://nodejs.org/",
+    "iconUrl": "https://nodejs.org/static/images/logo-hexagon-card.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://nodejs.org/zh-cn/download" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Node.js 官方博客", "url": "https://nodejs.org/en/blog/" },
+      { "title": "Node.js 中文文档", "url": "https://nodejs.org/zh-cn/docs/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/nodejs/node",
+    "tags": ["运行时", "跨平台"],
+    "recommendReason": "作为服务端 JavaScript 的事实标准，Node.js 采用事件驱动、非阻塞 I/O 模型，轻量且高效。它拥有 npm 全球最大的开源库生态系统，由 OpenJS 基金会托管并采用开放治理模式，社区极为活跃。无论是构建微服务、CLI 工具还是全栈应用，Node.js 都是现代开发者的核心基础设施。"
+  },
+  {
+    "id": "office-tool-plus",
+    "name": "Office Tool Plus",
+    "description": "一款强大且实用的 Office 部署与管理工具，基于微软官方 Office 部署工具（ODT）制作，支持自定义安装、激活、卸载及配置管理，内置迅雷和 Downloader 下载引擎，让 Office 的部署与管理变得简单高效。",
+    "officialUrl": "https://otp.landian.vip/",
+    "iconUrl": "https://otp.landian.vip/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://otp.landian.vip/zh-cn/download.html" },
+      { "title": "GitHub Releases", "url": "https://github.com/YerongAI/Office-Tool/releases/latest" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "Office Tool Plus官方文档", "url": "https://www.officetool.plus/zh-cn/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/YerongAI/Office-Tool",
+    "tags": ["Office", "部署工具"],
+    "recommendReason": "完全免费开源，所有安装文件均来自微软官方服务器；支持 Microsoft 365、Office 2016-2024、Visio、Project 等全系列产品；提供自定义部署、激活管理、强制卸载、创建 ISO、文档转换等丰富功能；绿色免安装，解压即用，是 Office 部署与管理的一站式解决方案。"
+  },
+  {
+    "id": "diskgenius",
+    "name": "DiskGenius",
+    "description": "一款集数据恢复、分区管理、备份还原于一体的专业磁盘工具软件，由DOS版DiskMan发展而来，支持MBR/GPT分区表及NTFS、FAT32、exFAT、ReFS、EXT4等十余种文件系统。",
+    "officialUrl": "https://www.diskgenius.cn/",
+    "iconUrl": "https://www.diskgenius.cn/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.diskgenius.cn/download.php" },
+      { "title": "64位便携版", "url": "https://www.diskgenius.cn/download/DGFree_x64.zip" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["磁盘工具", "数据恢复"],
+    "recommendReason": "二十七年匠心打磨的国产磁盘工具标杆，集分区管理、数据恢复、系统迁移、坏道检测修复于一体；支持无损调整分区大小、GPT/MBR互转、RAID虚拟重组、虚拟机磁盘直读等高级功能；提供免费版和专业版，同一安装包注册即升级，是个人用户和企业运维的磁盘管理首选工具。"
+  },
+  {
+    "id": "geek",
+    "name": "Geek Uninstaller",
+    "description": "一款专为 Windows 设计的免费、绿色、轻量级软件卸载工具，能够彻底卸载应用程序并深度清理残留的文件与注册表项，有效解决软件卸载不净的问题。",
+    "officialUrl": "https://geekuninstaller.com",
+    "iconUrl": "https://geekuninstaller.com/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://geekuninstaller.com/download" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["卸载工具", "系统工具"],
+    "recommendReason": "单文件绿色便携，体积仅 3MB 左右；支持常规卸载与强制卸载模式，可绕过损坏软件的卸载程序直接清理；卸载后通过深度扫描自动清理残留，并兼容卸载 Microsoft Store 应用，是 Windows 用户必备的卸载利器。"
+  },
+  {
+    "id": "rufus",
+    "name": "Rufus",
+    "description": "一款免费、开源、轻量级的USB启动盘制作工具，可将ISO镜像快速写入U盘，用于系统安装、BIOS刷写等场景。",
+    "officialUrl": "https://rufus.ie/",
+    "iconUrl": "https://rufus.ie/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://rufus.ie/downloads/" },
+      { "title": "GitHub Releases", "url": "https://github.com/pbatard/rufus/releases" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/pbatard/rufus",
+    "tags": ["启动盘", "系统工具"],
+    "recommendReason": "Rufus以其极小的体积、媲美同类工具两倍的制作速度和强大的功能著称。它支持UEFI与Legacy双启动模式，能绕过TPM等限制安装Windows 11，甚至可检测扩容U盘，是装机必备的神器。"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "description": "一个开源的容器化平台，允许开发者将应用及其依赖打包成轻量、可移植的容器，在任何支持 Docker 的环境中以一致的方式运行。它极大地简化了开发、部署和运维流程，是现代云原生和微服务架构的基石。",
+    "officialUrl": "https://www.docker.com/",
+    "iconUrl": "https://www.docker.com/app/uploads/2024/02/cropped-docker-logo-favicon-270x270.png",
+    "installType": [],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Docker 官方文档", "url": "https://docs.docker.com/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/docker/docker-ce",
+    "tags": ["容器", "虚拟化", "跨平台"],
+    "recommendReason": "作为容器技术的行业标准，Docker 让环境一致性、快速交付和资源隔离变得前所未有的简单，强大的生态和社区支持使其成为开发和运维人员必备的核心工具。"
+  },
+  {
+    "id": "python-install-manager",
+    "name": "Python install manager",
+    "description": "Python 官方推出的 Windows 运行时安装与管理工具，用于替代传统的可执行安装程序（传统安装程序将从 Python 3.16 起停止发布）。",
+    "officialUrl": "https://www.python.org/",
+    "iconUrl": "https://www.python.org/static/favicon.ico",
+    "installType": [
+      { "title": "MSIX 安装包", "url": "https://www.python.org/ftp/python/pymanager/python-manager-26.3.msix" },
+      { "title": "MSI 安装包", "url": "https://www.python.org/ftp/python/pymanager/python-manager-26.3.msi" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/python/pymanager",
+    "tags": ["Python", "版本管理"],
+    "recommendReason": "Python 官方推出的下一代 Windows 安装管理方案，通过 `py` 命令即可安装、管理和切换多个 Python 版本（支持回溯到 3.5），告别传统 exe 安装器的繁琐；自动更新、配置检查、完整清理等特性一应俱全，是 Windows 下 Python 开发者的官方首选工具。"
+  },
+  {
+    "id": "comfyui",
+    "name": "ComfyUI",
+   "description": "一款强大且模块化的开源AI图像生成图形界面，采用节点/流程图式界面，让用户无需编码即可设计并执行复杂的Stable Diffusion工作流。",
+    "officialUrl": "https://comfy.org/zh-CN/",
+    "iconUrl": "https://mintcdn.com/dripart/maKDA164-rrTfyxY/favicon.ico?fit=max",
+    "installType": [
+      { "title": "桌面应用 (Desktop App)", "url": "https://www.comfy.org/download" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "ComfyUI 官方文档", "url": "https://docs.comfy.org/zh/" },
+      { "title": "ComfyUI 示例工作流", "url": "https://comfyanonymous.github.io/ComfyUI_examples/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/Comfy-Org/ComfyUI",
+    "tags": ["AI绘画", "图像生成"],
+    "recommendReason": "作为全球领先的视觉AI平台，ComfyUI以可视化编程思维为核心，凭借其高显存效率（比同类工具节省30-50%显存）、强大的扩展性以及自动化友好的特性，已成为Black Forest Labs和Stability AI等模型发布机构的首选展示平台。"
+  },
+  {
+    "id": "xiazaitool",
+    "name": "下载狗 (视频解析下载工具)",
+    "description": "一款功能强大的在线视频解析与下载工具，支持哔哩哔哩、抖音、快手、小红书、TikTok、微博、YouTube、今日头条、Twitter(X)等国内外主流视频平台。提供网页在线版和桌面客户端，支持无水印下载、批量解析及4K超清视频下载等功能。",
+    "officialUrl": "https://www.xiazaitool.com/",
+    "iconUrl": "https://www.xiazaitool.com/parseVideo/image/logo.png",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.xiazaitool.com/parseVideo/main/clientDownload.html" }
+    ],
+    "platforms": ["Web", "Windows", "macOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["视频下载", "在线工具"],
+    "recommendReason": "支持国内外数十个主流视频平台，提供网页端与桌面客户端双模式，操作简单，输入链接即可解析下载。客户端版本支持B站1080p/4K超清视频下载、YouTube超清视频及下载记录功能，稳定性更佳[reference:9]。"
   }
 ]

@@ -61,7 +61,8 @@
   }
   global.fetchRepoLanguages = fetchRepoLanguages;
 
-  /* 并发 enrich 单个项目：简介 / star / 技术栈 */
+  /* 并发 enrich 单个项目：简介 / star / 技术栈
+     GitHub API 可用时以其为准（优先）；不可用时回退 JSON 预设的 desc / stars / tags */
   function enrichProject(p) {
     if (!p || !p.full_name) return Promise.resolve(p);
     return Promise.all([
@@ -70,12 +71,15 @@
     ]).then(function (arr) {
       var info = arr[0], langs = arr[1];
       if (info) {
+        /* GitHub API 优先：覆盖 JSON 预设值 */
         if (info.desc) p.desc = info.desc;
         p.stars = info.stars;
       } else {
-        p.desc = "暂无简介";
+        /* API 不可用：保留 JSON 预设的简介与 star，仅当无简介时给兜底文案 */
+        if (!p.desc) p.desc = "暂无简介";
       }
-      p.tags = (langs && langs.length) ? langs : [];
+      /* 技术栈：API 返回语言列表时以 API 为准，否则回退 JSON 预设 tags */
+      p.tags = (langs && langs.length) ? langs : (p.tags || []);
       return p;
     });
   }

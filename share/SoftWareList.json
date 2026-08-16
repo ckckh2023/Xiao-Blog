@@ -2,7 +2,7 @@
   {
     "id": "vscode",
     "name": "Visual Studio Code",
-    "description": "微软出品、开源免费的超级代码编辑器，凭借海量插件和极佳性能，成为全球开发者的桌面标配。",
+    "description": "微软推出的免费、开源、跨平台的轻量级代码编辑器，内置丰富的扩展支持，为开发者提供智能代码补全、调试、版本控制、终端等一站式编码体验。",
     "officialUrl": "https://code.visualstudio.com",
     "iconUrl": "https://code.visualstudio.com/assets/apple-touch-icon.png",
     "installType": [
@@ -14,7 +14,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/microsoft/vscode",
-    "tags": ["编辑器", "插件", "微软"],
+    "tags": ["编辑器", "跨平台"],
     "recommendReason": "插件生态覆盖前后端、AI、云原生等所有热门领域，启动轻快，定制灵活，堪称“编辑器之王”。"
   },
   {
@@ -30,7 +30,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/chatboxai/chatbox",
-    "tags": ["AI","聊天","跨平台"],
+    "tags": ["AI", "跨平台"],
     "recommendReason": "全平台覆盖，一键切换多种 AI 模型，自定义 API 接入，是 AI 爱好者的随身“瑞士军刀”。"
   },
   {
@@ -47,14 +47,50 @@
     "blogs": [],
     "status": "deprecated",
     "repoUrl": null,
-    "tags": ["C++", "教育", "轻量级"],
+    "tags": ["C++", "编辑器"],
     "recommendReason": "对编程新生极其友好，无需复杂配置即可上手，适合课堂作业和刷题练手，但官方已多年未更新，建议仅用于学习场景。"
+  },
+  {
+    "id": "reasonix",
+    "name": "DeepSeek-Reasonix",
+    "description": "一个以 DeepSeek 为核心的终端 AI 编程助手，围绕前缀缓存稳定性设计，支持命令行、桌面应用、浏览器和编辑器四种使用方式，提供计划模式、权限管理、工作区沙箱和每轮检查点等特性。",
+    "officialUrl": "https://esengine.github.io/DeepSeek-Reasonix/",
+    "iconUrl": "https://reasonix.io/favicon.svg",
+    "installType": [
+      { "title": "npm (CLI)", "url": "npm i -g reasonix" },
+      { "title": "GitHub Releases", "url": "https://github.com/esengine/DeepSeek-Reasonix/releases" },
+      { "title": "VS Code 扩展", "url": "https://marketplace.visualstudio.com/items?itemName=SivanLiu.reasonix-agent" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Reasonix官方文档", "url": "https://reasonix.cn/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/esengine/DeepSeek-Reasonix",
+    "tags": ["AI", "跨平台"],
+    "recommendReason": "专为 DeepSeek 原生设计的 AI 编码代理，以 Go 编写为单静态二进制文件，开箱即用；支持配置驱动、多模型组合、MCP 插件扩展和缓存感知上下文管理；提供 CLI、桌面应用、VS Code 扩展和浏览器四种接入方式，满足不同开发场景。"
+  },
+  {
+    "id": "motrix-next",
+    "name": "Motrix Next",
+    "description": "一款基于 Tauri 2 + Rust 从头重构的全功能下载管理器，支持 HTTP、FTP、ED2K、BitTorrent 及磁力链接，继承 Motrix 经典交互，拥有更轻量（~20MB）的安装包和更现代的技术栈。",
+    "officialUrl": null,
+    "iconUrl": "https://github.com/AnInsomniacy/motrix-next/raw/main/src/assets/logo.png",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/AnInsomniacy/motrix-next/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/AnInsomniacy/motrix-next",
+    "tags": ["下载管理", "跨平台"],
+    "recommendReason": "基于 Aria2 Next 引擎，采用 Tauri 2 + Vue 3 + TypeScript 重构，安装包仅 ~20MB；支持多协议下载、BT 选择性下载、浏览器扩展集成、系统托盘、代理控制等丰富特性，是 Motrix 用户的最佳升级选择。"
   },
   {
     "id": "echomusic",
     "name": "EchoMusic",
     "description": "一款专为桌面端打造的简约、精致、功能强大的第三方酷狗概念版音乐播放器，支持深色/浅色主题、主题色自定义、外部歌单导入及丰富的音频增强功能。",
-    "officialUrl": "null",
+    "officialUrl": null,
     "iconUrl": "https://raw.githubusercontent.com/hoowhoami/EchoMusic/main/build/icons/icon.png",
     "installType": [
       { "title": "GitHub Releases", "url": "https://github.com/hoowhoami/EchoMusic/releases/latest" }
@@ -65,7 +101,250 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/hoowhoami/EchoMusic",
-    "tags": ["音乐播放器", "第三方客户端", "Electron", "跨平台"],
+    "tags": ["音乐播放", "跨平台"],
     "recommendReason": "集美观与强大功能于一身，支持多平台歌单导入、10段EQ均衡器、空间音效、桌面歌词、插件扩展等高级特性，完美适配Windows、macOS和Linux，是酷狗音乐用户的理想第三方替代品。"
+  },
+  {
+    "id": "pwsh7",
+    "name": "PowerShell 7",
+    "description": "微软推出的新一代跨平台命令行 shell 和脚本语言，基于 .NET Core，兼容 Windows、macOS 和 Linux，提供强大的对象管道、自动化能力和丰富的系统管理功能。",
+    "officialUrl": null,
+    "iconUrl": "https://learn.microsoft.com/media/logos/logo-powershell-core.svg",
+    "installType": [
+      { "title": "微软商店", "url": "https://www.microsoft.com/store/apps/9MZ1SNWT0N5D" },
+      { "title": "GitHub Releases", "url": "https://github.com/PowerShell/PowerShell/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "PowerShell官方文档", "url": "https://learn.microsoft.com/zh-cn/powershell/scripting/install/install-powershell" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/PowerShell/PowerShell",
+    "tags": ["终端", "跨平台"],
+    "recommendReason": "作为现代化命令行工具，它融合了 Linux 管道的灵活性与对象导向的强类型，支持远程管理、JSON/REST API 集成，且与 Azure、Docker 等云原生生态无缝对接，是开发者和运维人员的高效利器。"
+  },
+  {
+    "id": "everything",
+    "name": "Everything",
+    "description": "一款专为 Windows 设计的极速文件搜索工具，基于文件名实时定位文件和文件夹，能在毫秒间从海量数据中精准找到目标，彻底解决系统自带搜索卡顿、速度慢的痛点。",
+    "officialUrl": "https://www.voidtools.com/zh-cn/",
+    "iconUrl": "https://www.voidtools.com/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.voidtools.com/zh-cn/download/" },
+      { "title": "微软商店", "url": "https://www.microsoft.com/store/apps/9NBLGGH5389K" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["文件搜索"],
+    "recommendReason": "体积小巧、占用极低系统资源，却能实现毫秒级全盘搜索；支持通配符、正则表达式、HTTP/FTP远程搜索等高级功能，是每一位 Windows 用户提升效率的必备神器。"
+  },
+  {
+    "id": "clash-verge-rev",
+    "name": "Clash Verge Rev",
+    "description": "一款基于 Tauri 框架构建的现代化跨平台 Clash Meta（Mihomo）图形用户界面客户端，是原 Clash Verge 停更后由社区持续维护的延续版本，提供简洁美观的界面和强大的代理管理功能。",
+    "officialUrl": null,
+    "iconUrl": "https://clashvergerev.com/index-image-src.png",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Clash Verge Rev 官方文档", "url": "https://clashvergerev.com" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/clash-verge-rev/clash-verge-rev",
+    "tags": ["代理", "跨平台"],
+    "recommendReason": "作为原 Clash Verge 的官方继任者，由社区活跃维护并持续跟随 Mihomo 内核更新；基于 Tauri 构建，界面简洁美观且资源占用低；支持 Windows、macOS 和 Linux 全平台，提供配置管理、系统代理、TUN 模式等丰富功能；版本迭代迅速，是当前桌面端 Clash GUI 的最佳选择之一。"
+  },
+  {
+    "id": "git",
+    "name": "Git",
+    "description": "一个免费、开源、分布式的版本控制系统（DVCS），用于高效处理从小型到超大型项目的版本管理。由 Linux 创始人 Linus Torvalds 于 2005 年创建，旨在帮助管理 Linux 内核的开发。",
+    "officialUrl": "https://git-scm.com/",
+    "iconUrl": "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+    "installType": [
+      { "title": "官方下载页面", "url": "https://git-scm.com/downloads" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Git 官方文档", "url": "https://git-scm.com/doc" },
+      { "title": "Pro Git 中文版", "url": "https://git-scm.com/book/zh/v2" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/git/git",
+    "tags": ["版本控制", "开发工具"],
+    "recommendReason": "作为全球最流行的分布式版本控制系统，Git 凭借其极快的性能、灵活的非线性分支开发和强大的本地操作能力，已成为现代软件开发的基石。它完全免费开源，拥有庞大的生态系统和社区支持，是每一位开发者不可或缺的核心工具。"
+  },
+  {
+    "id": "powertoys",
+    "name": "Microsoft PowerToys",
+    "description": "微软官方出品的免费开源系统增强工具集，旨在帮助高级用户和开发者定制和优化 Windows 体验，提升工作效率。包含 FancyZones 窗口管理、PowerRename 批量重命名、PowerToys Run 快速启动等超过 30 项实用功能。",
+    "officialUrl": null,
+    "iconUrl": "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxl2iAbsXA6iMNHnNlwb_DNtQOXDFemLx3sBSMVa_Vfl6YRN8UexX7Qo7T8ws.2fafCCdVhQ8OcbjEOHMhOZV0NU-&format=source&h=307",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/microsoft/PowerToys/releases/latest" },
+      { "title": "微软商店", "url": "https://apps.microsoft.com/detail/xp89dcgq3k6vld" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "PowerToys 官方文档", "url": "https://learn.microsoft.com/zh-cn/windows/powertoys/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/microsoft/PowerToys",
+    "tags": ["系统增强"],
+    "recommendReason": "微软官方持续维护的 Windows 效率神器，模块化设计可按需启用功能；从窗口布局、键盘映射到批量重命名、屏幕取色，覆盖日常高频操作场景；开源社区活跃，版本迭代迅速，是 Windows 高级用户和开发者不可或缺的效率工具箱。"
+  },
+  {
+    "id": "db-browser-sqlite",
+    "name": "DB Browser for SQLite",
+    "description": "一款高质量、可视化的开源工具，用于创建、设计和编辑与 SQLite 兼容的数据库文件。它采用类似电子表格的直观界面，支持从创建表、索引到导入导出 CSV 等完整数据库操作。",
+    "officialUrl": "https://sqlitebrowser.org/",
+    "iconUrl": "https://sqlitebrowser.org/images/sqlitebrowser.svg",
+    "installType": [
+      { "title": "官方网站", "url": "https://sqlitebrowser.org/dl/" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "unknown",
+    "repoUrl": "https://github.com/sqlitebrowser/sqlitebrowser",
+    "tags": ["数据库", "跨平台"],
+    "recommendReason": "作为 SQLite 官方社区推荐的图形化管理工具，DB4S 以直观易用的界面和全面的功能深受开发者与数据爱好者喜爱。它完全开源免费，支持 Windows、macOS、Linux 等多个平台，是日常进行 SQLite 数据库开发、调试与数据管理的首选利器。"
+  },
+  {
+    "id": "steam++",
+    "name": "Watt Toolkit（原 Steam++）",
+    "description": "原名 Steam++，是一个开源跨平台的多功能游戏工具箱。提供网络加速、账号切换、库存管理、本地令牌等丰富功能，旨在优化 Steam、Epic 等游戏平台的体验。",
+    "officialUrl": "https://steampp.net/",
+    "iconUrl": "https://steampp.net/svg/logo.png",
+    "installType": [
+      { "title": "软件官网", "url": "https://steampp.net/download" },
+      { "title": "GitHub Releases", "url": "https://github.com/BeyondDimension/SteamTools/releases" },
+      { "title": "微软商店", "url": "https://apps.microsoft.com/detail/9mtcfhs560ng?hl=zh-CN&gl=CN" }
+    ],
+    "platforms": ["Windows", "Linux", "Android"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/BeyondDimension/SteamTools",
+    "tags": ["游戏", "网络加速", "跨平台"],
+    "recommendReason": "一款功能全面的开源游戏工具箱，能一站式解决网络加速、多账号切换、库存管理等痛点。支持 Windows、macOS、Linux 及移动端，并由活跃的社区持续维护。"
+  },
+  {
+    "id": "vmware-workstation-pro",
+    "name": "VMware Workstation Pro",
+    "description": "一款功能强大的桌面虚拟机软件，允许用户在单台物理机上同时运行多个操作系统。支持 Windows 和 Linux 系统，提供快照、克隆、虚拟网络等高级功能，适用于开发、测试及生产环境。",
+    "officialUrl": "https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion",
+    "iconUrl": "https://www.vmware.com/media/blt8c9a8aaca0ffd4ac/blt82a4445c0da28e2b/6643471482c34437a59ec295/vmw-avatar-corporate.png",
+    "installType": [
+      { "title": "Broadcom 官方网站（需要登录）", "url": "https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true" },
+      { "title": "GitHub Releases（第三方收集）", "url": "https://github.com/201853910/VMwareWorkstation/releases" }
+    ],
+    "platforms": ["Windows", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/vmware",
+    "tags": ["虚拟机", "跨平台"],
+    "recommendReason": "作为业界最成熟的桌面虚拟化方案之一，它提供快照、克隆、虚拟网络等高级功能，是开发者、测试人员和 IT 专业人员的首选工具。"
+  },
+  {
+    "id": "npp",
+    "name": "Notepad++",
+    "description": "一款免费、开源的源代码编辑器，旨在替代 Windows 自带的记事本。基于 Scintilla 编辑组件构建，支持超过80种编程语言的语法高亮、代码折叠、宏录制与丰富的插件扩展功能。",
+    "officialUrl": "https://notepad-plus-plus.org/",
+    "iconUrl": "https://avatars.githubusercontent.com/u/12589084?s=200&v=4",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://notepad-plus-plus.org/downloads/" },
+      { "title": "GitHub Releases", "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/notepad-plus-plus/notepad-plus-plus",
+    "tags": ["编辑器"],
+    "recommendReason": "作为 Windows 平台最受欢迎的轻量级代码编辑器之一，Notepad++ 以极低的资源占用提供了强大的编辑功能。它不仅支持多种编程语言的语法高亮和代码折叠，还具备宏录制、插件扩展、正则表达式查找替换等高级特性。无论是日常文本编辑、代码编写还是日志查看，都是 Windows 用户的效率利器。"
+  },
+  {
+    "id": "ext2-volume-manager",
+    "name": "Ext2 Volume Manager",
+    "description": "一款 Windows 平台下的轻量级图形界面工具，作为 Ext2Fsd 文件系统驱动的管理前端。它帮助用户在 Windows 系统中挂载、管理并读写 Linux 原生的 ext2/ext3/ext4 分区，双系统用户必备。",
+    "officialUrl": null,
+    "iconUrl": "https://cdn.lo4d.com/t/icon/48/ext2-volume-manager.png",
+    "installType": [],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "deprecated",
+    "repoUrl": null,
+    "tags": ["磁盘工具"],
+    "recommendReason": "作为 Ext2Fsd 的图形化管理工具，它提供了直观的界面来分配盘符、管理卷和设置挂载选项。然而，该工具的核心驱动 Ext2Fsd 自 2017 年发布 0.69 版本后便未再更新，其官方网站（ext2fsd.com）也已无法访问。在较新的 Windows 或 Linux 文件系统上可能存在兼容性风险，建议在需要访问旧版 Linux 分区时作为备选方案使用。"
+  },
+  {
+    "id": "vlc-player",
+    "name": "VLC media player",
+    "description": "一款免费、自由、开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件以及各类流媒体协议，支持 MPEG-2、MPEG-4、H.264、MKV、WebM、WMV、MP3 等几乎所有格式，无需安装编解码器包。",
+    "officialUrl": "https://www.videolan.org/vlc/",
+    "iconUrl": "https://images.videolan.org/images/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.videolan.org/vlc/#download" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/videolan/vlc",
+    "tags": ["媒体播放", "跨平台"],
+    "recommendReason": "VLC 是世界上最受欢迎的开源媒体播放器之一，以“能播放任何内容”著称。它完全免费、无广告、无间谍软件，支持所有主流操作系统，无需额外安装解码器即可播放几乎所有格式。无论是播放本地文件、光盘、流媒体，还是作为视频转换工具，VLC 都是值得信赖的首选。"
+  },
+  {
+    "id": "wsl-dashboard",
+    "name": "WSL Dashboard",
+    "description": "一款现代化、高性能、轻量级的 WSL实例管理面板。它提供直观的图形界面，让用户能轻松地管理和监控所有 WSL 发行版。",
+    "officialUrl": "null",
+    "iconUrl": "https://docs.wslui.com/logo.png",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/owu/wsl-dashboard/releases/latest" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "WSL Dashboard官方文档", "url": "https://github.com/owu/wsl-dashboard/blob/main/manual/README_zh_CN.md" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/owu/wsl-dashboard",
+    "tags": ["WSL"],
+    "recommendReason": "基于 Rust 和 Slint 构建，安装包仅约 8MB，运行时内存占用低至 80MB，最小化到托盘更是仅占 10MB。它提供了一站式的 WSL 管理方案，包括一键启动/停止、迁移、导出/克隆实例、端口转发、USB 设备挂载等强大功能。此外，其现代化的界面支持明暗主题切换，并集成了 VS Code，能显著提升在 Windows 上使用 Linux 子系统的效率和体验。"
+  },
+  {
+    "id": "7zip",
+    "name": "7-Zip",
+    "description": "一款开源免费的高压缩率文件归档工具，支持 7z、ZIP、RAR、TAR 等主流压缩格式，以其强大的压缩比和极快的处理速度著称，是 Windows 平台装机必备的压缩软件。",
+    "officialUrl": "https://www.7-zip.org/",
+    "iconUrl": "https://www.7-zip.org/7ziplogo.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.7-zip.org/download.html" },
+      { "title": "官方中文版网站下载", "url": "https://sparanoid.com/lab/7z/download.html" },
+      { "title": "GitHub Releases", "url": "https://github.com/ip7z/7zip/releases" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/ip7z/7zip",
+    "tags": ["压缩解压", "跨平台"],
+    "recommendReason": "完全免费开源，压缩率业界领先，支持多种格式且兼容性极佳，体积小巧、资源占用低，是每个用户不可或缺的系统基础工具。"
+  },
+  {
+    "id": "localsend",
+    "name": "LocalSend",
+    "description": "一款开源、免费、跨平台的文件传输工具，可在同一局域网内的设备间快速分享文件和文本，无需互联网，体验类似于苹果 AirDrop，支持 Windows、macOS、Linux、Android 和 iOS 全平台。",
+    "officialUrl": "https://localsend.org/",
+    "iconUrl": "https://avatars.githubusercontent.com/u/120677616?s=60&v=4",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://localsend.org/zh-CN/download" },
+      { "title": "GitHub Releases", "url": "https://github.com/localsend/localsend/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Web", "Android", "iOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/localsend/localsend",
+    "tags": ["文件传输", "跨平台"],
+    "recommendReason": "无需登录、完全免费，支持全平台互传，采用端到端加密，传输速度快且稳定，是替代微信、QQ传输文件的绝佳选择。"
   }
 ]

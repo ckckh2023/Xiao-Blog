@@ -10,7 +10,7 @@
 
   /* ---------- 全局常量 ---------- */
   var GITHUB_USER = "ckckh2023";
-  var GITHUB_AVATAR = "https://avatars.githubusercontent.com/" + GITHUB_USER;
+  var GITHUB_AVATAR = "/assets/icons/head.jpg";
   var GITHUB_HOME = "https://github.com/" + GITHUB_USER;
   var GITHUB_API = "https://api.github.com/users/" + GITHUB_USER;
   var GITEE_HOME = "https://gitee.com/" + GITHUB_USER;
@@ -89,6 +89,7 @@
        options.level    公告类型，默认 "warn"（黄色警示样式），预留其他类型
        options.closable 是否显示红色 X 关闭按钮，默认 true
        options.autoHide 自动关闭毫秒数，0=不自动关闭
+       options.onClose  关闭时回调（用户点 X 或自动隐藏后触发）
      返回关闭函数；后续其他场景（如站点公告）可直接复用该接口。 */
   function showNotice(message, options) {
     var body = document.body;
@@ -98,7 +99,13 @@
     var bar = utils.el("div", { class: "notice-bar notice-bar-" + opts.level, role: "alert" });
     bar.appendChild(utils.el("span", { class: "notice-text" }, message));
 
-    var close = function () { bar.remove(); };
+    var closed = false;
+    var close = function () {
+      if (closed) return;
+      closed = true;
+      bar.remove();
+      if (typeof opts.onClose === "function") opts.onClose();
+    };
     if (opts.closable) {
       bar.appendChild(utils.el("button", {
         type: "button",
@@ -116,12 +123,21 @@
   }
   global.showNotice = showNotice;
 
-  /* GitHub API 不可用时，页面内只提醒一次 */
+  /* GitHub API 不可用时提醒一次；用户手动关闭后本机不再弹出（localStorage 持久化） */
+  var GH_NOTICE_KEY = "gh_notice_dismissed";
+  function ghNoticeDismissed() {
+    try { return localStorage.getItem(GH_NOTICE_KEY) === "1"; } catch (e) { return false; }
+  }
+  function dismissGhNotice() {
+    try { localStorage.setItem(GH_NOTICE_KEY, "1"); } catch (e) {}
+  }
   var ghIssuesNoticed = false;
   function notifyGitHubIssues() {
-    if (ghIssuesNoticed) return;
+    if (ghIssuesNoticed || ghNoticeDismissed()) return;
     ghIssuesNoticed = true;
-    showNotice("GitHub API 暂时不可用或已达请求上限，部分数据可能不是最新，请稍后访问重试。");
+    showNotice("GitHub API 暂时不可用或已达请求上限，部分数据可能不是最新，请稍后访问重试。", {
+      onClose: dismissGhNotice
+    });
   }
 
   /* 带 ETag 条件请求的 GitHub API 获取：
@@ -202,7 +218,8 @@
     { label: "文档", href: root() + "docs/index.html", match: /^\/docs\//, more: true },
     { label: "好友", href: root() + "friend/index.html", match: /^\/friend\//, more: true },
     { label: "分享", href: root() + "share/index.html", match: /^\/share\//, more: true },
-    { label: "留言", href: root() + "guestbook/index.html", match: /^\/guestbook\//, more: true }
+    { label: "留言", href: root() + "guestbook/index.html", match: /^\/guestbook\//, more: true },
+    { label: "关于", href: root() + "about/index.html", match: /^\/about\//, more: true }
   ];
 
   var GITHUB_ICON_SVG =
@@ -437,10 +454,22 @@
   document.addEventListener("DOMContentLoaded", function () {
     mountNav();
     mountYear();
-    /* 全站公告：GitHub 账号被标记，部分内容不可见 */
-    showNotice(
-      "本站 GitHub 账号目前被标记，部分内容不可见，但文档、分享等内容仍可正常访问。",
-      { level: "warn", closable: true, autoHide: 0 }
-    );
+    /* 全站公告：GitHub 账号被标记。用户关闭后本机不再弹出（localStorage 持久化） */
+    var MARK_NOTICE_KEY = "mark_notice_dismissed";
+    var markDismissed = false;
+    try { markDismissed = localStorage.getItem(MARK_NOTICE_KEY) === "1"; } catch (e) {}
+    if (!markDismissed) {
+      showNotice(
+        "本站 GitHub 账号目前被标记，部分内容不可见，但文档、分享等内容仍可正常访问。",
+        {
+          level: "warn",
+          closable: true,
+          autoHide: 0,
+          onClose: function () {
+            try { localStorage.setItem(MARK_NOTICE_KEY, "1"); } catch (e) {}
+          }
+        }
+      );
+    }
   });
 })(window);

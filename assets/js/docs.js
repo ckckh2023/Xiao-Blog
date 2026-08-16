@@ -22,7 +22,7 @@
      Googlebot 等支持 JS 的爬虫可在执行后抓到完整元信息。 */
   var SITE_ORIGIN = "https://xiao-blog.top";
   var SITE_AUTHOR = "ckckh2023";
-  var SITE_AVATAR = "https://avatars.githubusercontent.com/ckckh2023";
+  var SITE_AVATAR = "https://xiao-blog.top/assets/icons/head.jpg";
 
   function setMetaAttr(selector, attr, value) {
     var el = document.head.querySelector(selector);

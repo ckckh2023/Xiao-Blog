@@ -2,7 +2,7 @@
   {
     "id": "vscode",
     "name": "Visual Studio Code",
-    "description": "微软开源的跨平台代码编辑器，拥有海量插件生态",
+    "description": "微软推出的免费、开源、跨平台的轻量级代码编辑器，内置丰富的扩展支持，为开发者提供智能代码补全、调试、版本控制、终端等一站式编码体验。",
     "officialUrl": "https://code.visualstudio.com",
     "iconUrl": "https://code.visualstudio.com/assets/apple-touch-icon.png",
     "installType": [
@@ -10,27 +10,61 @@
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
-      { "title": "VSCode Copilot 官方博客", "url": "https://code.visualstudio.com/blogs/2023/03/30/vscode-copilot" }
+      { "title": "VSCode官方文档", "url": "https://code.visualstudio.com/docs" }
     ],
     "status": "active",
     "repoUrl": "https://github.com/microsoft/vscode",
-    "tags": ["编辑器", "插件", "微软"],
-    "recommendReason": "插件市场覆盖所有开发场景，启动速度极快"
+    "tags": ["编辑器", "跨平台"],
+    "recommendReason": "插件生态覆盖前后端、AI、云原生等所有热门领域，启动轻快，定制灵活，堪称“编辑器之王”。"
   },
   {
-    "id": "chatbox",
-    "name": "ChatBox",
-    "description": "通用 AI 聊天工具，支持大部分 AI 模型",
-    "officialUrl": "https://chatboxai.app/zh/",
-    "iconUrl": "https://chatboxai.app/icon.png",
+    "id": "maple-mono",
+    "name": "Maple Mono",
+    "description": "开源圆角等宽字体，专为开发者和极客设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
+    "officialUrl": "https://font.subf.dev",
+    "iconUrl": "https://font.subf.dev/favicon.svg",
     "installType": [
-      { "title": "官方", "url": "https://chatboxai.app/zh#download" }
+      { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
+      { "title": "懒人包（GitHub Releases）", "url": "https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN-unhinted.zip" },
+      { "title": "懒人包（123云盘）", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-DeiM" }
     ],
-    "platforms": ["Windows", "macOS", "Linux", "Web", "Android", "iOS"],
+    "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [],
     "status": "active",
-    "repoUrl": "https://github.com/chatboxai/chatbox",
-    "tags": ["AI","聊天"],
-    "recommendReason": "支持多种 AI 模型，支持自定义 API"
+    "repoUrl": "https://github.com/subframe7536/maple-font",
+    "tags": ["字体", "开发工具"],
+    "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽；可变字体、圆角设计和细粒度 OpenType 配置，让编码体验丝滑且高度个性化。"
+  },
+  {
+    "id": "motrix-next",
+    "name": "Motrix Next",
+    "description": "一款基于 Tauri 2 + Rust 从头重构的全功能下载管理器，支持 HTTP、FTP、ED2K、BitTorrent 及磁力链接，继承 Motrix 经典交互，拥有更轻量（~20MB）的安装包和更现代的技术栈。",
+    "officialUrl": null,
+    "iconUrl": "https://github.com/AnInsomniacy/motrix-next/raw/main/src/assets/logo.png",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/AnInsomniacy/motrix-next/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/AnInsomniacy/motrix-next",
+    "tags": ["下载管理", "跨平台"],
+    "recommendReason": "基于 Aria2 Next 引擎，采用 Tauri 2 + Vue 3 + TypeScript 重构，安装包仅 ~20MB；支持多协议下载、BT 选择性下载、浏览器扩展集成、系统托盘、代理控制等丰富特，是 Motrix 用户的最佳升级选择。"
+  },
+  {
+    "id": "mingw",
+    "name": "Mingw-w64",
+    "description": "Windows 平台上的 GCC 编译工具链，支持 C、C++、Fortran 等多种语言，提供完整的 POSIX 兼容层和 Windows 原生 API 接口，是开发跨平台 C/C++ 应用的基石。",
+    "officialUrl": "https://www.mingw-w64.org/",
+    "iconUrl": "https://www.mingw-w64.org/logo.svg",
+    "installType": [
+      { "title": "SourceForge", "url": "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/mingw-w64/mingw-w64",
+    "tags": ["C++", "编译器"],
+    "recommendReason": "作为 Windows 上最成熟的开源编译环境，它支持 32/64 位应用编译，与 MSYS2、CMake 等工具无缝集成，被 Code::Blocks、CLion 等 IDE 广泛采用，是开源开发者从 Linux 迁移到 Windows 的首选编译工具。"
   }
 ]

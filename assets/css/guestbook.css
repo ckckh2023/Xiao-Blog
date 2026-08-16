@@ -1,7 +1,103 @@
 /* ============================================================
-   guestbook.css - 留言板样式（卡片式留言墙 + Gitalk 发布区适配）
+   guestbook.css - 留言板样式（自制发布表单 + 卡片式留言墙）
    加载页面：/guestbook/index.html
    ============================================================ */
+
+/* ---------- 发布表单 ---------- */
+.gb-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.gb-form-row {
+  display: flex;
+  gap: 12px;
+}
+.gb-input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.gb-input::placeholder { color: var(--text-muted); }
+.gb-input:focus {
+  border-color: var(--link);
+  box-shadow: 0 0 0 3px var(--active-bg);
+}
+.gb-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  resize: vertical;
+  min-height: 96px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+.gb-textarea::placeholder { color: var(--text-muted); }
+.gb-textarea:focus {
+  border-color: var(--link);
+  box-shadow: 0 0 0 3px var(--active-bg);
+}
+.gb-form-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.gb-form-hint {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.gb-form-hint-err { color: #d33; }
+.gb-submitting { opacity: 0.75; cursor: wait; }
+.gb-form-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ---------- 预览框（卡片样式与正式留言墙一致） ---------- */
+.gb-preview-box {
+  margin-top: 16px;
+}
+.gb-preview-card { position: relative; }
+.gb-preview-card .gb-meta { padding-right: 30px; }
+.gb-preview-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.gb-preview-close:hover {
+  color: var(--link);
+  border-color: var(--link);
+}
 
 /* ---------- 留言卡片 ---------- */
 .guestbook-wall {
@@ -12,6 +108,23 @@
 .gb-card {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+/* #id 徽章（卡片右上角） */
+.gb-id {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 1;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1px 7px;
+  line-height: 1.5;
 }
 .gb-header {
   display: flex;
@@ -56,11 +169,6 @@
   font-size: 12px;
   color: var(--text-muted);
 }
-.gb-link {
-  flex-shrink: 0;
-  font-size: 13px;
-  font-weight: 500;
-}
 .gb-body {
   color: var(--text-muted);
   font-size: 14px;
@@ -71,15 +179,6 @@
 }
 .gb-body a { color: var(--link); }
 .gb-body a:hover { color: var(--link-hover); }
-
-.gb-network-link { color: var(--link); text-decoration: underline; margin-left: 4px; }
-.gb-network-link:hover { color: var(--link-hover); }
-
-/* ---------- 查看更多按钮 ---------- */
-.guestbook-more {
-  text-align: center;
-  margin-top: 24px;
-}
 
 /* ---------- 留言正文（支持 Markdown） ---------- */
 .gb-body p { margin: 0 0 10px; }
@@ -118,67 +217,9 @@
 .gb-body table { border-collapse: collapse; margin: 0 0 10px; font-size: 13px; }
 .gb-body th, .gb-body td { border: 1px solid var(--border); padding: 6px 10px; }
 
-/* ---------- 隐藏 Gitalk 编辑器下方的"支持 Markdown 语法"提示 ---------- */
-#guestbook-form .gt-container .gt-header-controls-tip {
-  display: none;
-}
-
-/* ---------- Gitalk 网络错误提示 ---------- */
-.gb-network-hint {
-  margin-top: 10px;
-  padding: 10px 12px;
-  border-radius: 6px;
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-/* ---------- Gitalk 发布区适配 ----------
-   留言墙已接管评论展示，隐藏 Gitalk 自带的评论列表 / 元信息 / 加载态，
-   仅保留输入框作为发布入口；并关闭聚焦时全屏压暗背景的遮罩。 */
-#guestbook-form .gt-container .gt-meta,
-#guestbook-form .gt-container .gt-comments,
-#guestbook-form .gt-container .gt-pagination,
-#guestbook-form .gt-container .gt-loading,
-#guestbook-form .gt-container .gt-initing,
-#guestbook-form .gt-container .gt-copyright,
-#guestbook-form .gt-container.gt-input-focused:after { display: none; }
-
-#guestbook-form .gt-container .gt-header-textarea {
-  color: var(--text);
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-}
-#guestbook-form .gt-container .gt-header-textarea:hover { background: var(--code-bg); }
-#guestbook-form .gt-container .gt-header-textarea:focus {
-  background: var(--surface);
-  border-color: var(--link);
-}
-
-/* ---------- 深色模式：适配 Gitalk 控件 ---------- */
-[data-theme="dark"] #guestbook-form .gt-container .gt-btn-preview {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--link);
-}
-[data-theme="dark"] #guestbook-form .gt-container .gt-btn-preview:hover {
-  background: var(--code-bg);
-}
-
-/* ---------- 移动端：输入框下方按钮左右排布（覆盖 Gitalk 默认的上下 100% 宽堆叠） ---------- */
-@media (max-width: 479px) {
-  #guestbook-form .gt-container .gt-header-controls {
-    display: flex;
-    gap: 0.75em;
-  }
-  #guestbook-form .gt-container .gt-header-controls .gt-btn {
-    float: none;
-    width: auto;
-    flex: 1 1 auto;
-    margin: 0.75em 0 0;
-  }
+/* ---------- 移动端：表单两列堆叠 ---------- */
+@media (max-width: 600px) {
+  .gb-form-row { flex-direction: column; }
 }
 
 /* ---------- 刷新按钮（图标按钮，点击转圈） ---------- */

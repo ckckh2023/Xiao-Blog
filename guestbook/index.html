@@ -4,24 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ckckh2023 - 留言</title>
-  <meta name="description" content="ckckh2023 的留言板 - 基于 GitHub Issues 的访客留言墙">
+  <meta name="description" content="ckckh2023 的留言板 - 访客留言墙，支持 Markdown">
   <script src="/assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="/assets/css/common.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
   <link rel="stylesheet" href="/assets/css/guestbook.css">
-  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/ckckh2023">
+  <link rel="icon" type="image/png" href="/assets/icons/head.jpg">
   <link rel="canonical" href="https://xiao-blog.top/guestbook/index.html">
   <meta property="og:site_name" content="ckckh2023">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="ckckh2023 - 留言板">
-  <meta property="og:description" content="ckckh2023 的留言板 - 基于 GitHub Issues 的访客留言墙">
+  <meta property="og:description" content="ckckh2023 的留言板 - 访客留言墙，支持 Markdown">
   <meta property="og:url" content="https://xiao-blog.top/guestbook/index.html">
-  <meta property="og:image" content="https://avatars.githubusercontent.com/ckckh2023">
+  <meta property="og:image" content="https://xiao-blog.top/assets/icons/head.jpg">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="ckckh2023 - 留言板">
-  <meta name="twitter:description" content="ckckh2023 的留言板 - 基于 GitHub Issues 的访客留言墙">
-  <meta name="twitter:image" content="https://avatars.githubusercontent.com/ckckh2023">
+  <meta name="twitter:description" content="ckckh2023 的留言板 - 访客留言墙，支持 Markdown">
+  <meta name="twitter:image" content="https://xiao-blog.top/assets/icons/head.jpg">
 </head>
 <body>
   <header id="site-nav"></header>
@@ -32,14 +31,29 @@
       <a class="more-link" href="/index.html">« 返回首页</a>
     </div>
 
-    <!-- 发布入口：Gitalk（仅展示输入框，评论列表由下方留言墙接管） -->
+    <!-- 发布入口：自制表单（昵称 + 可选 QQ 号（仅用于获取头像）+ Markdown 内容） -->
     <section class="panel">
       <div class="section-title">
         <span>写下你的留言</span>
       </div>
-      <div id="guestbook-form">
-        <div class="status-box">正在加载输入组件...</div>
-      </div>
+      <form id="guestbook-form" class="gb-form">
+        <div class="gb-form-row">
+          <input id="gb-input-name" class="gb-input" type="text" maxlength="32"
+                 placeholder="昵称 *" required autocomplete="off">
+          <input id="gb-input-qq" class="gb-input" type="text" inputmode="numeric"
+                 maxlength="11" placeholder="QQ（仅用于获取头像，本站不存储相关数据）" autocomplete="off">
+        </div>
+        <textarea id="gb-input-body" class="gb-textarea" rows="4" maxlength="2000"
+                  placeholder="留言内容（支持 Markdown格式）*" required></textarea>
+        <div class="gb-form-foot">
+          <span id="gb-form-hint" class="gb-form-hint"></span>
+          <div class="gb-form-actions">
+            <button id="gb-preview" class="btn" type="button">预览留言</button>
+            <button id="gb-submit" class="btn btn-primary" type="submit">发布留言</button>
+          </div>
+        </div>
+        <div id="gb-preview-box" class="gb-preview-box" hidden></div>
+      </form>
     </section>
 
     <!-- 留言墙：卡片样式 -->
@@ -59,22 +73,17 @@
       <div id="guestbook-wall">
         <div class="status-box">加载中…</div>
       </div>
-      <div class="guestbook-more">
-        <a class="btn" id="guestbook-more-link"
-           href="https://github.com/ckckh2023/ckckh2023.github.io/issues?q=is%3Aissue+label%3A%E7%95%99%E8%A8%80"
-           target="_blank" rel="noopener">查看更多留言 »</a>
-      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    © <span id="year"></span> ckckh2023 · Powered by GitHub Pages
+    © <span id="year"></span> ckckh2023 · Powered by Cloudflare Pages
   </footer>
 
   <script src="/assets/js/common.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
   <script src="/assets/vendor/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="/assets/js/gb-card.js"></script>
   <script src="/assets/js/guestbook.js"></script>
 </body>
 </html>

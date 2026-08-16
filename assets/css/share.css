@@ -6,7 +6,7 @@
 /* ---------- 左侧栏 + 右侧内容 布局 ---------- */
 .share-layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 260px 1fr;
   gap: 24px;
   align-items: start;
 }
@@ -20,7 +20,21 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s ease;
 }
+.share-sidebar:hover {
+  scrollbar-color: var(--border) transparent;
+}
+.share-sidebar::-webkit-scrollbar { width: 6px; }
+.share-sidebar::-webkit-scrollbar-track { background: transparent; }
+.share-sidebar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+.share-sidebar:hover::-webkit-scrollbar-thumb { background: var(--border); }
 .share-content { min-width: 0; }
 
 .share-sidebar-title {
@@ -73,23 +87,42 @@
 .share-toggle-btn:hover { color: var(--text); }
 .share-toggle-btn.active { color: var(--text); font-weight: 700; }
 
-/* ---------- 标签列表 ---------- */
-.share-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.share-tag-btn {
-  display: flex;
+/* ---------- 标签列表（星云式自由换行） ---------- */
+.share-tags-info {
+  display: none;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding: 7px 12px;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--code-bg);
+  border-radius: 6px;
+}
+.share-tags-info.visible { display: flex; }
+.share-tags-clear {
+  border: none;
+  background: transparent;
+  color: var(--link);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+}
+.share-tags-clear:hover { text-decoration: underline; }
+.share-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.share-tag-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
   font-size: 13px;
   color: var(--text-muted);
   background: transparent;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 999px;
   cursor: pointer;
   text-align: left;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
@@ -101,15 +134,6 @@
   font-weight: 600;
   border-color: var(--active-border);
 }
-.share-tag-count {
-  font-size: 11px;
-  color: var(--text-muted);
-  background: var(--code-bg);
-  border-radius: 999px;
-  padding: 1px 7px;
-  margin-left: 8px;
-}
-.share-tag-btn.active .share-tag-count { background: var(--surface); }
 .share-tags-empty {
   padding: 10px;
   color: var(--text-muted);
@@ -311,7 +335,7 @@
   word-break: break-all;
 }
 
-/* ---------- 响应式：窄屏侧边栏置顶，标签横向排列 ---------- */
+/* ---------- 响应式：窄屏侧边栏置顶 ---------- */
 @media (max-width: 900px) {
   .share-layout { grid-template-columns: 1fr; }
   .share-sidebar {
@@ -319,6 +343,4 @@
     max-height: none;
     overflow: visible;
   }
-  .share-tags { flex-direction: row; flex-wrap: wrap; gap: 6px; }
-  .share-tag-btn { width: auto; }
 }
