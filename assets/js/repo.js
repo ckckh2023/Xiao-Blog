@@ -120,10 +120,14 @@
         h("span", { class: "star" }, "★ " + (p.stars || 0)),
         h("span", "#" + p.id)
       ]),
-      h("div", { class: "pc-actions" }, [
-        h("a", { class: "btn btn-primary", href: p.url, target: "_blank", rel: "noopener" }, labels.primary),
-        h("a", { class: "btn", href: p.repo, target: "_blank", rel: "noopener" }, labels.secondary)
-      ])
+      h("div", { class: "pc-actions" }, p.url
+        ? [
+            h("a", { class: "btn btn-primary", href: p.url, target: "_blank", rel: "noopener" }, labels.primary),
+            h("a", { class: "btn", href: p.repo, target: "_blank", rel: "noopener" }, labels.secondary)
+          ]
+        : [
+            h("a", { class: "btn", href: p.repo, target: "_blank", rel: "noopener" }, labels.secondary)
+          ])
     ]);
   }
 
