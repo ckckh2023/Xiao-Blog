@@ -19,8 +19,8 @@
     "url": "https://trashgo.xiao-blog.top",
     "repo": "https://github.com/ckckh2023/TrashGo_AIRecognition",
     "other_repo": [
-      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TrashGo_AIRecognition" },
-      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/TrashGo_AIRecognition" }
+      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/TrashGo_AIRecognition" },
+      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TrashGo_AIRecognition" }
     ],
     "desc": "TrashGo 是一款集多种图像信息识别功能于一体的智能工具，旨在帮助用户快速识别图像信息，并提供趣味互动体验。无论是垃圾分类、人脸识别，TrashGo 都能轻松应对。",
     "stars": 14,
