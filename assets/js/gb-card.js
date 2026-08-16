@@ -75,16 +75,18 @@
      规则：多列布局（一行不止一个卡片）时，正文超过 5 行则截断并显示"展开"按钮；
      单列时全部显示。点击展开弹出弹窗显示完整正文。
      以 matchMedia('(min-width: 640px)') 判定多列（留言墙 minmax(320px) 在容器 ≥640px 时 2 列）。 */
-  function openGbDialog(cardClone) {
+  function openGbDialog(headerHTML, bodyHTML) {
     var old = document.getElementById("gb-dialog");
     if (old) old.remove();
     var mask = document.createElement("div");
     mask.id = "gb-dialog";
     mask.className = "gb-dialog-mask";
     mask.innerHTML =
-      '<div class="gb-dialog" role="dialog" aria-modal="true"></div>' +
-      '<button class="gb-dialog-close" type="button" aria-label="关闭">✕</button>';
-    mask.querySelector(".gb-dialog").appendChild(cardClone);
+      '<div class="gb-dialog" role="dialog" aria-modal="true">' +
+        '<button class="gb-dialog-close" type="button" aria-label="关闭">✕</button>' +
+        headerHTML +
+        '<div class="gb-body gb-dialog-body">' + bodyHTML + "</div>" +
+      "</div>";
     document.body.appendChild(mask);
     function close() { mask.remove(); document.removeEventListener("keydown", onKey); }
     function onKey(e) { if (e.key === "Escape") close(); }
@@ -122,19 +124,13 @@
           toggle.type = "button";
           card.appendChild(toggle);
         }
-        (function (b, cardEl) {
+        (function (b, cardEl, bd) {
           b.textContent = "展开";
           b.onclick = function () {
-            var clone = cardEl.cloneNode(true);
-            var cb = clone.querySelector(".gb-body");
-            if (cb) cb.classList.remove("is-clamp");
-            var ct = clone.querySelector(".gb-toggle");
-            if (ct) ct.remove();
-            var cid = clone.querySelector(".gb-id");
-            if (cid) cid.remove();
-            openGbDialog(clone);
+            var header = cardEl.querySelector(".gb-header");
+            openGbDialog(header ? header.outerHTML : "", bd.innerHTML);
           };
-        })(toggle, card);
+        })(toggle, card, body);
       } else {
         body.classList.remove("is-clamp");
         if (toggle) toggle.remove();
