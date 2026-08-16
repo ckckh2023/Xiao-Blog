@@ -53,6 +53,7 @@
     });
     wallBox.innerHTML = '<div class="guestbook-wall">' +
       sorted.map(gbCard.gbCardHTML).join("") + "</div>";
+    gbCard.setupClamp(wallBox);
   }
 
   /* ---------- 留言搜索 ---------- */

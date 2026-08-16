@@ -71,5 +71,84 @@
     "</article>";
   }
 
-  global.GBCard = { formatTime: formatTime, renderBody: renderBody, gbCardHTML: gbCardHTML };
+  /* ---------- 正文截断 + 弹窗展开 ----------
+     规则：多列布局（一行不止一个卡片）时，正文超过 5 行则截断并显示"展开"按钮；
+     单列时全部显示。点击展开弹出弹窗显示完整正文。
+     以 matchMedia('(min-width: 640px)') 判定多列（留言墙 minmax(320px) 在容器 ≥640px 时 2 列）。 */
+  function openGbDialog(html) {
+    var old = document.getElementById("gb-dialog");
+    if (old) old.remove();
+    var mask = document.createElement("div");
+    mask.id = "gb-dialog";
+    mask.className = "gb-dialog-mask";
+    mask.innerHTML =
+      '<div class="gb-dialog" role="dialog" aria-modal="true">' +
+        '<button class="gb-dialog-close" type="button" aria-label="关闭">✕</button>' +
+        '<div class="gb-body gb-dialog-body">' + html + "</div>" +
+      "</div>";
+    document.body.appendChild(mask);
+    function close() { mask.remove(); document.removeEventListener("keydown", onKey); }
+    function onKey(e) { if (e.key === "Escape") close(); }
+    mask.addEventListener("click", function (e) {
+      if (e.target === mask) { close(); return; }
+      if (e.target.closest(".gb-dialog-close")) { close(); return; }
+    });
+    document.addEventListener("keydown", onKey);
+  }
+
+  var clampContainers = [];
+  var clampResizeBound = false;
+
+  function applyClamp(container) {
+    var bodies = container.querySelectorAll(".gb-body");
+    var multi = window.matchMedia("(min-width: 640px)").matches;
+    for (var i = 0; i < bodies.length; i++) {
+      var body = bodies[i];
+      var card = body.closest(".gb-card");
+      if (!card) continue;
+      var toggle = card.querySelector(".gb-toggle");
+      if (!multi) {
+        body.classList.remove("is-clamp");
+        if (toggle) toggle.remove();
+        continue;
+      }
+      body.classList.remove("is-clamp");
+      var fullH = body.scrollHeight;
+      body.classList.add("is-clamp");
+      var clampH = body.clientHeight;
+      if (fullH - clampH > 2) {
+        if (!toggle) {
+          toggle = document.createElement("button");
+          toggle.className = "gb-toggle";
+          toggle.type = "button";
+          card.appendChild(toggle);
+        }
+        var btn = toggle;
+        btn.textContent = "展开";
+        var content = body.innerHTML;
+        btn.onclick = function () { openGbDialog(content); };
+      } else {
+        body.classList.remove("is-clamp");
+        if (toggle) toggle.remove();
+      }
+    }
+  }
+
+  function setupClamp(container) {
+    if (!container) return;
+    if (clampContainers.indexOf(container) === -1) clampContainers.push(container);
+    applyClamp(container);
+    if (!clampResizeBound) {
+      clampResizeBound = true;
+      var timer;
+      window.addEventListener("resize", function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          clampContainers.forEach(applyClamp);
+        }, 150);
+      });
+    }
+  }
+
+  global.GBCard = { formatTime: formatTime, renderBody: renderBody, gbCardHTML: gbCardHTML, setupClamp: setupClamp };
 })(window);

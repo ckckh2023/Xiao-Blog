@@ -215,7 +215,78 @@
 }
 .gb-body img { max-width: 100%; border-radius: 6px; margin: 4px 0; }
 .gb-body table { border-collapse: collapse; margin: 0 0 10px; font-size: 13px; }
-.gb-body th, .gb-body td { border: 1px solid var(--border); padding: 6px 10px; }
+  .gb-body th, .gb-body td { border: 1px solid var(--border); padding: 6px 10px; }
+
+/* 正文截断（多列时超过 5 行）+ 展开按钮 */
+.gb-body.is-clamp {
+  flex: 0 0 auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+.gb-toggle {
+  align-self: flex-start;
+  margin: -2px 0 12px;
+  padding: 2px 0;
+  font-size: 13px;
+  color: var(--link);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.gb-toggle:hover { color: var(--link-hover); text-decoration: underline; }
+
+/* 留言正文弹窗 */
+.gb-dialog-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  animation: gb-dialog-fade 0.18s ease;
+}
+@keyframes gb-dialog-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.gb-dialog {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 22px;
+  animation: gb-dialog-pop 0.18s ease;
+}
+@keyframes gb-dialog-pop {
+  from { transform: translateY(8px) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.gb-dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.gb-dialog-close:hover { background: var(--code-bg); color: var(--text); }
+.gb-dialog-body { color: var(--text); flex: none; margin: 0; }
 
 /* ---------- 移动端：表单两列堆叠 ---------- */
 @media (max-width: 600px) {

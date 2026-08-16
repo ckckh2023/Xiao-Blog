@@ -137,6 +137,7 @@
       }
       box.innerHTML = '<div class="guestbook-wall">' +
         valid.map(global.GBCard.gbCardHTML).join("") + "</div>";
+      global.GBCard.setupClamp(box);
     }).catch(function () {
       box.innerHTML = '<div class="status-box">精选留言加载失败，请稍后重试。</div>';
     });
