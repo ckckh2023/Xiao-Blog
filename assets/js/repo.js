@@ -96,6 +96,51 @@
   }
   global.matchProject = matchProject;
 
+  /* ---------- 选择弹窗（其他仓库） ----------
+     title: 弹窗标题；items: [{ title, url }]
+     点击选择项跳转 url（新窗口）；点遮罩空白 / 关闭按钮 / ESC 关闭 */
+  function openSelectDialog(title, items) {
+    var old = document.getElementById("pc-dialog");
+    if (old) old.remove();
+
+    var listHTML = items.map(function (it) {
+      var u = utils.escapeHTML(it.url || "");
+      return '<a class="pc-dialog-item" href="' + u + '" target="_blank" rel="noopener">' +
+        '<div class="pc-dialog-item-title">' + utils.escapeHTML(it.title || it.url || "") + "</div>" +
+        '<div class="pc-dialog-item-url">' + u + "</div>" +
+      "</a>";
+    }).join("");
+
+    var mask = document.createElement("div");
+    mask.id = "pc-dialog";
+    mask.className = "pc-dialog-mask";
+    mask.innerHTML =
+      '<div class="pc-dialog" role="dialog" aria-modal="true">' +
+        '<button class="pc-dialog-close" type="button" aria-label="关闭">✕</button>' +
+        '<div class="pc-dialog-title">' + utils.escapeHTML(title) + "</div>" +
+        '<div class="pc-dialog-list">' + listHTML + "</div>" +
+      "</div>";
+    document.body.appendChild(mask);
+
+    function close() { mask.remove(); document.removeEventListener("keydown", onKey); }
+    function onKey(e) { if (e.key === "Escape") close(); }
+    mask.addEventListener("click", function (e) {
+      if (e.target === mask) { close(); return; }
+      if (e.target.closest(".pc-dialog-close")) { close(); return; }
+      if (e.target.closest(".pc-dialog-item")) { close(); return; }
+    });
+    document.addEventListener("keydown", onKey);
+  }
+
+  /* 项目源码按钮处理：有 other_repo 时弹窗（首项 GitHub + other_repo），无则直接跳转 */
+  function handleSourceRepo(repo, otherRepo) {
+    var items = [{ title: "GitHub（本站GitHub账号被标记，访问会404）", url: repo }];
+    if (Array.isArray(otherRepo)) {
+      otherRepo.forEach(function (it) { items.push(it); });
+    }
+    openSelectDialog("选择项目源码仓库", items);
+  }
+
   /* ---------- Vue 项目卡片渲染（封装，供页面调用） ----------
      selector: 挂载点选择器
      list:     项目数组
@@ -112,6 +157,15 @@
     var tagsNode = p.loading
       ? h("div", { class: "pc-tags" }, [h("span", { class: "pc-tag pc-tag-loading" }, "…")])
       : (tags.length ? h("div", { class: "pc-tags" }, tags) : h("div", { class: "pc-tags" }, []));
+    var actions = [];
+    if (p.url) {
+      actions.push(h("a", { class: "btn btn-primary", href: p.url, target: "_blank", rel: "noopener" }, labels.primary));
+    }
+    if (Array.isArray(p.other_repo) && p.other_repo.length) {
+      actions.push(h("button", { class: "btn", type: "button", onClick: function () { handleSourceRepo(p.repo, p.other_repo); } }, labels.secondary));
+    } else {
+      actions.push(h("a", { class: "btn", href: p.repo, target: "_blank", rel: "noopener" }, labels.secondary));
+    }
     return h("article", { class: "card project-card", key: p.id }, [
       h("div", { class: "pc-title" }, p.name),
       h("div", { class: "pc-desc" }, descText),
@@ -120,14 +174,7 @@
         h("span", { class: "star" }, "★ " + (p.stars || 0)),
         h("span", "#" + p.id)
       ]),
-      h("div", { class: "pc-actions" }, p.url
-        ? [
-            h("a", { class: "btn btn-primary", href: p.url, target: "_blank", rel: "noopener" }, labels.primary),
-            h("a", { class: "btn", href: p.repo, target: "_blank", rel: "noopener" }, labels.secondary)
-          ]
-        : [
-            h("a", { class: "btn", href: p.repo, target: "_blank", rel: "noopener" }, labels.secondary)
-          ])
+      h("div", { class: "pc-actions" }, actions)
     ]);
   }
 
