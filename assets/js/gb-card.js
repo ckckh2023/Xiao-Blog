@@ -123,10 +123,10 @@
           toggle.type = "button";
           card.appendChild(toggle);
         }
-        var btn = toggle;
-        btn.textContent = "展开";
-        var content = body.innerHTML;
-        btn.onclick = function () { openGbDialog(content); };
+        (function (b, bd) {
+          b.textContent = "展开";
+          b.onclick = function () { openGbDialog(bd.innerHTML); };
+        })(toggle, body);
       } else {
         body.classList.remove("is-clamp");
         if (toggle) toggle.remove();
