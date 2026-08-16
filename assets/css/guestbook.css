@@ -260,33 +260,32 @@
   width: min(560px, 100%);
   max-height: 80vh;
   overflow-y: auto;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-lg);
-  padding: 22px;
   animation: gb-dialog-pop 0.18s ease;
 }
 @keyframes gb-dialog-pop {
   from { transform: translateY(8px) scale(0.98); opacity: 0; }
   to { transform: translateY(0) scale(1); opacity: 1; }
 }
+.gb-dialog .gb-card { margin: 0; }
+.gb-dialog .gb-body { flex: none; }
 .gb-dialog-close {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 28px;
-  height: 28px;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
   border: none;
-  border-radius: 6px;
-  background: transparent;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 16px;
   line-height: 1;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
 }
 .gb-dialog-close:hover { background: var(--code-bg); color: var(--text); }
-.gb-dialog-body { color: var(--text); flex: none; margin: 0; }
 
 /* ---------- 移动端：表单两列堆叠 ---------- */
 @media (max-width: 600px) {
