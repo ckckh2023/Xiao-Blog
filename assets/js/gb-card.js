@@ -114,7 +114,10 @@
         continue;
       }
       body.classList.remove("is-clamp");
+      var prevFlex = body.style.flex;
+      body.style.flex = "none";
       var fullH = body.scrollHeight;
+      body.style.flex = prevFlex;
       body.classList.add("is-clamp");
       var clampH = body.clientHeight;
       if (fullH - clampH > 2) {
