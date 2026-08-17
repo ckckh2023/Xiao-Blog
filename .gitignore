@@ -1,3 +1,4 @@
 /.wrangler/
 /.codeartsdoer
 /.vscode
+deploy.sh
