@@ -236,7 +236,8 @@
     "officialUrl": "https://sqlitebrowser.org/",
     "iconUrl": "https://sqlitebrowser.org/images/sqlitebrowser.svg",
     "installType": [
-      { "title": "官方网站", "url": "https://sqlitebrowser.org/dl/" }
+      { "title": "官方网站", "url": "https://sqlitebrowser.org/dl/" },
+      { "title": "GitHub Releases", "url": "https://github.com/sqlitebrowser/sqlitebrowser/releases/latest" }
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [],
