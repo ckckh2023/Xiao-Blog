@@ -24,9 +24,10 @@
       { "id": "qq-image-url", "title": "腾讯 QQ 头像直链接口" }
     ]
   },
-  { "id": "ai-agent", "title": "AI 工具使用指南",
+  { "id": "ai-agent", "title": "AI Agent 工具使用",
     "children": [
-      { "id": "agentdata-location", "title": "AI 数据存储位置" }
+      { "id": "dsh", "title": "Deepseek Harness使用方法及建议" },
+      { "id": "agentdata-location", "title": "AI Agent 数据存储位置" }
     ]
   }
 ]
