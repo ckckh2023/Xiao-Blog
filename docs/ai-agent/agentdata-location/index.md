@@ -7,7 +7,7 @@
 | OpenAI Codex | \~/.codex/state_*.sqlite（索引）<br>\~/.codex/sessions/YYYY/MM/DD/*.jsonl（内容） | SQLite + JSONL |
 | Cursor | macOS: ~/Library/Application Support/Cursor/User/globalStorage/state.vscdb<br>Windows: ~/AppData/Roaming/Cursor/User/globalStorage/state.vscdb | SQLite (VS Code 风格) |
 | Claude Code | ~/.claude/projects/project-slug/session-id.jsonl | JSONL |
-| CodeArts | \~/.codeartsdoer/cli-data/opencode.db（Windows独有IDE）<br>\~/.codeartsdoer/codearts-data/opencode.db（CLI） | SQLite |
+| CodeArts | \~/.codeartsdoer/codearts-data/opencode.db（CLI）<br> \~/.codeartsdoer/cli-data/opencode.db（Windows独有IDE）| SQLite |
 
 注：~ 表示用户主目录，Windows 下对应 %USERPROFILE%。<br>
 注：Codex 的存储路径可能因版本不同而有所变化。
