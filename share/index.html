@@ -188,19 +188,24 @@
       applyFilter();
     });
 
-    /* 并行加载两个数据源，完成后渲染默认分类（软件） */
+    /* 并行加载两个数据源，完成后渲染默认分类（软件）。
+       支持 URL 参数 ?name=xxx 预填搜索框并直接应用筛选，
+       例如 /share/?name=db-browser-sqlite 进入即搜索 db-browser-sqlite。 */
     Promise.all([fetchShareList(), fetchOtherList()]).then(function (results) {
       softwareList = results[0];
       otherList = results[1];
+      var initialQuery = (new URLSearchParams(location.search).get("name") || "").trim();
+      if (initialQuery) filterState.query = initialQuery;
       renderTagList();
       applyFilter();
-      mountSearchBox("#share-search", {
+      var search = mountSearchBox("#share-search", {
         placeholder: "搜索工具…",
         onQuery: function (q) {
           filterState.query = q;
           applyFilter();
         }
       });
+      if (initialQuery && search) search.setQuery(initialQuery);
     });
   </script>
 </body>
