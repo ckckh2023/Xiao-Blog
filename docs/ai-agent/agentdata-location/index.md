@@ -4,11 +4,12 @@
 | 工具 | 存储路径（默认） | 格式 | 
 | --- | --- | --- |
 | OpenCode | ~/.local/share/opencode/opencode.db | SQLite |
-| OpenAI Codex | ~/.codex/state_5.sqlite（索引）<br>~/.codex/sessions/YYYY/MM/DD/*.jsonl（内容） | SQLite + JSONL |
-| Cursor | macOS: ~/Library/Application Support/Cursor/User/globalStorage/state.vscdb<br>Windows: %APPDATA%\Cursor\User\globalStorage\state.vscdb | SQLite (VS Code 风格) |
-| Claude Code | ~/.claude/projects/<project-slug>/<session-id>.jsonl | JSONL |
-| CodeArts | ~\\.codeartsdoer\cli-data\opencode.db（Windows独有IDE）<br>~/.codeartsdoer/codearts-data/opencode.db（CLI） | SQLite |
+| OpenAI Codex | ~/.codex/state_*.sqlite（索引）<br>~/.codex/sessions/YYYY/MM/DD/*.jsonl（内容） | SQLite + JSONL |
+| Cursor | macOS: ~/Library/Application Support/Cursor/User/globalStorage/state.vscdb<br>Windows: ~/AppData/Roaming/Cursor/User/globalStorage/state.vscdb | SQLite (VS Code 风格) |
+| Claude Code | ~/.claude/projects/project-slug/session-id.jsonl | JSONL |
+| CodeArts | ~/.codeartsdoer/cli-data/opencode.db（Windows独有IDE）<br>~/.codeartsdoer/codearts-data/opencode.db（CLI） | SQLite |
 
 注：~ 表示用户主目录，Windows 下对应 %USERPROFILE%。
+注：Codex 的存储路径可能因版本不同而有所变化。
 
 对于SQLite数据库，可以使用我分享的 [SQLite Browser](https://xiao-blog.top/share/?name=db-browser-sqlite) 工具查看。
