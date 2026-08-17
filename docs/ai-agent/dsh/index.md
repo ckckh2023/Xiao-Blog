@@ -64,7 +64,7 @@ dsh web
 pip install deepseek-harness-sdk
 ```
 
->  本人没使用过也不清楚具体使用方法，请参考官方文档。
+>  本人没使用过也不清楚具体使用方法，请参考[官方文档](https://deepseek-harness.github.io/deepseek-harness/)。
 ---
 
 ## 四、首次启动配置

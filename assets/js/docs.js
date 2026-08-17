@@ -389,10 +389,55 @@
   }
   global.initArticlePage = initArticlePage;
 
+  /* ---------- 代码块复制按钮 ----------
+     渲染后给每个 <pre> 右上角加正方形复制图标，
+     点击复制 code 文本，临时变对勾反馈。 */
+  var COPY_SVG =
+    '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">' +
+    '<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"/>' +
+    '<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/></svg>';
+  var CHECK_SVG =
+    '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">' +
+    '<path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>';
+
+  function enhanceCodeBlocks(root) {
+    var pres = root.querySelectorAll("pre");
+    Array.prototype.forEach.call(pres, function (pre) {
+      if (pre.parentElement && pre.parentElement.classList.contains("code-block-wrap")) return;
+      var wrap = document.createElement("div");
+      wrap.className = "code-block-wrap";
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+      var btn = document.createElement("button");
+      btn.className = "code-copy-btn";
+      btn.type = "button";
+      btn.setAttribute("aria-label", "复制代码");
+      btn.innerHTML = COPY_SVG;
+      wrap.appendChild(btn);
+      btn.addEventListener("click", function () {
+        var code = pre.querySelector("code");
+        var text = code ? code.textContent : pre.textContent;
+        var done = function () {
+          btn.innerHTML = CHECK_SVG;
+          btn.classList.add("copied");
+          setTimeout(function () {
+            btn.innerHTML = COPY_SVG;
+            btn.classList.remove("copied");
+          }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () {});
+        } else {
+          done();
+        }
+      });
+    });
+  }
+
   /* ---------- Markdown 正文渲染 ----------
      selector: 正文容器选择器
      mdUrl:    markdown 文件 URL（相对路径即可，如 ./index.md）
-  ---------- */
+   ---------- */
   function renderDocMarkdown(selector, mdUrl) {
     var box = document.querySelector(selector);
     if (!box) return Promise.resolve();
@@ -406,6 +451,7 @@
       return r.text();
     }).then(function (md) {
       box.innerHTML = parse(md);
+      enhanceCodeBlocks(box);
     }).catch(function (err) {
       console.warn("[doc] markdown 加载失败 " + mdUrl + "：", err);
       box.innerHTML = '<p class="status-box">正文加载失败。</p>';

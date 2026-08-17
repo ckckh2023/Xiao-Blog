@@ -80,6 +80,38 @@
   border: 1px solid var(--border);
 }
 .docs-content pre code { background: none; padding: 0; }
+.docs-content .code-block-wrap { position: relative; }
+.docs-content .code-block-wrap pre { margin-bottom: 0; }
+.docs-content .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  z-index: 1;
+}
+.docs-content .code-block-wrap:hover .code-copy-btn { opacity: 1; }
+.docs-content .code-copy-btn:hover {
+  color: var(--text);
+  background: var(--active-bg);
+  border-color: var(--active-border);
+}
+.docs-content .code-copy-btn.copied {
+  color: #2ea043;
+  border-color: #2ea043;
+  opacity: 1;
+}
+.docs-content .code-copy-btn svg { width: 14px; height: 14px; }
 .docs-content blockquote {
   border-left: 3px solid var(--active-border);
   padding: 10px 14px;
