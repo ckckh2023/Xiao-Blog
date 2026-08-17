@@ -90,6 +90,21 @@
 }
 .docs-content blockquote p { margin-bottom: 0; }
 .docs-content blockquote p + p { margin-top: 10px; }
+.docs-content h4 { font-size: 15px; margin: 16px 0 6px; }
+.docs-content h5 { font-size: 14px; margin: 14px 0 6px; }
+.docs-content h6 { font-size: 13px; margin: 12px 0 6px; color: var(--text-muted); }
+.docs-content hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 24px 0;
+}
+.docs-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 8px 0;
+}
 
 /* ---------- 文章分页导航 ---------- */
 .docs-pagination {
