@@ -59,7 +59,8 @@
     "installType": [],
     "platforms": ["Web"],
     "blogs": [
-      { "title": "DeepSeek 官方文档", "url": "https://deepseek-harness.github.io/deepseek-harness" }
+      { "title": "DeepSeek 官方文档", "url": "https://deepseek-harness.github.io/deepseek-harness" },
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=dsh" }
     ],
     "status": "active",
     "repoUrl": "https://github.com/deepseek-ai/deepseek-harness",
