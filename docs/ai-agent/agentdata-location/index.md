@@ -12,4 +12,4 @@
 注：~ 表示用户主目录，Windows 下对应 %USERPROFILE%。<br>
 注：Codex 的存储路径可能因版本不同而有所变化。
 
-对于SQLite数据库，可以使用我分享的 [SQLite Browser](https://xiao-blog.top/share/?name=db-browser-sqlite) 工具查看。
+对于SQLite数据库，可以使用我分享的 [SQLite Browser](https://xiao-blog.top/share/?type=software&name=db-browser-sqlite) 工具查看。

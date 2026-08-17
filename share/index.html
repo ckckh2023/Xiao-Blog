@@ -151,6 +151,22 @@
       mountShareGrid("#all-shares", list, 2);
     }
 
+    /* URL 双映射同步：type 控制分类，name 控制搜索词。
+       切换分类 / 搜索均用 replaceState 静默同步地址栏，便于分享与刷新保持状态。 */
+    function syncURL() {
+      var params = new URLSearchParams();
+      params.set("type", filterState.category);
+      if (filterState.query) params.set("name", filterState.query);
+      history.replaceState(null, "", location.pathname + "?" + params.toString() + location.hash);
+    }
+    function applyCategoryUI() {
+      document.querySelectorAll(".share-toggle-btn").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-cat") === filterState.category);
+      });
+      var indicator = document.getElementById("share-toggle-indicator");
+      if (indicator) indicator.classList.toggle("right", filterState.category === "other");
+    }
+
     /* 分类切换条 */
     document.getElementById("share-toggle").addEventListener("click", function (e) {
       var btn = e.target.closest(".share-toggle-btn");
@@ -159,13 +175,10 @@
       if (cat === filterState.category) return;
       filterState.category = cat;
       filterState.tags = []; /* 切换分类时重置已选标签 */
-      document.querySelectorAll(".share-toggle-btn").forEach(function (b) {
-        b.classList.toggle("active", b.getAttribute("data-cat") === cat);
-      });
-      var indicator = document.getElementById("share-toggle-indicator");
-      if (indicator) indicator.classList.toggle("right", cat === "other");
+      applyCategoryUI();
       renderTagList();
       applyFilter();
+      syncURL();
     });
 
     /* 标签点击：多选切换（加入/移除已选数组） */
@@ -188,14 +201,19 @@
       applyFilter();
     });
 
-    /* 并行加载两个数据源，完成后渲染默认分类（软件）。
-       支持 URL 参数 ?name=xxx 预填搜索框并直接应用筛选，
-       例如 /share/?name=db-browser-sqlite 进入即搜索 db-browser-sqlite。 */
+    /* 并行加载两个数据源，完成后渲染默认分类。
+       URL 双映射：?type=software|other 切换分类，&name=xxx 预填搜索词。
+       例如 /share/?type=software&name=db-browser-sqlite 进入即在软件分类下搜索。
+       初始访问 /share/ 会静默补全为 ?type=software，便于后续切换地址可辨。 */
     Promise.all([fetchShareList(), fetchOtherList()]).then(function (results) {
       softwareList = results[0];
       otherList = results[1];
-      var initialQuery = (new URLSearchParams(location.search).get("name") || "").trim();
-      if (initialQuery) filterState.query = initialQuery;
+      var params = new URLSearchParams(location.search);
+      var initType = params.get("type");
+      var initName = (params.get("name") || "").trim();
+      if (initType === "software" || initType === "other") filterState.category = initType;
+      if (initName) filterState.query = initName;
+      applyCategoryUI();
       renderTagList();
       applyFilter();
       var search = mountSearchBox("#share-search", {
@@ -203,9 +221,11 @@
         onQuery: function (q) {
           filterState.query = q;
           applyFilter();
+          syncURL();
         }
       });
-      if (initialQuery && search) search.setQuery(initialQuery);
+      if (initName && search) search.setQuery(initName);
+      syncURL();
     });
   </script>
 </body>
