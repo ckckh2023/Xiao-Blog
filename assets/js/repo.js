@@ -190,10 +190,12 @@
     var cls = "project-grid" + (perRow ? " project-grid-" + perRow : "");
     var lab = Object.assign({ primary: "访问主页", secondary: "项目源码" }, labels || {});
 
+    /* 本地优先：先用 JSON 预设数据（desc/stars/tags）立即渲染，
+       再后台调 GitHub API enrich，成功则覆盖更新，失败保留本地。 */
     var initial = list.map(function (p) {
       return Object.assign({}, p, {
         tags: (p.tags || []).slice(),
-        loading: true
+        loading: false
       });
     });
 
@@ -210,7 +212,8 @@
         onMounted(function () {
           projects.value.forEach(function (p, i) {
             enrichProject(p).then(function () {
-              projects.value[i] = Object.assign({}, p, { loading: false });
+              /* enrich 就地更新 p（API 成功覆盖，失败保留本地），赋新对象触发重渲染 */
+              projects.value[i] = Object.assign({}, p);
             });
           });
         });
