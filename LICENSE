@@ -26,7 +26,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 适用范围：本站原创内容，包括但不限于：
   - 文档文章（docs/ 下的 Markdown 文件）
   - 图片与静态资源（assets/icons/ 等）
-  - 个人数据与信息（博主介绍、好友列表 friend/FriendList.json、
+  - 个人数据与信息（博主介绍、好友列表下的 json 文件、
     关于页内容等）
   - 分享 / 项目数据中的原创描述文案（share/、repo/ 下的 JSON）
 
@@ -37,7 +37,7 @@ License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 Internatio
   - 以任何形式或手段共享本内容（复制、重新分发）
 
 前提条件：
-  - 署名（BY）：必须注明原作者 ckckh2023与原出处 <https://xiao-blog.top>
+  - 署名（BY）：必须注明原作者 ckckh2023 与原出处 <https://xiao-blog.top>
   - 非商业性（NC）：不得用于商业目的
   - 禁止演绎（ND）：不得更改、转换或基于本内容创作
 
