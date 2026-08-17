@@ -38,7 +38,7 @@
     ],
     "desc": "个人技术博客站点，部署于 Cloudflare Pages。内置文档知识库、项目展示、工具分享、留言板与好友页等模块。",
     "stars": 0,
-    "tags": ["HTML", "CSS", "JavaScript"]
+    "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
     "id": "EasyStudent-JustFreshMan",
