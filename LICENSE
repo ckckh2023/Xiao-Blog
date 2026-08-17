@@ -1,0 +1,62 @@
+本仓库采用双层授权：代码部分遵循 MIT License，站点内容部分遵循 CC BY-NC-ND 4.0。
+欢迎学习、参考架构、复用代码框架自建站点；但禁止直接搬运本站内容，也禁止将本仓库整体复制后作为自己的站点部署上线。
+
+================================================================================
+1. 代码部分 —— MIT License
+================================================================================
+
+适用范围：仓库内所有代码与配置文件，包括但不限于：
+  - HTML / CSS / JavaScript（assets/、各页面 index.html 的脚本结构）
+  - Cloudflare Pages Functions（functions/）
+  - 配置文件（wrangler.toml、schema.sql、sitemap.xml、robots.txt）
+  - 第三方库（assets/vendor/，遵循其各自协议）
+
+Copyright (c) 2026 ckckh2023
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+================================================================================
+2. 站点内容部分 —— CC BY-NC-ND 4.0
+================================================================================
+
+适用范围：本站原创内容，包括但不限于：
+  - 文档文章（docs/ 下的 Markdown 文件）
+  - 图片与静态资源（assets/icons/ 等）
+  - 个人数据与信息（博主介绍、好友列表 friend/FriendList.json、
+    关于页内容等）
+  - 分享 / 项目数据中的原创描述文案（share/、repo/ 下的 JSON）
+
+License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+完整文本：<https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode>
+
+您被允许：
+  - 以任何形式或手段共享本内容（复制、重新分发）
+
+前提条件：
+  - 署名（BY）：必须注明原作者 ckckh2023与原出处 <https://xiao-blog.top>
+  - 非商业性（NC）：不得用于商业目的
+  - 禁止演绎（ND）：不得更改、转换或基于本内容创作
+
+您不被允许：
+  - 将本站文章、图片、个人数据等直接搬运到自己的站点
+  - 去除署名后冒充原创
+  - 将本仓库整体复制（连内容一起）作为自己的博客部署上线
+
+================================================================================
+3. 第三方库
+================================================================================
+
+assets/vendor/ 下的第三方库遵循其各自原始协议：
+  - Vue 3 (vue.global.js): MIT License — <https://vuejs.org>
+  - marked (marked.min.js): MIT License — <https://marked.js.org>
+  - DOMPurify (CDN 引入): MPL 2.0 / Apache 2.0 双协议 — <https://github.com/cure53/DOMPurify>
+
+================================================================================
+4. 免责声明
+================================================================================
+
+本站点内容仅供学习交流。作者不对内容的完整性、准确性做任何担保。使用本仓库代码或内容所产生的一切后果，由使用者自行承担。
