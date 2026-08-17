@@ -51,13 +51,28 @@
     "recommendReason": "对编程新生极其友好，无需复杂配置即可上手，适合课堂作业和刷题练手，但官方已多年未更新，建议仅用于学习场景。"
   },
   {
+    "id": "deepseek-harness",
+    "name": "DeepSeek Harness (dsh)",
+    "description": "DeepSeek AI 官方推出的开源智能体框架，采用“一切皆插件”的架构设计，由 Cordis 驱动，支持通过插件灵活扩展功能，目前处于开发者预览阶段。",
+    "officialUrl": "https://www.deepseek.com/harness/",
+    "iconUrl": "https://fe-static.deepseek.com/platform/favicon.svg",
+    "installType": [],
+    "platforms": ["Web"],
+    "blogs": [
+      { "title": "DeepSeek 官方文档", "url": "https://deepseek-harness.github.io/deepseek-harness" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/deepseek-ai/deepseek-harness",
+    "tags": ["AI", "智能体框架"],
+    "recommendReason": "DeepSeek 官方出品的智能体开发框架，采用插件化架构，灵活可扩展，适合想要基于 DeepSeek 构建定制化 AI 应用的开发者。"
+  },
+  {
     "id": "reasonix",
     "name": "DeepSeek-Reasonix",
     "description": "一个以 DeepSeek 为核心的终端 AI 编程助手，围绕前缀缓存稳定性设计，支持命令行、桌面应用、浏览器和编辑器四种使用方式，提供计划模式、权限管理、工作区沙箱和每轮检查点等特性。",
     "officialUrl": "https://esengine.github.io/DeepSeek-Reasonix/",
     "iconUrl": "https://reasonix.io/favicon.svg",
     "installType": [
-      { "title": "npm (CLI)", "url": "npm i -g reasonix" },
       { "title": "GitHub Releases", "url": "https://github.com/esengine/DeepSeek-Reasonix/releases" },
       { "title": "VS Code 扩展", "url": "https://marketplace.visualstudio.com/items?itemName=SivanLiu.reasonix-agent" }
     ],
@@ -176,6 +191,24 @@
     "repoUrl": "https://github.com/git/git",
     "tags": ["版本控制", "开发工具"],
     "recommendReason": "作为全球最流行的分布式版本控制系统，Git 凭借其极快的性能、灵活的非线性分支开发和强大的本地操作能力，已成为现代软件开发的基石。它完全免费开源，拥有庞大的生态系统和社区支持，是每一位开发者不可或缺的核心工具。"
+  },
+  {
+    "id": "intellij-idea",
+    "name": "IntelliJ IDEA",
+    "description": "JetBrains 出品的专业 Java 和 Kotlin 集成开发环境（IDE），旨在最大限度地提高开发者生产力，提供智能代码补全、静态代码分析、重构、强大的调试工具及版本控制集成等核心功能。",
+    "officialUrl": "https://www.jetbrains.com/zh-cn/idea/",
+    "iconUrl": "https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.svg",
+    "installType": [
+      { "title": "官方下载页面", "url": "https://www.jetbrains.com/zh-cn/idea/download/" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "IntelliJ IDEA 官方文档", "url": "https://www.jetbrains.com/help/idea/" }
+    ],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["IDE", "跨平台"],
+    "recommendReason": "Java 和 Kotlin 开发的旗舰 IDE，智能代码补全与深度上下文分析大幅提升编码效率，强大的插件生态覆盖各类开发场景。"
   },
   {
     "id": "powertoys",

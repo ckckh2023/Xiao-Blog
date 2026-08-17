@@ -208,7 +208,7 @@
   },
   {
     "id": "xiazaitool",
-    "name": "下载狗 (视频解析下载工具)",
+    "name": "下载狗",
     "description": "一款功能强大的在线视频解析与下载工具，支持哔哩哔哩、抖音、快手、小红书、TikTok、微博、YouTube、今日头条、Twitter(X)等国内外主流视频平台。提供网页在线版和桌面客户端，支持无水印下载、批量解析及4K超清视频下载等功能。",
     "officialUrl": "https://www.xiazaitool.com/",
     "iconUrl": "https://www.xiazaitool.com/parseVideo/image/logo.png",
@@ -220,6 +220,22 @@
     "status": "active",
     "repoUrl": null,
     "tags": ["视频下载", "在线工具"],
-    "recommendReason": "支持国内外数十个主流视频平台，提供网页端与桌面客户端双模式，操作简单，输入链接即可解析下载。客户端版本支持B站1080p/4K超清视频下载、YouTube超清视频及下载记录功能，稳定性更佳[reference:9]。"
+    "recommendReason": "支持国内外数十个主流视频平台，提供网页端与桌面客户端双模式，操作简单，输入链接即可解析下载。客户端版本支持B站1080p/4K超清视频下载、YouTube超清视频及下载记录功能，稳定性更佳。"
+  },
+  {
+    "id": "heu-kms-activator",
+    "name": "HEU_KMS_Activator",
+    "description": "一款由“知彼而知己”基于 MDL 论坛 KMS Server Emulator 开发的 Windows 和 Office 智能激活工具，支持 KMS/OEM 等多种激活方式，无需联网即可一键激活。",
+    "officialUrl": null,
+    "iconUrl": "https://avatars.githubusercontent.com/u/52116327?s=64&v=4",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/zbezj/HEU_KMS_Activator/releases" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/zbezj/HEU_KMS_Activator",
+    "tags": ["系统工具", "激活工具"],
+    "recommendReason": "智能识别最佳激活方式，支持所有 Windows 和 Office VL 版本，无需联网即可一键激活。"
   }
 ]
