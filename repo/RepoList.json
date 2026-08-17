@@ -27,13 +27,15 @@
     "tags": ["C++","QML","CMake","C"]
   },
   {
-    "id": "ckckh2023.github.io",
+    "id": "Xiao-Blog",
     "name": "个人博客网页",
-    "full_name": "ckckh2023/ckckh2023.github.io",
+    "full_name": "ckckh2023/Xiao-Blog",
     "url": "https://xiao-blog.top/",
-    "repo": "https://github.com/ckckh2023/ckckh2023.github.io",
-    "other_repo": [],
-    "desc": "本人的个人博客仓库",
+    "repo": "https://github.com/ckckh2023/Xiao-Blog",
+    "other_repo": [
+      { "title": "GitCode", "url": "https://gitcode.net/ckckh2023/xiao-blog" }
+    ],
+    "desc": "个人技术博客站点，部署于 Cloudflare Pages。内置文档知识库、项目展示、工具分享、留言板与好友页等模块。",
     "stars": 0,
     "tags": ["HTML", "CSS", "JavaScript"]
   },
