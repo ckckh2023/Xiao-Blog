@@ -71,34 +71,6 @@
   flex-shrink: 0;
 }
 
-/* ---------- 预览框（卡片样式与正式留言墙一致） ---------- */
-.gb-preview-box {
-  margin-top: 16px;
-}
-.gb-preview-card { position: relative; }
-.gb-preview-card .gb-meta { padding-right: 30px; }
-.gb-preview-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 2;
-  width: 22px;
-  height: 22px;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--surface);
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-}
-.gb-preview-close:hover {
-  color: var(--link);
-  border-color: var(--link);
-}
-
 /* ---------- 留言卡片 ---------- */
 .guestbook-wall {
   display: grid;

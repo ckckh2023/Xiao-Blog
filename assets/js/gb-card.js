@@ -157,5 +157,5 @@
     }
   }
 
-  global.GBCard = { formatTime: formatTime, renderBody: renderBody, gbCardHTML: gbCardHTML, setupClamp: setupClamp };
+  global.GBCard = { formatTime: formatTime, renderBody: renderBody, gbCardHTML: gbCardHTML, setupClamp: setupClamp, openDialog: openGbDialog };
 })(window);

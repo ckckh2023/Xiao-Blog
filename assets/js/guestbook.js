@@ -184,10 +184,9 @@
       });
     });
 
-    /* 预览留言：用当前表单内容渲染一张与留言墙一致的卡片 */
+    /* 预览留言：弹窗显示与留言墙一致的卡片（复用 gb-card 弹窗，与正文展开风格一致） */
     var previewBtn = document.getElementById("gb-preview");
-    var previewBox = document.getElementById("gb-preview-box");
-    if (previewBtn && previewBox) {
+    if (previewBtn) {
       previewBtn.addEventListener("click", function () {
         var nickname = inputName.value.trim() || "匿名";
         var body = inputBody.value.trim();
@@ -196,24 +195,18 @@
         if (avatar === null) { setHint("QQ 号应为 5-11 位数字", true); inputQQ.focus(); return; }
         if (!body) { setHint("请先填写留言内容再预览", true); inputBody.focus(); return; }
         setHint("");
-        var card = gbCard.gbCardHTML({
+        var cardHTML = gbCard.gbCardHTML({
           nickname: nickname,
           body: body,
           avatar: avatar,
           created_at: new Date().toISOString()
         });
-        card = card.replace('<article class="card gb-card">',
-          '<article class="card gb-card gb-preview-card">' +
-          '<button class="gb-preview-close" type="button" aria-label="关闭预览" title="关闭预览">×</button>');
-        previewBox.innerHTML = '<div class="guestbook-wall">' + card + "</div>";
-        previewBox.hidden = false;
-        previewBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      });
-      previewBox.addEventListener("click", function (e) {
-        if (e.target.classList.contains("gb-preview-close")) {
-          previewBox.hidden = true;
-          previewBox.innerHTML = "";
-        }
+        var tmp = document.createElement("div");
+        tmp.innerHTML = cardHTML;
+        var cardEl = tmp.firstElementChild;
+        var header = cardEl && cardEl.querySelector(".gb-header");
+        var bodyEl = cardEl && cardEl.querySelector(".gb-body");
+        gbCard.openDialog(header ? header.outerHTML : "", bodyEl ? bodyEl.innerHTML : "");
       });
     }
   }
