@@ -13,7 +13,7 @@
 | CodeArts | \~/.codeartsdoer/codearts-data/opencode.db（Windows独有IDE）<br> \~/.codeartsdoer/cli-data/opencode.db（CLI）| SQLite |
 
 > 请注意以下几点：
-- `~` 表示用户主目录，Windows 下对应 %USERPROFILE%。可以查看[我的文档讲解](https://xiao-blog.top/docs/article?id=vscode&sub=vscodedata-location)。
+- `~` 表示用户主目录，Windows 下对应 %USERPROFILE%。可以查看[我的文档讲解](https://xiao-blog.top/docs/article?id=vscode&sub=vscode-data-location)。
 - Codex 的存储路径可能因版本不同而有所变化。
 
 ---

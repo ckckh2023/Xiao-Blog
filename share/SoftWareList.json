@@ -60,7 +60,7 @@
     "platforms": ["Web"],
     "blogs": [
       { "title": "DeepSeek 官方文档", "url": "https://deepseek-harness.github.io/deepseek-harness" },
-      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=dsh" }
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=dsh-guide" }
     ],
     "status": "active",
     "repoUrl": "https://github.com/deepseek-ai/deepseek-harness",

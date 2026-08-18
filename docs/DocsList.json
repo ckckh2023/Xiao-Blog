@@ -1,25 +1,25 @@
 [
-  { "id": "vscode", "title": "VSCode 相关知识与技巧",
+  { "id": "vscode", "title": "VSCode 相关技巧",
     "children": [
-      { "id": "vscodedata-location", "title": "VSCode 配置文件位置" }
+      { "id": "vscode-data-location", "title": "VSCode 配置文件位置" }
     ]
   },
-  { "id": "ai-agent", "title": "AI Agent 工具使用方法与建议",
+  { "id": "ai-agent", "title": "AI Agent 使用指南",
     "children": [
-      { "id": "windows-agent-prompt", "title": "Windows 环境下 AI Agent 命令执行的提示词配置建议" },
-      { "id": "dsh", "title": "Deepseek Harness 使用方法" },
-      { "id": "agentdata-location", "title": "Agent 工具历史记录数据存储位置" }
+      { "id": "windows-agent-prompt", "title": "Windows AI Agent 提示词配置" },
+      { "id": "dsh-guide", "title": "DeepSeek Harness (dsh) 使用指南" },
+      { "id": "agent-data-location", "title": "Agent 工具历史记录存储位置" }
     ]
   },
-  { "id": "image-url", "title": "图片URL获取方式",
+  { "id": "image-url", "title": "图片 URL 获取方式",
     "children": [
-      { "id": "qq-image-url", "title": "腾讯 QQ 头像直链接口" }
+      { "id": "qq-image-url", "title": "QQ 头像直链接口" }
     ]
   },
-  { "id" : "proxy", "title": "代理原理与代理工具使用方法",
+  { "id" : "proxy", "title": "代理原理与工具使用",
     "children": [
-      { "id": "proxy-guide", "title": "代理原理及指导" },
-      { "id": "clash-verge-rev", "title": "Clash Verge Rev 工具使用方法" }
+      { "id": "proxy-guide", "title": "代理原理与实践" },
+      { "id": "clash-verge-rev", "title": "Clash Verge Rev 使用指南" }
     ]
   }
 ]
