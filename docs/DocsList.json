@@ -1,24 +1,4 @@
 [
-  { "id": "vue-guide", "title": "Vue3 开发踩坑记" },
-  {
-    "id": "deploy",
-    "title": "Github Pages 部署流程",
-    "children": [
-      { "id": "overview", "title": "概述" },
-      { "id": "config",   "title": "配置发布源" },
-      { "id": "push",     "title": "推送即部署" },
-      { "id": "domain",   "title": "自定义域名" },
-      {
-        "id": "faq",
-        "title": "常见问题",
-        "children": [
-          { "id": "404",   "title": "页面 404" },
-          { "id": "asset", "title": "资源加载失败" }
-        ]
-      }
-    ]
-  },
-  { "id": "git-tips", "title": "Git 常见冲突解决" },
   { "id": "vscode", "title": "VSCode 相关知识与技巧",
     "children": [
       { "id": "vscodedata-location", "title": "VSCode 配置文件位置" }
