@@ -231,7 +231,9 @@
   position: relative;
   width: min(560px, 100%);
   max-height: 80vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -258,7 +260,17 @@
   cursor: pointer;
 }
 .gb-dialog-close:hover { background: var(--code-bg); color: var(--text); }
-.gb-dialog-body { color: var(--text); flex: none; margin: 0; }
+.gb-dialog .gb-header { flex-shrink: 0; }
+.gb-dialog-body {
+  color: var(--text);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.gb-dialog-body::-webkit-scrollbar { display: none; }
 
 /* ---------- 移动端：表单两列堆叠 ---------- */
 @media (max-width: 600px) {
