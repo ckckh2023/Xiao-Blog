@@ -19,16 +19,21 @@
     ]
   },
   { "id": "git-tips", "title": "Git 常见冲突解决" },
-  { "id": "image-url", "title": "图片URL讲解",
+  { "id": "vscode", "title": "VSCode 相关知识与技巧",
     "children": [
-      { "id": "qq-image-url", "title": "腾讯 QQ 头像直链接口" }
+      { "id": "vscodedata-location", "title": "VSCode 配置文件位置" }
     ]
   },
-  { "id": "ai-agent", "title": "AI Agent 工具使用",
+  { "id": "ai-agent", "title": "AI Agent 工具使用方法与建议",
     "children": [
       { "id": "windows-agent-prompt", "title": "Windows 环境下 AI Agent 命令执行的提示词配置建议" },
       { "id": "dsh", "title": "Deepseek Harness 使用方法" },
-      { "id": "agentdata-location", "title": "AI Agent 历史数据存储位置" }
+      { "id": "agentdata-location", "title": "Agent 工具历史记录数据存储位置" }
+    ]
+  },
+  { "id": "image-url", "title": "图片URL获取方式",
+    "children": [
+      { "id": "qq-image-url", "title": "腾讯 QQ 头像直链接口" }
     ]
   }
 ]

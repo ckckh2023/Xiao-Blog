@@ -23,7 +23,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TrashGo_AIRecognition" }
     ],
     "desc": "TrashGo 是一款集多种图像信息识别功能于一体的智能工具，旨在帮助用户快速识别图像信息，并提供趣味互动体验。无论是垃圾分类、人脸识别，TrashGo 都能轻松应对。",
-    "stars": 14,
+    "stars": 15,
     "tags": ["C++","QML","CMake","C"]
   },
   {
@@ -37,7 +37,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/Xiao-Blog" }
     ],
     "desc": "个人技术博客站点，部署于 Cloudflare Pages。内置文档知识库、项目展示、工具分享、留言板与好友页等模块。",
-    "stars": 0,
+    "stars": 1,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
