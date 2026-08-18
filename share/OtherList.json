@@ -237,5 +237,21 @@
     "repoUrl": "https://github.com/zbezj/HEU_KMS_Activator",
     "tags": ["系统工具", "激活工具"],
     "recommendReason": "智能识别最佳激活方式，支持所有 Windows 和 Office VL 版本，无需联网即可一键激活。"
+  },
+  {
+    "id": "wepe",
+    "name": "微PE工具箱",
+    "description": "一款免费、纯净、无捆绑软件的 WinPE 维护系统工具。它基于 Win10PE 内核，全面支持 NVMe 盘，集成了分区助手、DiskGenius、WinNTSetup 等实用维护工具。微PE 支持将 PE 安装到系统启动项、制作可启动 U 盘、移动硬盘或生成 ISO 镜像，致力于让复杂的技术操作简单化，是装机和系统维护的得力助手。",
+    "officialUrl": "https://www.wepe.com.cn/",
+    "iconUrl": "https://www.wepe.com.cn/images/download/u54.png?v12",
+    "installType": [
+      { "title": "官方下载 (下载卡片右下角可免费下载)", "url": "https://www.wepe.com.cn/download.html" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "unknown",
+    "repoUrl": null,
+    "tags": ["PE工具箱", "U盘启动", "系统维护"],
+    "recommendReason": "微PE工具箱是国内口碑极佳的纯净PE系统，真正做到了无广告、无捆绑。它体积小巧、功能全面，集成了系统维护所需的各类刚需工具。无论是系统安装、硬盘分区还是数据恢复，微PE都能提供稳定、高效的支持，是每个Windows用户都值得拥有的“急救盘”。"
   }
 ]

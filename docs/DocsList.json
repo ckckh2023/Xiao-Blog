@@ -26,8 +26,9 @@
   },
   { "id": "ai-agent", "title": "AI Agent 工具使用",
     "children": [
-      { "id": "dsh", "title": "Deepseek Harness使用方法及建议" },
-      { "id": "agentdata-location", "title": "AI Agent 数据存储位置" }
+      { "id": "windows-agent-prompt", "title": "Windows 环境下 AI Agent 命令执行的提示词配置建议" },
+      { "id": "dsh", "title": "Deepseek Harness 使用方法" },
+      { "id": "agentdata-location", "title": "AI Agent 历史数据存储位置" }
     ]
   }
 ]
