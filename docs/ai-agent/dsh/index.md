@@ -2,13 +2,13 @@
 
 ---
 
-## 一、什么是 dsh？
+### 什么是 dsh？
 
 DeepSeek Harness（简称 **dsh**）是 DeepSeek 开源的一款 AI Agent 运行框架，核心设计理念是 **"一切皆插件"** ——模型、工具、Agent 循环、UI 界面等所有能力均由插件组合而成，可自由替换与灵活重组。
 
 ---
 
-## 二、环境准备
+## 环境准备
 
 ### 1. 安装 Node.js（必需）
 
@@ -28,9 +28,8 @@ npm install -g pnpm
 
 > 安装完成后**必须重启终端**，让系统环境变量生效，否则 `dsh plugin` 命令会报错找不到 pnpm。
 
----
 
-## 三、安装与启动 dsh
+## 安装与启动 dsh
 
 ### 方式一：npx 一键启动（临时体验，推荐首次使用）
 
@@ -65,9 +64,8 @@ pip install deepseek-harness-sdk
 ```
 
 >  本人没使用过也不清楚具体使用方法，请参考[官方文档](https://deepseek-harness.github.io/deepseek-harness/)。
----
 
-## 四、首次启动配置
+## 首次启动配置
 
 浏览器打开 `http://127.0.0.1:3080` 后：
 
@@ -75,9 +73,7 @@ pip install deepseek-harness-sdk
 2. 选择工作区目录和运行模式。
 3. 新建会话，开始对话。
 
----
-
-## 五、常用命令速查
+## 常用命令速查
 
 | 用途 | 命令 |
 |------|------|
@@ -92,9 +88,7 @@ pip install deepseek-harness-sdk
 
 > **参数顺序注意**：启动器参数（`--profile`、`--patch` 等）必须写在最前面，应用参数写在后面。
 
----
-
-## 六、插件管理（核心功能）
+## 插件管理（核心功能）
 
 > 本教程提供懒人版插件管理方式：终端运行 `dsh plugin --profile web add dshmarket`，再次打开 Web UI 即可看到插件市场。
 
@@ -133,19 +127,16 @@ dsh plugin --profile <profile名称> add <插件包名>
 
 ### 4. 实用插件推荐
 
-| 插件 | 功能 | 安装命令 |
-|------|------|----------|
-| **ModLens** | 赋予纯文本模型图像识别能力 | `dsh plugin --profile web add @liustack/modlens@3.17.2` |
-| **dsh-web-shell** | Web UI 右侧终端面板 | `dsh plugin --profile web add dsh-web-shell` |
-| **dsh-web-search-pro** | 增强网页搜索 | `dsh plugin --profile web add dsh-web-search-pro` |
-| **dsh-plugin-hub** | 插件管理面板 | `dsh plugin --profile web add github:Noob-stupid/dsh-plugin-hub` |
-| **dsh-deepresearch** | 深度研究插件 | `dsh plugin --profile web add github:dsh-external/dsh-deepresearch` |
+| 插件 | 功能 |
+|------|------|
+| **dsh-market** | DeepSeek插件市场 |
+| **DSH-better-sidebar** | Web UI 右侧工作区面板 |
+| **modlens** | 处理图片信息 |
+| **dsh-usage-stats** | Token 额度使用面板 |
 
 > 更多插件可以在 [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com) 浏览，或查看 GitHub 上的 [`dsh-plugin` Topic](https://github.com/topics/dsh-plugin)。
 
----
-
-## 八、常见问题
+## 常见问题
 
 ### Q：`npx` 和 `dsh` 命令有什么区别？
 `npx @deepseek-ai/dsh` 是首次安装/临时调用；全局安装后可以直接用 `dsh` 命令，两者后续参数一致。

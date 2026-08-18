@@ -20,7 +20,7 @@ If a command fails in Git Bash, retry using PowerShell 7 (pwsh) with the appropr
 For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
 ```
 
-### 理由
+## 理由
 
 1. **Git Bash 提供 POSIX 兼容层**  
    Git for Windows 所携带的 Git Bash 基于 MinGW 和 MSYS，提供了类 Unix 的 shell 环境和常用 GNU 工具集，绝大多数 AI 生成的命令无需修改即可在此环境中执行，极大降低了转换成本。
@@ -46,9 +46,10 @@ For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
    - 对于 AutoGPT 等自主 Agent，可在配置文件或启动参数中设定。
 
 4. **验证环境**  
-   在任意终端中执行 `git --version` 和 `pwsh --version` ，如有输出证明已经可用
+   在任意终端中执行 `git --version` 和 `pwsh --version` ，如有输出证明已经可用。
 
 ---
+
 
 采用上述提示词后，AI 生成的命令将自动适配 Git Bash 语法，并在必要时提供 PowerShell 7 的备用方案。实测表明，常见的文件搜索、文本处理、进程管理、网络请求等任务，首次执行成功率可从不足 60% 提升至 90% 以上，显著降低手动干预成本。
 

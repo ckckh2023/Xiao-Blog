@@ -15,5 +15,11 @@
     "children": [
       { "id": "qq-image-url", "title": "腾讯 QQ 头像直链接口" }
     ]
+  },
+  { "id" : "proxy", "title": "代理原理与代理工具使用方法",
+    "children": [
+      { "id": "proxy-principle", "title": "代理原理及指导" },
+      { "id": "clash-verge-rev", "title": "Clash Verge Rev 工具使用方法" }
+    ]
   }
 ]
