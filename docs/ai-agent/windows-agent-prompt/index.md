@@ -1,8 +1,12 @@
 在 Windows 平台上使用 AI 辅助开发工具（如代码补全、命令行生成或自主 Agent）时，用户经常遇到生成的命令无法在默认 shell（PowerShell）中直接执行的问题。调查表明，绝大多数 AI 模型的训练数据以 Unix/Linux 命令行语料为主，因此模型更倾向于输出符合 POSIX 标准的 shell 命令（如 `grep`、`sed`、`awk`、`find` 等）。而 Windows 内置的 PowerShell 尽管功能强大，但其语法和命令集与 POSIX 环境差异较大，导致频繁的兼容性错误，降低了开发效率。
 
+---
+
 ## 推荐方案
 
 为减少命令翻译和手动修正的时间，建议在 AI Agent 的系统提示词（System Prompt）或会话上下文中明确指定命令执行环境的优先级。经过验证，**优先使用 Git Bash，其次使用 PowerShell 7 (pwsh)** 的策略能有效覆盖绝大多数场景，兼顾兼容性与 Windows 原生功能。
+
+---
 
 ### 推荐的系统提示词内容
 
@@ -20,6 +24,8 @@ If a command fails in Git Bash, retry using PowerShell 7 (pwsh) with the appropr
 For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
 ```
 
+---
+
 ## 理由
 
 1. **Git Bash 提供 POSIX 兼容层**  
@@ -30,6 +36,8 @@ For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
 
 3. **对齐 AI 训练数据分布**  
    明确告知 AI 执行环境偏好，可以引导模型优先输出与其训练语料更匹配的命令格式，从而提高首次生成的成功率，减少迭代修正次数。绝大多数开发者对 `bash` 环境非常熟悉，AI 模型在此环境下的命令生成准确率也更高.
+
+---
 
 ## 操作步骤
 
@@ -48,10 +56,9 @@ For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
 4. **验证环境**  
    在任意终端中执行 `git --version` 和 `pwsh --version` ，如有输出证明已经可用。
 
----
-
-
 采用上述提示词后，AI 生成的命令将自动适配 Git Bash 语法，并在必要时提供 PowerShell 7 的备用方案。实测表明，常见的文件搜索、文本处理、进程管理、网络请求等任务，首次执行成功率可从不足 60% 提升至 90% 以上，显著降低手动干预成本。
+
+---
 
 ## 注意事项
 

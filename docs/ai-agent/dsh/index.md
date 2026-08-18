@@ -28,6 +28,7 @@ npm install -g pnpm
 
 > 安装完成后**必须重启终端**，让系统环境变量生效，否则 `dsh plugin` 命令会报错找不到 pnpm。
 
+---
 
 ## 安装与启动 dsh
 
@@ -65,6 +66,8 @@ pip install deepseek-harness-sdk
 
 >  本人没使用过也不清楚具体使用方法，请参考[官方文档](https://deepseek-harness.github.io/deepseek-harness/)。
 
+---
+
 ## 首次启动配置
 
 浏览器打开 `http://127.0.0.1:3080` 后：
@@ -87,6 +90,8 @@ pip install deepseek-harness-sdk
 | 从源码启动 | `cd deepseek-harness && pnpm dsh web` |
 
 > **参数顺序注意**：启动器参数（`--profile`、`--patch` 等）必须写在最前面，应用参数写在后面。
+
+---
 
 ## 插件管理（核心功能）
 
@@ -135,6 +140,8 @@ dsh plugin --profile <profile名称> add <插件包名>
 | **dsh-usage-stats** | Token 额度使用面板 |
 
 > 更多插件可以在 [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com) 浏览，或查看 GitHub 上的 [`dsh-plugin` Topic](https://github.com/topics/dsh-plugin)。
+
+---
 
 ## 常见问题
 

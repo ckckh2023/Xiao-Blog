@@ -1,6 +1,7 @@
 > 本文面向网络学习者与开发者，仅介绍Clash Verge Rev 客户端的通用使用方法。  
 > 请将代理用于合法场景，例如管理自己的服务器、企业内网访问、开发调试等，并遵守当地法律法规。
 
+---
 
 ## 工具简介
 
@@ -8,14 +9,16 @@ Clash Verge Rev 是一个跨平台的 Clash 图形化客户端，支持 Windows�
 
 > 使用前请确认你拥有代理服务器的合法使用权，并遵守所在地法律法规。
 
+--- 
 ## 安装
 
 你可以在我的[分享页](https://xiao-blog.top/share/?type=software&name=clash)找到它，按照流程下载安装即可。
 
-> Windows 用户懒人版可[点此](https://gh-proxy.com/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.2/Clash.Verge_2.5.2_x64-setup.exe)下载安装
+> Windows 用户懒人版教程可[点此](https://gh-proxy.com/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.2/Clash.Verge_2.5.2_x64-setup.exe)下载安装
 
 安装完成后启动软件。
 
+--- 
 ## 导入配置文件
 
 Clash Verge Rev 需要一份 YAML 格式的配置文件，其中包含代理节点、代理组和规则。
@@ -50,6 +53,7 @@ rules:
   - MATCH,DIRECT
 ```
 
+--- 
 ## 选择代理节点或策略组
 
 在“代理”页面，可以看到配置文件中定义的代理组。点击策略组可以选择要使用的节点，或选择 `DIRECT` 直连。
@@ -60,6 +64,7 @@ rules:
 - **url-test**：自动选择延迟最低的节点。
 - **fallback**：自动选择可用节点。
 
+--- 
 ## 开启系统代理
 
 在首页的网络设置中打开“系统代理”开关。开启后，系统的 HTTP/HTTPS 流量会按照规则转发到代理服务器。
@@ -72,6 +77,8 @@ rules:
 - **规则模式**：按配置文件中的规则分流。
 - **全局模式**：所有流量都走代理。
 - **直连模式**：所有流量直连，不走代理。
+
+---
 
 ## 验证与关闭
 

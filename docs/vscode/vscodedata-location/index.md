@@ -36,5 +36,3 @@ VS Code 的设置文件存储在用户的主目录下，具体路径如下：
 **A：** 同理，在 Windows 系统中，`~` 符号同样代表当前用户的主目录。例如，如果当前用户是 `ckckh2023`，那么 `~/AppData/Roaming/Code` 实际上是指 `C:\Users\ckckh2023\AppData\Roaming\Code`。
 
 这代表了，无论在哪个操作系统上，`~` 都是指当前用户的主目录，需牢记。
-
----
