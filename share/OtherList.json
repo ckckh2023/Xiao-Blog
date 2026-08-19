@@ -245,7 +245,7 @@
     "officialUrl": "https://www.wepe.com.cn/",
     "iconUrl": "https://www.wepe.com.cn/images/download/u54.png?v12",
     "installType": [
-      { "title": "官方下载 (下载卡片右下角可免费下载)", "url": "https://www.wepe.com.cn/download.html" }
+      { "title": "官方网站", "url": "https://www.wepe.com.cn/download.html" }
     ],
     "platforms": ["Windows"],
     "blogs": [],

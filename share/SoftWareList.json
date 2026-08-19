@@ -56,7 +56,10 @@
     "description": "DeepSeek AI 官方推出的开源智能体框架，采用“一切皆插件”的架构设计，由 Cordis 驱动，支持通过插件灵活扩展功能，目前处于开发者预览阶段。",
     "officialUrl": "https://www.deepseek.com/harness/",
     "iconUrl": "https://fe-static.deepseek.com/platform/favicon.svg",
-    "installType": [],
+    "installType": [
+      { "title": "社区桌面版", "url": "https://www.dshdesktop.cn/" },
+      { "title": "社区桌面版（GitHub Releases）", "url": "https://github.com/anywhere-labs/deepseek-harness-desktop/releases" }
+    ],
     "platforms": ["Web"],
     "blogs": [
       { "title": "DeepSeek 官方文档", "url": "https://deepseek-harness.github.io/deepseek-harness" },
