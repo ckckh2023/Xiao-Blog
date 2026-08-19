@@ -106,6 +106,14 @@
   text-decoration: none;
 }
 .about-contact-list a:hover { text-decoration: underline; }
+/* 待补充的占位链接（如知乎 / CSDN 主页） */
+.about-contact-list a.about-pending {
+  color: var(--text-muted);
+}
+.about-contact-list a.about-pending:hover {
+  color: var(--text-muted);
+  text-decoration: none;
+}
 .about-contact-icon {
   display: inline-flex;
   align-items: center;
@@ -122,23 +130,14 @@
 }
 
 /* ---------- RSS ---------- */
-.about-rss-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-  padding: 8px 16px;
-  font-size: 14px;
-  color: var(--link);
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: border-color 0.15s ease, background 0.15s ease;
+.about-rss-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.about-rss-link:hover {
-  border-color: var(--link);
-  background: var(--active-bg);
+.about-rss-card .about-rss-btn {
+  margin-top: auto; /* 按钮固定在卡片左下角 */
+  align-self: flex-start;
 }
 
 /* ---------- 赞赏二维码 ---------- */

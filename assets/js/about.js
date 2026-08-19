@@ -76,7 +76,10 @@
       }
       if (data.email) {
         var email = document.getElementById("about-email");
-        if (email) email.innerHTML = '<a href="mailto:' + Utils.escapeHTML(data.email) + '">' + Utils.escapeHTML(data.email) + "</a>";
+        if (email) {
+          email.setAttribute("href", "mailto:" + data.email);
+          email.textContent = data.email;
+        }
       }
       if (data.blog) {
         var blog = document.getElementById("about-blog");
