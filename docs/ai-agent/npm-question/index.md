@@ -50,9 +50,9 @@ Get-ExecutionPolicy
 
 ---
 
-### npm 的 install-scripts 白名单机制
+### Npm 的 install-scripts 白名单机制
 
-在终端中执行 `npm install -g @deepseek-ai/dsh` 时，安装过程顺利完成（`added 530 packages`），但出现多处警告：
+在终端中执行 `npm install -g @deepseek-ai/dsh` 时，安装过程顺利完成（`added 314 packages`），但出现多处警告：
 ```
 npm warn install-scripts 5 packages had install scripts blocked because they are not covered by allowScripts:
 npm warn install-scripts   @deepseek-ai/dsh-subprocess-local@0.1.0-rc.7 (postinstall: node scripts/ensure-spawn-helper.mjs)
@@ -67,7 +67,7 @@ npm error path /home/user/package.json
 原因是该命令缺少目标包名，npm 误以为要在当前目录安装本地包，而非全局已安装的包。
 
 #### 根本原因
-npm 自 v7 起引入 `allow-scripts` 配置，旨在防止第三方包在安装时自动执行可能危险的脚本。未列入白名单的包，其 `install`、`postinstall` 等脚本将被跳过。全局安装时，该配置默认为空，导致所有安装脚本均被阻塞。而 `--allow-scripts` 命令行参数需配合 `npm install` 或 `npm rebuild` 使用，若单独执行且未指定包名，npm 会尝试读取当前目录的 `package.json` 执行安装，从而引发文件找不到的错误。
+Npm 自 v7 起引入 `allow-scripts` 配置，旨在防止第三方包在安装时自动执行可能危险的脚本。未列入白名单的包，其 `install`、`postinstall` 等脚本将被跳过。全局安装时，该配置默认为空，导致所有安装脚本均被阻塞。而 `--allow-scripts` 命令行参数需配合 `npm install` 或 `npm rebuild` 使用，若单独执行且未指定包名，npm 会尝试读取当前目录的 `package.json` 执行安装，从而引发文件找不到的错误。
 
 #### 诊断方法
 查看 npm 配置中 `allow-scripts` 的值：
@@ -78,7 +78,7 @@ npm config get allow-scripts --location=user
 
 #### 解决方法
 **步骤一：将受阻包加入用户级白名单**  
-执行以下命令，将五个包名以逗号分隔配置为允许脚本执行：
+执行以下命令，将相关包名以逗号分隔配置为允许脚本执行（此处仅针对dsh）：
 ```bash
 npm config set allow-scripts "@deepseek-ai/dsh-subprocess-local,koffi,node-pty,@google/genai,protobufjs" --location=user
 ```

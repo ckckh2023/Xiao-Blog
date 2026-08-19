@@ -4,11 +4,21 @@
       { "id": "vscode-data-location", "title": "VSCode 配置文件位置" }
     ]
   },
+  { "id": "git", "title": "Git 相关技巧",
+    "children": [
+      { "id": "git-ssh-guide", "title": "Git SSH 配置及使用建议",
+        "children": [
+          { "id": "git-ssh-config", "title": "Git SSH 配置方法" },
+          { "id": "git-ssh-agent", "title": "Git SSH Agent 配置与建议" }
+        ]
+      }
+    ]
+  },
   { "id": "ai-agent", "title": "AI Agent 使用指南",
     "children": [
       { "id": "windows-agent-prompt", "title": "Windows AI Agent 提示词配置" },
-      { "id": "dsh-guide", "title": "DeepSeek Harness (dsh) 使用指南" },
-      { "id": "npm-question", "title": "npm 脚本执行策略问题与解决方案" },
+      { "id": "dsh-guide", "title": "DeepSeek Harness 使用与配置指南" },
+      { "id": "npm-question", "title": "Npm 脚本执行策略问题与解决方案" },
       { "id": "agent-data-location", "title": "Agent 工具历史记录存储位置" }
     ]
   },

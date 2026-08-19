@@ -111,8 +111,7 @@
     "officialUrl": "https://www.diskgenius.cn/",
     "iconUrl": "https://www.diskgenius.cn/favicon.ico",
     "installType": [
-      { "title": "官方网站", "url": "https://www.diskgenius.cn/download.php" },
-      { "title": "64位便携版", "url": "https://www.diskgenius.cn/download/DGFree_x64.zip" }
+      { "title": "官方网站", "url": "https://www.diskgenius.cn/download.php" }
     ],
     "platforms": ["Windows"],
     "blogs": [],
