@@ -1,12 +1,22 @@
 [
   {
-    "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=windows-agent-prompt",
-    "title": "Windows AI Agent 提示词配置",
-    "excerpt": "在 Windows 环境下，AI Agent 的命令执行提示词配置建议，包括如何配置和使用，包含懒人版教程。"
+    "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=dsh-guide",
+    "title": "DeepSeek Harness 使用与配置指南",
+    "excerpt": "DeepSeek Harness（dsh）的完整使用教程：环境准备、三种安装方式、首次启动配置、常用命令速查、插件安装与管理，并附常见问题解答与 Windows 懒人版安装方式。"
   },
   {
-    "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=dsh-guide",
-    "title": "DeepSeek Harness (dsh) 使用指南",
-    "excerpt": "DeepSeek Harness（dsh） 的完整使用方法教程，涵盖安装、启动、配置与插件管理，包含懒人版使用方法。"
+    "url": "https://xiao-blog.top/docs/article?id=git-guide&sub=git-ssh-guide&sub2=git-ssh-config",
+    "title": "Git SSH 配置方法",
+    "excerpt": "Git SSH 客户端完整配置指南：Ed25519 密钥生成、~/.ssh/config 编写、私钥权限设置（含 Windows icacls 操作）、公钥添加与连接测试，附常见问题排查。"
+  },
+  {
+    "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=windows-agent-prompt",
+    "title": "Windows AI Agent 提示词配置",
+    "excerpt": "Windows 下让 AI Agent 输出可执行命令的提示词配置建议：优先使用 Git Bash、失败后回退 PowerShell 7 的完整策略与提示词模板，含安装步骤与注意事项。"
+  },
+  {
+    "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question",
+    "title": "Npm 脚本执行策略问题与解决方案",
+    "excerpt": "解决 Windows 与 Linux 下 npm 全局安装的两类典型报错：PowerShell 执行策略限制（Restricted）与 install-scripts 白名单机制，含诊断方法与永久解决方案。"
   }
 ]

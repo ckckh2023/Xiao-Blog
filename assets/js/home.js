@@ -85,10 +85,10 @@
     "</article>";
   }
 
-  function mountWikiCards(selector, list, perRow) {
+  function mountWikiCards(selector, list, perRow, maxItems) {
     var box = document.querySelector(selector);
     if (!box) return;
-    var items = (list || []).slice(0, perRow || 2);
+    var items = (list || []).slice(0, maxItems || perRow || 2);
     if (!items.length) {
       box.innerHTML = '<div class="status-box">暂无精选文档。</div>';
       return;

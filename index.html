@@ -141,9 +141,9 @@
       });
     });
 
-    /* 精选文档：从 /docs/star.json 加载，每行 2 个，点击查看直接跳转对应 url */
+    /* 精选文档：从 /docs/star.json 加载，每行 2 个（最多 4 篇），点击查看直接跳转对应 url */
     fetchStarDocs().then(function (list) {
-      mountWikiCards("#featured-wiki", list, 2);
+      mountWikiCards("#featured-wiki", list, 2, 4);
     });
 
     /* 精选分享：从 /share/star.json 加载，每行 2 个，复用分享页卡片样式 */

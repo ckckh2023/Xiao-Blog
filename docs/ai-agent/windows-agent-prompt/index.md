@@ -35,7 +35,7 @@ For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
    PowerShell 7 是跨平台、现代化的 shell，支持许多 Unix 命令的别名，但其行为仍存在差异。因此，仅在 Git Bash 不适用（例如需要调用 Windows API 或注册表操作）时，才切换到 PowerShell 7，且明确使用 `pwsh` 可执行文件以避免与旧版 Windows PowerShell 混淆。
 
 3. **对齐 AI 训练数据分布**  
-   明确告知 AI 执行环境偏好，可以引导模型优先输出与其训练语料更匹配的命令格式，从而提高首次生成的成功率，减少迭代修正次数。绝大多数开发者对 `bash` 环境非常熟悉，AI 模型在此环境下的命令生成准确率也更高.
+   明确告知 AI 执行环境偏好，可以引导模型优先输出与其训练语料更匹配的命令格式，从而提高首次生成的成功率，减少迭代修正次数。绝大多数开发者对 `bash` 环境非常熟悉，AI 模型在此环境下的命令生成准确率也更高。
 
 ---
 

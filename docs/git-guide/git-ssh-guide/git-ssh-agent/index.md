@@ -36,9 +36,9 @@ ssh-add -D
 
 Windows 10/11 已内置 OpenSSH 客户端，ssh-agent 作为 Windows 服务运行，有两个方案可实现：
 
-### 方案一：使用 Git 自带的 SSH，参考 Linux / macOS（Bash）方案使用 `Git Bash` 即可（与 Linux/macOS 类似，终端关闭后失效）
+#### 方案一：使用 Git 自带的 SSH，参考 Linux / macOS（Bash）方案使用 `Git Bash` 即可（与 Linux/macOS 类似，终端关闭后失效）
 
-#### 方案二：使用Windows OpenSSH客户端（仅在重启后才会失效）
+#### 方案二：使用 Windows OpenSSH 客户端，需要使用 `PowerShell`（作为系统服务常驻，重启电脑后才会失效）
 
 - **检查服务状态**：
 

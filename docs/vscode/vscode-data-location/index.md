@@ -3,15 +3,17 @@ Visual Studio Code 凭借其轻量、高扩展性和强大生态，已成为开�
 ---
 ### VS Code 用户数据存储位置
 
-VS Code 的用户数据主要存储在以下两个目录中：
+VS Code 的用户数据主要存储在以下三个位置：
 
-1. **用户设置和扩展**：这些数据包括用户设置、扩展、代码片段、键盘快捷方式等。这些数据通常存储在用户的主目录下，具体路径如下：
+1. **用户设置**：包括设置、代码片段、键盘快捷方式等，通常存储在用户的主目录下，具体路径如下：
 
-   - **Windows**：`~/AppData/Roaming/Code`
-   - **macOS**：`~/Library/Application Support/Code`
-   - **Linux**：`~/.config/Code`
+   - **Windows**：`~/AppData/Roaming/Code/User`
+   - **macOS**：`~/Library/Application Support/Code/User`
+   - **Linux**：`~/.config/Code/User`
 
-2. **缓存数据**：这些数据包括编译缓存、代码分析缓存、扩展缓存等。这些数据通常存储在用户的主目录下，均在 `~/.vscode` 目录中。
+2. **扩展（Extensions）**：安装在用户主目录下的 `~/.vscode/extensions`（全平台一致，并不在 `Code` 目录中）。
+
+3. **缓存数据**：包括编译缓存、代码分析缓存等，位于上述 `Code` 目录下的 `Cache`、`CachedData` 等子目录中（如 Windows 为 `~/AppData/Roaming/Code/Cache`、`CachedData`）。
 
 ---
 

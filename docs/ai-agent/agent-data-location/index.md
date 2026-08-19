@@ -10,7 +10,7 @@
 | OpenAI Codex | \~/.codex/state_*.sqlite（索引）<br>\~/.codex/sessions/YYYY/MM/DD/*.jsonl（内容） | SQLite + JSONL |
 | Cursor | macOS: ~/Library/Application Support/Cursor/User/globalStorage/state.vscdb<br>Windows: ~/AppData/Roaming/Cursor/User/globalStorage/state.vscdb | SQLite (VS Code 风格) |
 | Claude Code | ~/.claude/projects/project-slug/session-id.jsonl | JSONL |
-| CodeArts | \~/.codeartsdoer/codearts-data/opencode.db（Windows独有IDE）<br> \~/.codeartsdoer/cli-data/opencode.db（CLI）| SQLite |
+| CodeArts | \~/.codeartsdoer/codearts-data/opencode.db（Windows 独有 IDE）<br> \~/.codeartsdoer/cli-data/opencode.db（CLI）| SQLite |
 
 > 请注意以下几点：
 - `~` 表示用户主目录，Windows 下对应 %USERPROFILE%。可以查看[我的文档讲解](https://xiao-blog.top/docs/article?id=vscode&sub=vscode-data-location)。

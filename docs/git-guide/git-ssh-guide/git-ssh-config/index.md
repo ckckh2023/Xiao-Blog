@@ -142,7 +142,7 @@ Hi USERNAME! You've successfully authenticated, but GitHub does not provide shel
 
 私钥权限设置不正确，导致 SSH 客户端无法读取私钥文件。
 
-### 2. Permission denied (publickey)
+### 2. 首次连接的主机指纹确认（host key verification）
 
 如果是第一次连接该主机，系统会提示确认主机指纹：
 
