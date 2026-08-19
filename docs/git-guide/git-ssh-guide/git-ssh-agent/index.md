@@ -1,5 +1,7 @@
 `ssh-agent` 是一个后台程序，用于保存私钥的解密结果（包括密码短语），使得用户无需重复输入密码。不同平台下启动和管理方式不同。
 
+---
+
 ### Linux / macOS（Bash）
 
 - **启动 agent**：
@@ -27,6 +29,8 @@ ssh-add -l
 ```bash
 ssh-add -D
 ```
+
+---
 
 ### Windows（PowerShell）
 
