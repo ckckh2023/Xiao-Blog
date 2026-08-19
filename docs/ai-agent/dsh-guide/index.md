@@ -106,7 +106,7 @@ pip install deepseek-harness-sdk
 
 ## 插件管理（核心功能）
 
-> 本教程提供懒人版插件管理方式：终端运行 `dsh plugin --profile web add dshmarket`，再次打开 Web UI 即可看到插件市场。
+> 本教程提供懒人版插件管理方式：终端运行 `dsh plugin --profile web add dshmarket`，再次打开 Web UI 在**设置界面**即可看到插件市场。
 
 ### 1. 插件安装命令
 
