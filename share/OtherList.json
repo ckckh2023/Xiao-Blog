@@ -210,7 +210,7 @@
     "id": "xiazaitool",
     "name": "下载狗",
     "description": "一款功能强大的在线视频解析与下载工具，支持哔哩哔哩、抖音、快手、小红书、TikTok、微博、YouTube、今日头条、Twitter(X)等国内外主流视频平台。提供网页在线版和桌面客户端，支持无水印下载、批量解析及4K超清视频下载等功能。",
-    "officialUrl": "https://www.xiazaitool.com/",
+    "officialUrl": "https://www.xiazaitool.com/?ref=325242mR",
     "iconUrl": "https://www.xiazaitool.com/parseVideo/image/logo.png",
     "installType": [
       { "title": "官方网站", "url": "https://www.xiazaitool.com/parseVideo/main/clientDownload.html" }
@@ -221,6 +221,22 @@
     "repoUrl": null,
     "tags": ["视频下载", "在线工具"],
     "recommendReason": "支持国内外数十个主流视频平台，提供网页端与桌面客户端双模式，操作简单，输入链接即可解析下载。客户端版本支持B站1080p/4K超清视频下载、YouTube超清视频及下载记录功能，稳定性更佳。"
+  },
+  {
+    "id": "wenshushu",
+    "name": "文叔叔",
+    "description": "一款主打永不限速的云存储与文件传输工具，支持通过手机号、邮箱或链接，向任何人发送任意文件。无需加好友即可传文件，单个文件最大支持 5GB。",
+    "officialUrl": "https://www.wenshushu.cn/?i=VHSEFM",
+    "iconUrl": "https://pp.myapp.com/ma_icon/0/icon_53977258_1767846916/256",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.wenshushu.cn/download" }
+    ],
+    "platforms": ["Web", "Android", "iOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["云存储", "文件传输"],
+    "recommendReason": "主打永不限速，上传下载速度不受限制。无需加好友、无需注册即可通过链接或手机号收发文件，操作简单仅需两步。免费提供大容量云盘空间，支持小程序、网页和 App 多端使用，是替代传统网盘传输文件的效率工具。"
   },
   {
     "id": "heu-kms-activator",
