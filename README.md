@@ -8,7 +8,7 @@
 
 - **首页**：聚合 GitHub 个人信息、精选项目 / 文档 / 分享 / 留言
 - **项目展示**：Vue 3 渲染卡片网格，GitHub API enrich（ETag 缓存 + localStorage 兜底），实时搜索
-- **文档知识库**：多级目录树 + Markdown 渲染 + 面包屑 / 上下页分页 + 动态 SEO 元数据
+- **文档知识库**：多级目录树 + Markdown 渲染 + 面包屑 / 上下页分页 + 动态 SEO 元数据，支持 `docs/star.json` 精选文档
 - **星标分享库**：软件 / 其他双数据源，分类 → 标签 → 搜索三级叠加筛选；支持 `?type=software|other&name=xxx` URL 双映射直达
 - **留言板**：Cloudflare D1 持久化，Markdown 内容，IP 加盐哈希 + 频率限制
 - **好友页 / 关于页**：好友列表、站点统计、隐私政策
@@ -39,7 +39,7 @@
 │   ├── css/                # 页面样式（common + 各页面）
 │   ├── js/                 # 脚本（common.js 全局，其余按页面）
 │   └── vendor/             # vue.global.js + marked.min.js（本地化）
-├── docs/                   # 文档知识库（DocsList.json + Markdown 文章）
+├── docs/                   # 文档知识库（DocsList.json 目录树 + Markdown 文章 + star.json 精选）
 ├── repo/                   # 项目展示（Vue 渲染 + GitHub API enrich）
 ├── share/                  # 分享库（软件 + 其他资源）
 ├── guestbook/              # 留言板
@@ -47,8 +47,11 @@
 ├── about/                  # 关于页
 └── functions/              # Edge Functions 后端
     ├── api/guestbook.js    # 留言板 API（GET/POST，IP 哈希 + 频率限制）
-    └── rss.xml.js          # 动态 RSS 生成
+    ├── rss.xml.js          # 动态 RSS 生成
+    └── sitemap.xml.js      # 动态 sitemap 生成（自动收录全部文档文章）
 ```
+
+各栏目下的 `star.json` 为首页精选数据源：`repo/`、`docs/`、`share/` 为对象数组，`guestbook/` 为留言 id 数组（如 `[5, 10, 29]`）。
 
 ## 本地开发
 
@@ -76,15 +79,30 @@ wrangler d1 execute xiao-guestbook --remote --file=./schema.sql
 - **Edge Functions**：`functions/` 目录约定自动映射
   - `functions/api/guestbook.js` → `/api/guestbook`
   - `functions/rss.xml.js` → `/rss.xml`
-- **文章页**：`/docs/article.html?id=vue-guide` 或多级 `/docs/article.html?id=deploy&sub=overview`
+  - `functions/sitemap.xml.js` → `/sitemap.xml`
+- **文章页**：`/docs/article.html?id=ai-agent&sub=dsh-guide` 或三级 `/docs/article.html?id=git-guide&sub=git-ssh-guide&sub2=git-ssh-config`
 - **分享页直达**：`/share/?type=software&name=db-browser-sqlite`
 
-## 安全设计
+## 文档知识库维护
 
-- 留言板 IP 经 SHA-256 加盐哈希存储，不保存原 IP
-- 10 分钟 / IP 频率限制
-- Markdown 正文经 DOMPurify 消毒，防 XSS
-- 字段长度校验
+### 新增 / 修改文章
+
+1. 在 `docs/` 下按分类建目录并写入 Markdown 正文，如 `docs/ai-agent/dsh-guide/index.md`；
+2. 在 `docs/DocsList.json` 中登记节点（`id` 须与目录名一致，`title` 为显示标题），最多支持三层嵌套：
+
+   ```json
+   { "id": "ai-agent", "title": "AI Agent 使用指南",
+     "children": [ { "id": "dsh-guide", "title": "DeepSeek Harness 使用与配置指南" } ] }
+   ```
+
+3. 文章 URL 由 id 路径决定：`/docs/article.html?id=ai-agent&sub=dsh-guide`；`functions/sitemap.xml.js` 与 `functions/rss.xml.js` 会自动 HEAD 探测 `index.md` 并收录，无需额外配置。
+
+> 带 `children` 的节点为分组，访问时自动重定向到其第一个叶子文章。
+
+### 精选文档（首页展示）
+
+- `docs/star.json` 存放首页「精选文档」卡片，格式为 `{ "url", "title", "excerpt" }` 数组，首页每行 2 个、最多展示 4 篇；
+- 其他栏目精选同理：`repo/star.json`、`share/star.json` 为对象数组，`guestbook/star.json` 为留言 id 数组。
 
 ## 致谢
 

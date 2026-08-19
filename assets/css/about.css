@@ -75,6 +75,17 @@
   margin: 4px 0 0;
 }
 
+/* ---------- 双列卡片布局（统计下方：联系方式|RSS，赞赏|隐私） ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+.about-grid .about-card {
+  margin-bottom: 0;
+}
+
 /* ---------- 联系方式 ---------- */
 .about-contact-list {
   list-style: none;
@@ -181,5 +192,6 @@
 /* ---------- 响应式 ---------- */
 @media (max-width: 600px) {
   .about-stats { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; }
   .about-card { padding: 18px 16px; }
 }
