@@ -90,7 +90,7 @@ npm config set allow-scripts "@deepseek-ai/dsh-subprocess-local,koffi,node-pty,@
 npm rebuild @deepseek-ai/dsh-subprocess-local koffi node-pty @google/genai protobufjs -g
 ```
 
-> 此处提供懒人版教程：也可以直接重新 `npm install -g`，npm 会自动检测并执行缺失的脚本。<br>
+> 此处提供懒人版教程：也可以直接重新 `npm install -g @deepseek-ai/dsh`，npm 会自动检测并执行缺失的脚本。<br>
 
 此时 npm 将依据新的白名单配置，正常执行各包的安装后脚本。重建完成后，工具功能应完整可用。
 

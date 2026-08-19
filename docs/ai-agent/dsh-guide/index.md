@@ -56,16 +56,18 @@ npx @deepseek-ai/dsh web
 npm install -g @deepseek-ai/dsh
 ```
 
+> 如果你遇到了下列报错，请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)：
+```
+npm warn install-scripts Run `npm install -g --allow-scripts=...` to allow these scripts once, or `npm config set allow-scripts=... --location=user` to allow them for all global installs.
+```
+
 安装完成后，直接使用 `dsh` 命令：
 
 ```bash
 dsh web
 ```
 
-> 如果你遇到了下列报错，请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)：
-```
-npm warn install-scripts Run `npm install -g --allow-scripts=...` to allow these scripts once, or `npm config set allow-scripts=... --location=user` to allow them for all global installs.
-```
+执行后浏览器打开 `http://127.0.0.1:3080` 页面即可开始使用。
 
 ### 方式三：通过 Python SDK 安装
 
