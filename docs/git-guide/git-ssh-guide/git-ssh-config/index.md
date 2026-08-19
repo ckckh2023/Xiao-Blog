@@ -57,7 +57,7 @@ Host github.com
 
 SSH 客户端对私钥文件的权限有严格限制：**私钥只能被当前用户读取，任何其他用户或组都不能有任何权限**。权限设置不当会导致 `Permissions too open` 或 `Permission denied (publickey)` 错误。
 
-> 下列命令中的密钥路径均为~/.ssh/id_ed25519，需要自行更改！
+> 下列命令中的密钥路径均为 `~/.ssh/id_ed25519`，需要自行更改！
 
 ### Linux / macOS
 
@@ -154,7 +154,7 @@ Are you sure you want to continue connecting (yes/no)?
 
 此时应核对指纹是否与 GitHub 官方公布的指纹一致。确认无误后输入 yes 并回车。
 
-### 3. `Connection timed out`
+### 3. Connection timed out
 
 端口 22 被封锁，需要使用其他端口（如 443）连接，示例如下：
 
