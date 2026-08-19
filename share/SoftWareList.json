@@ -170,7 +170,8 @@
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
-      { "title": "Clash Verge Rev 官方文档", "url": "https://clashvergerev.com" }
+      { "title": "Clash Verge Rev 官方文档", "url": "https://clashvergerev.com" },
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=proxy&sub=clash-verge-rev"}
     ],
     "status": "active",
     "repoUrl": "https://github.com/clash-verge-rev/clash-verge-rev",
