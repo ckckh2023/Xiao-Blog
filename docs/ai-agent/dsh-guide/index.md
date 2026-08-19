@@ -28,6 +28,12 @@ npm install -g pnpm
 
 > 安装完成后**必须重启终端**，让系统环境变量生效，否则 `dsh plugin` 命令会报错找不到 pnpm。
 
+> 如果你在Windows环境遇到了下列报错，请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)：
+```
+Get-ExecutionPolicy : Restricted
+. : 因为在此系统上禁止运行脚本...
+```
+
 ---
 
 ## 安装与启动 dsh
@@ -56,7 +62,10 @@ npm install -g @deepseek-ai/dsh
 dsh web
 ```
 
-启动后同样访问 `http://127.0.0.1:3080`。
+> 如果你遇到了下列报错，请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)：
+```
+npm warn install-scripts Run `npm install -g --allow-scripts=...` to allow these scripts once, or `npm config set allow-scripts=... --location=user` to allow them for all global installs.
+```
 
 ### 方式三：通过 Python SDK 安装
 

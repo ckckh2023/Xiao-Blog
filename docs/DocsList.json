@@ -8,6 +8,7 @@
     "children": [
       { "id": "windows-agent-prompt", "title": "Windows AI Agent 提示词配置" },
       { "id": "dsh-guide", "title": "DeepSeek Harness (dsh) 使用指南" },
+      { "id": "npm-question", "title": "npm 脚本执行策略问题与解决方案" },
       { "id": "agent-data-location", "title": "Agent 工具历史记录存储位置" }
     ]
   },
