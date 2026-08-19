@@ -4,7 +4,7 @@
       { "id": "vscode-data-location", "title": "VSCode 配置文件位置" }
     ]
   },
-  { "id": "git", "title": "Git 相关技巧",
+  { "id": "git-guide", "title": "Git 相关技巧",
     "children": [
       { "id": "git-ssh-guide", "title": "Git SSH 配置及使用建议",
         "children": [
