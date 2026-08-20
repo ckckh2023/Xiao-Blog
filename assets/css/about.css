@@ -135,8 +135,11 @@
   flex-direction: column;
   align-items: flex-start;
 }
+.about-rss-card p {
+  margin: 0 0 16px; /* 与按钮的最小间距（卡片矮时 auto margin 会归零，靠这里保底） */
+}
 .about-rss-card .about-rss-btn {
-  margin-top: auto; /* 按钮固定在卡片左下角 */
+  margin-top: auto; /* 卡片高时按钮贴底，固定在卡片左下角 */
   align-self: flex-start;
 }
 
