@@ -385,5 +385,39 @@
     "repoUrl": "https://github.com/localsend/localsend",
     "tags": ["文件传输", "跨平台"],
     "recommendReason": "无需登录、完全免费，支持全平台互传，采用端到端加密，传输速度快且稳定，是替代微信、QQ传输文件的绝佳选择。"
-  }
+  },
+  {
+    "id": "winrar",
+    "name": "WinRAR",
+    "description": "一款功能强大的文件压缩与归档管理工具，支持 RAR、ZIP、CAB、ISO 等众多格式。提供极高的压缩比、强大的 AES 加密、分卷压缩、恢复记录和自解压档案等高级功能，是全球用户超过 5 亿的经典压缩软件。",
+    "officialUrl": "https://www.win-rar.com/",
+    "iconUrl": "https://www.win-rar.com/fileadmin/images/winrar-archive.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.win-rar.com/download.html" },
+      { "title": "官方中文版网站下载", "url": "https://www.winrar.com.cn/download.htm" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["压缩解压"],
+    "recommendReason": "作为全球最流行的压缩工具，WinRAR 以高压缩比、强大的 AES-256 加密和丰富的功能著称。全面支持 RAR 和 ZIP 格式，并可解压 7-Zip、ISO 等众多格式。在 Windows 平台上运行稳定，是日常文件归档和分发的必备工具。"
+  },
+  {
+  "id": "clash-meta-android",
+  "name": "Clash Meta for Android",
+  "description": "基于 Clash Meta（Mihomo）内核的 Android 平台开源网络代理客户端，支持 VMess、Shadowsocks、Trojan、Snell 等多种代理协议，提供灵活的规则分流、内置 DNS 和现代化的用户界面。",
+  "officialUrl": null,
+  "iconUrl": "https://ts1.tc.mm.bing.net/th/id/OIP-C.omzEcTOiLNQobZ6VojoA6AAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+  "installType": [
+    { "title": "GitHub Releases", "url": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases" },
+    { "title": "F-Droid", "url": "https://f-droid.org/packages/com.github.metacubex.clash.meta/" }
+  ],
+  "platforms": ["Android"],
+  "blogs": [],
+  "status": "active",
+  "repoUrl": "https://github.com/MetaCubeX/ClashMetaForAndroid",
+  "tags": ["代理", "网络工具"],
+  "recommendReason": "作为 Clash for Android 的现代化继任者，Clash Meta for Android 采用更先进的 Meta 内核，支持 Hysteria 等新协议，界面更美观，规则系统更强大，是 Android 平台代理客户端的首选。"
+}
 ]
