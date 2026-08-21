@@ -135,7 +135,8 @@
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
-      { "title": "PowerShell官方文档", "url": "https://learn.microsoft.com/zh-cn/powershell/scripting/install/install-powershell" }
+      { "title": "PowerShell官方文档", "url": "https://learn.microsoft.com/zh-cn/powershell/scripting/install/install-powershell" },
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=windows-agent-prompt" }
     ],
     "status": "active",
     "repoUrl": "https://github.com/PowerShell/PowerShell",
@@ -190,7 +191,8 @@
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
       { "title": "Git 官方文档", "url": "https://git-scm.com/doc" },
-      { "title": "Pro Git 中文版", "url": "https://git-scm.com/book/zh/v2" }
+      { "title": "Pro Git 中文版", "url": "https://git-scm.com/book/zh/v2" },
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=git-guide" }
     ],
     "status": "active",
     "repoUrl": "https://github.com/git/git",
