@@ -1,5 +1,6 @@
 /.wrangler/
 /.codeartsdoer
+/.codegraph
 /.vscode
 deploy.sh
 delete.sh

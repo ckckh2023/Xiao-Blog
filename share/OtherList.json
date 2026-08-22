@@ -268,5 +268,24 @@
     "repoUrl": null,
     "tags": ["PE工具箱", "U盘启动", "系统维护"],
     "recommendReason": "微PE工具箱是国内口碑极佳的纯净PE系统，真正做到了无广告、无捆绑。它体积小巧、功能全面，集成了系统维护所需的各类刚需工具。无论是系统安装、硬盘分区还是数据恢复，微PE都能提供稳定、高效的支持，是每个Windows用户都值得拥有的“急救盘”。"
+  },
+  {
+    "id": "opencv",
+    "name": "OpenCV",
+    "description": "一个开源的跨平台计算机视觉与机器学习软件库，包含数千个经过优化的图像处理与视觉算法，广泛应用于人脸识别、目标检测、图像分割、运动跟踪与自动驾驶等场景，提供 C++、Python 等语言接口。",
+    "officialUrl": "https://opencv.org/",
+    "iconUrl": "https://opencv.ac.cn/wp-content/uploads/2020/07/cropped-Fav-192x192.png",
+    "installType": [
+      { "title": "官方 Release 包", "url": "https://opencv.org/releases/" },
+      { "title": "GitHub Releases", "url": "https://github.com/opencv/opencv/releases/" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],
+    "blogs": [
+      { "title": "OpenCV 官方文档", "url": "https://docs.opencv.org/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/opencv/opencv",
+    "tags": ["计算机视觉", "图像处理"],
+    "recommendReason": "作为计算机视觉领域的开放事实标准，OpenCV 以高度优化的 C++ 核心与易用的 Python 绑定著称，可与 NumPy、PyTorch 等深度学习生态无缝衔接，轻松完成图像分类、目标检测、人脸识别等任务，是实现图像视觉算法的效率保障。"
   }
 ]

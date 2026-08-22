@@ -306,6 +306,26 @@
     "recommendReason": "作为 Windows 平台最受欢迎的轻量级代码编辑器之一，Notepad++ 以极低的资源占用提供了强大的编辑功能。它不仅支持多种编程语言的语法高亮和代码折叠，还具备宏录制、插件扩展、正则表达式查找替换等高级特性。无论是日常文本编辑、代码编写还是日志查看，都是 Windows 用户的效率利器。"
   },
   {
+    "id": "qt",
+    "name": "Qt",
+    "description": "Qt 是一款开源的跨平台 C++ 应用与用户界面开发框架，集成 Widgets 与 QML 两套界面体系，提供丰富的控件库、信号槽机制、多线程、网络与数据库模块，支持一次开发、多平台自适应。",
+    "officialUrl": "https://www.qt.io/",
+    "iconUrl": "https://avatars.githubusercontent.com/u/159455?s=200&v=4",
+    "installType": [
+      { "title": "官方商业版在线安装器", "url": "https://www.qt.io/development/download" },
+      { "title": "官方社区版在线安装器", "url": "https://www.qt.io/development/download-qt-installer-oss" },
+      { "title": "清华大学镜像站", "url": "https://mirrors.tuna.tsinghua.edu.cn/qt/" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Qt 官方文档", "url": "https://doc.qt.io/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/qt",
+    "tags": ["开发框架", "C++", "GUI", "跨平台"],
+    "recommendReason": "Qt 是最经典的跨平台 C++ 应用开发框架，信号槽架构优雅解耦、QML 快速构建现代化响应界面，配合完善的中文与商业生态，从桌面工具到嵌入式设备、车载系统均游刃有余，是追求高性能跨平台原生体验的开发者首选。"
+  },
+  {
     "id": "ext2-volume-manager",
     "name": "Ext2 Volume Manager",
     "description": "一款 Windows 平台下的轻量级图形界面工具，作为 Ext2Fsd 文件系统驱动的管理前端。它帮助用户在 Windows 系统中挂载、管理并读写 Linux 原生的 ext2/ext3/ext4 分区，双系统用户必备。",
@@ -421,5 +441,24 @@
   "repoUrl": "https://github.com/MetaCubeX/ClashMetaForAndroid",
   "tags": ["代理", "网络工具"],
   "recommendReason": "作为 Clash for Android 的现代化继任者，Clash Meta for Android 采用更先进的 Meta 内核，支持 Hysteria 等新协议，界面更美观，规则系统更强大，是 Android 平台代理客户端的首选。"
-}
+  },
+  {
+    "id": "electron",
+    "name": "Electron",
+    "description": "一个使用 JavaScript、HTML 和 CSS 构建跨平台桌面应用的开源框架，由 GitHub 与开源社区共同维护，融合 Chromium 渲染引擎与 Node.js 运行时，让 Web 技术栈也能直接打包为原生桌面应用。",
+    "officialUrl": "https://www.electronjs.org/",
+    "iconUrl": "https://www.electronjs.org/assets/img/logo.svg",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/electron/electron/releases" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Electron 官方文档", "url": "https://www.electronjs.org/docs" },
+      { "title": "Electron 第三方资源合集", "url": "https://github.com/sindresorhus/awesome-electron" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/electron/electron",
+    "tags": ["开发框架", "桌面应用", "跨平台"],
+    "recommendReason": "Electron 让前端开发者用熟悉的 Web 技术即可构建真正的桌面应用，VS Code、Motrix 等知名软件都是它的杰作；拥有 Electron Forge 等成熟打包方案和海量社区生态，是 Web 团队快速落地跨平台桌面产品的首选框架。"
+  }
 ]
