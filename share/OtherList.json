@@ -310,7 +310,7 @@
     "name": "Manim",
     "description": "3Blue1Brown 出品的 Python 程序化动画引擎，专注于制作解释性数学视频，通过编写 Python 代码即可精确控制每个几何元素与变换，渲染出高质量的数学动画和教学视频。",
     "officialUrl": null,
-    "iconUrl": "https://cdn.jsdelivr.net/gh/3b1b/manim@master/logo/white_with_name.png",
+    "iconUrl": "https://3b1b.github.io/manim/_static/transparent_graph.png",
     "installType": [],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
