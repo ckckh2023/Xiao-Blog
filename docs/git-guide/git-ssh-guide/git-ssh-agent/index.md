@@ -10,7 +10,9 @@
 eval "$(ssh-agent -s)"
 ```
 
-> 当关闭终端时，ssh-agent会失效，需要重新启动。
+> 当关闭终端时，ssh-agent 的环境变量将会失效，需要重新启动。<br>
+> 可以通过 `env | grep SSH_` 获取环境变量重新利用。
+
 
 - **添加私钥**：
 
@@ -36,7 +38,7 @@ ssh-add -D
 
 Windows 10/11 已内置 OpenSSH 客户端，ssh-agent 作为 Windows 服务运行，有两个方案可实现：
 
-#### 方案一：使用 Git 自带的 SSH，参考 Linux / macOS（Bash）方案使用 `Git Bash` 即可（与 Linux/macOS 类似，终端关闭后失效）
+#### 方案一：使用 Git 自带的 SSH，参考 Linux / macOS（Bash）方案使用 `Git Bash` 即可（与 Linux/macOS 类似，终端关闭后环境变量失效）
 
 #### 方案二：使用 Windows OpenSSH 客户端，需要使用 `PowerShell`（作为系统服务常驻，重启电脑后才会失效）
 
