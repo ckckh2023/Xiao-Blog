@@ -304,5 +304,22 @@
     "repoUrl": "https://github.com/immersive-translate/immersive-translate",
     "tags": ["浏览器扩展", "翻译", "效率工具"],
     "recommendReason": "读外文技术文档、逛 GitHub 时，中英对照双栏译文兼顾原意与速度，不打断阅读节奏；还支持整页 PDF、双语视频字幕与划词翻译，可选用 DeepL、GPT 等多家引擎，开源免费，是外语阅读困难户的救星。"
+  },
+  {
+    "id": "manim",
+    "name": "Manim",
+    "description": "3Blue1Brown 出品的 Python 程序化动画引擎，专注于制作解释性数学视频，通过编写 Python 代码即可精确控制每个几何元素与变换，渲染出高质量的数学动画和教学视频。",
+    "officialUrl": null,
+    "iconUrl": "https://cdn.jsdelivr.net/gh/3b1b/manim@master/logo/white_with_name.png",
+    "installType": [],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Manim 官方文档", "url": "https://3b1b.github.io/manim/" },
+      { "title": "Manim 第三方中文文档", "url": "https://docs.manim.org.cn/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/3b1b/manim",
+    "tags": ["Python", "动画", "数学"],
+    "recommendReason": "作为 3Blue1Brown 数学科普视频背后的动画引擎，Manim 用代码精确驱动几何与变换，让抽象数学概念可视化，是制作教学动画、科普视频与数学演示的利器。"
   }
 ]
