@@ -66,3 +66,35 @@ ssh-add ~/.ssh/id_ed25519
 ```powershell
 git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 ```
+---
+
+### 懒人版自助脚本
+
+本脚本为 `bash` 脚本，用于自动启动 ssh-agent 并添加私钥，适用于 Linux / macOS 平台， Windows 平台需使用 Git Bash。<br>
+
+> 需要使用 `source ./ssh-agent.sh` 启动，脚本会自动添加私钥并显示当前已加载的密钥。
+
+```bash
+#!/bin/bash
+
+eval "$(ssh-agent -s)" > /dev/null
+
+# 定义要添加的密钥路径（自行更改或添加）
+keys=(
+    "$HOME/.ssh/id_ed25519"
+)
+
+# 循环添加
+for key in "${keys[@]}"; do
+    if [[ -f "$key" ]]; then
+        echo "添加 $(basename $(dirname $key)) 密钥..."
+        ssh-add "$key" 2>/dev/null || echo "  添加失败"
+    else
+        echo "警告：文件 $key 不存在，已跳过"
+    fi
+done
+
+# 显示当前已加载的密钥
+echo "当前已加载密钥："
+ssh-add -l || echo "（暂无密钥）"
+```
