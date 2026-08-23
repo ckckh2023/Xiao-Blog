@@ -74,7 +74,26 @@
        侧边栏标签由当前分类下的项目聚合（按频次降序）。 */
     var softwareList = [];
     var otherList = [];
+    var loadedState = {};  /* 已加载完成的分类：software / other */
+    var loadingState = {}; /* 加载中的 Promise，防止重复请求 */
     var filterState = { category: "software", tags: [], query: "" };
+
+    function loadCategory(cat) {
+      return cat === "other" ? fetchOtherList() : fetchShareList();
+    }
+
+    /* 确保某分类数据已加载：software 只拉 SoftWareList.json，other 只拉 OtherList.json */
+    function ensureLoaded(cat) {
+      if (loadedState[cat]) return Promise.resolve();
+      if (!loadingState[cat]) {
+        loadingState[cat] = loadCategory(cat).then(function (list) {
+          if (cat === "other") otherList = list;
+          else softwareList = list;
+          loadedState[cat] = true;
+        });
+      }
+      return loadingState[cat];
+    }
 
     function getCurrentList() {
       return filterState.category === "other" ? otherList : softwareList;
@@ -167,7 +186,7 @@
       if (indicator) indicator.classList.toggle("right", filterState.category === "other");
     }
 
-    /* 分类切换条 */
+    /* 分类切换条：切换到未加载过的分类时才请求对应 JSON */
     document.getElementById("share-toggle").addEventListener("click", function (e) {
       var btn = e.target.closest(".share-toggle-btn");
       if (!btn) return;
@@ -176,9 +195,12 @@
       filterState.category = cat;
       filterState.tags = []; /* 切换分类时重置已选标签 */
       applyCategoryUI();
-      renderTagList();
-      applyFilter();
       syncURL();
+      document.getElementById("all-shares").innerHTML = '<div class="status-box">加载中…</div>';
+      ensureLoaded(cat).then(function () {
+        renderTagList();
+        applyFilter();
+      });
     });
 
     /* 标签点击：多选切换（加入/移除已选数组） */
@@ -201,19 +223,17 @@
       applyFilter();
     });
 
-    /* 并行加载两个数据源，完成后渲染默认分类。
+    /* 按需加载当前分类数据源即可，另一分类在切换时才请求。
        URL 双映射：?type=software|other 切换分类，&name=xxx 预填搜索词。
        例如 /share/?type=software&name=db-browser-sqlite 进入即在软件分类下搜索。
        初始访问 /share/ 会静默补全为 ?type=software，便于后续切换地址可辨。 */
-    Promise.all([fetchShareList(), fetchOtherList()]).then(function (results) {
-      softwareList = results[0];
-      otherList = results[1];
-      var params = new URLSearchParams(location.search);
-      var initType = params.get("type");
-      var initName = (params.get("name") || "").trim();
-      if (initType === "software" || initType === "other") filterState.category = initType;
-      if (initName) filterState.query = initName;
-      applyCategoryUI();
+    var params = new URLSearchParams(location.search);
+    var initType = params.get("type");
+    var initName = (params.get("name") || "").trim();
+    if (initType === "software" || initType === "other") filterState.category = initType;
+    if (initName) filterState.query = initName;
+    applyCategoryUI();
+    ensureLoaded(filterState.category).then(function () {
       renderTagList();
       applyFilter();
       var search = mountSearchBox("#share-search", {
