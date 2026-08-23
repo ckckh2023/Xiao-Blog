@@ -435,9 +435,20 @@
   }
 
   /* ---------- Markdown 正文渲染 ----------
-     selector: 正文容器选择器
-     mdUrl:    markdown 文件 URL（相对路径即可，如 ./index.md）
-   ---------- */
+      selector: 正文容器选择器
+      mdUrl:    markdown 文件 URL（相对路径即可，如 ./index.md）
+    ---------- */
+
+  /* 从 HTTP Last-Modified 头解析并填充最后更新日期（靠右显示） */
+  function fillDocUpdated(lastModified) {
+    var el = document.getElementById("doc-updated");
+    if (!el || !lastModified) return;
+    var d = new Date(lastModified);
+    if (isNaN(d.getTime())) return;
+    function p(n) { return (n < 10 ? "0" : "") + n; }
+    el.textContent = "最后更新：" + d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+  }
+
   function renderDocMarkdown(selector, mdUrl) {
     var box = document.querySelector(selector);
     if (!box) return Promise.resolve();
@@ -448,6 +459,7 @@
     }
     return fetch(mdUrl).then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
+      fillDocUpdated(r.headers.get("Last-Modified"));
       return r.text();
     }).then(function (md) {
       box.innerHTML = parse(md);

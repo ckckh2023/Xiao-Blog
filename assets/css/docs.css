@@ -185,6 +185,14 @@
   margin: 0 12px;
 }
 
+/* 文章最后更新日期（靠右，小字） */
+.doc-updated {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
 /* ---------- Wiki 目录页 ---------- */
 .docs-index-list {
   display: flex;

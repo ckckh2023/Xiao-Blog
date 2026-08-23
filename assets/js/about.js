@@ -1,6 +1,10 @@
 /* about.js - 关于页：网站统计 + 博主信息填充 */
-(function () {
+(function (global) {
   "use strict";
+
+  var fetchGitHubJSON = global.fetchGitHubJSON;
+  var GITHUB_API = global.GITHUB_API;
+  var utils = global.Utils;
 
   var SITE_BIRTH = new Date("2026-08-13T00:00:00+08:00").getTime();
 
@@ -85,8 +89,8 @@
         var blog = document.getElementById("about-blog");
         var url = data.blog;
         if (url.indexOf("http") !== 0) url = "https://" + url;
-        if (blog) blog.innerHTML = '<a href="' + Utils.escapeHTML(url) + '" target="_blank" rel="noopener">' + Utils.escapeHTML(data.blog) + "</a>";
+        if (blog) blog.innerHTML = '<a href="' + utils.escapeHTML(url) + '" target="_blank" rel="noopener">' + utils.escapeHTML(data.blog) + "</a>";
       }
     }).catch(function () {});
   }
-})();
+})(window);
