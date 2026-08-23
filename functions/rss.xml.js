@@ -1,7 +1,7 @@
 /* functions/rss.xml.js
    动态生成 RSS 2.0 订阅源 → /rss.xml
    读取 /docs/DocsList.json，递归遍历所有节点，
-   仅包含实际存在 index.md 的文章（HEAD 探测）。 */
+   GET 读取 index.md 正文，嵌入 <content:encoded>。 */
 const SITE = "https://xiao-blog.top";
 const DOCS = "/docs/";
 
@@ -33,6 +33,10 @@ function escapeXML(s) {
     .replace(/"/g, "&quot;");
 }
 
+function wrapCDATA(text) {
+  return "<![CDATA[" + String(text).replace(/]]>/g, "]]]]><![CDATA[>") + "]]>";
+}
+
 export async function onRequestGet(context) {
   var env = context.env;
   var list = [];
@@ -46,18 +50,25 @@ export async function onRequestGet(context) {
   var nodes = [];
   walk(list, [], [], nodes);
 
-  var checked = await Promise.all(
+  var fetched = await Promise.all(
     nodes.map(function (n) {
       if (!env || !env.ASSETS) return Promise.resolve(null);
       return env.ASSETS
-        .fetch(new Request(SITE + docMdPath(n.ids), { method: "HEAD" }))
-        .then(function (r) { return r.ok ? n : null; })
+        .fetch(new Request(SITE + docMdPath(n.ids)))
+        .then(function (r) {
+          if (!r.ok) return null;
+          return r.text().then(function (md) {
+            return { ids: n.ids, title: n.title, content: md };
+          });
+        })
         .catch(function () { return null; });
     })
   );
-  var items = checked.filter(function (n) { return n !== null; });
+  var items = fetched.filter(function (n) { return n !== null; });
 
-  var xml = '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n';
+  var xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">\n';
+  xml += "  <channel>\n";
   xml += "    <title>" + escapeXML("ckckh2023 的博客") + "</title>\n";
   xml += "    <link>" + SITE + "</link>\n";
   xml += "    <description>" + escapeXML("记录学习与开发经验，分享实用工具与资源") + "</description>\n";
@@ -69,6 +80,8 @@ export async function onRequestGet(context) {
     xml += "      <title>" + escapeXML(it.title) + "</title>\n";
     xml += "      <link>" + escapeXML(url) + "</link>\n";
     xml += "      <guid>" + escapeXML(url) + "</guid>\n";
+    xml += "      <description>" + escapeXML("查看全文：" + it.title) + "</description>\n";
+    xml += "      <content:encoded>" + wrapCDATA(it.content) + "</content:encoded>\n";
     xml += "    </item>\n";
   });
   xml += "  </channel>\n</rss>\n";
