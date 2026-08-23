@@ -18,6 +18,24 @@
     "recommendReason": "插件生态覆盖前后端、AI、云原生等所有热门领域，启动轻快，定制灵活，堪称“编辑器之王”。"
   },
   {
+    "id": "chrome",
+    "name": "Google Chrome",
+    "description": "谷歌推出的全球用户量最大的网页浏览器，基于开源 Chromium 内核，页面加载迅速、扩展生态极其丰富，支持账户跨设备同步，覆盖 Windows、macOS、Linux 与移动端，是日常上网和 Web 开发调试的首选。",
+    "officialUrl": "https://www.google.cn/chrome/",
+    "iconUrl": "https://www.google.cn/chrome/static/images/chrome-logo-m100.svg",
+    "installType": [
+      { "title": "官方网站在线安装包", "url": "https://www.google.cn/chrome/" },
+      { "title": "官方网站离线安装包（Windows 64 位版", "url": "https://www.google.cn/chrome/?standalone=1&platform=win64" },
+      { "title": "官方网站离线安装包（Windows 32 位版", "url": "https://www.google.cn/chrome/?standalone=1&platform=win32" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/chromium/chromium",
+    "tags": ["浏览器", "跨平台"],
+    "recommendReason": "作为市场占有率第一的浏览器，Chrome 以出色的加载速度、稳定性和海量扩展著称，内置强大到离谱的 DevTools 开发者工具与 Lighthouse 性能分析，既是日常冲浪的效率之选，也是前端开发者调试与验证页面的标配浏览器。"
+  },
+  {
     "id": "chatbox",
     "name": "ChatBox",
     "description": "一款颜值与实力并存的通用 AI 聊天客户端（其实颜值并不高），聚合主流模型，支持私有 API，让你自由畅聊。",
@@ -460,5 +478,43 @@
     "repoUrl": "https://github.com/electron/electron",
     "tags": ["开发框架", "桌面应用", "跨平台"],
     "recommendReason": "Electron 让前端开发者用熟悉的 Web 技术即可构建真正的桌面应用，VS Code、Motrix 等知名软件都是它的杰作；拥有 Electron Forge 等成熟打包方案和海量社区生态，是 Web 团队快速落地跨平台桌面产品的首选框架。"
+  },
+  {
+    "id": "cmake",
+    "name": "CMake",
+    "description": "一个开源、跨平台的构建系统生成工具，通过 CMakeLists.txt 声明工程结构与编译选项，自动生成 Visual Studio、Make、Ninja、Xcode 等各大平台的构建工程，是 Qt、OpenCV、LLVM 等众多 C/C++ 项目的标准构建方式。",
+    "officialUrl": "https://cmake.org/",
+    "iconUrl": "https://cmake.org/wp-content/uploads/2023/08/CMake-Mark-1.svg",
+    "installType": [
+      { "title": "官方下载", "url": "https://cmake.org/download/" },
+      { "title": "GitHub Releases", "url": "https://github.com/Kitware/CMake/releases" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "CMake 官方文档", "url": "https://cmake.org/documentation/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/Kitware/CMake",
+    "tags": ["构建工具", "C++", "跨平台"],
+    "recommendReason": "CMake 是 C/C++ 生态中事实标准的构建系统，一份 CMakeLists.txt 即可跨平台生成 VS、Ninja、Xcode 等工程，Qt、OpenCV、LLVM 等巨头项目都在使用；配合 Ninja 与 ccache 还能大幅加快大型项目构建，是 C/C++ 开发者绕不开的中枢工具。"
+  },
+  {
+    "id": "obs-studio",
+    "name": "OBS Studio",
+    "description": "一款免费开源的录屏与直播推流软件，支持多场景多源采集、实时滤镜、转场动画、虚拟摄像头、音频混音与直播推流等功能，兼容 Windows、macOS 与 Linux，是视频创作者和主播的标配工具。",
+    "officialUrl": "https://obsproject.com/zh-cn",
+    "iconUrl": "https://obsproject.com/assets/images/new_icon_small-r.png",
+    "installType": [
+      { "title": "官方网站", "url": "https://obsproject.com/zh-cn/download" },
+      { "title": "GitHub Releases", "url": "https://github.com/obsproject/obs-studio/releases" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "OBS 官方维基", "url": "https://obsproject.com/wiki/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/obsproject/obs-studio",
+    "tags": ["录屏", "直播", "跨平台"],
+    "recommendReason": "免费开源、无广告无水印，支持多场景多源切换、绿幕抠像、虚拟摄像头与直播推流，插件生态丰富（滤镜、字幕、多机位应有尽有），功能比肩商业软件，是录屏直播领域的业界标准之选。"
   }
 ]

@@ -71,6 +71,11 @@ dsh web
 
 执行后浏览器打开 `http://127.0.0.1:3080` 页面即可开始使用。
 
+如果你需要更新 dsh，运行下列命令即可：
+```bash
+npm update -g @deepseek-ai/dsh
+```
+
 ### 方式三：通过 Python SDK 安装
 
 ```bash
