@@ -296,7 +296,7 @@
     "iconUrl": "https://www.tudingai.com/wp-content/uploads/2024/10/1728808727-%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91.png",
     "installType": [
       { "title": "官方网站", "url": "https://www.immersivetranslate.net/zip-install" },
-      { "title": "GitHub", "url": "https://github.com/nicedoc/immersive-translate" }
+      { "title": "GitHub Releases", "url": "https://github.com/immersive-translate/immersive-translate/releases/" }
     ],
     "platforms": ["Web"],
     "blogs": [],
