@@ -25,8 +25,8 @@
     "iconUrl": "https://www.google.cn/chrome/static/images/chrome-logo-m100.svg",
     "installType": [
       { "title": "官方网站在线安装包", "url": "https://www.google.cn/chrome/" },
-      { "title": "官方网站离线安装包（Windows 64 位版", "url": "https://www.google.cn/chrome/?standalone=1&platform=win64" },
-      { "title": "官方网站离线安装包（Windows 32 位版", "url": "https://www.google.cn/chrome/?standalone=1&platform=win32" }
+      { "title": "官方网站离线安装包（Windows 64 位版）", "url": "https://www.google.cn/chrome/?standalone=1&platform=win64" },
+      { "title": "官方网站离线安装包（Windows 32 位版）", "url": "https://www.google.cn/chrome/?standalone=1&platform=win32" }
     ],
     "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],
     "blogs": [],
@@ -148,8 +148,9 @@
     "officialUrl": null,
     "iconUrl": "https://learn.microsoft.com/media/logos/logo-powershell-core.svg",
     "installType": [
-      { "title": "微软商店", "url": "https://www.microsoft.com/store/apps/9MZ1SNWT0N5D" },
-      { "title": "GitHub Releases", "url": "https://github.com/PowerShell/PowerShell/releases/latest" }
+      { "title": "GitHub Releases", "url": "https://github.com/PowerShell/PowerShell/releases/latest" },
+      { "title": "微软商店", "url": "https://www.microsoft.com/store/apps/9MZ1SNWT0N5D" }
+      
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
@@ -516,5 +517,22 @@
     "repoUrl": "https://github.com/obsproject/obs-studio",
     "tags": ["录屏", "直播", "跨平台"],
     "recommendReason": "免费开源、无广告无水印，支持多场景多源切换、绿幕抠像、虚拟摄像头与直播推流，插件生态丰富（滤镜、字幕、多机位应有尽有），功能比肩商业软件，是录屏直播领域的业界标准之选。"
+  },
+  {
+    "id": "snipaste",
+    "name": "Snipaste",
+    "description": "一款免费强大的截图与贴图工具，按下 F1 截图后可将图片”贴”在屏幕上任意位置并随意缩放瞄准，内置取色器、画笔标注与历史剪贴板，支持多显示器，轻量无广告。",
+    "officialUrl": "https://www.snipaste.com/",
+    "iconUrl": "https://www.snipaste.com/img/logo.svg",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.snipaste.com/download.html" },
+      { "title": "Microsoft Store", "url": "https://apps.microsoft.com/detail/9p1wxpkb68kx" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["截图", "效率工具"],
+    "recommendReason": "F1 截图、Ctrl+T 贴图，把截图钉在屏幕上边看边敲代码，比反复切窗口高效太多；还集成像素取色器”滴管”与编辑标注，体积小巧运行零负担，是写文档、做演示、录教程件的隐形效率神器。"
   }
 ]

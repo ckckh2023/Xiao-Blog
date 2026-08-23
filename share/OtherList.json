@@ -287,5 +287,22 @@
     "repoUrl": "https://github.com/opencv/opencv",
     "tags": ["计算机视觉", "图像处理"],
     "recommendReason": "作为计算机视觉领域的开放事实标准，OpenCV 以高度优化的 C++ 核心与易用的 Python 绑定著称，可与 NumPy、PyTorch 等深度学习生态无缝衔接，轻松完成图像分类、目标检测、人脸识别等任务，是实现图像视觉算法的效率保障。"
+  },
+  {
+    "id": "immersive-translate",
+    "name": "沉浸式翻译插件",
+    "description": "一款开源的浏览器双语翻译插件，将外文网页渲染为中英对照的沉浸式阅读模式，支持 PDF 文档、视频字幕、社交平台等场景的划词与全文翻译，是浏览外文站点与阅读 GitHub 技术文档的得力助手。",
+    "officialUrl": "https://www.immersivetranslate.net/",
+    "iconUrl": "https://www.tudingai.com/wp-content/uploads/2024/10/1728808727-%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91.png",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.immersivetranslate.net/zip-install" },
+      { "title": "GitHub", "url": "https://github.com/nicedoc/immersive-translate" }
+    ],
+    "platforms": ["Web"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/immersive-translate/immersive-translate",
+    "tags": ["浏览器扩展", "翻译", "效率工具"],
+    "recommendReason": "读外文技术文档、逛 GitHub 时，中英对照双栏译文兼顾原意与速度，不打断阅读节奏；还支持整页 PDF、双语视频字幕与划词翻译，可选用 DeepL、GPT 等多家引擎，开源免费，是外语阅读困难户的救星。"
   }
 ]
