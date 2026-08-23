@@ -4,3 +4,4 @@
 /.vscode
 deploy.sh
 delete.sh
+ssh.sh
