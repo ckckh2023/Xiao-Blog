@@ -11,7 +11,7 @@ eval "$(ssh-agent -s)"
 ```
 
 > 当关闭终端时，ssh-agent 的环境变量将会失效，需要重新启动。<br>
-> 可以通过 `env | grep SSH_` 获取环境变量重新利用。
+> 可以通过 `env | grep SSH_` 获取环境变量 `SSH_AUTH_SOCK` 和 `SSH_AGENT_PID` 重新 `export` 到下一个终端利用。
 
 
 - **添加私钥**：
