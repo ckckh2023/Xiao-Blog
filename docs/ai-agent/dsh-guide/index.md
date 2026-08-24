@@ -31,7 +31,8 @@ npm install -g pnpm
 > 安装完成后**必须重启终端**，让系统环境变量生效，否则 `dsh plugin` 命令会报错找不到 pnpm。
 
 > 如果你在Windows环境遇到了下列报错，请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)：
-```
+
+```powershell
 Get-ExecutionPolicy : Restricted
 . : 因为在此系统上禁止运行脚本...
 ```
@@ -59,7 +60,8 @@ npm install -g @deepseek-ai/dsh
 ```
 
 > 如果你遇到了下列报错，请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)：
-```
+
+```bash
 npm warn install-scripts Run `npm install -g --allow-scripts=...` to allow these scripts once, or `npm config set allow-scripts=... --location=user` to allow them for all global installs.
 ```
 
@@ -69,7 +71,7 @@ npm warn install-scripts Run `npm install -g --allow-scripts=...` to allow these
 dsh web
 ```
 
-执行后浏览器打开 `http://127.0.0.1:3080` 页面即可开始使用。
+执行后浏览器会自动打开 `http://127.0.0.1:3080` 页面，即可开始使用。
 
 如果你需要更新 dsh，运行下列命令即可：
 ```bash
@@ -139,9 +141,11 @@ dsh plugin --profile <profile名称> add <插件包名>
 ### 2. 插件生效
 
 - 安装声明了 `dsh.bundle.patch` 的插件后，**需要重启 dsh 服务才能生效**：
+
   ```bash
   dsh web
   ```
+  
 - 部分纯 Cordis 插件支持**实时生效**，无需重启。
 
 ### 3. 在 Web UI 中管理插件

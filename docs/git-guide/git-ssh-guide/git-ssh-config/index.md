@@ -114,7 +114,7 @@ cat ~/.ssh/id_ed25519.pub
 - 登录 GitHub，点击右上角头像，选择 Settings。
 - 在左侧边栏中，点击 SSH and GPG keys。
 - 点击 New SSH key 按钮。
-- 在 Title 字段中输入一个描述性名称（如 “My Work Laptop”）。
+- 在 Title 字段中输入一个描述性名称（如 “MySSHkey”）。
 - 在 Key 字段中粘贴先前复制的公钥内容。
 - 点击 Add SSH key 完成添加。
 
@@ -130,7 +130,7 @@ ssh -T git@github.com
 
 若配置正确，会看到类似以下输出：
 
-```text
+```bash
 Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
@@ -146,7 +146,7 @@ Hi USERNAME! You've successfully authenticated, but GitHub does not provide shel
 
 如果是第一次连接该主机，系统会提示确认主机指纹：
 
-```text
+```bash
 The authenticity of host 'github.com (IP ADDRESS)' can't be established.
 ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
 Are you sure you want to continue connecting (yes/no)?

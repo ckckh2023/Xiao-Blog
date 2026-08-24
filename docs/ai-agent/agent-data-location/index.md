@@ -12,7 +12,7 @@
 | Claude Code | ~/.claude/projects/project-slug/session-id.jsonl | JSONL |
 | CodeArts | \~/.codeartsdoer/codearts-data/opencode.db（Windows 独有 IDE）<br> \~/.codeartsdoer/cli-data/opencode.db（CLI）| SQLite |
 
-> 请注意以下几点：
+**请注意以下几点：**
 - `~` 表示用户主目录，Windows 下对应 %USERPROFILE%。可以查看[我的文档讲解](https://xiao-blog.top/docs/article?id=vscode&sub=vscode-data-location)。
 - Codex 的存储路径可能因版本不同而有所变化。
 

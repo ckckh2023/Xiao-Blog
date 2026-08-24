@@ -26,15 +26,15 @@ For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
 
 ---
 
-## 理由
+## 理由如下
 
-1. **Git Bash 提供 POSIX 兼容层**  
+- **Git Bash 提供 POSIX 兼容层**  
    Git for Windows 所携带的 Git Bash 基于 MinGW 和 MSYS，提供了类 Unix 的 shell 环境和常用 GNU 工具集，绝大多数 AI 生成的命令无需修改即可在此环境中执行，极大降低了转换成本。
 
-2. **PowerShell 7 作为可靠备选**  
+- **PowerShell 7 作为可靠备选**  
    PowerShell 7 是跨平台、现代化的 shell，支持许多 Unix 命令的别名，但其行为仍存在差异。因此，仅在 Git Bash 不适用（例如需要调用 Windows API 或注册表操作）时，才切换到 PowerShell 7，且明确使用 `pwsh` 可执行文件以避免与旧版 Windows PowerShell 混淆。
 
-3. **对齐 AI 训练数据分布**  
+- **对齐 AI 训练数据分布**  
    明确告知 AI 执行环境偏好，可以引导模型优先输出与其训练语料更匹配的命令格式，从而提高首次生成的成功率，减少迭代修正次数。绝大多数开发者对 `bash` 环境非常熟悉，AI 模型在此环境下的命令生成准确率也更高。
 
 ---
@@ -51,7 +51,6 @@ For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
    > 懒人版教程：让 AI Agent 工具自主写入上述提示词，拒绝繁琐配置流程。
    - 对于 ChatGPT 或 Copilot，可将上述提示词放入“自定义指令”或“系统提示”区域。  
    - 对于 Cursor、Continue 等编辑器插件，可在项目规则文件（如 `.cursorrules`）中声明。  
-   - 对于 AutoGPT 等自主 Agent，可在配置文件或启动参数中设定。
 
 4. **验证环境**  
    在任意终端中执行 `git --version` 和 `pwsh --version` ，如有输出证明已经可用。

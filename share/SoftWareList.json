@@ -110,7 +110,7 @@
   {
     "id": "motrix-next",
     "name": "Motrix Next",
-    "description": "一款基于 Tauri 2 + Rust 从头重构的全功能下载管理器，支持 HTTP、FTP、ED2K、BitTorrent 及磁力链接，继承 Motrix 经典交互，拥有更轻量（~20MB）的安装包和更现代的技术栈。",
+    "description": "一款基于 Tauri 2 + Rust 从头重构的全功能下载管理器，支持 HTTP、FTP、ED2K、BitTorrent 及磁力链接，继承 Motrix 经典交互，拥有更轻量的安装包和更现代的技术栈。",
     "officialUrl": null,
     "iconUrl": "https://github.com/AnInsomniacy/motrix-next/raw/main/src/assets/logo.png",
     "installType": [
