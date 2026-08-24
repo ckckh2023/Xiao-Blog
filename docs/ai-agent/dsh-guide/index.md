@@ -28,7 +28,7 @@ dsh 的插件管理依赖 `pnpm`，需要提前全局安装：
 npm install -g pnpm
 ```
 
-> 安装完成后**必须重启终端**，让系统环境变量生效，否则 `dsh plugin` 命令会报错找不到 pnpm。
+安装完成后**必须重启终端**，让系统环境变量生效，否则 `dsh plugin` 命令会报错找不到 pnpm。
 
 > 如果你在Windows环境遇到了下列报错，请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)：
 
@@ -92,24 +92,9 @@ pip install deepseek-harness-sdk
 
 浏览器打开 `http://127.0.0.1:3080` 后：
 
-1. 进入 **设置 → 模型**，填入你的 API 密钥（如 DeepSeek API Key）并保存。
-2. 选择工作区目录和运行模式。
-3. 新建会话，开始对话。
-
-## 常用命令速查
-
-| 用途 | 命令 |
-|------|------|
-| 启动 Web UI | `dsh web` 或 `npx @deepseek-ai/dsh web` |
-| 指定 profile 启动 | `dsh --profile <名称>` |
-| 一次性任务（headless 模式） | `dsh --profile headless "任务描述"` |
-| 查看帮助 | `dsh --help` |
-| 查看最终配置（排查用） | `dsh --dump-config` |
-| 查看默认配置 | `dsh --dump-default-config` |
-| 更换端口 | `dsh web --port 13080` |
-| 从源码启动 | `cd deepseek-harness && pnpm dsh web` |
-
-> **参数顺序注意**：启动器参数（`--profile`、`--patch` 等）必须写在最前面，应用参数写在后面。
+- 进入 **设置 → 模型**，填入你的 API 密钥（如 DeepSeek API Key）并保存。
+- 选择工作区目录和运行模式。
+- 新建会话，开始对话。
 
 ---
 
@@ -145,7 +130,7 @@ dsh plugin --profile <profile名称> add <插件包名>
   ```bash
   dsh web
   ```
-  
+
 - 部分纯 Cordis 插件支持**实时生效**，无需重启。
 
 ### 3. 在 Web UI 中管理插件

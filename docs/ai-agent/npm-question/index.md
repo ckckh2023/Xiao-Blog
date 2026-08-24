@@ -142,7 +142,7 @@ minimumReleaseAge: 1440
 minimumReleaseAge: 0
 ```
 
-保存后重新执行 `pnpm install` 或 `pnpm remove` 即可（或者是 Agent 工具自己的命令行。
+保存后重新执行 `pnpm install` 或 `pnpm remove` 即可（或者是 Agent 工具自己的命令行）。
 
 **方法二：直接操作包文件，绕过 pnpm（暴力版）**  
 若 pnpm 命令持续受阻，可直接从 `package.json` 中删除目标依赖，并删除 `node_modules` 中对应目录，随后重新安装（无该依赖）：
