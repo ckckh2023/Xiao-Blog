@@ -312,6 +312,15 @@ img { max-width: 100%; display: block; }
   flex: 1;
   min-width: 0;
 }
+/* 可点击跳转的公告文本：原生 <a>，颜色继承、悬停下划线 */
+.notice-text-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.notice-text-link:hover {
+  text-decoration: underline;
+}
 /* 黄色警示样式 */
 .notice-bar-warn {
   color: #7a5b00;

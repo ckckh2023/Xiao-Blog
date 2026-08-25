@@ -87,18 +87,27 @@
   /* ---------- 公告条（通用接口） ----------
      showNotice(message, options)：在顶栏下方弹出公告
        message:  公告文本（纯文本，会自动转义）
-       options.level    公告类型，默认 "warn"（黄色警示样式），预留其他类型
-       options.closable 是否显示红色 X 关闭按钮，默认 true
-       options.autoHide 自动关闭毫秒数，0=不自动关闭
-       options.onClose  关闭时回调（用户点 X 或自动隐藏后触发）
+       options.level       公告类型，默认 "warn"（黄色警示样式），预留其他类型
+       options.closable    是否显示红色 X 关闭按钮，默认 true
+       options.autoHide    自动关闭毫秒数，0=不自动关闭
+       options.onClose     关闭时回调（用户点 X 或自动隐藏后触发）
+       options.link        点击公告文本跳转的 URL，不传则不可点击跳转（默认不启用）
+       options.linkTarget  跳转 target，默认 "_blank"（新开）；为 "_blank" 时自动加 rel="noopener noreferrer"
      返回关闭函数；后续其他场景（如站点公告）可直接复用该接口。 */
   function showNotice(message, options) {
     var body = document.body;
     if (!body || !message) return function () {};
-    var opts = Object.assign({ level: "warn", closable: true, autoHide: 0 }, options || {});
+    var opts = Object.assign({ level: "warn", closable: true, autoHide: 0, linkTarget: "_blank" }, options || {});
 
     var bar = utils.el("div", { class: "notice-bar notice-bar-" + opts.level, role: "alert" });
-    bar.appendChild(utils.el("span", { class: "notice-text" }, message));
+    /* 公告文本：有 link 时用 <a> 支持点击跳转（原生链接语义，中键/右键均可用）；无 link 时用 <span> 保持原样 */
+    if (opts.link) {
+      var linkAttrs = { class: "notice-text notice-text-link", href: opts.link, target: opts.linkTarget };
+      if (opts.linkTarget === "_blank") linkAttrs.rel = "noopener noreferrer";
+      bar.appendChild(utils.el("a", linkAttrs, message));
+    } else {
+      bar.appendChild(utils.el("span", { class: "notice-text" }, message));
+    }
 
     var closed = false;
     var close = function () {
