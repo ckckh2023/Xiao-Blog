@@ -14,7 +14,9 @@
   var GITHUB_HOME = global.GITHUB_HOME;
   var fetchGitHubJSON = global.fetchGitHubJSON;
 
-  /* ---------- GitHub 用户信息 ---------- */
+  /* ---------- GitHub 用户信息 ----------
+     与仓库卡片（repo.js enrichProject）行为一致：本地数据优先，
+     GitHub API 只在可用时后台覆盖更新（成功覆盖，失败保留本地）。 */
   var FALLBACK_PROFILE = {
     name: "Xander Xiao",
     bio: "没招了没招了没招了",
@@ -24,6 +26,16 @@
     public_repos: 4
   };
 
+  /* 本地数据（高优）：直接返回内置 FALLBACK_PROFILE，页面秒开 */
+  function fetchLocalProfile() {
+    var p = Object.assign({}, FALLBACK_PROFILE);
+    p.avatar = GITHUB_AVATAR;
+    p.html_url = GITHUB_HOME;
+    return Promise.resolve(p);
+  }
+  global.fetchLocalProfile = fetchLocalProfile;
+
+  /* GitHub API 更新：成功返回最新数据覆盖本地；断流/限流/报错返回 null 保留本地 */
   function fetchGitHubProfile() {
     return fetchGitHubJSON(GITHUB_API, "profile").then(function (data) {
       var p = {
@@ -32,17 +44,14 @@
         location: data.location || FALLBACK_PROFILE.location,
         company: data.company || FALLBACK_PROFILE.company,
         avatar: GITHUB_AVATAR,
-        html_url: data.html_url || GITHUB_HOME,
+        html_url: GITHUB_HOME,
         followers: data.followers || 0,
         public_repos: data.public_repos || 0
       };
       return p;
     }).catch(function (err) {
-      console.warn("[profile] 加载失败，使用兜底数据：", err);
-      var p = Object.assign({}, FALLBACK_PROFILE);
-      p.avatar = GITHUB_AVATAR;
-      p.html_url = GITHUB_HOME;
-      return p;
+      console.warn("[profile] GitHub API 不可用，保留本地数据：", err);
+      return null;
     });
   }
   global.fetchGitHubProfile = fetchGitHubProfile;
