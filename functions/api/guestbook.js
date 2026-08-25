@@ -87,7 +87,8 @@ export async function onRequestGet(context) {
     ).all();
     return json({ list: (results || []).map(normalize) });
   } catch (e) {
-    return json({ error: "获取留言失败：" + (e && e.message || e) }, 500);
+    console.error("[guestbook] 获取留言失败：", e);
+    return json({ error: "获取留言失败，请稍后重试" }, 500);
   }
 }
 
@@ -159,6 +160,7 @@ export async function onRequestPost(context) {
 
     return json({ message: normalize(inserted) }, 201);
   } catch (e) {
-    return json({ error: "发布留言失败：" + (e && e.message || e) }, 500);
+    console.error("[guestbook] 发布留言失败：", e);
+    return json({ error: "发布留言失败，请稍后重试" }, 500);
   }
 }

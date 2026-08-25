@@ -378,7 +378,7 @@
     "id": "wsl-dashboard",
     "name": "WSL Dashboard",
     "description": "一款现代化、高性能、轻量级的 WSL实例管理面板。它提供直观的图形界面，让用户能轻松地管理和监控所有 WSL 发行版。",
-    "officialUrl": "null",
+    "officialUrl": null,
     "iconUrl": "https://docs.wslui.com/logo.png",
     "installType": [
       { "title": "GitHub Releases", "url": "https://github.com/owu/wsl-dashboard/releases/latest" }

@@ -73,36 +73,19 @@ wrangler d1 execute xiao-guestbook --remote --file=./schema.sql
 
 `wrangler.toml` 已配置 D1 绑定 `GUESTBOOK` → 数据库 `xiao-guestbook`。
 
-## 路由约定
+### 文档知识库维护
 
-- **静态文件**：按目录路径直接访问（如 `/repo/index.html`）
-- **Edge Functions**：`functions/` 目录约定自动映射
-  - `functions/api/guestbook.js` → `/api/guestbook`
-  - `functions/rss.xml.js` → `/rss.xml`
-  - `functions/sitemap.xml.js` → `/sitemap.xml`
-- **文章页**：`/docs/article.html?id=ai-agent&sub=dsh-guide` 或三级 `/docs/article.html?id=git-guide&sub=git-ssh-guide&sub2=git-ssh-config`
-- **分享页直达**：`/share/?type=software&name=db-browser-sqlite`
-
-## 文档知识库维护
-
-### 新增 / 修改文章
-
-1. 在 `docs/` 下按分类建目录并写入 Markdown 正文，如 `docs/ai-agent/dsh-guide/index.md`；
-2. 在 `docs/DocsList.json` 中登记节点（`id` 须与目录名一致，`title` 为显示标题），最多支持三层嵌套：
+- 在 `docs/` 下按分类建目录并写入 Markdown 正文，如 `docs/ai-agent/dsh-guide/index.md`；
+- 在 `docs/DocsList.json` 中登记节点（`id` 须与目录名一致，`title` 为显示标题），最多支持三层嵌套：
 
    ```json
    { "id": "ai-agent", "title": "AI Agent 使用指南",
      "children": [ { "id": "dsh-guide", "title": "DeepSeek Harness 使用与配置指南" } ] }
    ```
 
-3. 文章 URL 由 id 路径决定：`/docs/article.html?id=ai-agent&sub=dsh-guide`；`functions/sitemap.xml.js` 与 `functions/rss.xml.js` 会自动 HEAD 探测 `index.md` 并收录，无需额外配置。
+- 文章 URL 由 id 路径决定：`/docs/article.html?id=ai-agent&sub=dsh-guide`；`functions/sitemap.xml.js` 与 `functions/rss.xml.js` 会自动 HEAD 探测 `index.md` 并收录，无需额外配置。
 
 > 带 `children` 的节点为分组，访问时自动重定向到其第一个叶子文章。
-
-### 精选文档（首页展示）
-
-- `docs/star.json` 存放首页「精选文档」卡片，格式为 `{ "url", "title", "excerpt" }` 数组，首页每行 2 个、最多展示 4 篇；
-- 其他栏目精选同理：`repo/star.json`、`share/star.json` 为对象数组，`guestbook/star.json` 为留言 id 数组。
 
 ## 致谢
 
