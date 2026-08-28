@@ -14,6 +14,17 @@
       }
     ]
   },
+  { "id": "c-cpp-guide", "title": "C/C++ 相关指导及建议",
+    "children": [
+      { "id": "compile-introduction", "title": "C/C++ 编译方法介绍",
+        "children": [
+          { "id": "msvc-guide", "title": "MSVC 编译方法及指导" },
+          { "id": "gcc-guide", "title": "GCC 编译方法及指导" },
+          { "id": "cmake-guide", "title": "CMake 编译方法及指导" }
+        ]
+      }
+    ]
+  },
   { "id": "python-guide", "title": "Python 相关技巧及建议",
     "children": [
       { "id": "version-isolation", "title": "Python 版本隔离与管理",
