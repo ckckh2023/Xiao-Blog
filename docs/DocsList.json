@@ -14,6 +14,17 @@
       }
     ]
   },
+  { "id": "python-guide", "title": "Python 相关技巧及建议",
+    "children": [
+      { "id": "version-isolation", "title": "Python 版本隔离与管理",
+        "children": [
+          { "id": "windows-isolation", "title": "Windows 环境下 Python 版本隔离与建议" },
+          { "id": "unix-isolation", "title": "Unix 环境下 Python 版本隔离与建议" }
+        ]
+      },
+      { "id": "venv-guide", "title": "Venv 虚拟环境使用讲解" }
+    ]
+  },
   { "id": "ai-agent", "title": "AI Agent 使用指南",
     "children": [
       { "id": "windows-agent-prompt", "title": "Windows AI Agent 提示词配置" },
