@@ -54,7 +54,7 @@ cl /EHsc /Fe:myapp.exe main.cpp utils.cpp
 MSVC 本身是 Windows 专属的编译器。要实现跨平台开发，有以下几种策略：
 
 - **在 Windows 上使用 MSVC 编译**，然后在目标平台（Linux/macOS）上使用对应的编译器（g++/Clang）重新编译
-- **使用 Visual Studio 的 CMake 支持**：Visual Studio 已集成 CMake，可以编辑跨平台 CMake 项目，然后在远程 Linux 计算机上使用 g++ 编译
+- **使用 CMake 支持**：Visual Studio 已集成在 CMake，可以编辑跨平台 CMake 项目，然后在 Linux 开发机上使用 g++ 编译
 - **使用 Clang-cl**：`clang-cl` 是 Clang 的 MSVC 兼容驱动，可在非 Windows 主机上以 MSVC 兼容模式编译
 
 ## 注意事项

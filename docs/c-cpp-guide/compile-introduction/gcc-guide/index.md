@@ -55,7 +55,7 @@ g++ -o myapp main.cpp utils.cpp -I./include -L./lib -lmylib
 
 > 安装 MinGW-w64可以查看我的[分享页](https://xiao-blog.top/share/?type=other&name=mingw)，它相对更加便捷轻量。
 
-此处仅提供 MinGW-w64 的安装和使用方法（因为过于懒人）：下载并解压到某个合适的目录，添加到系统环境变量即可。
+此处仅提供 MinGW-w64 的安装和使用方法（因为过于懒人）：下载并解压到某个合适的目录，将 `bin/` 目录添加到系统环境变量即可。
 
 **编译 Windows 可执行文件：**
 ```bash
@@ -63,22 +63,6 @@ g++ main.cpp -o program.exe
 ```
 
 需要注意 Windows 下的路径分隔符问题。
-
-## 交叉编译
-
-g++ 支持交叉编译——在一个平台上生成另一个平台的可执行文件。
-
-**在 Linux 上为 Windows 编译：**
-```bash
-sudo apt-get install mingw-w64
-x86_64-w64-mingw32-g++ main.cpp -o app.exe
-```
-
-**为 ARM 平台交叉编译：**
-```bash
-sudo apt-get install gcc-arm-linux-gnueabihf
-arm-linux-gnueabihf-g++ -o myapp myapp.cpp
-```
 
 ---
 
