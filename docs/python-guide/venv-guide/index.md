@@ -35,6 +35,18 @@
     - 安装项目所需的包，例如：`pip install django requests`
     - 编写和运行你的 Python 代码。
 
+- **调用虚拟环境**：
+    - **方案一**：激活后再运行 `python` 代码：
+        `.venv\Scripts\activate`（Windows）或 `source .venv/bin/activate`（Unix）
+
+        此时即在虚拟环境内，可自主调用 Python 解释器。
+        > 需要运行 `deactivate` 退出虚拟环境
+
+    - **方案二**：直接在命令行中调用虚拟环境中的 Python 解释器：
+        `.venv\Scripts\python.exe main.py`（Windows）或`.venv/bin/python main.py`（Unix）
+        
+        即用即开，无需激活虚拟环境。
+
 - **导出环境依赖**：
     ```bash
     pip freeze > requirements.txt
