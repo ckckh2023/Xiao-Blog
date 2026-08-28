@@ -66,6 +66,8 @@ python3.11 -m pip install --user requests
 
 > **为什么加 `--user`？** 因为不加 `--user` 时，pip 默认尝试安装到系统目录（`/usr/lib/python3.X/`），这会被 PEP 668 阻止。加 `--user` 后，包会安装到 `~/.local/lib/python3.X/site-packages/`，完全属于用户个人，不受系统保护机制限制，也更安全。
 
+---
+
 ##### 导出与安装依赖清单
 
 ```bash
@@ -87,6 +89,8 @@ python3 --version
 ```
 
 如果你希望临时使用其他版本，只需要显式输入完整命令即可，例如 `python3.11`、`python3.14`。
+
+---
 
 **如果想修改系统默认的 `python3` 指向**，可以使用 `update-alternatives` 工具：
 

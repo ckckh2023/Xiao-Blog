@@ -180,7 +180,9 @@
       { "title": "MSI 安装包", "url": "https://www.python.org/ftp/python/pymanager/python-manager-26.3.msi" }
     ],
     "platforms": ["Windows"],
-    "blogs": [],
+    "blogs": [
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=python-guide&sub=version-isolation&sub2=windows-isolation" }
+    ],
     "status": "active",
     "repoUrl": "https://github.com/python/pymanager",
     "tags": ["Python", "版本管理"],
