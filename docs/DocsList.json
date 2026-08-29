@@ -22,6 +22,11 @@
           { "id": "gcc-guide", "title": "GCC 编译方法及指导" },
           { "id": "cmake-guide", "title": "CMake 编译方法及指导" }
         ]
+      },
+      { "id": "develop-study", "title": "C/C++ 开发学习建议及指导",
+        "children": [
+          { "id": "console-clear", "title": "控制台在不同平台下的清屏方法" }
+        ]
       }
     ]
   },
