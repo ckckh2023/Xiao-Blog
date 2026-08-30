@@ -25,6 +25,7 @@
 - **创建虚拟环境**（以 Python 3.11 为例）：
     - **Windows**：`py -3.11 -m venv .venv`
     - **Linux/macOS**：`python3.11 -m venv .venv`
+
     > 使用 `py -3.11`（Windows）或 `python3.11`（Linux）可以**精准锁定**虚拟环境的 Python 版本，避免意外使用错误的解释器。
 
 - **激活虚拟环境**：
@@ -40,6 +41,7 @@
         `.venv\Scripts\activate`（Windows）或 `source .venv/bin/activate`（Unix）
 
         此时即在虚拟环境内，可自主调用 Python 解释器。
+
         > **提示**：该方法需要运行 `deactivate` 退出虚拟环境
 
     - **方案二**：直接在命令行中调用虚拟环境中的 Python 解释器：
@@ -59,8 +61,8 @@
 
 ---
 
-#### 一些技巧与避坑指南
+### 一些技巧与避坑指南
 
--   **虚拟环境目录可以随时删除**：如果环境乱了，直接删除 `.venv` 目录，然后重新创建即可。
--   **不要将 `.venv` 目录提交到 Git**：在项目的 `.gitignore` 文件中添加 `.venv/`。
--   **区分 `venv` 和 `virtualenv`**：`venv` 是 Python 3.3+ 的内置模块，而 `virtualenv` 是第三方工具，是 `venv` 的前身。对于现代 Python 开发，优先使用内置的 `venv`。
+- **虚拟环境目录可以随时删除**：如果环境乱了，直接删除 `.venv` 目录，然后重新创建即可。
+- **不要将 `.venv` 目录提交到 Git**：在项目的 `.gitignore` 文件中添加 `.venv/`。
+- **区分 `venv` 和 `virtualenv`**：`venv` 是 Python 3.3+ 的内置模块，而 `virtualenv` 是第三方工具，是 `venv` 的前身。对于现代 Python 开发，优先使用内置的 `venv`。
