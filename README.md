@@ -6,7 +6,7 @@
 
 ## 功能特性
 
-- **首页**：聚合 GitHub 个人信息、精选项目 / 文档 / 分享 / 留言
+- **首页**：聚合 GitHub 个人信息、精选项目 / 文档 / 分享 / 留言，可自行增删更改
 - **项目展示**：Vue 3 渲染卡片网格，GitHub API enrich（ETag 缓存 + localStorage 兜底），实时搜索
 - **文档知识库**：多级目录树 + Markdown 渲染 + 面包屑 / 上下页分页 + 动态 SEO 元数据，支持 `docs/star.json` 精选文档
 - **星标分享库**：软件 / 其他双数据源，分类 → 标签 → 搜索三级叠加筛选；支持 `?type=software|other&name=xxx` URL 双映射直达
@@ -26,7 +26,7 @@
 | 数据库 | Cloudflare D1 SQLite |
 | 部署 | Cloudflare Pages + wrangler CLI |
 
-第三方库（Vue 3、marked）以本地化文件形式置于 `assets/vendor/`，无 CDN 运行时依赖。
+第三方库以本地化文件形式置于 `assets/vendor/`，无 CDN 运行时依赖。
 
 ## 目录结构
 
@@ -71,7 +71,7 @@ wrangler pages deploy . --project-name=xiao-blog
 wrangler d1 execute xiao-guestbook --remote --file=./schema.sql
 ```
 
-`wrangler.toml` 已配置 D1 绑定 `GUESTBOOK` → 数据库 `xiao-guestbook`。
+`wrangler.toml` 已配置 D1 绑定 `GUESTBOOK` → 数据库 `xiao-guestbook`，需自行更改。
 
 ### 文档知识库维护
 
