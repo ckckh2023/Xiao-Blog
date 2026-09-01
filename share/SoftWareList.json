@@ -536,19 +536,22 @@
     "recommendReason": "F1 截图、Ctrl+T 贴图，把截图钉在屏幕上边看边敲代码，比反复切窗口高效太多；还集成像素取色器”滴管”与编辑标注，体积小巧运行零负担，是写文档、做演示、录教程件的隐形效率神器。"
   },
   {
-    "id": "waterwidget",
-    "name": "WaterWidget",
-    "description": "面向慧生活798用户的非官方 Android 客户端，提供多账户管理、饮水设备一键启动、钱包充值、每日签到与积分任务、用水消费统计、桌面小部件与快捷设置磁贴。",
-    "officialUrl": null,
-    "iconUrl": "https://preview.qiantucdn.com/58pic/33/69/75/07358PICYXi5PFakk8sCt_PIC2018.png!w580_772_nowater",
+    "id": "libreoffice",
+    "name": "LibreOffice",
+    "description": "一款由文档基金会（The Document Foundation）维护的免费开源办公套件，包含 Writer（文字处理）、Calc（电子表格）、Impress（演示文稿）、Draw（矢量绘图）、Base（数据库）和 Math（公式编辑）六大组件，高度兼容 Microsoft Office 文档格式，覆盖 Windows、macOS 与 Linux 全平台。",
+    "officialUrl": "https://zh-cn.libreoffice.org/",
+    "iconUrl": "https://www.libreoffice.org/media/libreoffice-tdf-logo.svg",
     "installType": [
-      { "title": "GitHub Releases", "url": "https://github.com/nocookies111/life-798/releases/" }
+      { "title": "官方网站", "url": "https://zh-cn.libreoffice.org/download/" }
     ],
-    "platforms": ["Android"],
-    "blogs": [],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "LibreOffice 中文官方文档", "url": "https://zh-cn.libreoffice.org/get-help/documentation/" },
+      { "title": "LibreOffice Wiki", "url": "https://wiki.documentfoundation.org/" }
+    ],
     "status": "active",
-    "repoUrl": "https://github.com/nocookies111/life-798",
-    "tags": ["校园生活", "效率工具"],
-    "recommendReason": "饮水第三方客户端，无需打开笨重的原应用即可一键启动饮水机，完成接水后自动通知消费量，还集成签到积分、钱包充值与按日/月/年的用水统计，配合桌面小部件和快捷磁贴，让日常用水效率大幅提升。"
+    "repoUrl": "https://github.com/LibreOffice/core",
+    "tags": ["办公套件", "跨平台"],
+    "recommendReason": "作为 Microsoft Office 的免费开源替代方案，LibreOffice 完整覆盖文档、表格、演示、绘图、数据库与公式编辑六大场景，对 .docx/.xlsx/.pptx 等格式高度兼容；社区活跃、持续迭代，无授权费用与激活限制，是个人办公、教育场景以及 Linux 用户的首选生产力工具。"
   }
 ]
