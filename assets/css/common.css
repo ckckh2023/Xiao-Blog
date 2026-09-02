@@ -483,3 +483,8 @@ img { max-width: 100%; display: block; }
   .site-nav .nav-more-link:hover { background: var(--active-bg); color: var(--text); }
   .site-nav .nav-more-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
 }
+
+/* ---------- 手机端默认 90% 缩放（避免卡片溢出边界） ---------- */
+@media (max-width: 768px) {
+  html { zoom: 0.9; }
+}
