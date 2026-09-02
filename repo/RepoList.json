@@ -41,6 +41,32 @@
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
+    "id": "TsingHuaelt-VMIC",
+    "name": "清英在线虚拟麦克风插件",
+    "full_name": "ckckh2023/TsingHuaelt-VMIC",
+    "url": null,
+    "repo": "https://github.com/ckckh2023/TsingHuaelt-VMIC",
+    "other_repo": [
+      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TsingHuaelt-VMIC" }
+    ],
+    "desc": "让清英在线的网页录音只能拿到本插件注入的本地音频——而不是真实麦克风。",
+    "stars": 2,
+    "tags": ["JavaScript", "CSS", "HTML"]
+  },
+  {
+    "id": "BDWLMC-Web",
+    "name": "我的世界基岩荒地服务器官网",
+    "full_name": "ckckh2023/BDWLMC-Web",
+    "url": "https://bdwlmc.xiao-blog.top",
+    "repo": "https://github.com/ckckh2023/BDWLMC-Web",
+    "other_repo": [
+      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BDWLMC-Web" }
+    ],
+    "desc": "我的世界-基岩荒地服务器官方网站，使用 Xiao-Blog 项目开发。",
+    "stars": 0,
+    "tags": ["HTML", "CSS", "JavaScript"]
+  },
+  {
     "id": "EasyStudent-JustFreshMan",
     "name": "极简学生信息管理系统",
     "full_name": "ckckh2023/EasyStudent-JustFreshMan",
