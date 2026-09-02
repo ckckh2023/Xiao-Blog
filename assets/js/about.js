@@ -1,10 +1,6 @@
-/* about.js - 关于页：网站统计 + 博主信息填充 */
+/* about.js - 关于页：网站统计 */
 (function (global) {
   "use strict";
-
-  var fetchGitHubJSON = global.fetchGitHubJSON;
-  var GITHUB_API = global.GITHUB_API;
-  var utils = global.Utils;
 
   var SITE_BIRTH = new Date("2026-08-13T00:00:00+08:00").getTime();
 
@@ -69,28 +65,4 @@
     setNum("stat-shares", res[2].length + res[3].length);
     setNum("stat-guestbook", (res[4] && res[4].list) ? res[4].list.length : 0);
   });
-
-  /* 从 GitHub API 补充博主信息（bio / email / blog） */
-  if (typeof fetchGitHubJSON === "function" && typeof GITHUB_API === "string") {
-    fetchGitHubJSON(GITHUB_API).then(function (data) {
-      if (!data) return;
-      if (data.bio) {
-        var bio = document.getElementById("about-bio");
-        if (bio) bio.textContent = data.bio;
-      }
-      if (data.email) {
-        var email = document.getElementById("about-email");
-        if (email) {
-          email.setAttribute("href", "mailto:" + data.email);
-          email.textContent = data.email;
-        }
-      }
-      if (data.blog) {
-        var blog = document.getElementById("about-blog");
-        var url = data.blog;
-        if (url.indexOf("http") !== 0) url = "https://" + url;
-        if (blog) blog.innerHTML = '<a href="' + utils.escapeHTML(url) + '" target="_blank" rel="noopener">' + utils.escapeHTML(data.blog) + "</a>";
-      }
-    }).catch(function () {});
-  }
 })(window);
