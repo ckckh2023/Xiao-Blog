@@ -104,6 +104,7 @@ img { max-width: 100%; display: block; }
   color: var(--text-muted);
   font-size: 14px;
   font-weight: 500;
+  white-space: nowrap;
   border-radius: 6px;
   transition: color 0.2s ease, background 0.2s ease;
 }
@@ -477,6 +478,7 @@ img { max-width: 100%; display: block; }
     color: var(--text-muted);
     font-size: 14px;
     font-weight: 500;
+    white-space: nowrap;
   }
   .site-nav .nav-more-link:hover { background: var(--active-bg); color: var(--text); }
   .site-nav .nav-more-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
