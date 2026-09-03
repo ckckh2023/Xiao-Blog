@@ -49,20 +49,20 @@
     "other_repo": [
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TsingHuaelt-VMIC" }
     ],
-    "desc": "让清英在线的网页录音只能拿到本插件注入的本地音频——而不是真实麦克风。",
+    "desc": "让清英在线的网页录音只能拿到本插件注入的本地音频，而不是真实麦克风。",
     "stars": 2,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
     "id": "BDWLMC-Web",
-    "name": "我的世界基岩荒地服务器官网",
+    "name": "Minecraft-基岩荒地服务器官网",
     "full_name": "ckckh2023/BDWLMC-Web",
     "url": "https://bdwlmc.xiao-blog.top",
     "repo": "https://github.com/ckckh2023/BDWLMC-Web",
     "other_repo": [
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BDWLMC-Web" }
     ],
-    "desc": "我的世界-基岩荒地服务器官方网站，使用 Xiao-Blog 项目开发。",
+    "desc": "Minecraft-基岩荒地服务器官方网站，使用 Xiao-Blog 项目利用 AI 二次开发。",
     "stars": 0,
     "tags": ["HTML", "CSS", "JavaScript"]
   },
