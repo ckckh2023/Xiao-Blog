@@ -214,12 +214,41 @@
   min-height: 44px;
 }
 
+/* 平台图标 + 标签元信息区 */
+.share-card .sc-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.share-card .sc-platforms {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.share-card .sc-platform {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+}
+.share-card .sc-platform svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.share-card .sc-meta-sep {
+  color: var(--text-muted);
+  font-size: 13px;
+  opacity: 0.55;
+  user-select: none;
+}
+
 /* 标签 */
 .share-card .sc-tags {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 14px;
 }
 .share-card .sc-tag {
   display: inline-flex;

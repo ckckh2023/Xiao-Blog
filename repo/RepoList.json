@@ -37,7 +37,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/Xiao-Blog" }
     ],
     "desc": "个人技术博客站点，部署于 Cloudflare Pages。内置文档知识库、项目展示、工具分享、留言板与好友页等模块。",
-    "stars": 3,
+    "stars": 4,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
@@ -65,7 +65,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BDWLMC-Web" }
     ],
     "desc": "Minecraft-基岩荒地服务器官方网站，使用 Xiao-Blog 项目利用 AI 二次开发。",
-    "stars": 1,
+    "stars": 2,
     "tags": ["HTML", "CSS", "JavaScript"]
   },
   {
