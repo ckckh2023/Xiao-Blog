@@ -470,13 +470,13 @@
   document.addEventListener("DOMContentLoaded", function () {
     mountNav();
     mountYear();
-    /* 全站公告：GitHub 账号被标记。用户关闭后本机不再弹出（localStorage 持久化） */
+    /* 全站公告：用户关闭后本机不再弹出（localStorage 持久化） */
     var MARK_NOTICE_KEY = "mark_notice_dismissed";
     var markDismissed = false;
     try { markDismissed = localStorage.getItem(MARK_NOTICE_KEY) === "1"; } catch (e) {}
     if (!markDismissed) {
       showNotice(
-        "本站 GitHub 账号目前被标记，部分内容不可见，但文档、分享等内容仍可正常访问。",
+        "本站 GitHub 账号已经解除标记，所有内容均可正常访问。",
         {
           level: "warn",
           closable: true,

@@ -134,7 +134,7 @@
 
   /* 项目源码按钮处理：有 other_repo 时弹窗（首项 GitHub + other_repo），无则直接跳转 */
   function handleSourceRepo(repo, otherRepo) {
-    var items = [{ title: "GitHub（本站GitHub账号被标记，访问会404）", url: repo }];
+    var items = [{ title: "GitHub", url: repo }];
     if (Array.isArray(otherRepo)) {
       otherRepo.forEach(function (it) { items.push(it); });
     }
