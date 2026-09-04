@@ -23,7 +23,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TrashGo_AIRecognition" }
     ],
     "desc": "TrashGo 是一款集多种图像信息识别功能于一体的智能工具，旨在帮助用户快速识别图像信息，并提供趣味互动体验。无论是垃圾分类、人脸识别，TrashGo 都能轻松应对。",
-    "stars": 15,
+    "stars": 16,
     "tags": ["C++","QML","CMake","C"]
   },
   {
@@ -37,7 +37,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/Xiao-Blog" }
     ],
     "desc": "个人技术博客站点，部署于 Cloudflare Pages。内置文档知识库、项目展示、工具分享、留言板与好友页等模块。",
-    "stars": 1,
+    "stars": 3,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
@@ -47,10 +47,11 @@
     "url": null,
     "repo": "https://github.com/ckckh2023/TsingHuaelt-VMIC",
     "other_repo": [
+      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/TsingHuaelt-VMIC" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TsingHuaelt-VMIC" }
     ],
     "desc": "让清英在线的网页录音只能拿到本插件注入的本地音频，而不是真实麦克风。",
-    "stars": 1,
+    "stars": 2,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
@@ -64,7 +65,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BDWLMC-Web" }
     ],
     "desc": "Minecraft-基岩荒地服务器官方网站，使用 Xiao-Blog 项目利用 AI 二次开发。",
-    "stars": 0,
+    "stars": 1,
     "tags": ["HTML", "CSS", "JavaScript"]
   },
   {
