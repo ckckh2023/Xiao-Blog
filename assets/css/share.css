@@ -237,6 +237,10 @@
   height: 16px;
   display: block;
 }
+.share-card .sc-platform[data-platform="Windows"] svg {
+  width: 13px;
+  height: 13px;
+}
 .share-card .sc-meta-sep {
   color: var(--text-muted);
   font-size: 13px;
