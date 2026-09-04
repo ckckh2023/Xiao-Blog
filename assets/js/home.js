@@ -20,7 +20,7 @@
   var FALLBACK_PROFILE = {
     name: "Xander Xiao",
     bio: "没招了没招了没招了",
-    location: "Earth",
+    location: "China",
     company: null,
     followers: 7,
     public_repos: 6

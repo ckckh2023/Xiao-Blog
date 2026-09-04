@@ -60,6 +60,7 @@
     "url": "https://bdwlmc.xiao-blog.top",
     "repo": "https://github.com/ckckh2023/BDWLMC-Web",
     "other_repo": [
+      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/BDWLMC-Web" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BDWLMC-Web" }
     ],
     "desc": "Minecraft-基岩荒地服务器官方网站，使用 Xiao-Blog 项目利用 AI 二次开发。",
