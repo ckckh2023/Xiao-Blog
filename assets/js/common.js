@@ -470,22 +470,5 @@
   document.addEventListener("DOMContentLoaded", function () {
     mountNav();
     mountYear();
-    /* 全站公告：用户关闭后本机不再弹出（localStorage 持久化） */
-    var MARK_NOTICE_KEY = "mark_notice_dismissed";
-    var markDismissed = false;
-    try { markDismissed = localStorage.getItem(MARK_NOTICE_KEY) === "1"; } catch (e) {}
-    if (!markDismissed) {
-      showNotice(
-        "本站 GitHub 账号已经解除标记，所有内容均可正常访问。",
-        {
-          level: "warn",
-          closable: true,
-          autoHide: 0,
-          onClose: function () {
-            try { localStorage.setItem(MARK_NOTICE_KEY, "1"); } catch (e) {}
-          }
-        }
-      );
-    }
   });
 })(window);

@@ -9,7 +9,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BTIR-BrainTumor-ImageRecognition" }
     ],
     "desc": "BTIR 是一个面向临床与科研的脑肿瘤 MRI 一站式分析平台。只需在浏览器中拖入 DICOM 或 NIfTI 文件夹，即可自动完成模态匹配、病灶分类与三维分割，并生成综合结论与 AI 解读。内置多用户隔离、异步任务队列与 3D 体渲染，开箱即用。",
-    "stars": 5,
+    "stars": 6,
     "tags": ["Python","JavaScript","HTML","CSS","Shell"]
   },
   {

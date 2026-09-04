@@ -22,8 +22,8 @@
     bio: "没招了没招了没招了",
     location: "Earth",
     company: null,
-    followers: 6,
-    public_repos: 4
+    followers: 7,
+    public_repos: 6
   };
 
   /* 本地数据（高优）：直接返回内置 FALLBACK_PROFILE，页面秒开 */
