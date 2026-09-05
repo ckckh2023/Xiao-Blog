@@ -23,7 +23,7 @@
     location: "China",
     company: null,
     followers: 9,
-    public_repos: 6
+    public_repos: 7
   };
 
   /* 本地数据（高优）：直接返回内置 FALLBACK_PROFILE，页面秒开 */
