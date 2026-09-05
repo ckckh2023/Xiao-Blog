@@ -63,7 +63,11 @@ export async function onRequestGet(context) {
       if (!env || !env.ASSETS) return Promise.resolve(null);
       return env.ASSETS
         .fetch(new Request(SITE + docMdPath(n.ids), { method: "HEAD" }))
-        .then(function (r) { return r.ok ? n : null; })
+        .then(function (r) {
+          if (!r.ok) return null;
+          var lm = r.headers.get("last-modified");
+          return lm ? { ids: n.ids, lastmod: lm } : n;
+        })
         .catch(function () { return null; });
     })
   );
@@ -83,6 +87,7 @@ export async function onRequestGet(context) {
   articles.forEach(function (it) {
     xml += "  <url>\n";
     xml += "    <loc>" + escapeXML(SITE + docHref(it.ids)) + "</loc>\n";
+    if (it.lastmod) xml += "    <lastmod>" + escapeXML(it.lastmod) + "</lastmod>\n";
     xml += "    <changefreq>monthly</changefreq>\n";
     xml += "    <priority>0.7</priority>\n";
     xml += "  </url>\n";
