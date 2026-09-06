@@ -46,7 +46,7 @@ Host <别名>
 Host github.com
     Hostname ssh.github.com
     User git
-	IdentityFile ~/.ssh/github/id_ed25519
+    IdentityFile ~/.ssh/github/id_ed25519
 ```
 
 > 对于 `config` 文件，强烈建议在 Windows 平台依旧使用 `/` 而不是反斜杠 `\` ，否则可能导致路径解析错误！
