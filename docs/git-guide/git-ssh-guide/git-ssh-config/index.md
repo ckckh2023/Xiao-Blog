@@ -163,5 +163,5 @@ Host github.com
     Hostname ssh.github.com
     User git
     Port 443
-	IdentityFile ~/.ssh/github/id_ed25519
+    IdentityFile ~/.ssh/github/id_ed25519
 ```
