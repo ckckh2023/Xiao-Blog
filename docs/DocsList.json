@@ -30,6 +30,17 @@
       }
     ]
   },
+  { "id": "qt-guide", "title": "Qt 开发相关指导及建议",
+    "children": [
+      { "id": "qt-package", "title": "Qt 开发程序打包指南",
+        "children": [
+          { "id": "windows-qt-package", "title": "Windows 平台 Qt 程序打包教程" },
+          { "id": "linux-qt-package", "title": "Linux 平台 Qt 程序打包教程" }
+        ]
+      },
+      { "id": "qifw-guide", "title": "Qt Installer Framework (QIFW) 使用教程" }
+    ]
+  },
   { "id": "python-guide", "title": "Python 相关技巧及建议",
     "children": [
       { "id": "version-isolation", "title": "Python 版本隔离与管理",
