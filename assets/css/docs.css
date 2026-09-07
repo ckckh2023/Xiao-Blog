@@ -22,7 +22,21 @@
   align-self: flex-start;
   max-height: calc(100vh - 56px);
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s ease;
 }
+.docs-sidebar:hover {
+  scrollbar-color: var(--border) transparent;
+}
+.docs-sidebar::-webkit-scrollbar { width: 6px; }
+.docs-sidebar::-webkit-scrollbar-track { background: transparent; }
+.docs-sidebar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+.docs-sidebar:hover::-webkit-scrollbar-thumb { background: var(--border); }
 .docs-sidebar h3 {
   font-size: 14px;
   font-weight: 700;
@@ -78,7 +92,21 @@
   overflow-x: auto;
   margin-bottom: 16px;
   border: 1px solid var(--border);
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s ease;
 }
+.docs-content pre:hover {
+  scrollbar-color: var(--border) transparent;
+}
+.docs-content pre::-webkit-scrollbar { height: 6px; }
+.docs-content pre::-webkit-scrollbar-track { background: transparent; }
+.docs-content pre::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+.docs-content pre:hover::-webkit-scrollbar-thumb { background: var(--border); }
 .docs-content pre code { background: none; padding: 0; }
 .docs-content .code-block-wrap { position: relative; margin-bottom: 16px; }
 .docs-content .code-block-wrap pre { margin-bottom: 0; }
