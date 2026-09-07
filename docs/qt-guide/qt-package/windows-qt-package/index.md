@@ -15,7 +15,7 @@ windeployqt.exe 位于 Qt 安装目录的 `bin` 子目录下，具体路径与 Q
 - `C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe`
 - `C:\Qt\6.11.1\mingw_64\bin\windeployqt.exe`
 
-> 需要自行寻找工具位置，一般位于版本后的编译器文件夹的 `bin` 子目录中。
+> 需要自行寻找工具位置，一般位于版本号的编译器文件夹的 `bin` 子目录中。
 
 ### 工作原理
 
@@ -27,7 +27,7 @@ windeployqt 将 .exe 文件或包含 .exe 文件的目录作为参数，通过�
 
 ## 打包前置准备
 
-- **编译 Release 版本Z**
+- **编译 Release 版本**
 
     **务必使用 Release 版本进行打包发布**。Debug 版本包含大量调试信息，体积臃肿且在没有开发环境的电脑上极易报错。
 
@@ -49,20 +49,20 @@ windeployqt 将 .exe 文件或包含 .exe 文件的目录作为参数，通过�
 
 获取 windeployqt.exe 的路径后，打开命令行窗口（PowerShell），可执行以下命令：
 
-**Widget 应用程序**：
-```powershell
-& "C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe" MyApp.exe
-```
+- **Widget 应用程序**：
+    ```powershell
+    & "C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe" MyApp.exe
+    ```
 
-> 此处的 `C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe` 要更换成自己的路径！
+    > 此处的 `C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe` 要更换成自己的路径！
 
-**QML 应用程序**：
+- **QML 应用程序**：
 
-```powershell
-& "C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe" MyQmlApp.exe --qmldir "源码 QML 路径"
-```
+    ```powershell
+    & "C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe" MyQmlApp.exe --qmldir "源码 QML 路径"
+    ```
 
-> `--qmldir` 参数需要指向**项目源码中 QML 文件所在的目录**（即包含 .qml 文件的文件夹），而非 Qt 安装目录下的 qml 路径。
+    > `--qmldir` 参数需要指向**项目源码中 QML 文件所在的目录**（即包含 .qml 文件的文件夹），而非 Qt 安装目录下的 qml 路径。
 
 命令执行完成后，查看发布文件夹，会发现 windeployqt 已自动将所需的 DLL、插件和资源文件复制到 .exe 所在目录。
 
@@ -120,7 +120,6 @@ windeployqt 提供了丰富的命令行参数，允许开发者对部署过程�
 | `--force` | 强制覆盖目标目录中的已有文件 |
 | `--dry-run` | 模拟运行模式，显示将要执行的操作但不实际复制文件 |
 | `--verbose` | 输出详细信息，便于调试 |
-| `--include-soft-plugins` | 部署所有相关的软依赖插件 |
 | `--ignore-library-errors` | 忽略库文件找不到时的错误 |
 
 ### 命令示例
@@ -140,22 +139,13 @@ windeployqt MyApp.exe --dry-run --verbose
 
 ---
 
-## 进阶用法
-
-### 结合安装包制作工具
+## 进阶用法：结合安装包制作工具
 
 完成 windeployqt 打包后，可以进一步使用安装包制作工具将整个文件夹封装为专业的安装程序。常用的工具有：
 
 - **Qt Installer Framework**：Qt 官方提供的安装包制作框架，功能强大，可查看我的这篇[文档](https://xiao-blog.top/docs/article?id=qt-guide&sub=qifw-guide)
 - **Inno Setup**：免费、功能强大、脚本语法简单
 - **NSIS**（Nullsoft Scriptable Install System）：免费、高度可定制
-
-### Qt WebEngine 应用程序的注意事项
-
-对于使用了 Qt WebEngine 的应用程序，需要额外注意：
-
-- Windows 平台需要 Visual C++ Redistributable 版本 14.28 或更高版本
-- 部署时需添加 `--webengine` 参数，确保所有 WebEngine 依赖（如 icudtl.dat）被正确复制
 
 ---
 

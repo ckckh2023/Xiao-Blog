@@ -30,10 +30,10 @@ my_projects/
 ├── config/
 │   └── config.xml                  # 全局安装器配置
 └── packages/
-    └── com.github.projects/        # 组织通用标识符，反域名格式
+    └── com.github.projects/        # 通用组织标识符，反域名格式
         ├── meta/
-        │   ├── package.xml         # 组件描述配置
-        │   └── installscript.qs    # 安装脚本配置
+        │   ├── package.xml         # 软件组件描述配置
+        │   └── installscript.qs    # 安装器脚本配置
         └── data/                   # 要安装的文件（保持原打包后目录结构）
             └── 打包后的输出文件夹/
             ...
@@ -46,19 +46,21 @@ my_projects/
 
 ## 基础配置
 
+> 懒人版配置教程：按照以下配置，替换中文内容即可
+
 ### config.xml 示例
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Installer>
-    <Name>项目名字</Name>
-    <Version>1.0.0</Version>
-	<WizardDefaultWidth>880px</WizardDefaultWidth>
+    <Name>软件名字</Name>
+    <Version>版本号（如1.0.0）</Version>
+    <WizardDefaultWidth>880px</WizardDefaultWidth>
     <WizardDefaultHeight>480px</WizardDefaultHeight>
-    <Title>安装器标题</Title>
-    <Publisher>公司或组织名字</Publisher>
-    <StartMenuDir>系统开始目录内显示名字（最好与项目名字保持一致）</StartMenuDir>
-    <TargetDir>@ApplicationsDir@/项目名字</TargetDir>
+    <Title>软件安装器页面标题（如软件名字 + Installer）</Title>
+    <Publisher>公司组织或个人名字（如GitHub-ckckh2023）</Publisher>
+    <StartMenuDir>系统开始菜单页面显示名字（最好与软件名字保持一致）</StartMenuDir>
+    <TargetDir>@ApplicationsDir@/软件名字</TargetDir>
 </Installer>
 ```
 
@@ -69,11 +71,11 @@ my_projects/
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>程序组件包显示名字</DisplayName>
+    <DisplayName>安装界面软件显示名字</DisplayName>
     <Description>软件描述</Description>
-    <Version>1.0.0</Version>
-    <ReleaseDate>2025-01-01</ReleaseDate>
-    <Name>与组织通用标识符保持一致！！！</Name>
+    <Version>版本号（如1.0.0）</Version>
+    <ReleaseDate>发布日期（如2025-01-01）</ReleaseDate>
+    <Name>与通用组织标识符保持一致</Name>
     <Script>installscript.qs</Script>
     <Licenses>
         <License name="许可协议名字" file="协议文件路径" />
@@ -89,6 +91,8 @@ my_projects/
 
 QIFW 通过 `installscript.qs` 中的操作创建开始菜单/桌面快捷方式。
 
+>  第一行需要 `function Component() {}` 构造函数（可在此初始化变量）。
+
 ### Windows 下创建开始菜单快捷方式和桌面快捷方式：
 
 ```js
@@ -97,7 +101,7 @@ Component.prototype.createOperations = function()
     component.createOperations();
 
     var appDir = "@TargetDir@/打包后输出的文件夹名字";
-    var entryFile = appDir + "/app.exe";
+    var entryFile = appDir + "/EXE文件路径";
     var shortcutExt = "lnk";
     var iconArg = "iconPath=" + appDir + "/图标路径";
 
@@ -147,7 +151,7 @@ Component.prototype.createOperations = function()
 
     var desktopEntry = [
         "[Desktop Entry]",
-        "Version=2.2.1",
+        "Version=1.0",
         "Type=Application",
         "Terminal=false",
         "Name=" + shortcutName,
