@@ -55,6 +55,19 @@ html, body {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
+/* ---------- 全局滚动条：淡色细条，深浅色自适应 ---------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+html::-webkit-scrollbar { width: 8px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+html::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
 a { color: var(--link); text-decoration: none; }
 a:hover { color: var(--link-hover); }
 

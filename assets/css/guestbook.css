@@ -170,7 +170,21 @@
   background: var(--code-bg);
   border: 1px solid var(--border);
   overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s ease;
 }
+.gb-body pre:hover {
+  scrollbar-color: var(--border) transparent;
+}
+.gb-body pre::-webkit-scrollbar { height: 6px; }
+.gb-body pre::-webkit-scrollbar-track { background: transparent; }
+.gb-body pre::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+.gb-body pre:hover::-webkit-scrollbar-thumb { background: var(--border); }
 .gb-body pre code { padding: 0; border: none; background: none; }
 .gb-body ul, .gb-body ol { padding-left: 22px; margin: 0 0 10px; }
 .gb-body li + li { margin-top: 4px; }

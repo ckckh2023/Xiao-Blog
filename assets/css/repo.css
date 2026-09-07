@@ -86,7 +86,21 @@
   box-shadow: var(--shadow-lg);
   padding: 22px;
   animation: pc-dialog-pop 0.18s ease;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s ease;
 }
+.pc-dialog:hover {
+  scrollbar-color: var(--border) transparent;
+}
+.pc-dialog::-webkit-scrollbar { width: 6px; }
+.pc-dialog::-webkit-scrollbar-track { background: transparent; }
+.pc-dialog::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+.pc-dialog:hover::-webkit-scrollbar-thumb { background: var(--border); }
 @keyframes pc-dialog-pop {
   from { transform: translateY(8px) scale(0.98); opacity: 0; }
   to { transform: translateY(0) scale(1); opacity: 1; }
