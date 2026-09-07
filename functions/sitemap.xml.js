@@ -40,7 +40,8 @@ var STATIC_PAGES = [
   { loc: "/repo/", changefreq: "monthly", priority: "0.6" },
   { loc: "/friend/", changefreq: "monthly", priority: "0.5" },
   { loc: "/guestbook/", changefreq: "weekly", priority: "0.5" },
-  { loc: "/share/", changefreq: "monthly", priority: "0.5" },
+  { loc: "/share/?type=software", changefreq: "monthly", priority: "0.5" },
+  { loc: "/share/?type=other", changefreq: "monthly", priority: "0.5" },
   { loc: "/about/", changefreq: "monthly", priority: "0.4" },
   { loc: "/rss.xml", changefreq: "weekly", priority: "0.3" }
 ];

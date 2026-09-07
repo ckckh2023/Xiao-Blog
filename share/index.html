@@ -233,6 +233,16 @@
     if (initType === "software" || initType === "other") filterState.category = initType;
     if (initName) filterState.query = initName;
     applyCategoryUI();
+
+    /* 动态 canonical / og:url：按分类指向自身，去掉 name 搜索参数，
+       使 /share/?type=software 与 /share/?type=other 各自独立索引，
+       ?name=xxx 搜索变体合并到对应分类页。 */
+    var canonURL = "https://xiao-blog.top/share/?type=" + filterState.category;
+    var canonicalEl = document.head.querySelector('link[rel="canonical"]');
+    if (canonicalEl) canonicalEl.setAttribute("href", canonURL);
+    var ogUrlEl = document.head.querySelector('meta[property="og:url"]');
+    if (ogUrlEl) ogUrlEl.setAttribute("content", canonURL);
+
     ensureLoaded(filterState.category).then(function () {
       renderTagList();
       applyFilter();
