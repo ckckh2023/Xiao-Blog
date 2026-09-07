@@ -51,7 +51,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TsingHuaelt-VMIC" }
     ],
     "desc": "让清英在线的网页录音只能拿到本插件注入的本地音频，而不是真实麦克风。",
-    "stars": 3,
+    "stars": 5,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {

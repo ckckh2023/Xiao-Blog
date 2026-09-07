@@ -83,7 +83,7 @@ wrangler d1 execute xiao-guestbook --remote --file=./schema.sql
      "children": [ { "id": "dsh-guide", "title": "DeepSeek Harness 使用与配置指南" } ] }
    ```
 
-- 文章 URL 由 id 路径决定：`/docs/article.html?id=ai-agent&sub=dsh-guide`；`functions/sitemap.xml.js` 与 `functions/rss.xml.js` 会自动 HEAD 探测 `index.md` 并收录，无需额外配置。
+- 文章 URL 由 id 路径决定：`/docs/article?id=ai-agent&sub=dsh-guide`；`functions/sitemap.xml.js` 与 `functions/rss.xml.js` 会自动 HEAD 探测 `index.md` 并收录，无需额外配置。
 
 > 带 `children` 的节点为分组，访问时自动重定向到其第一个叶子文章。
 

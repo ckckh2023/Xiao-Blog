@@ -22,7 +22,7 @@
     "name": "GitHub 中文化插件",
     "description": "一款让 GitHub 界面全面中文化的用户脚本，支持菜单栏、标题、按钮等界面元素的智能汉化，并具备正则匹配、时间本地化等高级功能。",
     "officialUrl": null,
-    "iconUrl": null,
+    "iconUrl": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
     "installType": [
       { "title": "GreasyFork（稳定版）", "url": "https://greasyfork.org/scripts/435208" },
       { "title": "GitHub（开发版）", "url": "https://github.com/maboloshi/github-chinese/raw/gh-pages/main.user.js" },

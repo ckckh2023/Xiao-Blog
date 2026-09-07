@@ -7,7 +7,7 @@ const DOCS = "/docs/";
 const SUMMARY_MAX = 200;
 
 function docHref(ids) {
-  var url = DOCS + "article.html?id=" + encodeURIComponent(ids[0]);
+  var url = DOCS + "article?id=" + encodeURIComponent(ids[0]);
   if (ids[1]) url += "&sub=" + encodeURIComponent(ids[1]);
   if (ids[2]) url += "&sub2=" + encodeURIComponent(ids[2]);
   return url;

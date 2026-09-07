@@ -223,13 +223,13 @@
 
   /* ---------- 导航栏渲染 ---------- */
   var NAV_ITEMS = [
-    { label: "首页", href: root() + "index.html", match: /^\/(index\.html)?$/ },
-    { label: "项目", href: root() + "repo/index.html", match: /^\/repo\// },
-    { label: "文档", href: root() + "docs/index.html", match: /^\/docs\//, more: true },
-    { label: "好友", href: root() + "friend/index.html", match: /^\/friend\//, more: true },
-    { label: "分享", href: root() + "share/index.html", match: /^\/share\//, more: true },
-    { label: "留言", href: root() + "guestbook/index.html", match: /^\/guestbook\//, more: true },
-    { label: "关于", href: root() + "about/index.html", match: /^\/about\//, more: true }
+    { label: "首页", href: root(), match: /^\/(index\.html)?$/ },
+    { label: "项目", href: root() + "repo/", match: /^\/repo\// },
+    { label: "文档", href: root() + "docs/", match: /^\/docs\//, more: true },
+    { label: "好友", href: root() + "friend/", match: /^\/friend\//, more: true },
+    { label: "分享", href: root() + "share/", match: /^\/share\//, more: true },
+    { label: "留言", href: root() + "guestbook/", match: /^\/guestbook\//, more: true },
+    { label: "关于", href: root() + "about/", match: /^\/about\//, more: true }
   ];
 
   var GITHUB_ICON_SVG =
@@ -329,7 +329,7 @@
     });
     /* 兜底：根路径且未匹配时高亮首页（其他未匹配路径如 404 不高亮任何项） */
     if (!matched && /^\/(index\.html)?$/.test(path)) {
-      var home = document.querySelector('.site-nav .nav-item[data-href="' + root() + 'index.html"]');
+      var home = document.querySelector('.site-nav .nav-item[data-href="' + root() + '"]');
       if (home) home.classList.add("active");
     }
   }

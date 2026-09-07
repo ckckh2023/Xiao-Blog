@@ -3,7 +3,7 @@
    功能：DocsList 加载、侧边栏渲染、上下页分页、文章详情页初始化、
          Markdown 正文渲染
    依赖：common.js（Utils / root）
-   加载页面：/docs/index.html、/docs/article.html
+   加载页面：/docs/index.html、/docs/article
    ============================================================ */
 
 (function (global) {
@@ -123,10 +123,10 @@
   }
 
   /* 文章详情页链接：ids 为 id 路径数组，如 ["deploy","github","overview"]
-     → /docs/article.html?id=deploy&sub=github&sub2=overview
+      → /docs/article?id=deploy&sub=github&sub2=overview
      单层 ["vue-guide"] → ?id=vue-guide；两层 ["deploy","overview"] → ?id=deploy&sub=overview */
   function docHref(ids) {
-    var base = DOCS_BASE + "article.html?id=" + encodeURIComponent(ids[0]);
+     var base = DOCS_BASE + "article?id=" + encodeURIComponent(ids[0]);
     if (ids[1]) base += "&sub=" + encodeURIComponent(ids[1]);
     if (ids[2]) base += "&sub2=" + encodeURIComponent(ids[2]);
     return base;
@@ -314,7 +314,7 @@
     var sub = query.get("sub") || "";
     var sub2 = query.get("sub2") || "";
     if (!id) {
-      window.location.replace(DOCS_BASE + "index.html");
+      window.location.replace(DOCS_BASE);
       return;
     }
     var idPath = [id];
@@ -324,7 +324,7 @@
     return fetchDocsList().then(function (list) {
       var node = findNodeByPath(list, idPath);
       if (!node) {
-        window.location.replace(DOCS_BASE + "index.html");
+        window.location.replace(DOCS_BASE);
         return;
       }
       /* 非叶子 → 重定向到第一个叶子 */

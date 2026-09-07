@@ -7,7 +7,7 @@ const SITE = "https://xiao-blog.top";
 const DOCS = "/docs/";
 
 function docHref(ids) {
-  var url = DOCS + "article.html?id=" + encodeURIComponent(ids[0]);
+  var url = DOCS + "article?id=" + encodeURIComponent(ids[0]);
   if (ids[1]) url += "&sub=" + encodeURIComponent(ids[1]);
   if (ids[2]) url += "&sub2=" + encodeURIComponent(ids[2]);
   return url;
@@ -36,12 +36,12 @@ function escapeXML(s) {
 /* 静态栏目页：loc / changefreq / priority */
 var STATIC_PAGES = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
-  { loc: "/docs/index.html", changefreq: "weekly", priority: "0.9" },
-  { loc: "/repo/index.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "/friend/index.html", changefreq: "monthly", priority: "0.5" },
-  { loc: "/guestbook/index.html", changefreq: "weekly", priority: "0.5" },
-  { loc: "/share/index.html", changefreq: "monthly", priority: "0.5" },
-  { loc: "/about/index.html", changefreq: "monthly", priority: "0.4" },
+  { loc: "/docs/", changefreq: "weekly", priority: "0.9" },
+  { loc: "/repo/", changefreq: "monthly", priority: "0.6" },
+  { loc: "/friend/", changefreq: "monthly", priority: "0.5" },
+  { loc: "/guestbook/", changefreq: "weekly", priority: "0.5" },
+  { loc: "/share/", changefreq: "monthly", priority: "0.5" },
+  { loc: "/about/", changefreq: "monthly", priority: "0.4" },
   { loc: "/rss.xml", changefreq: "weekly", priority: "0.3" }
 ];
 
