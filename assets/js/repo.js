@@ -12,7 +12,7 @@
   var root = global.root;
   var fetchGitHubJSON = global.fetchGitHubJSON;
 
-  /* ---------- star.json 数据加载（首页精选项目） ---------- */
+  /* ---------- star.json 数据加载 ---------- */
   function fetchStarProjects() {
     return utils.fetchJSON(root() + "repo/star.json").then(function (list) {
       return Array.isArray(list) ? list : [];
@@ -23,7 +23,7 @@
   }
   global.fetchStarProjects = fetchStarProjects;
 
-  /* 项目页全部仓库列表（格式与 star.json 一致，独立接口） */
+  /* 项目页全部仓库列表 */
   function fetchRepoList() {
     return utils.fetchJSON(root() + "repo/RepoList.json").then(function (list) {
       return Array.isArray(list) ? list : [];
@@ -49,7 +49,7 @@
   }
   global.fetchRepoInfo = fetchRepoInfo;
 
-  /* 获取仓库语言列表（技术栈） */
+  /* 获取仓库语言列表 */
   function fetchRepoLanguages(fullName) {
     var key = "lang:" + fullName;
     return fetchGitHubJSON(REPO_API + fullName + "/languages", key).then(function (d) {
@@ -212,7 +212,7 @@
         onMounted(function () {
           projects.value.forEach(function (p, i) {
             enrichProject(p).then(function () {
-              /* enrich 就地更新 p（API 成功覆盖，失败保留本地），赋新对象触发重渲染 */
+              /* enrich 就地更新（API 成功覆盖，失败保留本地），赋新对象触发重渲染 */
               projects.value[i] = Object.assign({}, p);
             });
           });

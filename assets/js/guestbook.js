@@ -138,7 +138,7 @@
       btn.textContent = on ? "发布中…" : "发布留言";
     }
 
-    /* 由 QQ 号生成头像 URL（仅用于获取头像，不存储 QQ 号本身） */
+    /* 由 QQ 号生成头像 URL */
     function avatarFromQQ(qq) {
       if (!qq) return "";
       if (!/^\d{5,11}$/.test(qq)) return null;  /* 格式不合法 */
@@ -184,7 +184,7 @@
       });
     });
 
-    /* 预览留言：弹窗显示与留言墙一致的卡片（复用 gb-card 弹窗，与正文展开风格一致） */
+    /* 预览留言：弹窗显示与留言墙一致的卡片 */
     var previewBtn = document.getElementById("gb-preview");
     if (previewBtn) {
       previewBtn.addEventListener("click", function () {

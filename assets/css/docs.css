@@ -213,7 +213,7 @@
   margin: 0 12px;
 }
 
-/* 文章最后更新日期（靠右，小字） */
+/* 文章最后更新日期 */
 .doc-updated {
   margin-top: 16px;
   font-size: 13px;
@@ -255,7 +255,7 @@
   transform: translateX(4px);
 }
 
-/* 侧边栏嵌套分组（可折叠，整行可点） */
+/* 侧边栏嵌套分组 */
 .docs-sidebar .sidebar-group {
   margin-bottom: 6px;
 }
@@ -356,7 +356,7 @@
   .docs-content { padding: 24px 16px 48px; }
 }
 
-/* ---------- 文章正文表格（Markdown table 渲染） ---------- */
+/* ---------- 文章正文表格 ---------- */
 .doc-body table {
   border-collapse: collapse;
   margin: 16px 0;

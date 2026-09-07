@@ -55,7 +55,7 @@ html, body {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* ---------- 全局滚动条：淡色细条，深浅色自适应 ---------- */
+/* ---------- 全局滚动条 ---------- */
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
@@ -191,7 +191,7 @@ img { max-width: 100%; display: block; }
 [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
 [data-theme="dark"] .theme-toggle .icon-moon { display: inline; }
 
-/* 三点更多菜单：仅移动端使用，桌面端隐藏 */
+/* 三点更多菜单：仅移动端使用 */
 .site-nav .nav-more,
 .site-nav .nav-more-panel { display: none; }
 
@@ -357,7 +357,7 @@ img { max-width: 100%; display: block; }
   background: #3b3200;
   border-bottom: 1px solid #55471c;
 }
-/* 红色 X 关闭按钮 */
+/* 关闭按钮 */
 .notice-close {
   flex-shrink: 0;
   display: inline-flex;
@@ -428,19 +428,19 @@ img { max-width: 100%; display: block; }
 .search-box .search-clear:hover { background: var(--active-bg); color: var(--text); }
 .search-box.has-value .search-clear { display: inline-flex; }
 
-/* 区块标题左侧容器：标题 + 搜索框 紧挨排列（间距约 1.5 汉字） */
+/* 区块标题左侧容器：标题 + 搜索框 紧挨排列 */
 .section-title .title-left {
   display: flex;
   align-items: center;
   gap: 1.5em;
 }
 
-/* Wiki 首页标题行：h1 + 搜索框 紧挨靠左（间距约 1.5 汉字） */
+/* 文档首页标题行：h1 + 搜索框 紧挨靠左 */
 .docs-head-row {
   display: flex;
   align-items: center;
   gap: 1.5em;
-  font-size: 26px; /* em 基准对齐 h1 字号，使 1.5em ≈ 1.5 个汉字 */
+  font-size: 26px;
   margin-bottom: 16px;
 }
 .docs-head-row h1 { margin: 0; }
@@ -455,7 +455,7 @@ img { max-width: 100%; display: block; }
   .search-box { width: 150px; max-width: 50vw; }
   .docs-head-row { flex-wrap: wrap; }
 
-  /* 三点更多菜单：移动端折叠 Wiki / 好友等 more 项，点击三点按钮在下方展开 */
+  /* 三点更多菜单，点击三点按钮在下方展开 */
   .site-nav .nav-item[data-more="true"] { display: none; }
   .site-nav .nav-more {
     display: inline-flex;
@@ -507,7 +507,7 @@ img { max-width: 100%; display: block; }
   .site-nav .nav-more-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
 }
 
-/* ---------- 手机端默认 90% 缩放（避免卡片溢出边界） ---------- */
+/* ---------- 手机端默认 90% 缩放 ---------- */
 @media (max-width: 768px) {
   html { zoom: 0.9; }
 }

@@ -26,7 +26,7 @@
   <meta name="twitter:image" content="https://xiao-blog.top/assets/icons/head.jpg">
 </head>
 <body>
-  <!-- 顶部导航栏（由 common.js 渲染） -->
+  <!-- 顶部导航栏 -->
   <header id="site-nav"></header>
 
   <main class="container">
@@ -45,14 +45,14 @@
       </div>
     </section>
 
-    <!-- 精选项目区块（Vue 渲染） -->
+    <!-- 精选项目区块 -->
     <section class="panel">
       <div class="section-title">
         <span>精选项目</span>
         <a class="more-link" href="/repo/">查看全部项目 »</a>
       </div>
       <div id="featured-projects">
-        <!-- Vue 挂载点（每行 2 个） -->
+        <!-- 精选项目挂载点 -->
       </div>
     </section>
 
@@ -63,7 +63,7 @@
         <a class="more-link" href="/docs/">查看全部文档 »</a>
       </div>
       <div id="featured-wiki">
-        <!-- 精选文档 挂载点（每行 2 个） -->
+        <!-- 精选文档挂载点 -->
       </div>
     </section>
 
@@ -74,7 +74,7 @@
         <a class="more-link" href="/share/">查看全部分享 »</a>
       </div>
       <div id="featured-share">
-        <!-- 精选分享挂载点（复用分享页卡片样式） -->
+        <!-- 精选分享挂载点 -->
       </div>
     </section>
 
@@ -85,7 +85,7 @@
         <a class="more-link" href="/guestbook/">查看留言板 »</a>
       </div>
       <div id="featured-guestbook">
-        <!-- 精选留言挂载点（复用留言板卡片样式） -->
+        <!-- 精选留言挂载点 -->
       </div>
     </section>
   </main>
@@ -103,7 +103,7 @@
   <script src="/assets/js/gb-card.js"></script>
   <!-- 首页专属逻辑（GitHub Profile / 精选文档 / 精选留言） -->
   <script src="/assets/js/home.js"></script>
-  <!-- 项目卡片渲染（首页精选项目 & repo 页共享） -->
+  <!-- 项目卡片渲染（首页精选项目 & 项目页共享） -->
   <script src="/assets/js/repo.js"></script>
   <!-- 分享卡片渲染（首页精选分享 & 分享页共享） -->
   <script src="/assets/js/share.js"></script>
@@ -143,7 +143,7 @@
       });
     });
 
-    /* 精选文档：从 /docs/star.json 加载，每行 2 个（最多 4 篇），点击查看直接跳转对应 url */
+    /* 精选文档：从 /docs/star.json 加载，每行 2 个，最多 4 篇，点击查看直接跳转对应 url */
     fetchStarDocs().then(function (list) {
       mountWikiCards("#featured-wiki", list, 2, 4);
     });

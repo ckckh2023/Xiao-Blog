@@ -11,7 +11,7 @@
   var utils = global.Utils;
   var root = global.root;
 
-  /* 软件列表（格式见 /share/SoftWareList.json） */
+  /* 软件列表（格式见 /share/example.json） */
   function fetchShareList() {
     return utils.fetchJSON(root() + "share/SoftWareList.json").then(function (list) {
       return Array.isArray(list) ? list : [];
@@ -22,7 +22,7 @@
   }
   global.fetchShareList = fetchShareList;
 
-  /* 其他列表（格式见 /share/OtherList.json） */
+  /* 其他列表（格式见 /share/example.json） */
   function fetchOtherList() {
     return utils.fetchJSON(root() + "share/OtherList.json").then(function (list) {
       return Array.isArray(list) ? list : [];
@@ -40,7 +40,7 @@
     return { cls: "sc-status-unknown", label: "状态未知" };
   }
 
-  /* ---------- 平台图标（全部纯色跟随 currentColor，自动适配深色模式） ---------- */
+  /* ---------- 平台图标 ---------- */
   var PLATFORM_ICONS = {
     "Windows": '<svg viewBox="0 0 88 88" fill="currentColor" aria-hidden="true"><path d="m0 12.402 35.687-4.86.016 34.423-35.67.203zm35.67 33.529.028 34.453L.028 75.48.026 45.7zm4.326-39.025L87.314 0v41.527l-47.318.376zm47.329 39.349-.011 41.34-47.318-6.678-.066-34.739z"/></svg>',
     "macOS": '<svg viewBox="0 0 49 49" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M44 38V10C44 8.89543 43.1046 8 42 8H6C4.89543 8 4 8.89543 4 10V38C4 39.1046 4.89543 40 6 40H42C43.1046 40 44 39.1046 44 38Z"/><path d="M25 8C25 8 20 18 21 25H27L28 40"/><path d="M34 40H22"/><path d="M30 8H18"/><path d="M34 16V18"/><path d="M14 16V18"/><path d="M13 29C13 29 17.1905 32 24 32C30.8095 32 35 29 35 29"/></svg>',
@@ -123,7 +123,7 @@
     openSelectDialog(title, arr);
   }
 
-  /* ---------- 卡片渲染（纯 DOM） ---------- */
+  /* ---------- 卡片渲染 ---------- */
   function shareCardHTML(item, idx) {
     var name = item.name || item.id || "";
     var initial = (name.charAt(0) || "?").toUpperCase();

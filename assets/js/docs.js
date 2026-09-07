@@ -85,7 +85,7 @@
     });
   }
 
-  /* 从渲染后的正文容器提取首段纯文本作为摘要（最多 120 字） */
+  /* 从渲染后的正文容器提取首段纯文本作为摘要 */
   function extractDescription(box) {
     if (!box) return "";
     var p = box.querySelector("p");
@@ -200,7 +200,7 @@
         html += renderSidebarNode(it, [], currentPath);
       });
       holder.innerHTML = html;
-      /* 折叠/展开：点整行（标题或图标）或键盘 Enter/Space 切换（仅绑定一次） */
+      /* 折叠/展开：点整行或键盘 Enter/Space 切换 */
       if (!holder.__sidebarToggleBound) {
         var toggleGroup = function (group) {
           var isCollapsed = group.classList.toggle("collapsed");
@@ -439,7 +439,7 @@
       mdUrl:    markdown 文件 URL（相对路径即可，如 ./index.md）
     ---------- */
 
-  /* 从 HTTP Last-Modified 头解析并填充最后更新日期（靠右显示） */
+  /* 从 HTTP Last-Modified 头解析并填充最后更新日期 */
   function fillDocUpdated(lastModified) {
     var el = document.getElementById("doc-updated");
     if (!el || !lastModified) return;

@@ -291,7 +291,7 @@
   .gb-form-row { flex-direction: column; }
 }
 
-/* ---------- 刷新按钮（图标按钮，点击转圈） ---------- */
+/* ---------- 刷新按钮 ---------- */
 #guestbook-refresh {
   padding: 6px;
   line-height: 0;

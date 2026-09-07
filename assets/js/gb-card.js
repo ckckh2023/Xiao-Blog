@@ -40,7 +40,7 @@
 
   /* 留言卡片 HTML
      数据结构：{ id, nickname, body, avatar, created_at }
-     结构：#id（右上角徽章） + 头像 | (昵称 / 时间) / Markdown 正文 */
+     结构：#id 徽章 + 头像 | (昵称 / 时间) / Markdown 正文 */
   function gbCardHTML(c) {
     var hasId = c.id != null && c.id !== "";
     var name = c.nickname || "匿名";
@@ -48,7 +48,7 @@
     var time = formatTime(c.created_at);
     var initial = (name.charAt(0) || "?").toUpperCase();
 
-    /* 头像节点：有 URL 用 <img>（加载失败回退首字母），无 URL 直接首字母 */
+    /* 头像节点：有 URL 用 <img>，无 URL 直接首字母 */
     var avatarNode = avatar
       ? '<img class="gb-avatar" src="' + utils.escapeHTML(avatar) + '" alt="' +
           utils.escapeHTML(name) + '" loading="lazy" ' +
@@ -56,7 +56,7 @@
         '<div class="gb-avatar-fallback" style="display:none">' + utils.escapeHTML(initial) + "</div>"
       : '<div class="gb-avatar-fallback">' + utils.escapeHTML(initial) + "</div>";
 
-    /* #id 徽章（右上角绝对定位） */
+    /* #id 徽章 */
     var idBadge = hasId ? '<span class="gb-id">#' + utils.escapeHTML(String(c.id)) + "</span>" : "";
 
     return '<article class="card gb-card">' +

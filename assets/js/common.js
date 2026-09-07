@@ -265,7 +265,6 @@
     'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 ' +
     '12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 
-  /* 三点更多菜单图标（水平三点，居中于 16x16 viewBox） */
   var MORE_SVG =
     '<svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">' +
     '<circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/>' +
@@ -278,7 +277,7 @@
         utils.escapeHTML(it.label) + "</a>";
     }).join("");
 
-    /* 折叠进"更多"面板的项（移动端三点菜单）；后续新增导航项只需加 more: true 即自动入此面板 */
+    /* 移动端三点菜单 */
     var panelLinks = NAV_ITEMS.filter(function (it) { return it.more; }).map(function (it) {
       return '<a class="nav-more-link" href="' + it.href + '" data-href="' + it.href + '" role="menuitem">' +
         utils.escapeHTML(it.label) + "</a>";
@@ -327,7 +326,6 @@
       var item = NAV_ITEMS.filter(function (it) { return it.href === href; })[0];
       if (item && item.match.test(path)) a.classList.add("active");
     });
-    /* 兜底：根路径且未匹配时高亮首页（其他未匹配路径如 404 不高亮任何项） */
     if (!matched && /^\/(index\.html)?$/.test(path)) {
       var home = document.querySelector('.site-nav .nav-item[data-href="' + root() + '"]');
       if (home) home.classList.add("active");
@@ -346,7 +344,7 @@
     initMoreMenu(holder);
   }
 
-  /* initMoreMenu：移动端三点菜单的展开/关闭（点击按钮切换、点击外部/ESC/选择项后关闭） */
+  /* initMoreMenu：移动端三点菜单的展开/关闭 */
   function initMoreMenu(holder) {
     var btn = holder.querySelector(".nav-more");
     var panel = holder.querySelector(".nav-more-panel");
@@ -358,7 +356,6 @@
       btn.setAttribute("aria-expanded", "false");
     }
     function open() {
-      /* 面板水平居中对齐三点按钮：left 设到按钮中心，配合 translateX(-50%) 居中 */
       panel.style.left = (btn.offsetLeft + btn.offsetWidth / 2) + "px";
       panel.classList.add("open");
       panel.setAttribute("aria-hidden", "false");
@@ -369,16 +366,13 @@
       e.stopPropagation();
       if (panel.classList.contains("open")) close(); else open();
     });
-    /* 选择某项后关闭面板（不阻止默认跳转） */
     panel.addEventListener("click", close);
-    /* 点击面板与按钮之外关闭 */
     document.addEventListener("click", function (e) {
       if (!panel.classList.contains("open")) return;
       if (e.target === btn || btn.contains(e.target)) return;
       if (e.target === panel || panel.contains(e.target)) return;
       close();
     });
-    /* ESC 关闭 */
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") close();
     });

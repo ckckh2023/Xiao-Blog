@@ -34,7 +34,7 @@
     var bio = utils.escapeHTML(item.bio || "");
     var url = utils.escapeHTML(item.url || "#");
 
-    /* 头像节点：有 avatar 用 img（onerror 回退首字母圆）；无 avatar 直接首字母圆 */
+    /* 头像节点：有 avatar 用 img；无 avatar 直接首字母圆 */
     var avatarNode;
     if (item.avatar) {
       avatarNode =

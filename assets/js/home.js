@@ -16,7 +16,7 @@
 
   /* ---------- GitHub 用户信息 ----------
      与仓库卡片（repo.js enrichProject）行为一致：本地数据优先，
-     GitHub API 只在可用时后台覆盖更新（成功覆盖，失败保留本地）。 */
+     GitHub API 只在可用时后台覆盖更新 */
   var FALLBACK_PROFILE = {
     name: "Xander Xiao",
     bio: "没招了没招了没招了",
@@ -121,7 +121,7 @@
   }
   global.fetchStarGuestbook = fetchStarGuestbook;
 
-  /* 卡片渲染复用 gb-card.js 的 window.GBCard（与留言板一致） */
+  /* 卡片渲染复用 gb-card.js 的 window.GBCard */
 
   /* 精选留言卡片渲染（纯 DOM）
      selector: 挂载点选择器
