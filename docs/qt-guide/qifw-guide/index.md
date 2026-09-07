@@ -171,8 +171,8 @@ Component.prototype.createOperations = function()
 
 ### 依赖处理
 
-- **Windows**：通常需要将所需 DLL（Qt、第三方库）放入 `data` 目录中，并与可执行文件放在同一目录或子目录。可以使用 `windeployqt` 自动收集 Qt 依赖。
-- **Linux**：推荐使用打包工具（如 CQtDeployer、linuxdeploy）生成自包含的 AppDir，然后将该目录整体放入 `data/`。这样 QIFW 只需负责复制文件，依赖由 AppDir 内部解决。
+- **Windows**：通常需要将打包后输出的文件夹放入 `data` 目录中，可以使用 `windeployqt` 自动收集 Qt 依赖。
+- **Linux**：推荐使用打包工具（如 CQtDeployer、linuxdeploy）生成自包含的文件夹，然后将该目录整体放入 `data/`，依赖由 CQtDeployer 等工具解决。
 
 ---
 
