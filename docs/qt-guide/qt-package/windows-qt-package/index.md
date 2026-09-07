@@ -45,6 +45,34 @@ windeployqt 将 .exe 文件或包含 .exe 文件的目录作为参数，通过�
 
 ---
 
+## MSVC 与 MinGW 构建的依赖差异
+
+windeployqt 必须使用与项目编译器**匹配的版本**，且两种编译器产物的运行时依赖完全不同，混用会导致程序无法启动。
+
+### MSVC 构建
+
+- 依赖 Visual C++ 运行时库（`vcruntime140.dll`、`msvcp140.dll`、`vcruntime140_1.dll` 等）。
+- windeployqt **默认会自动复制**这些运行时到发布目录，无需手动处理。
+- 若使用 `--no-compiler-runtime` 参数，则需确保目标机器已安装对应版本的 VC++ Redistributable，或在安装包中捆绑其安装程序。
+- 目标机器未安装时，常见报错："找不到 VCRUNTIME140.dll"。
+
+### MinGW 构建
+
+- 依赖 GCC 运行时库：`libgcc_s_seh-1.dll`（64 位）/ `libgcc_s_dw2-1.dll`（32 位）、`libstdc++-6.dll`、`libwinpthread-1.dll`。
+- **windeployqt 不会自动复制这些库**（它们不属于 Qt 库），需从 MinGW 的 `bin` 目录手动复制到打包目录：
+
+    ```powershell
+    Copy-Item "C:\Qt\6.10.3\mingw_64\bin\libgcc_s_seh-1.dll"  "打包目录\"
+    Copy-Item "C:\Qt\6.10.3\mingw_64\bin\libstdc++-6.dll"     "打包目录\"
+    Copy-Item "C:\Qt\6.10.3\mingw_64\bin\libwinpthread-1.dll" "打包目录\"
+    ```
+
+- 缺失时常见报错："找不到 libgcc_s_seh-1.dll"或"无法定位程序输入点"。
+
+> **切勿混用**：MSVC 编译的 .exe 不能加载 MinGW 构建的 Qt DLL，反之亦然。发布目录中的所有二进制文件必须来自同一编译器套件。
+
+---
+
 ## 执行 windeployqt 命令
 
 获取 windeployqt.exe 的路径后，打开命令行窗口（PowerShell），可执行以下命令：
