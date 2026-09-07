@@ -102,12 +102,12 @@ Component.prototype.createOperations = function()
 
     var appDir = "@TargetDir@/打包后输出的文件夹名字";
     var entryFile = appDir + "/EXE文件路径";
-    var shortcutExt = "lnk";
+    var shortcutExt = ".lnk";
     var iconArg = "iconPath=" + appDir + "/图标路径";
 
     component.addOperation("CreateShortcut",
         entryFile,
-        "@DesktopDir@/快捷方式名字." + shortcutExt,
+        "@DesktopDir@/快捷方式名字" + shortcutExt,
         "",
         "workingDirectory=" + appDir,
         iconArg
@@ -115,7 +115,7 @@ Component.prototype.createOperations = function()
 
     component.addOperation("CreateShortcut",
         entryFile,
-        "@StartMenuDir@/快捷方式名字." + shortcutExt,
+        "@StartMenuDir@/快捷方式名字" + shortcutExt,
         "",
         "workingDirectory=" + appDir,
         iconArg
