@@ -15,6 +15,70 @@ ls /usr/bin/python*
 
 > **注意**：系统自带的 Python 被许多底层工具（如 `apt`、系统设置、软件中心）所依赖，因此**不要**直接往系统 Python 中安装第三方包（`pip install` 会被 PEP 668 保护机制拦截）。
 
+### 安装不同版本的 Python
+
+除了系统仓库自带的 Python 版本外，你可以通过 **Deadsnakes PPA** 第三方仓库来安装几乎任何你需要的 Python 版本。这是一个专门为 Ubuntu 提供多个 Python 版本的非官方仓库，安装的版本**不会覆盖系统默认的 Python**，因此相对安全。
+
+#### 添加 Deadsnakes PPA 源
+
+首先安装 `software-properties-common` 包（如果尚未安装），然后添加 Deadsnakes PPA 并更新包列表：
+
+```bash
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+```
+
+> **提示**：Deadsnakes 提供两个版本——稳定版（`ppa:deadsnakes/ppa`）和尝鲜版（`ppa:deadsnakes/nightly`）。如果想体验最新的 Python 开发版，可以添加 nightly 版本。
+
+#### 安装指定版本的 Python
+
+添加源之后，就可以像安装普通软件包一样安装 Python 了：
+
+```bash
+sudo apt install python3.11
+```
+
+安装完成后，通过对应命令验证：
+
+```bash
+python3.11 --version
+```
+
+> Deadsnakes 支持从 Python 3.7 到 3.14 的几乎所有版本，具体可用版本取决于你的 Ubuntu 版本。
+
+#### 安装相关开发组件
+
+除了 Python 解释器本身，通常还需要安装一些配套组件。Deadsnakes 为每个 Python 版本提供了多个子包：
+
+| 包名 | 说明 |
+| :--- | :--- |
+| `python3.x` | Python 解释器（核心） |
+| `python3.x-venv` | 虚拟环境支持（`venv` 模块） |
+| `python3.x-dev` | 头文件和静态库（用于编译 C 扩展） |
+| `python3.x-full` | **完整版**——包含标准库中的所有模块 |
+| `python3.x-tk` | Tkinter GUI 支持 |
+| `python3.x-gdbm` | GNU dbm 数据库支持 |
+
+建议至少安装 `python3.x-venv` 和 `python3.x-dev`：
+
+```bash
+sudo apt install python3.11 python3.11-venv python3.11-dev
+```
+
+##### 关于 `python3.x-full` 包
+
+`python3.x-full` 是**完整版** Python 包，它包含了 Python 解释器以及**完整的标准库**。普通的 `python3.x` 包可能不会安装所有标准库模块（如 `tkinter`、`gdbm` 等），而 `-full` 版本会一并安装。
+
+如果遇到 `ModuleNotFoundError` 提示缺少某个标准库模块，安装对应的 `-full` 包通常可以解决问题：
+
+```bash
+sudo apt install python3.11-full
+```
+
+> **注意**：`-full` 包会安装更多依赖，占用更多磁盘空间。如果只是日常开发，安装 `python3.x` + `python3.x-venv` + `python3.x-dev` 通常就足够了。只有在需要完整标准库（如使用 Tkinter 开发 GUI 应用）时才需要安装 `-full`。
+
 ---
 
 ### 使用不同版本的 Python
