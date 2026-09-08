@@ -86,6 +86,22 @@
     "recommendReason": "作为服务端 JavaScript 的事实标准，Node.js 采用事件驱动、非阻塞 I/O 模型，轻量且高效。它拥有 npm 全球最大的开源库生态系统，由 OpenJS 基金会托管并采用开放治理模式，社区极为活跃。无论是构建微服务、CLI 工具还是全栈应用，Node.js 都是现代开发者的核心基础设施。"
   },
   {
+    "id": "metaso",
+    "name": "秘塔 AI 搜索",
+    "description": "一款国产 AI 搜索引擎，专注于学术搜索与科研场景，能自动总结搜索结果、生成结构化大纲并引用文献来源，为学术研究、文献调研与知识问答提供一站式智能解答。",
+    "officialUrl": "https://metaso.cn/",
+    "iconUrl": "https://metaso.cn/favicon.ico",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://metaso.cn/open-app" }
+    ],
+    "platforms": ["Web", "Android"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["AI搜索", "学术工具"],
+    "recommendReason": "无需登录即可使用，针对学术场景深度优化：自动聚合多来源信息、生成带引用的大纲式总结，支持中英文文献检索与语义问答，是学生与科研人员快速完成文献调研、理清知识脉络的得力助手。"
+  },
+  {
     "id": "office-tool-plus",
     "name": "Office Tool Plus",
     "description": "一款强大且实用的 Office 部署与管理工具，基于微软官方 Office 部署工具（ODT）制作，支持自定义安装、激活、卸载及配置管理，内置迅雷和 Downloader 下载引擎，让 Office 的部署与管理变得简单高效。",

@@ -553,5 +553,24 @@
     "repoUrl": "https://github.com/LibreOffice/core",
     "tags": ["办公套件", "跨平台"],
     "recommendReason": "作为 Microsoft Office 的免费开源替代方案，LibreOffice 完整覆盖文档、表格、演示、绘图、数据库与公式编辑六大场景，对 .docx/.xlsx/.pptx 等格式高度兼容；社区活跃、持续迭代，无授权费用与激活限制，是个人办公、教育场景以及 Linux 用户的首选生产力工具。"
+  },
+  {
+    "id": "blender",
+    "name": "Blender",
+    "description": "一款免费开源的跨平台全功能 3D 创作套件，支持建模、雕刻、UV 展开、纹理绘制、粒子系统、物理模拟、渲染、动画、合成与视频编辑，覆盖整个 3D 制作流程，是独立艺术家和小型工作室的首选工具。",
+    "officialUrl": "https://www.blender.org/",
+    "iconUrl": "https://www.blender.org/wp-content/themes/bthree/assets/icons/favicon.svg",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.blender.org/download/" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Blender 官方文档", "url": "https://docs.blender.org/" },
+      { "title": "Blender 中文用户手册", "url": "https://docs.blender.org/manual/zh-hans/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/blender/blender",
+    "tags": ["3D 建模", "渲染", "跨平台"],
+    "recommendReason": "作为全球最流行的开源 3D 软件，Blender 集建模、雕刻、动画、渲染、合成、视频剪辑于一体，完全免费且无任何功能限制。其活跃的社区、丰富的插件生态和持续的版本迭代，使其成为独立创作者、小型团队以及教育领域的强力工具，也是学习 3D 艺术的绝佳起点。"
   }
 ]
