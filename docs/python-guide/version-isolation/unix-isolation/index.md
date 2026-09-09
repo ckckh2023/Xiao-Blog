@@ -30,7 +30,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 ```
 
-> **提示**：Deadsnakes 提供两个版本——稳定版（`ppa:deadsnakes/ppa`）和尝鲜版（`ppa:deadsnakes/nightly`）。如果想体验最新的 Python 开发版，可以添加 nightly 版本。
+> **提示**：Deadsnakes 提供两个版本：稳定版（`ppa:deadsnakes/ppa`）和尝鲜版（`ppa:deadsnakes/nightly`）。如果想体验最新的 Python 开发版，可以添加 nightly 版本。
 
 #### 安装指定版本的 Python
 

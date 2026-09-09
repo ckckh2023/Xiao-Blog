@@ -339,5 +339,21 @@
     "repoUrl": "https://github.com/3b1b/manim",
     "tags": ["Python", "动画", "数学"],
     "recommendReason": "作为 3Blue1Brown 数学科普视频背后的动画引擎，Manim 用代码精确驱动几何与变换，让抽象数学概念可视化，是制作教学动画、科普视频与数学演示的利器。"
+  },
+  {
+    "id": "ninite",
+    "name": "Ninite",
+    "description": "一款免费的 Windows 软件批量安装与自动更新服务网站。用户在官网勾选所需软件后，下载一个极小的 Ninite 安装器即可一键静默安装全部选定应用，并支持日后一键批量更新，全程无广告、无捆绑、无各种全家桶软件。",
+    "officialUrl": "https://ninite.com/",
+    "iconUrl": "https://ninite.com/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://ninite.com/" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["软件安装", "系统工具"],
+    "recommendReason": "装机、重装系统后的效率神器，一次勾选即可批量静默安装 Chrome、VSCode、7-Zip 等常用软件，安装全程无广告、无捆绑、无附加推广软件；之后还能用同一个安装器一键批量更新所有软件，省去逐个下载安装的繁琐步骤。"
   }
 ]
