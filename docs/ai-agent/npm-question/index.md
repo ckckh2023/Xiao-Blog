@@ -55,7 +55,7 @@ Get-ExecutionPolicy
 
 ### Npm 的 install-scripts 白名单机制
 
-在终端中执行 `npm install -g @deepseek-ai/dsh` 时，安装过程顺利完成（`added xxx packages`），但出现多处警告：
+在终端中执行 `npm install -g xxx` 时，安装过程顺利完成（`added xxx packages`），但出现多处警告：
 
 ```bash
 npm warn install-scripts 5 packages had install scripts blocked because they are not covered by allowScripts:
@@ -90,21 +90,15 @@ npm config get allow-scripts --location=user
 执行以下命令，将相关包名以逗号分隔配置为允许脚本执行（此处仅针对 dsh）：
 
 ```bash
-npm config set allow-scripts "@deepseek-ai/dsh-subprocess-local,koffi,node-pty,@google/genai,protobufjs" --location=user
+npm config set allow-scripts "pnpm,@deepseek-ai/dsh-subprocess-local,koffi,node-pty,@google/genai,protobufjs" --location=user
 ```
 
 该设置永久生效于当前用户的所有全局安装。
 
 **步骤二：手动触发已安装包的脚本重建**  
-由于初始安装时这些脚本已被跳过，需通过 `npm rebuild` 强制执行：
+由于初始安装时这些脚本已被跳过，需重新 `npm install -g @deepseek-ai/dsh`，npm 会自动检测并执行缺失的脚本。
 
-```bash
-npm rebuild @deepseek-ai/dsh-subprocess-local koffi node-pty @google/genai protobufjs -g
-```
-
-> 此处提供懒人版教程：也可以直接重新 `npm install -g @deepseek-ai/dsh`，npm 会自动检测并执行缺失的脚本。
-
-此时 npm 将依据新的白名单配置，正常执行各包的安装后脚本。重建完成后，工具功能应完整可用。
+> 此时 npm 将依据新的白名单配置，正常执行各包的安装后脚本。重新安装完成后，工具功能应完整可用。
 
 ---
 
