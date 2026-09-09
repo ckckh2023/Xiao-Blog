@@ -106,7 +106,7 @@
     "name": "Office Tool Plus",
     "description": "一款强大且实用的 Office 部署与管理工具，基于微软官方 Office 部署工具（ODT）制作，支持自定义安装、激活、卸载及配置管理，内置迅雷和 Downloader 下载引擎，让 Office 的部署与管理变得简单高效。",
     "officialUrl": "https://otp.landian.vip/",
-    "iconUrl": "https://otp.landian.vip/favicon.ico",
+    "iconUrl": "https://www.officetool.plus/favicon.ico",
     "installType": [
       { "title": "官方网站", "url": "https://otp.landian.vip/zh-cn/download.html" },
       { "title": "GitHub Releases", "url": "https://github.com/YerongAI/Office-Tool/releases/latest" }
