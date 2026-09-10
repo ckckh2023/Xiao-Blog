@@ -130,11 +130,15 @@ dsh plugin --profile <profile名称> add <插件包名>
 
 ### 4. 实用插件推荐
 
+终端运行 `dsh plugin --profile web xxx` 命令即可安装。
+
 | 插件 | 功能 |
 |------|------|
 | **dshmarket** | DeepSeek插件市场 |
-| **DSH-better-sidebar** | Web UI 右侧工作区面板 |
-| **dsh-usage-stats** | Token 额度使用面板 |
+| **dsh-better-sidebar** | Web UI 右侧工作区面板 |
+| **@linxin666/dsh-remote-web-ui** | 手机局域网访问 Web UI |
+| **@ychris12138/dsh-usage-stats** | Token 额度使用面板 |
+| **@linxin666/dsh-web-all** | 实用插件集合 |
 
 > 更多插件可以在 [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com) 浏览，或查看 GitHub 上的 [`dsh-plugin` Topic](https://github.com/topics/dsh-plugin)。
 
