@@ -14,7 +14,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/microsoft/vscode",
-    "tags": ["编辑器", "跨平台"],
+    "tags": ["编辑器", "开发工具", "跨平台"],
     "recommendReason": "插件生态覆盖前后端、AI、云原生等所有热门领域，启动轻快，定制灵活，堪称“编辑器之王”。"
   },
   {
@@ -32,7 +32,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/subframe7536/maple-font",
-    "tags": ["字体", "开发工具"],
+    "tags": ["字体", "开发工具", "跨平台"],
     "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽；可变字体、圆角设计和细粒度 OpenType 配置，让编码体验丝滑且高度个性化。"
   },
   {
@@ -48,23 +48,27 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/AnInsomniacy/motrix-next",
-    "tags": ["下载管理", "跨平台"],
-    "recommendReason": "基于 Aria2 Next 引擎，采用 Tauri 2 + Vue 3 + TypeScript 重构，安装包仅 ~20MB；支持多协议下载、BT 选择性下载、浏览器扩展集成、系统托盘、代理控制等丰富特，是 Motrix 用户的最佳升级选择。"
+    "tags": ["下载工具", "跨平台"],
+    "recommendReason": "基于 Aria2 Next 引擎，采用 Tauri 2 + Vue 3 + TypeScript 重构，安装包仅 ~20MB；支持多协议下载、BT 选择性下载、浏览器扩展集成、系统托盘、代理控制等丰富特性，是 Motrix 用户的最佳升级选择。"
   },
   {
-    "id": "mingw",
-    "name": "Mingw-w64",
-    "description": "Windows 平台上的 GCC 编译工具链，支持 C、C++、Fortran 等多种语言，提供完整的 POSIX 兼容层和 Windows 原生 API 接口，是开发跨平台 C/C++ 应用的基石。",
-    "officialUrl": "https://www.mingw-w64.org/",
-    "iconUrl": "https://www.mingw-w64.org/logo.svg",
+    "id": "deepseek-harness",
+    "name": "DeepSeek Harness (dsh)",
+    "description": "DeepSeek AI 官方推出的开源智能体框架，采用“一切皆插件”的架构设计，由 Cordis 驱动，支持通过插件灵活扩展功能，目前处于开发者预览阶段。",
+    "officialUrl": "https://www.deepseek.com/harness/",
+    "iconUrl": "https://fe-static.deepseek.com/platform/favicon.svg",
     "installType": [
-      { "title": "SourceForge", "url": "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/" }
+      { "title": "社区桌面版", "url": "https://www.dshdesktop.cn/" },
+      { "title": "社区桌面版（GitHub Releases）", "url": "https://github.com/anywhere-labs/deepseek-harness-desktop/releases" }
     ],
-    "platforms": ["Windows"],
-    "blogs": [],
+    "platforms": ["Web"],
+    "blogs": [
+      { "title": "DeepSeek 官方文档", "url": "https://deepseek-harness.github.io/deepseek-harness" },
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=dsh-guide" }
+    ],
     "status": "active",
-    "repoUrl": "https://github.com/mingw-w64/mingw-w64",
-    "tags": ["C++", "编译器"],
-    "recommendReason": "作为 Windows 上最成熟的开源编译环境，它支持 32/64 位应用编译，与 MSYS2、CMake 等工具无缝集成，被 Code::Blocks、CLion 等 IDE 广泛采用，是开源开发者从 Linux 迁移到 Windows 的首选编译工具。"
+    "repoUrl": "https://github.com/deepseek-ai/deepseek-harness",
+    "tags": ["AI", "智能体", "开发工具"],
+    "recommendReason": "DeepSeek 官方出品的智能体开发框架，采用插件化架构，灵活可扩展，适合想要基于 DeepSeek 构建定制化 AI 应用的开发者。"
   }
 ]

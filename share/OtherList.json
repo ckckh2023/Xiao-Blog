@@ -14,7 +14,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/subframe7536/maple-font",
-    "tags": ["字体", "开发者工具"],
+    "tags": ["字体", "开发工具", "跨平台"],
     "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽；可变字体、圆角设计和细粒度 OpenType 配置，让编码体验丝滑且高度个性化。"
   },
   {
@@ -33,8 +33,29 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/maboloshi/github-chinese",
-    "tags": ["用户脚本", "浏览器扩展"],
+    "tags": ["浏览器扩展", "翻译汉化"],
     "recommendReason": "源自 52cik/github-hans，持续更新维护，支持 Tampermonkey、Violentmonkey 等多种脚本管理器，提供开发版与稳定版双通道，词库每周自动更新，让中文用户无障碍使用 GitHub。"
+  },
+  {
+    "id": "tampermonkey",
+    "name": "篡改猴",
+    "description": "全球用户量最大的用户脚本管理器，支持 Chrome、Edge、Firefox、Safari 等主流浏览器，可一键安装并自动更新 Greasy Fork 等站点的脚本，为网页添加去广告、界面汉化、批量下载、快捷键增强等各类功能。",
+    "officialUrl": "https://www.tampermonkey.net/",
+    "iconUrl": "https://www.tampermonkey.net/images/icon48.png",
+    "installType": [
+      { "title": "官方网站（可自动匹配浏览器）", "url": "https://www.tampermonkey.net/" },
+      { "title": "Chrome 插件商店", "url": "https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo" },
+      { "title": "Edge 插件商店", "url": "https://microsoftedge.microsoft.com/addons/detail/iikmkjmpaadaobahmlepeloendndfphd" },
+      { "title": "Firefox 附加组件", "url": "https://addons.mozilla.org/firefox/addon/tampermonkey/" }
+    ],
+    "platforms": ["Web"],
+    "blogs": [
+      { "title": "Tampermonkey 官方常见问题", "url": "https://www.tampermonkey.net/faq.php?locale=zh" }
+    ],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["浏览器扩展", "效率工具"],
+    "recommendReason": "用户脚本生态的入口级工具：装好之后就能配合本站已收录的 GitHub 中文化脚本一起使用，还能一键获取去广告、网页增强、批量下载等海量脚本；支持脚本自动更新、云端备份与跨设备同步，并兼容暴力猴等主流脚本格式，是浏览器里性价比最高的效率补充。"
   },
   {
     "id": "github-proxy",
@@ -47,7 +68,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": null,
-    "tags": ["代理", "网络加速", "公益服务"],
+    "tags": ["代理", "网络加速", "在线工具"],
     "recommendReason": "作为一款公益性质的 GitHub 加速服务，它无需注册、无需搭建服务器即可使用。网站本身也是一个镜像合集站点，汇集了当前可用的数十个镜像站点。支持 API、Git Clone、Releases、Archive、Gist、Raw 等多种资源的代理加速，能有效解决国内访问 GitHub 速度慢或无法访问的问题。"
   },
   {
@@ -63,7 +84,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/mingw-w64/mingw-w64",
-    "tags": ["C++", "编译器"],
+    "tags": ["编译构建", "C++", "开发工具"],
     "recommendReason": "作为 Windows 上最成熟的开源编译环境，它支持 32/64 位应用编译，与 MSYS2、CMake 等工具无缝集成，被 Code::Blocks、CLion 等 IDE 广泛采用，是开源开发者从 Linux 迁移到 Windows 的首选编译工具。"
   },
   {
@@ -82,7 +103,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/nodejs/node",
-    "tags": ["运行时", "跨平台"],
+    "tags": ["开发工具", "跨平台"],
     "recommendReason": "作为服务端 JavaScript 的事实标准，Node.js 采用事件驱动、非阻塞 I/O 模型，轻量且高效。它拥有 npm 全球最大的开源库生态系统，由 OpenJS 基金会托管并采用开放治理模式，社区极为活跃。无论是构建微服务、CLI 工具还是全栈应用，Node.js 都是现代开发者的核心基础设施。"
   },
   {
@@ -98,7 +119,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": null,
-    "tags": ["AI搜索", "学术工具"],
+    "tags": ["AI", "学术工具", "在线工具"],
     "recommendReason": "无需登录即可使用，针对学术场景深度优化：自动聚合多来源信息、生成带引用的大纲式总结，支持中英文文献检索与语义问答，是学生与科研人员快速完成文献调研、理清知识脉络的得力助手。"
   },
   {
@@ -117,7 +138,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/YerongAI/Office-Tool",
-    "tags": ["Office", "部署工具"],
+    "tags": ["办公软件", "安装部署", "激活工具"],
     "recommendReason": "完全免费开源，所有安装文件均来自微软官方服务器；支持 Microsoft 365、Office 2016-2024、Visio、Project 等全系列产品；提供自定义部署、激活管理、强制卸载、创建 ISO、文档转换等丰富功能；绿色免安装，解压即用，是 Office 部署与管理的一站式解决方案。"
   },
   {
@@ -133,7 +154,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": null,
-    "tags": ["磁盘工具", "数据恢复"],
+    "tags": ["磁盘工具", "数据恢复", "系统工具"],
     "recommendReason": "二十七年匠心打磨的国产磁盘工具标杆，集分区管理、数据恢复、系统迁移、坏道检测修复于一体；支持无损调整分区大小、GPT/MBR互转、RAID虚拟重组、虚拟机磁盘直读等高级功能；提供免费版和专业版，同一安装包注册即升级，是个人用户和企业运维的磁盘管理首选工具。"
   },
   {
@@ -149,7 +170,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": null,
-    "tags": ["卸载工具", "系统工具"],
+    "tags": ["系统工具", "卸载工具"],
     "recommendReason": "单文件绿色便携，体积仅 3MB 左右；支持常规卸载与强制卸载模式，可绕过损坏软件的卸载程序直接清理；卸载后通过深度扫描自动清理残留，并兼容卸载 Microsoft Store 应用，是 Windows 用户必备的卸载利器。"
   },
   {
@@ -182,7 +203,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/docker/docker-ce",
-    "tags": ["容器", "虚拟化", "跨平台"],
+    "tags": ["容器", "虚拟化", "开发工具", "跨平台"],
     "recommendReason": "作为容器技术的行业标准，Docker 让环境一致性、快速交付和资源隔离变得前所未有的简单，强大的生态和社区支持使其成为开发和运维人员必备的核心工具。"
   },
   {
@@ -201,13 +222,13 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/python/pymanager",
-    "tags": ["Python", "版本管理"],
+    "tags": ["Python", "开发工具"],
     "recommendReason": "Python 官方推出的下一代 Windows 安装管理方案，通过 `py` 命令即可安装、管理和切换多个 Python 版本（支持回溯到 3.5），告别传统 exe 安装器的繁琐；自动更新、配置检查、完整清理等特性一应俱全，是 Windows 下 Python 开发者的官方首选工具。"
   },
   {
     "id": "comfyui",
     "name": "ComfyUI",
-   "description": "一款强大且模块化的开源AI图像生成图形界面，采用节点/流程图式界面，让用户无需编码即可设计并执行复杂的Stable Diffusion工作流。",
+    "description": "一款强大且模块化的开源AI图像生成图形界面，采用节点/流程图式界面，让用户无需编码即可设计并执行复杂的Stable Diffusion工作流。",
     "officialUrl": "https://comfy.org/zh-CN/",
     "iconUrl": "https://mintcdn.com/dripart/maKDA164-rrTfyxY/favicon.ico?fit=max",
     "installType": [
@@ -220,7 +241,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/Comfy-Org/ComfyUI",
-    "tags": ["AI绘画", "图像生成"],
+    "tags": ["AI", "图形图像", "跨平台"],
     "recommendReason": "作为全球领先的视觉AI平台，ComfyUI以可视化编程思维为核心，凭借其高显存效率（比同类工具节省30-50%显存）、强大的扩展性以及自动化友好的特性，已成为Black Forest Labs和Stability AI等模型发布机构的首选展示平台。"
   },
   {
@@ -236,7 +257,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": null,
-    "tags": ["视频下载", "在线工具"],
+    "tags": ["下载工具", "在线工具"],
     "recommendReason": "支持国内外数十个主流视频平台，提供网页端与桌面客户端双模式，操作简单，输入链接即可解析下载。客户端版本支持B站1080p/4K超清视频下载、YouTube超清视频及下载记录功能，稳定性更佳。"
   },
   {
@@ -252,7 +273,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": null,
-    "tags": ["云存储", "文件传输"],
+    "tags": ["文件传输", "在线工具"],
     "recommendReason": "主打永不限速，上传下载速度不受限制。无需加好友、无需注册即可通过链接或手机号收发文件，操作简单仅需两步。免费提供大容量云盘空间，支持小程序、网页和 App 多端使用，是替代传统网盘传输文件的效率工具。"
   },
   {
@@ -268,7 +289,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/zbezj/HEU_KMS_Activator",
-    "tags": ["系统工具", "激活工具"],
+    "tags": ["激活工具", "系统工具"],
     "recommendReason": "智能识别最佳激活方式，支持所有 Windows 和 Office VL 版本，无需联网即可一键激活。"
   },
   {
@@ -284,7 +305,7 @@
     "blogs": [],
     "status": "unknown",
     "repoUrl": null,
-    "tags": ["PE工具箱", "U盘启动", "系统维护"],
+    "tags": ["启动盘", "系统工具"],
     "recommendReason": "微PE工具箱是国内口碑极佳的纯净PE系统，真正做到了无广告、无捆绑。它体积小巧、功能全面，集成了系统维护所需的各类刚需工具。无论是系统安装、硬盘分区还是数据恢复，微PE都能提供稳定、高效的支持，是每个Windows用户都值得拥有的“急救盘”。"
   },
   {
@@ -303,7 +324,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/opencv/opencv",
-    "tags": ["计算机视觉", "图像处理"],
+    "tags": ["计算机视觉", "图形图像", "开发工具", "跨平台"],
     "recommendReason": "作为计算机视觉领域的开放事实标准，OpenCV 以高度优化的 C++ 核心与易用的 Python 绑定著称，可与 NumPy、PyTorch 等深度学习生态无缝衔接，轻松完成图像分类、目标检测、人脸识别等任务，是实现图像视觉算法的效率保障。"
   },
   {
@@ -320,7 +341,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/immersive-translate/immersive-translate",
-    "tags": ["浏览器扩展", "翻译", "效率工具"],
+    "tags": ["浏览器扩展", "翻译汉化", "效率工具"],
     "recommendReason": "读外文技术文档、逛 GitHub 时，中英对照双栏译文兼顾原意与速度，不打断阅读节奏；还支持整页 PDF、双语视频字幕与划词翻译，可选用 DeepL、GPT 等多家引擎，开源免费，是外语阅读困难户的救星。"
   },
   {
@@ -337,7 +358,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/3b1b/manim",
-    "tags": ["Python", "动画", "数学"],
+    "tags": ["Python", "动画制作", "开发工具"],
     "recommendReason": "作为 3Blue1Brown 数学科普视频背后的动画引擎，Manim 用代码精确驱动几何与变换，让抽象数学概念可视化，是制作教学动画、科普视频与数学演示的利器。"
   },
   {
@@ -353,7 +374,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": null,
-    "tags": ["软件安装", "系统工具"],
+    "tags": ["安装部署", "系统工具", "在线工具"],
     "recommendReason": "装机、重装系统后的效率神器，一次勾选即可批量静默安装 Chrome、VSCode、7-Zip 等常用软件，安装全程无广告、无捆绑、无附加推广软件；之后还能用同一个安装器一键批量更新所有软件，省去逐个下载安装的繁琐步骤。"
   }
 ]
