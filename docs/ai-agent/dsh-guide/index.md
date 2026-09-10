@@ -132,9 +132,8 @@ dsh plugin --profile <profile名称> add <插件包名>
 
 | 插件 | 功能 |
 |------|------|
-| **dsh-market** | DeepSeek插件市场 |
+| **dshmarket** | DeepSeek插件市场 |
 | **DSH-better-sidebar** | Web UI 右侧工作区面板 |
-| **modlens** | 处理图片信息 |
 | **dsh-usage-stats** | Token 额度使用面板 |
 
 > 更多插件可以在 [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com) 浏览，或查看 GitHub 上的 [`dsh-plugin` Topic](https://github.com/topics/dsh-plugin)。

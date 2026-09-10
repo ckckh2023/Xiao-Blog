@@ -46,7 +46,7 @@ Host <别名>
 Host github.com
     Hostname ssh.github.com
     User git
-    IdentityFile ~/.ssh/github/id_ed25519
+    IdentityFile ~/.ssh/id_ed25519
 ```
 
 > 对于 `config` 文件，强烈建议在 Windows 平台依旧使用 `/` 而不是反斜杠 `\` ，否则可能导致路径解析错误！
@@ -69,31 +69,31 @@ chmod 600 ~/.ssh/id_ed25519
 
 这会设置权限为 `-rw-------`（仅所有者可读可写）。
 
-### Windows（PowerShell / CMD）
+### Windows（PowerShell）
 
 Windows 自带的 OpenSSH 同样要求严格权限，需要使用 `icacls` 工具进行细粒度控制。
 
 **操作步骤（以管理员身份打开 PowerShell）**：
 
-```powershell
-icacls "C:\Users\username\.ssh\id_ed25519" /inheritance:r
-icacls "C:\Users\username\.ssh\id_ed25519" /remove "BUILTIN\Administrators" "NT AUTHORITY\SYSTEM" "BUILTIN\Users" "Everyone"
-icacls "C:\Users\username\.ssh\id_ed25519" /grant:r "%USERNAME%:R"
-```
-> **注意**：Windows 平台必须要使用全局绝对路径而不是 `~/.ssh/id_ed25519`，否则会报错。
+> 如果你不想这么麻烦，使用 `Git Bash` 按照上述 Linux 的方法使用即可
 
-**命令解释**：
-- `/inheritance:r` —— 移除从父文件夹继承的所有权限。
-- `/remove ...` —— 删除所有非当前用户的权限条目。
-- `/grant:r "%USERNAME%:R"` —— 仅授予当前用户读取权限（`:R` 表示只读，`:F` 表示完全控制，但只读即足够）。
+```powershell
+$key = "$env:USERPROFILE\.ssh\id_ed25519"
+icacls $key /inheritance:r
+icacls $key /remove "BUILTIN\Administrators" "NT AUTHORITY\SYSTEM" "BUILTIN\Users" "Everyone"
+icacls $key /grant:r "$($env:USERNAME):R"
+```
+> **注意**：Windows 平台必须要使用全局绝对路径而不是 `~/.ssh/id_ed25519`，否则会报错。示例中通过 `$env:USERPROFILE` 自动展开为完整的用户目录路径。
+
+> **提示**：若以管理员身份运行，且登录的管理员账户并非密钥使用者，请将 `$env:USERNAME` 手动替换为实际用户名。
 
 **验证权限**：
 
 ```powershell
-icacls "C:\Users\username\.ssh\id_ed25519"
+icacls "$env:USERPROFILE\.ssh\id_ed25519"
 ```
 
-正确输出应**只有一行**，类似 `DESKTOP-XXX\username:(R)`。
+正确输出应**只有一行权限条目**，类似 `DESKTOP-XXX\username:(R)`。
 
 ---
 

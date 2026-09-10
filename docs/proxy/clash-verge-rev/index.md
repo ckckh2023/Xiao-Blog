@@ -5,7 +5,7 @@
 
 ## 工具简介
 
-Clash Verge Rev 是一个跨平台的 Clash 图形化客户端，支持 Windows、macOS、Linux。它基于 Clash 内核，提供配置管理、节点选择、规则分流、系统代理等功能。
+Clash Verge Rev 是一个跨平台的 Clash 图形化客户端，支持 Windows、macOS、Linux。它基于 Clash Meta（mihomo）内核，提供配置管理、节点选择、规则分流、系统代理等功能。
 
 > 使用前请确认你拥有代理服务器的合法使用权，并遵守所在地法律法规。
 

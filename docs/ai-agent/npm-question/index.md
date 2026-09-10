@@ -74,7 +74,7 @@ npm error path /home/user/package.json
 原因是该命令缺少目标包名，npm 误以为要在当前目录安装本地包，而非全局已安装的包。
 
 #### 根本原因
-Npm 自 v7 起引入 `allow-scripts` 配置，旨在防止第三方包在安装时自动执行可能危险的脚本。未列入白名单的包，其 `install`、`postinstall` 等脚本将被跳过。全局安装时，该配置默认为空，导致所有安装脚本均被阻塞。而 `--allow-scripts` 命令行参数需配合 `npm install` 或 `npm rebuild` 使用，若单独执行且未指定包名，npm 会尝试读取当前目录的 `package.json` 执行安装，从而引发文件找不到的错误。
+Npm 引入了 `allow-scripts` 配置，旨在防止第三方包在安装时自动执行可能危险的脚本。未列入白名单的包，其 `install`、`postinstall` 等脚本将被跳过。全局安装时，该配置默认为空，导致所有安装脚本均被阻塞。而 `--allow-scripts` 命令行参数需配合 `npm install` 或 `npm rebuild` 使用，若单独执行且未指定包名，npm 会尝试读取当前目录的 `package.json` 执行安装，从而引发文件找不到的错误。
 
 #### 诊断方法
 查看 npm 配置中 `allow-scripts` 的值：

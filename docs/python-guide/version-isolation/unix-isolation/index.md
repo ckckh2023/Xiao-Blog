@@ -116,30 +116,34 @@ python3.11 /home/user/project/app.py
 
 ##### 使用 pip 管理包
 
-由于 Linux 启用了 PEP 668 保护，直接使用 `pip install` 会报错：
+由于 Linux 启用了 PEP 668 保护，直接向系统环境安装包会报错：
 
 ```bash
 pip install requests
 ```
 
-**正确做法**是使用 `-m pip` 模块方式，并配合 `--user` 参数将包安装到用户目录：
+**正确做法**是不要染指系统环境：为项目创建独立的虚拟环境（`venv`），所有第三方包都安装到虚拟环境内，不受 PEP 668 限制：
 
 ```bash
-python3.11 -m pip install --user requests
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install requests
 ```
 
-> **为什么加 `--user`？** 因为不加 `--user` 时，pip 默认尝试安装到系统目录（`/usr/lib/python3.X/`），这会被 PEP 668 阻止。加 `--user` 后，包会安装到 `~/.local/lib/python3.X/site-packages/`，完全属于用户个人，不受系统保护机制限制，也更安全。
+> 虚拟环境的完整用法可查看我的[文档](https://xiao-blog.top/docs/article?id=python-guide&sub=venv-guide)。虚拟环境内的包完全隔离，不会污染系统 Python，也更安全。
 
 ---
 
 ##### 导出与安装依赖清单
 
+> 以下内容建立在非系统 Python 环境的情况下！
+
 ```bash
-# 导出当前用户环境的所有包
-python3.11 -m pip freeze --user > requirements.txt
+# 导出当前环境的所有包
+python3.11 -m pip freeze > requirements.txt
 
 # 从文件安装依赖
-python3.11 -m pip install --user -r requirements.txt
+python3.11 -m pip install -r requirements.txt
 ```
 
 > `requirements.txt` 文件中记录了所有包的名称和版本号，方便在不同环境中复制相同的依赖环境，是 Python 标准的依赖清单。
@@ -166,4 +170,4 @@ sudo update-alternatives --config python3
 
 ---
 
-> **重要提醒**：在实际开发中，**强烈建议每个项目独立使用虚拟环境**（详见[我的博客](https://xiao-blog.top/docs/article?id=python-guide&sub=venv-guide)）。这可以避免不同项目之间的依赖冲突，也能让包管理更加清晰。虚拟环境内的包全部隔离，不会污染用户目录，也无需反复使用 `--user` 参数。
+> **重要提醒**：在实际开发中，**强烈建议每个项目独立使用虚拟环境**（详见我的[文档](https://xiao-blog.top/docs/article?id=python-guide&sub=venv-guide)）。这可以避免不同项目之间的依赖冲突，也能让包管理更加清晰。虚拟环境内的包全部隔离，不会污染系统环境。

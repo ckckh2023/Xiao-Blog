@@ -90,7 +90,7 @@ ldd bin/yourapp | grep "not found"
 
 ### 缺失数据库驱动插件
 
-Qt 默认携带多种 SQL 驱动（MySQL、PostgreSQL、ODBC 等），但你的程序可能根本用不到。这些插件会引入额外的系统依赖（如 `libmysqlclient`），导致打包警告或错误。**删除不需要的 `plugins/sqldrivers/` 下的 .so 文件**即可。
+Qt 默认携带多种 SQL 驱动（PostgreSQL、ODBC 等），但你的程序可能根本用不到。这些插件会引入额外的系统依赖（如 `libmysqlclient`），导致打包警告或错误。**删除不需要的 `plugins/sqldrivers/` 下的 .so 文件**即可。
 
 ---
 

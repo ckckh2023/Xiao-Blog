@@ -16,7 +16,7 @@
   },
   {
     "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question",
-    "title": "Npm 脚本执行策略问题与解决方案",
-    "excerpt": "解决 Windows 与 Linux 下 npm 全局安装的两类典型报错：PowerShell 执行策略限制与 install-scripts 白名单机制，含诊断方法与永久解决方案。"
+    "title": "Agent 工具链包管理器的安全策略障碍与解决方案",
+    "excerpt": "解决 Windows 与 Linux 下 AI Agent 工具链部署的三类典型障碍：PowerShell 执行策略限制、npm install-scripts 白名单拦截与 pnpm minimumReleaseAge 供应链策略，含诊断方法与永久解决方案。"
   }
 ]

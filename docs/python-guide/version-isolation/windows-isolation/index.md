@@ -18,7 +18,7 @@ Python Install Manager 本身是一个 Windows 应用，有以下几种安装方
 | :--- | :--- |
 | **微软商店（推荐）** | 在 微软商店中搜索 “Python Install Manager” 并安装即可 | 
 | **WinGet** | PowerShell 运行 `winget install 9NQ7512CXL7T` 即可 | 
-| **手动下载 MSIX** | 从 [官方网站](https://www.python.org/downloads/release/pymanager-260/) 下载 `MSI 包`安装 | 
+| **手动下载安装包** | 从 [官方网站](https://www.python.org/downloads/release/pymanager-260/) 下载安装包安装 | 
 
 安装完成后，建议运行一次配置检查，让工具自动完成环境初始化：
 
@@ -30,7 +30,7 @@ py install --configure
 
 ##### 核心用法
 
-安装完成后，Python Install Manager 会自动注册 `python`、`py`、`pymanager` 这四个命令。其中 `py` 是日常使用最频繁的命令。
+安装完成后，Python Install Manager 会自动注册 `python`、`python3`、`py`、`pymanager` 这四个命令。其中 `py` 是日常使用最频繁的命令。
 
 **版本管理**
 
