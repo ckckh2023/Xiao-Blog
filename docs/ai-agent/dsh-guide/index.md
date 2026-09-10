@@ -2,7 +2,7 @@
 
 ---
 
-### 什么是 dsh？
+## 什么是 dsh？
 
 DeepSeek Harness（简称 **dsh**）是 DeepSeek 开源的一款 AI Agent 运行框架，核心设计理念是 **"一切皆插件"** ——模型、工具、Agent 循环、UI 界面等所有能力均由插件组合而成，可自由替换与灵活重组。
 

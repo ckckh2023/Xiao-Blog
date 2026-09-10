@@ -134,7 +134,10 @@
   gap: 8px;
 }
 .pc-dialog-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   padding: 12px 14px;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -147,6 +150,17 @@
   background: var(--active-bg);
   transform: translateY(-1px);
 }
+.pc-dialog-item-main {
+  flex: 1;
+  min-width: 0;
+}
+.pc-dialog-item-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  color: var(--text-muted);
+}
+.pc-dialog-item:hover .pc-dialog-item-icon { color: var(--link); }
+.pc-dialog-item-icon svg { width: 18px; height: 18px; }
 .pc-dialog-item-title {
   font-size: 14px;
   font-weight: 600;

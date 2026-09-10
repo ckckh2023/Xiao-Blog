@@ -11,6 +11,7 @@
   var utils = global.Utils;
   var root = global.root;
   var fetchGitHubJSON = global.fetchGitHubJSON;
+  var platformIconSVG = global.platformIconSVG;
 
   /* ---------- star.json 数据加载 ---------- */
   function fetchStarProjects() {
@@ -96,18 +97,21 @@
   }
   global.matchProject = matchProject;
 
-  /* ---------- 选择弹窗（其他仓库） ----------
-     title: 弹窗标题；items: [{ title, url }]
-     点击选择项跳转 url（新窗口）；点遮罩空白 / 关闭按钮 / ESC 关闭 */
+  /* ---------- 选择弹窗 ----------
+     title: 弹窗标题；items: [{ title, url }] */
   function openSelectDialog(title, items) {
     var old = document.getElementById("pc-dialog");
     if (old) old.remove();
 
     var listHTML = items.map(function (it) {
       var u = utils.escapeHTML(it.url || "");
+      var icon = platformIconSVG ? platformIconSVG(it.url) : "";
       return '<a class="pc-dialog-item" href="' + u + '" target="_blank" rel="noopener">' +
-        '<div class="pc-dialog-item-title">' + utils.escapeHTML(it.title || it.url || "") + "</div>" +
-        '<div class="pc-dialog-item-url">' + u + "</div>" +
+        '<div class="pc-dialog-item-main">' +
+          '<div class="pc-dialog-item-title">' + utils.escapeHTML(it.title || it.url || "") + "</div>" +
+          '<div class="pc-dialog-item-url">' + u + "</div>" +
+        "</div>" +
+        (icon ? '<span class="pc-dialog-item-icon" aria-hidden="true">' + icon + "</span>" : "") +
       "</a>";
     }).join("");
 
