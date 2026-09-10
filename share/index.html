@@ -49,6 +49,9 @@
         <div class="share-tags" id="share-tags">
           <div class="share-tags-empty">暂无标签</div>
         </div>
+
+        <div class="share-sidebar-title">平台</div>
+        <div class="share-platforms" id="share-platforms"></div>
       </aside>
 
       <!-- 右侧：卡片网格 -->
@@ -69,14 +72,16 @@
   <script>
     /* 软件列表：/share/SoftWareList.json；其他列表：/share/OtherList.json
        分类切换条直接切换数据源（不再依赖 item.category 字段）。
-       筛选链路：分类(software/other) → 标签 → 搜索框，三级叠加。
+       筛选链路：分类(software/other) → 标签 → 平台 → 搜索框，四级叠加。
        搜索仅作用于当前分类的数据集（符合直觉：在"软件"下搜只搜软件）。
-       侧边栏标签由当前分类下的项目聚合（按频次降序）。 */
+       侧边栏标签由当前分类下的项目聚合（按频次降序）；
+       平台为固定清单，按 item.platforms 过滤（多选取交集，与标签一致）。 */
     var softwareList = [];
     var otherList = [];
     var loadedState = {};  /* 已加载完成的分类：software / other */
     var loadingState = {}; /* 加载中的 Promise，防止重复请求 */
-    var filterState = { category: "software", tags: [], query: "" };
+    var filterState = { category: "software", platforms: [], tags: [], query: "" };
+    var PLATFORMS = ["Windows", "macOS", "Linux", "Web", "Android", "iOS"];
 
     function loadCategory(cat) {
       return cat === "other" ? fetchOtherList() : fetchShareList();
@@ -146,7 +151,20 @@
       }).join("");
     }
 
-    /* 应用三级筛选并渲染卡片 */
+    /* 渲染平台筛选按钮：固定清单 + 平台图标（图标定义见 share.js 的 PLATFORM_ICONS） */
+    function renderPlatformList() {
+      var box = document.getElementById("share-platforms");
+      if (!box) return;
+      var icons = window.PLATFORM_ICONS || {};
+      box.innerHTML = PLATFORMS.map(function (p) {
+        var active = filterState.platforms.indexOf(p) !== -1 ? " active" : "";
+        var icon = icons[p] || "";
+        return '<button class="share-platform-btn' + active + '" type="button" ' +
+          'data-platform="' + p + '" title="' + p + '">' + icon + p + "</button>";
+      }).join("");
+    }
+
+    /* 应用四级筛选并渲染卡片 */
     function applyFilter() {
       var list = getCurrentList().slice();
       if (filterState.tags.length) {
@@ -157,13 +175,21 @@
           });
         });
       }
+      if (filterState.platforms.length) {
+        list = list.filter(function (it) {
+          if (!Array.isArray(it.platforms)) return false;
+          return filterState.platforms.every(function (p) {
+            return it.platforms.indexOf(p) !== -1;
+          });
+        });
+      }
       if (filterState.query) {
         list = list.filter(function (it) { return matchShare(it, filterState.query); });
       }
       var box = document.getElementById("all-shares");
       if (!list.length) {
         box.innerHTML = '<div class="status-box">' +
-          (filterState.tags.length || filterState.query ? "未找到匹配的项目。" : "暂无分享。") +
+          (filterState.platforms.length || filterState.tags.length || filterState.query ? "未找到匹配的项目。" : "暂无分享。") +
           "</div>";
         return;
       }
@@ -193,7 +219,9 @@
       var cat = btn.getAttribute("data-cat");
       if (cat === filterState.category) return;
       filterState.category = cat;
+      filterState.platforms = []; /* 切换分类时重置已选平台 */
       filterState.tags = []; /* 切换分类时重置已选标签 */
+      renderPlatformList();
       applyCategoryUI();
       syncURL();
       document.getElementById("all-shares").innerHTML = '<div class="status-box">加载中…</div>';
@@ -222,6 +250,21 @@
       renderTagList();
       applyFilter();
     });
+
+    /* 平台点击：多选切换 */
+    document.getElementById("share-platforms").addEventListener("click", function (e) {
+      var btn = e.target.closest(".share-platform-btn");
+      if (!btn) return;
+      var p = btn.getAttribute("data-platform");
+      var idx = filterState.platforms.indexOf(p);
+      if (idx === -1) filterState.platforms.push(p);
+      else filterState.platforms.splice(idx, 1);
+      renderPlatformList();
+      applyFilter();
+    });
+
+    /* 平台清单为固定项，不依赖数据加载，直接渲染 */
+    renderPlatformList();
 
     /* 按需加载当前分类数据源即可，另一分类在切换时才请求。
        URL 双映射：?type=software|other 切换分类，&name=xxx 预填搜索词。
