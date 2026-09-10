@@ -4,13 +4,13 @@
 
 ---
 
-### 首选方案：Python Install Manager（官方推荐）
+## 首选方案：Python Install Manager（官方推荐）
 
 **Python Install Manager** 是 Python 官方团队为 Windows 平台打造的**新一代 Python 安装与版本管理工具**。它统一了安装 Python和管理多个 Python 版本这两个功能，是未来 Python 在 Windows 上的主流安装方式。
 
 > **重要提示**：从 **Python 3.16** 开始，传统的独立 `.exe` 安装包将停止发布。因此，**现在就迁移到 Python Install Manager 是最明智的选择**。
 
-##### 安装方式
+### 安装方式
 
 Python Install Manager 本身是一个 Windows 应用，有以下几种安装方式：
 
@@ -28,7 +28,7 @@ py install --configure
 
 > **注意**：如果电脑上之前安装过旧版 Python Launcher，建议先将其卸载，避免命令冲突。
 
-##### 核心用法
+### 核心用法
 
 安装完成后，Python Install Manager 会自动注册 `python`、`python3`、`py`、`pymanager` 这四个命令。其中 `py` 是日常使用最频繁的命令。
 
@@ -54,7 +54,7 @@ py install --configure
 
 ---
 
-#### 再选方案：旧版 py launcher
+## 再选方案：旧版 py launcher
 
 传统的 py launcher 只能“选择”已安装的版本，但**不能安装或卸载** Python 本身。而 Python Install Manager 是它的**全面升级版**，在保留所有旧命令兼容性的同时，新增了完整的版本安装、卸载、更新功能。
 
@@ -73,7 +73,7 @@ py install --configure
 
 ---
 
-### 总结
+## 总结
 
 在 Windows 上管理多版本 Python 时，推荐以下做法：
 

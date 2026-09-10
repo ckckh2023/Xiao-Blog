@@ -8,8 +8,8 @@ gcc/g++ 是 GNU 编译器集合中的 C/C++ 编译器，是 Linux 平台上最�
 
 ```bash
 # Ubuntu/Debian
-sudo apt-get update
-sudo apt-get install build-essential
+sudo apt update
+sudo apt install build-essential
 
 # CentOS/RHEL/Fedora
 sudo dnf groupinstall "Development Tools"

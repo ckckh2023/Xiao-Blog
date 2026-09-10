@@ -67,7 +67,7 @@ python3.11 --version
 sudo apt install python3.11 python3.11-venv python3.11-dev
 ```
 
-##### 关于 `python3.x-full` 包
+#### 关于 `python3.x-full` 包
 
 `python3.x-full` 是**完整版** Python 包，它包含了 Python 解释器以及**完整的标准库**。普通的 `python3.x` 包可能不会安装所有标准库模块（如 `tkinter`、`gdbm` 等），而 `-full` 版本会一并安装。
 
@@ -105,7 +105,7 @@ Linux 上不同版本的 Python 通过不同的命令名称来区分。使用时
 python3.11
 ```
 
-##### 运行 Python 脚本
+#### 运行 Python 脚本
 
 用指定版本运行 `.py` 文件：
 
@@ -114,7 +114,7 @@ python3.14 main.py
 python3.11 /home/user/project/app.py
 ```
 
-##### 使用 pip 管理包
+#### 使用 pip 管理包
 
 由于 Linux 启用了 PEP 668 保护，直接向系统环境安装包会报错：
 
@@ -134,7 +134,7 @@ pip install requests
 
 ---
 
-##### 导出与安装依赖清单
+#### 导出与安装依赖清单
 
 > 以下内容建立在非系统 Python 环境的情况下！
 

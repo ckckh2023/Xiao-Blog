@@ -123,7 +123,7 @@ Component.prototype.createOperations = function()
 }
 ```
 
-#### Linux 下创建开始菜单快捷方式和桌面快捷方式：
+### Linux 下创建开始菜单快捷方式和桌面快捷方式：
 
 ```js
 Component.prototype.createOperations = function()

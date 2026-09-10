@@ -8,19 +8,21 @@
 
 ---
 
-#### 核心概念与命令
+## 核心概念与命令
 
 | 操作 | Windows 命令 | Linux/macOS 命令 | 说明 |
 | :--- | :--- | :--- | :--- |
 | **创建环境** | `py -3.11 -m venv .venv` | `python3.11 -m venv .venv` | 创建名为 `.venv` 的虚拟环境目录。建议使用 `.venv` 作为目录名。 |
-| **激活环境** | `.venv\Scripts\activate` | `source .venv/bin/activate` | 激活虚拟环境。激活后，命令行提示符前会出现 `(.venv)` 标识。 |
+| **激活环境** | `.venv\Scripts\activate.bat`（CMD）<br>`.venv\Scripts\Activate.ps1`（PowerShell） | `source .venv/bin/activate` | 激活虚拟环境。激活后，命令行提示符前会出现 `(.venv)` 标识。 |
 | **退出环境** | `deactivate` | `deactivate` | 退出当前激活的虚拟环境。 |
 | **导出依赖** | `pip freeze > requirements.txt` | `pip freeze > requirements.txt` | 将当前环境的所有包及其版本导出到文件。 |
 | **安装依赖** | `pip install -r requirements.txt` | `pip install -r requirements.txt` | 根据 `requirements.txt` 文件安装所有依赖包。 |
 
+> **注意**：PowerShell 下首次执行 `Activate.ps1` 可能被默认执行策略拦截，需先运行 `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` 放宽，详见我的这篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)。CMD 无此限制。
+
 ---
 
-#### 从零搭建一个项目
+## 从零搭建一个项目
 
 - **创建虚拟环境**（以 Python 3.11 为例）：
     - **Windows**：`py -3.11 -m venv .venv`
@@ -29,7 +31,8 @@
     > 使用 `py -3.11`（Windows）或 `python3.11`（Linux）可以**精准锁定**虚拟环境的 Python 版本，避免意外使用错误的解释器。
 
 - **激活虚拟环境**：
-    - **Windows**：`.venv\Scripts\activate`
+    - **Windows（CMD）**：`.venv\Scripts\activate.bat`
+    - **Windows（PowerShell）**：`.venv\Scripts\Activate.ps1`
     - **Linux/macOS**：`source .venv/bin/activate`
 
 - **在环境中工作**：
@@ -38,7 +41,7 @@
 
 - **调用虚拟环境**：
     - **方案一**：激活后再运行 `python` 代码：
-        `.venv\Scripts\activate`（Windows）或 `source .venv/bin/activate`（Unix）
+        `.venv\Scripts\activate.bat`（CMD）/ `.venv\Scripts\Activate.ps1`（PowerShell）或 `source .venv/bin/activate`（Unix）
 
         此时即在虚拟环境内，可自主调用 Python 解释器。
 
@@ -61,7 +64,7 @@
 
 ---
 
-### 一些技巧与避坑指南
+## 一些技巧与避坑指南
 
 - **虚拟环境目录可以随时删除**：如果环境乱了，直接删除 `.venv` 目录，然后重新创建即可。
 - **不要将 `.venv` 目录提交到 Git**：在项目的 `.gitignore` 文件中添加 `.venv/`。

@@ -10,7 +10,7 @@ MSVC（Microsoft Visual C++）是微软推出的 C/C++ 编译器工具集，包�
 
 C/C++相关组件安装完成后，可通过以下方式进入编译环境：
 
-> 现代 C++ 开发非常建议使用 VS2019 或 VS2022，他们经历过了多次更新，修复了许多历史遗留问题，并且对 C++20 的支持已经非常完善。
+> 现代 C++ 开发非常建议使用 VS2019 或 VS2022，它们经历过了多次更新，修复了许多历史遗留问题，并且对 C++20 的支持已经非常完善。
 
 **Visual Studio 开发者命令提示符**：开始菜单中找到 “Developer PowerShell for VS 2022” 即可进入 MSVC 环境。
 
@@ -54,8 +54,8 @@ cl /EHsc /Fe:myapp.exe main.cpp utils.cpp
 MSVC 本身是 Windows 专属的编译器。要实现跨平台开发，有以下几种策略：
 
 - **在 Windows 上使用 MSVC 编译**，然后在目标平台（Linux/macOS）上使用对应的编译器（g++/Clang）重新编译
-- **使用 CMake 支持**：Visual Studio 已集成在 CMake，可以编辑跨平台 CMake 项目，然后在 Linux 开发机上使用 g++ 编译
-- **使用 clang-cl**：`clang-cl` 是 Clang 的 MSVC 兼容驱动，可在 Windows 上替代 `cl.exe` 使用；但它依赖 MSVC 的头文件与运行库，无法在 Linux/macOS 上直接使用，并非跨平台编译方案
+- **使用 CMake 支持**：Visual Studio 已集成 CMake，可以编辑跨平台 CMake 项目，然后在 Linux 开发机上使用 g++ 编译
+- **使用 clang-cl**：`clang-cl` 是 Clang 的 MSVC 兼容驱动，可在 Windows 上替代 `cl.exe` 使用
 
 ## 注意事项
 
