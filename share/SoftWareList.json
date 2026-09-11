@@ -588,5 +588,23 @@
     "repoUrl": "https://github.com/blender/blender",
     "tags": ["3D建模", "图形图像", "跨平台"],
     "recommendReason": "作为全球最流行的开源 3D 软件，Blender 集建模、雕刻、动画、渲染、合成、视频剪辑于一体，完全免费且无任何功能限制。其活跃的社区、丰富的插件生态和持续的版本迭代，使其成为独立创作者、小型团队以及教育领域的强力工具，也是学习 3D 艺术的绝佳起点。"
+  },
+  {
+    "id": "mysql",
+    "name": "MySQL",
+    "description": "Oracle 旗下全球最流行的开源关系型数据库管理系统（RDBMS），社区版遵循 GPL 协议免费使用。采用客户端/服务器架构，InnoDB 引擎支持事务、行级锁与外键，并内置主从复制、分组复制等高可用方案，是 Web 应用（LAMP/LNMP）与各类后端服务最常用的数据库之一。",
+    "officialUrl": "https://www.mysql.com/cn/",
+    "iconUrl": "https://www.mysql.com/common/logos/logo-mysql-170x115.png",
+    "installType": [
+      { "title": "官方下载", "url": "https://dev.mysql.com/downloads" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "MySQL 官方文档", "url": "https://dev.mysql.com/doc/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/mysql/mysql-server",
+    "tags": ["数据库", "开发工具", "跨平台"],
+    "recommendReason": "作为 LAMP/LNMP 经典技术栈中的“M”，MySQL 社区版免费开源、部署简单、文档与社区生态极为成熟；InnoDB 事务引擎稳定可靠，主从复制与读写分离方案遍地可查，配合各类 GUI 工具与 ORM 几乎零门槛上手，是后端开发与数据存储入门进阶的首选数据库。"
   }
 ]
