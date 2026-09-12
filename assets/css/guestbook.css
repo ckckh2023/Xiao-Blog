@@ -282,10 +282,16 @@
   min-height: 0;
   overflow-y: auto;
   margin: 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
-.gb-dialog-body::-webkit-scrollbar { display: none; }
+.gb-dialog-body::-webkit-scrollbar { width: 6px; }
+.gb-dialog-body::-webkit-scrollbar-track { background: transparent; }
+.gb-dialog-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+.gb-dialog-body::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
 /* ---------- 移动端：表单两列堆叠 ---------- */
 @media (max-width: 600px) {
