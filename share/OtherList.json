@@ -78,12 +78,13 @@
     "officialUrl": "https://www.mingw-w64.org/",
     "iconUrl": "https://www.mingw-w64.org/logo.svg",
     "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/niXman/mingw-builds-binaries/releases/latest" },
       { "title": "SourceForge", "url": "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/" }
     ],
     "platforms": ["Windows"],
     "blogs": [],
     "status": "active",
-    "repoUrl": "https://github.com/mingw-w64/mingw-w64",
+    "repoUrl": "https://github.com/niXman/mingw-builds-binaries",
     "tags": ["编译构建", "C++", "开发工具"],
     "recommendReason": "作为 Windows 上最成熟的开源编译环境，它支持 32/64 位应用编译，与 MSYS2、CMake 等工具无缝集成，被 Code::Blocks、CLion 等 IDE 广泛采用，是开源开发者从 Linux 迁移到 Windows 的首选编译工具。"
   },
