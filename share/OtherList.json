@@ -19,8 +19,8 @@
   },
   {
     "id": "github-chinese",
-    "name": "GitHub 中文化插件",
-    "description": "一款让 GitHub 界面全面中文化的用户脚本，支持菜单栏、标题、按钮等界面元素的智能汉化，并具备正则匹配、时间本地化等高级功能。",
+    "name": "GitHub 中文化脚本",
+    "description": "一款让 GitHub 界面全面中文化的用户脚本，支持菜单栏、标题、按钮等界面元素的智能汉化，并具备正则匹配、时间本地化等高级功能。需要提前安装篡改猴插件。",
     "officialUrl": null,
     "iconUrl": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
     "installType": [
