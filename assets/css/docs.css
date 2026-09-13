@@ -381,3 +381,145 @@
 }
 .doc-body table a { color: var(--link); }
 .doc-body table a:hover { color: var(--link-hover); }
+
+/* ---------- 阅读进度目录（TOC） ---------- */
+.docs-toc {
+  width: 240px;
+  flex-shrink: 0;
+  padding: 32px 12px 64px 0;
+  position: sticky;
+  top: 56px;
+  align-self: flex-start;
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s ease;
+}
+.docs-toc:hover { scrollbar-color: var(--border) transparent; }
+.docs-toc::-webkit-scrollbar { width: 6px; }
+.docs-toc::-webkit-scrollbar-track { background: transparent; }
+.docs-toc::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+.docs-toc:hover::-webkit-scrollbar-thumb { background: var(--border); }
+
+.docs-toc .toc-header {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin: 0 8px 10px 8px;
+}
+
+.docs-toc .toc-nav {
+  display: block;
+  border-left: 2px solid var(--border);
+}
+.docs-toc .toc-group { display: block; }
+.docs-toc .toc-children {
+  display: block;
+  overflow: hidden;
+}
+.docs-toc .toc-group.collapsed > .toc-children { display: none; }
+
+.docs-toc .toc-item {
+  display: block;
+  padding: 6px 12px 6px 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-muted);
+  border-left: 2px solid transparent;
+  margin-left: -2px;                 /* 抵消 .toc-nav 的左边框，使高亮条与其对齐 */
+  border-radius: 0 6px 6px 0;
+  transition: color 0.15s ease, background 0.15s ease,
+              border-color 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.docs-toc .toc-item:hover {
+  color: var(--link);
+  background: var(--active-bg);
+}
+
+/* 「框选」：高亮当前阅读位置 */
+.docs-toc .toc-item.active {
+  color: var(--link);
+  font-weight: 600;
+  background: var(--active-bg);
+  border-left-color: var(--link);
+  box-shadow: inset 0 0 0 1px var(--active-border);
+}
+
+/* 层级缩进 + 字号微调 */
+.docs-toc .toc-item.toc-h1 { padding-left: 12px; font-weight: 600; font-size: 13.5px; }
+.docs-toc .toc-item.toc-h2 { padding-left: 24px; }
+.docs-toc .toc-item.toc-h3 { padding-left: 36px; font-size: 12.5px; }
+.docs-toc .toc-item.toc-h4 { padding-left: 48px; font-size: 12.5px; }
+.docs-toc .toc-item.toc-h5 { padding-left: 60px; font-size: 12px; }
+.docs-toc .toc-item.toc-h6 { padding-left: 72px; font-size: 12px; }
+
+/* 锚点被 sticky 顶栏遮挡的补偿 */
+.doc-body h1,
+.doc-body h2,
+.doc-body h3,
+.doc-body h4,
+.doc-body h5,
+.doc-body h6 {
+  scroll-margin-top: 72px;
+}
+
+/* 响应式：屏幕较窄时隐藏右侧 TOC，避免挤压正文 */
+@media (max-width: 1100px) {
+  .docs-toc { display: none; }
+}
+
+/* ---------- TOC 跳转后目标标题闪烁提示 ---------- */
+:root {
+  --toc-flash-bg:    rgba(9, 105, 218, 0.14);
+  --toc-flash-ring:  rgba(9, 105, 218, 0.28);
+  --toc-flash-count: 2;         /* 闪烁次数 */
+  --toc-flash-dur:   0.55s;     /* 单次时长 */
+}
+[data-theme="dark"] {
+  --toc-flash-bg:    rgba(88, 166, 255, 0.18);
+  --toc-flash-ring:  rgba(88, 166, 255, 0.34);
+}
+
+@keyframes toc-target-flash {
+  from {
+    background-color: var(--toc-flash-bg);
+    box-shadow: 0 0 0 6px var(--toc-flash-ring);
+  }
+  to {
+    background-color: transparent;
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+
+.toc-target-flash {
+  border-radius: 6px;
+  animation: toc-target-flash 0.55s ease-out 2;   /* 0.55s × 2 次 = 闪两下 */
+}
+
+/* 尊重「减少动态效果」的系统设置 */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --toc-flash-bg:    rgba(9, 105, 218, 0.06);
+    --toc-flash-ring:  rgba(9, 105, 218, 0.10);
+    --toc-flash-count: 1;
+    --toc-flash-dur:   0.9s;
+  }
+  [data-theme="dark"] {
+    --toc-flash-bg:    rgba(88, 166, 255, 0.08);
+    --toc-flash-ring:  rgba(88, 166, 255, 0.14);
+  }
+  .toc-target-flash {
+    animation-timing-function: ease-in-out;
+  }
+}

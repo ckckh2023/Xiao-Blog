@@ -365,22 +365,24 @@
         }
       }
 
-      return Promise.all([
+            return Promise.all([
         renderDocMarkdown("#doc-body", mdUrl).then(function () {
           /* 正文渲染完成后，用首段文本更新 description / OG / JSON-LD */
           var desc = extractDescription(document.querySelector("#doc-body"));
-          if (!desc) return;
-          upsertMeta("description", desc);
-          setMetaAttr('meta[property="og:description"]', "content", desc);
-          setMetaAttr('meta[name="twitter:description"]', "content", desc);
-          var ld = document.head.querySelector('script[type="application/ld+json"][data-seo="article"]');
-          if (ld) {
-            try {
-              var obj = JSON.parse(ld.textContent);
-              obj.description = desc;
-              ld.textContent = JSON.stringify(obj);
-            } catch (e) {}
+          if (desc) {
+            upsertMeta("description", desc);
+            setMetaAttr('meta[property="og:description"]',  "content", desc);
+            setMetaAttr('meta[name="twitter:description"]', "content", desc);
+            var ld = document.head.querySelector('script[type="application/ld+json"][data-seo="article"]');
+            if (ld) {
+              try {
+                var obj = JSON.parse(ld.textContent);
+                obj.description = desc;
+                ld.textContent = JSON.stringify(obj);
+              } catch (e) {}
+            }
           }
+          initDocToc();   /* 正文渲染完再构建目录 */
         }),
         renderSidebar(idPath),
         renderPagination(idPath)
@@ -470,4 +472,214 @@
     });
   }
   global.renderDocMarkdown = renderDocMarkdown;
+
+    /* ---------- 本页目录 / 阅读进度 ---------- */
+  function cssEscape(s) {
+    if (window.CSS && CSS.escape) return CSS.escape(String(s));
+    return String(s).replace(/[^a-zA-Z0-9_\u00a0-\uffff-]/g, "\\$&");
+  }
+
+  function initDocToc() {
+    var body = document.querySelector("#doc-body");
+    var toc  = document.querySelector("#doc-toc");
+    if (!body || !toc) return;
+
+    var nav = toc.querySelector(".toc-nav");
+    if (!nav) return;
+
+    var headings = body.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    if (headings.length < 2) {
+      toc.style.display = "none";
+      return;
+    }
+    toc.style.display = "";
+
+    /* 文章目录展示 */
+    /* 1. 收集标题，确保每个都有唯一 id */
+    var items   = [];
+    var usedIds = Object.create(null);
+
+    Array.prototype.forEach.call(headings, function (h, i) {
+      var text = (h.textContent || "").trim();
+      var id = h.id;
+      if (!id) {
+        id = "toc-" + i + "-" + text
+          .replace(/[^\w\u4e00-\u9fa5-]+/g, "-")
+          .replace(/^-+|-+$/g, "")
+          .slice(0, 40);
+      }
+      if (!id || usedIds[id]) id = "toc-" + i;
+      usedIds[id] = true;
+      h.id = id;
+
+      items.push({
+        id: id,
+        text: text,
+        level: parseInt(h.tagName.charAt(1), 10),
+        el: h
+      });
+    });
+
+    /* 2. 根据 level 构建树（h1 > h2 > h3 …） */
+    var root  = { level: 0, children: [] };
+    var stack = [root];
+    items.forEach(function (it) {
+      var node = { id: it.id, text: it.text, level: it.level, el: it.el, children: [] };
+      while (stack.length > 1 && stack[stack.length - 1].level >= it.level) stack.pop();
+      stack[stack.length - 1].children.push(node);
+      stack.push(node);
+    });
+
+    /* 3. 渲染（默认全部 collapsed） */
+    function renderChildren(nodes, parentEl) {
+      nodes.forEach(function (n) {
+        var group = document.createElement("div");
+        group.className = "toc-group collapsed";
+
+        var link = document.createElement("a");
+        link.className = "toc-item toc-h" + n.level;
+        link.href = "#" + n.id;
+        link.dataset.id = n.id;
+        link.textContent = n.text || "(无标题)";
+        link.title = n.text;
+        group.appendChild(link);
+
+        if (n.children.length) {
+          var sub = document.createElement("div");
+          sub.className = "toc-children";
+          renderChildren(n.children, sub);
+          group.appendChild(sub);
+        }
+        parentEl.appendChild(group);
+      });
+    }
+
+    nav.innerHTML = "";
+    renderChildren(root.children, nav);
+
+    /* 4. 点击平滑滚动 + 目标闪烁提示（尊重减少动态效果） */
+    var STICKY_OFFSET = 72;
+    var reduceMotion = window.matchMedia &&
+                       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function scrollToId(id) {
+      var target = document.getElementById(id);
+      if (!target) return null;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - STICKY_OFFSET;
+      if (top < 0) top = 0;
+      if (reduceMotion) {
+        /* 减少动态：直接跳，不做平滑滚动 */
+        window.scrollTo(0, top);
+      } else {
+        try { window.scrollTo({ top: top, behavior: "smooth" }); }
+        catch (err) { window.scrollTo(0, top); }
+      }
+      return target;
+    }
+
+    function flashTarget(el) {
+      if (!el) return;
+      el.classList.remove("toc-target-flash");
+      void el.offsetWidth;
+      el.classList.add("toc-target-flash");
+    }
+
+    /* 等平滑滚动停下来再闪；reduce 时立即闪 */
+    function afterScroll(cb) {
+      if (reduceMotion) { cb(); return; }
+      if ("onscrollend" in window) {
+        var done = false;
+        var fire = function () {
+          if (done) return;
+          done = true;
+          window.removeEventListener("scrollend", fire);
+          cb();
+        };
+        window.addEventListener("scrollend", fire, { once: true });
+        setTimeout(fire, 900);
+      } else {
+        setTimeout(cb, 450);
+      }
+    }
+
+    nav.addEventListener("click", function (e) {
+      var link = e.target.closest(".toc-item");
+      if (!link) return;
+      e.preventDefault();
+      var id = link.dataset.id;
+      var target = scrollToId(id);
+      if (!target) return;
+      afterScroll(function () { flashTarget(target); });
+      if (history.replaceState) history.replaceState(null, "", "#" + encodeURIComponent(id));
+    });
+
+    /* 5. 滚动跟踪：展开祖先 + 高亮 */
+    var activeId = null;
+    var ticking  = false;
+
+    function expandAncestors(el) {
+      var p = el.parentElement;
+      while (p && p !== nav) {
+        if (p.classList && p.classList.contains("toc-group")) {
+          p.classList.remove("collapsed");
+        }
+        p = p.parentElement;
+      }
+    }
+
+    function keepLinkVisible(el) {
+      var container = toc;                    /* TOC 自身可滚动 */
+      var cRect = container.getBoundingClientRect();
+      var eRect = el.getBoundingClientRect();
+      if (eRect.top < cRect.top + 4) {
+        container.scrollTop -= (cRect.top - eRect.top) + 8;
+      } else if (eRect.bottom > cRect.bottom - 4) {
+        container.scrollTop += (eRect.bottom - cRect.bottom) + 8;
+      }
+    }
+
+    function updateActive() {
+      ticking = false;
+      if (!items.length) return;
+
+      var OFFSET = 90;                        /* 顶栏高度 + 余量 */
+      var current = items[0];
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].el.getBoundingClientRect().top - OFFSET <= 0) current = items[i];
+        else break;
+      }
+
+      /* 已滚到底部 → 高亮最后一项 */
+      var doc = document.documentElement;
+      if (window.innerHeight + window.pageYOffset >= doc.scrollHeight - 4) {
+        current = items[items.length - 1];
+      }
+
+      if (!current || current.id === activeId) return;
+      activeId = current.id;
+
+      var prev = nav.querySelector(".toc-item.active");
+      if (prev) prev.classList.remove("active");
+
+      var link = nav.querySelector('.toc-item[data-id="' + cssEscape(current.id) + '"]');
+      if (!link) return;
+      link.classList.add("active");
+      expandAncestors(link);
+      keepLinkVisible(link);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateActive);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    /* 首帧 */
+    updateActive();
+  }
+  global.initDocToc = initDocToc;
+
 })(window);
