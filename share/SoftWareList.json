@@ -169,7 +169,7 @@
     "officialUrl": "https://www.voidtools.com/zh-cn/",
     "iconUrl": "https://www.voidtools.com/favicon.ico",
     "installType": [
-      { "title": "官方网站", "url": "https://www.voidtools.com/zh-cn/download/" },
+      { "title": "官方网站", "url": "https://www.voidtools.com/zh-cn/downloads/" },
       { "title": "微软商店", "url": "https://www.microsoft.com/store/apps/9NBLGGH5389K" }
     ],
     "platforms": ["Windows"],
