@@ -34,7 +34,7 @@
 ### 基本打包命令
 
 ```bash
-cqtdeployer -bin MyApp -qmake "qmake 路径" -targetDir "输出路径"
+cqtdeployer -bin MyApp -qmake <qmake 路径> -targetDir <输出路径>
 ```
 
 **参数说明**：

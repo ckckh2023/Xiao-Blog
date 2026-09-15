@@ -195,7 +195,7 @@ Component.prototype.createOperations = function()
     "/opt/Qt/Tools/QtInstallerFramework/4.11/bin/binarycreator" -c config/config.xml -p packages Setup.run
     ```
 
-> 路径需要自己改动，类似于示例路径！
+> 路径需要自己改动，一般都类似于示例路径！
 
 若要生成离线安装包（不包含维护工具），可添加 `--offline-only` 参数。但推荐保留维护工具，以便后续更新。
 

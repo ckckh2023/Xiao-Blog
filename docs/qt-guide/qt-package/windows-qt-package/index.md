@@ -77,17 +77,17 @@ windeployqt 必须使用与项目编译器**匹配的版本**，且两种编译�
 
 获取 windeployqt.exe 的路径后，打开命令行窗口（PowerShell），可执行以下命令：
 
+> 下方命令的 `C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe` 要更换成自己的路径！
+
 - **Widget 应用程序**：
     ```powershell
     & "C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe" MyApp.exe
     ```
 
-    > 此处的 `C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe` 要更换成自己的路径！
-
 - **QML 应用程序**：
 
     ```powershell
-    & "C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe" MyQmlApp.exe --qmldir "源码 QML 路径"
+    & "C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe" MyQmlApp.exe --qmldir <源码 QML 路径>
     ```
 
     > `--qmldir` 参数需要指向**项目源码中 QML 文件所在的目录**（即包含 .qml 文件的文件夹），而非 Qt 安装目录下的 qml 路径。
