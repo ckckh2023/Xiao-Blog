@@ -95,7 +95,7 @@
     "officialUrl": "https://chatgpt.com/codex",
     "iconUrl": "https://avatars.githubusercontent.com/u/14957082?s=200&v=4",
     "installType": [
-      { "title": "npm 包（@openai/codex）", "url": "https://www.npmjs.com/package/@openai/codex" },
+      { "title": "Npm Package", "url": "https://www.npmjs.com/package/@openai/codex" },
       { "title": "GitHub Releases", "url": "https://github.com/openai/codex/releases/latest" }
     ],
     "platforms": ["Windows", "macOS", "Linux", "Web"],

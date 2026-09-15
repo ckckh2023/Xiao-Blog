@@ -70,5 +70,10 @@
       { "id": "proxy-guide", "title": "代理原理与实践" },
       { "id": "clash-verge-rev", "title": "Clash Verge Rev 使用指南" }
     ]
+  },
+  { "id": "stars-docs", "title": "本人觉得不错的文章",
+    "children": [
+      { "id": "intlsy-blog", "title": "我不得不把才华埋葬在昨天" }
+    ]
   }
 ]
