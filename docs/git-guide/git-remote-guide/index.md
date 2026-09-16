@@ -34,7 +34,7 @@ git config --global credential.helper store        # 明文写入 ~/.git-credent
 
 **两种方式切换**：若仓库当前用的是 HTTPS，想改用 SSH，用 `git remote set-url` 修改远程地址即可（后续有介绍）。
 
-> 选择建议：个人开发、网络受限环境可先用 HTTPS；长期使用或需频繁推送，配置好 SSH 后切换到 SSH 更省心。
+> 网络受限环境可先用 HTTPS；长期使用或需频繁推送，配置好 SSH 会更方便。
 
 ---
 
@@ -125,9 +125,7 @@ git push --tags
 ```bash
 git push --force
 ```
-> 普通 `--force` 会无条件覆盖，有冲掉他人提交的风险！
-
-更安全的做法是使用 `--force-with-lease` 而不是 `--force` ，它会在远程被他人改动时拒绝推送。
+> 普通 `--force` 会无条件覆盖，有冲掉他人提交的风险。更安全的做法是使用 `--force-with-lease` 而不是 `--force` ，它会在远程被他人改动时拒绝推送。
 
 > **警告**：强制推送会改写远程历史，在共享分支上应尽量避免，否则会让协作者的本地仓库出现冲突。
 
