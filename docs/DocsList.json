@@ -7,6 +7,7 @@
   { "id": "git-guide", "title": "Git 相关技巧",
     "children": [
       { "id": "git-basic-usage", "title": "Git 基础用法" },
+      { "id": "git-remote-guide", "title": "Git 远程仓库配置与建议" },
       { "id": "git-ssh-guide", "title": "Git SSH 配置及使用建议",
         "children": [
           { "id": "git-ssh-config", "title": "Git SSH 配置方法" },

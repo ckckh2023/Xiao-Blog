@@ -43,7 +43,7 @@ git config --global user.email "your_email@example.com"
 git remote add origin <仓库URL>
 ```
 
-其中 `origin` 是远程的默认别名，`<仓库URL>` 可为 HTTPS 或 SSH 地址，关于使用 Git SSH 的办法请查看[此文档](https://xiao-blog.top/docs/article?id=git-guide&sub=git-ssh-guide&sub2=git-ssh-config)。
+其中 `origin` 是远程的默认别名，`<仓库URL>` 可为 HTTPS 或 SSH 地址，关于远程地址请查看[此文档](https://xiao-blog.top/docs/article?id=git-guide&sub=git-remote-guide)。
 
 ### 克隆远程仓库（git clone）
 
@@ -71,7 +71,7 @@ git clone -b <分支名> <仓库URL>
 git clone --depth 1 <仓库URL>
 ```
 
-> HTTPS 与 SSH 地址的选择：HTTPS 无需额外配置密钥但每次推送可能要输账号密码；SSH 一次配置后免密推送，配置方法请查看[此文档](https://xiao-blog.top/docs/article?id=git-guide&sub=git-ssh-guide&sub2=git-ssh-config)。
+> `<仓库URL>` 可为 HTTPS 或 SSH 地址，关于远程地址请查看[此文档](https://xiao-blog.top/docs/article?id=git-guide&sub=git-remote-guide)。
 
 ---
 
