@@ -463,6 +463,13 @@
       return r.text();
     }).then(function (md) {
       box.innerHTML = parse(md);
+      var mdDir = mdUrl.slice(0, mdUrl.lastIndexOf("/") + 1);
+      box.querySelectorAll("img").forEach(function (img) {
+        var s = img.getAttribute("src");
+        if (s && !/^(https?:)?\/\//i.test(s) && !/^data:/i.test(s) && s.charAt(0) !== "/") {
+          img.src = mdDir + s;
+        }
+      });
       enhanceCodeBlocks(box);
     }).catch(function (err) {
       console.warn("[doc] markdown 加载失败 " + mdUrl + "：", err);
