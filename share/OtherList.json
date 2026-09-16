@@ -227,6 +227,22 @@
     "recommendReason": "Python 官方推出的下一代 Windows 安装管理方案，通过 `py` 命令即可安装、管理和切换多个 Python 版本（支持回溯到 3.5），告别传统 exe 安装器的繁琐；自动更新、配置检查、完整清理等特性一应俱全，是 Windows 下 Python 开发者的官方首选工具。"
   },
   {
+    "id": "hrkill",
+    "name": "火绒恶性木马专杀工具",
+    "description": "火绒安全推出的针对恶性木马的独立专杀工具（与火绒本体独立），无需安装火绒主程序即可使用，可查杀各类流行木马、Rootkit 及顽固恶意程序，适合已中毒电脑的应急清理。",
+    "officialUrl": "https://bbs.huorong.cn/thread-18575-1-1.html",
+    "iconUrl": "https://cdn-uc.huorong.cn/data/avatar/000/01/05/57_avatar_middle.jpg?version=1789530672",
+    "installType": [
+      { "title": "官方论坛下载", "url": "https://www.huorong.cn/hrkill/download.php" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["安全工具", "系统工具"],
+    "recommendReason": "由火绒安全团队针对国内流行木马持续更新的独立专杀工具，体积小、绿色免安装，可在系统已被木马劫持时应急查杀；查杀规则与火绒主程序同步，对 Rootkit、顽固木马有针对性处理能力，是中毒应急清理的可靠选择。"
+  },
+  {
     "id": "comfyui",
     "name": "ComfyUI",
     "description": "一款强大且模块化的开源AI图像生成图形界面，采用节点/流程图式界面，让用户无需编码即可设计并执行复杂的Stable Diffusion工作流。",
