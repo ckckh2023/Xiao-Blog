@@ -219,22 +219,22 @@
     "recommendReason": "作为全球最流行的分布式版本控制系统，Git 凭借其极快的性能、灵活的非线性分支开发和强大的本地操作能力，已成为现代软件开发的基石。它完全免费开源，拥有庞大的生态系统和社区支持，是每一位开发者不可或缺的核心工具。"
   },
   {
-    "id": "intellij-idea",
-    "name": "IntelliJ IDEA",
-    "description": "JetBrains 出品的专业 Java 和 Kotlin 集成开发环境（IDE），旨在最大限度地提高开发者生产力，提供智能代码补全、静态代码分析、重构、强大的调试工具及版本控制集成等核心功能。",
-    "officialUrl": "https://www.jetbrains.com/zh-cn/idea/",
-    "iconUrl": "https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.svg",
+    "id": "jetbrains-toolbox",
+    "name": "JetBrains Toolbox",
+    "description": "JetBrains 官方推出的 IDE 管理与安装工具，统一管理 IntelliJ IDEA、PyCharm、WebStorm、CLion、GoLand、Rider 等全部 JetBrains IDE 的安装、更新、项目切换与设置同步。",
+    "officialUrl": "https://www.jetbrains.com/zh-cn/toolbox/app/",
+    "iconUrl": "https://resources.jetbrains.com/storage/logos/web/jetbrains-academy/jetbrains-academy.svg",
     "installType": [
-      { "title": "官方下载页面", "url": "https://www.jetbrains.com/zh-cn/idea/download/" }
+      { "title": "官方下载页面", "url": "https://www.jetbrains.com/zh-cn/toolbox/app/" }
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
-      { "title": "IntelliJ IDEA 官方文档", "url": "https://www.jetbrains.com/help/idea/" }
+      { "title": "JetBrains Toolbox 官方文档", "url": "https://www.jetbrains.com/help/toolbox/" }
     ],
     "status": "active",
     "repoUrl": null,
     "tags": ["IDE", "开发工具", "跨平台"],
-    "recommendReason": "Java 和 Kotlin 开发的旗舰 IDE，智能代码补全与深度上下文分析大幅提升编码效率，强大的插件生态覆盖各类开发场景。"
+    "recommendReason": "JetBrains 全家桶的统一入口，一键安装并自动更新 IntelliJ IDEA、PyCharm、WebStorm、CLion 等所有 JetBrains IDE，集中管理项目与 IDE 版本配置，是使用 JetBrains 系工具的必备前置工具。"
   },
   {
     "id": "powertoys",

@@ -209,7 +209,7 @@
   },
   {
     "id": "python-install-manager",
-    "name": "Python install manager",
+    "name": "Python Install Manager",
     "description": "Python 官方推出的 Windows 运行时安装与管理工具，用于替代传统的可执行安装程序（传统安装程序将从 Python 3.16 起停止发布）。",
     "officialUrl": "https://www.python.org/",
     "iconUrl": "https://www.python.org/static/favicon.ico",
