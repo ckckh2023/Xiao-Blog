@@ -32,6 +32,13 @@
       }
     ]
   },
+  { "id": "linux-guide", "title": "Linux 相关指导及建议",
+    "children": [
+      { "id": "install-ubuntu", "title": "Linux 实体机安装教程" },
+      { "id": "wsl-ubuntu", "title": "Windows 下安装 Linux 子系统（WSL）" },
+      { "id": "install-after-config", "title": "Linux 安装后初步配置教程" }
+    ]
+  },
   { "id": "qt-guide", "title": "Qt 开发相关指导及建议",
     "children": [
       { "id": "qt-package", "title": "Qt 开发程序打包指南",
