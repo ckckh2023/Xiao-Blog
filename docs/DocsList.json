@@ -4,6 +4,17 @@
       { "id": "vscode-data-location", "title": "VSCode 配置文件位置" }
     ]
   },
+  { "id": "linux-guide", "title": "Linux 相关指导及建议",
+    "children": [
+      { "id": "linux-install-guide", "title": "Linux 相关安装教程",
+        "children": [
+          { "id": "install-ubuntu", "title": "Linux 实体机安装教程（Ubuntu 版）" },
+          { "id": "wsl-ubuntu", "title": "Windows 下安装 Linux 子系统（WSL）" },
+          { "id": "install-after-config", "title": "Linux 安装后初步配置教程" }
+        ]
+      }
+    ]
+  },
   { "id": "git-guide", "title": "Git 使用方法及相关技巧",
     "children": [
       { "id": "git-basic-usage", "title": "Git 基础用法" },
@@ -30,13 +41,6 @@
           { "id": "console-clear", "title": "控制台在不同平台下的清屏方法" }
         ]
       }
-    ]
-  },
-  { "id": "linux-guide", "title": "Linux 相关指导及建议",
-    "children": [
-      { "id": "install-ubuntu", "title": "Linux 实体机安装教程" },
-      { "id": "wsl-ubuntu", "title": "Windows 下安装 Linux 子系统（WSL）" },
-      { "id": "install-after-config", "title": "Linux 安装后初步配置教程" }
     ]
   },
   { "id": "qt-guide", "title": "Qt 开发相关指导及建议",

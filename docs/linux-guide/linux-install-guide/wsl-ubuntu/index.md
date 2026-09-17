@@ -67,7 +67,7 @@ wsl -d Ubuntu-24.04 # 启动指定发行版
 | `wsl --terminate -d Ubuntu` | 关闭指定发行版 |
 | `wsl --set-default -d Ubuntu` | 设置默认发行版 |
 | `wsl --update` | 更新 WSL 内核 |
-| `wsl --unregister -d Ubuntu` | 卸载发行版（**删除其文件系统，不可恢复**） |
+| `wsl --unregister -d Ubuntu` | 卸载发行版 |
 
 > 可以使用我[分享页](https://xiao-blog.top/share/?type=software&name=wsl)的开源项目 WSL Dashboard 管理，图形界面更方便。
 
@@ -75,7 +75,7 @@ wsl -d Ubuntu-24.04 # 启动指定发行版
 
 ## 文件系统互访
 
-WSL 2 与 Windows 文件系统相互可见，但跨系统访问性能有差异。
+WSL2 与 Windows 文件系统相互可见，但跨系统访问性能有差异。
 
 ### WSL 访问 Windows 文件
 
