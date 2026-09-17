@@ -75,7 +75,7 @@ npm update -g @deepseek-ai/dsh
 pip install deepseek-harness-sdk
 ```
 
->  本人没使用过也不清楚具体使用方法，请参考[官方文档](https://deepseek-harness.github.io/deepseek-harness/)。
+>  本人没使用过也不清楚具体使用方法，请参考[官方文档](https://deepseek-harness.github.io/deepseek-harness/guide/python-sdk)。
 
 ---
 
@@ -101,7 +101,7 @@ pip install deepseek-harness-sdk
 dsh plugin --profile <profile名称> add <插件包名>
 ```
 
-最常用的 profile 是 `web`（Web UI 界面）。
+> 最常用的 profile 是 `web`（Web UI 界面）。
 
 **几种安装方式：**
 
