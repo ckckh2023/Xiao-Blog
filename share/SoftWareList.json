@@ -112,10 +112,10 @@
     "id": "motrix-next",
     "name": "Rayburst（原 Motrix Next）",
     "description": "一款基于 Tauri 2 + Rust 从头重构的全功能下载管理器，支持 HTTP、FTP、ED2K、BitTorrent 及磁力链接，继承 Motrix 经典交互，拥有更轻量的安装包和更现代的技术栈。",
-    "officialUrl": "https://motrix-next.pages.dev/",
-    "iconUrl": "https://motrix-next.pages.dev/assets/img/logo.svg",
+    "officialUrl": "https://rayburst.pages.dev/",
+    "iconUrl": "https://rayburst.pages.dev/assets/img/logo.svg",
     "installType": [
-      { "title": "官方网站下载", "url": "https://motrix-next.pages.dev/#download" },
+      { "title": "官方网站下载", "url": "https://rayburst.pages.dev/#download" },
       { "title": "GitHub Releases", "url": "https://github.com/AnInsomniacy/motrix-next/releases/latest" }
     ],
     "platforms": ["Windows", "macOS", "Linux"],
