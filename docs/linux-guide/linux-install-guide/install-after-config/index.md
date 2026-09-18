@@ -43,7 +43,7 @@ lspci | grep -i vga
 
 > Intel 核显与 AMD 显卡使用预装的开源驱动性能已经很好不需要多余配置，AMD 独显安装官方闭源驱动使用 ROCm 的教程后续出。
 
-> 如果你拥有 Nvidia 独显，这将是最难配置的步骤。
+> 如果你拥有 Nvidia 独显，这将是 `最难` 配置的步骤。
 
 ### 安装方法
 
@@ -61,7 +61,7 @@ ubuntu-drivers devices
 sudo ubuntu-drivers autoinstall
 ```
 
-> 如果你开启了 `Secure Boot`，命令执行完会提示使用 MOK 密钥签名，此时你只需输入你自己设置的密码，重启后会出现蓝色界面，选`Enroll MOK`，输入刚才的密码即可安装成功。
+> 如果你开启了 `Secure Boot`，命令执行完会出现蓝色界面提示使用 MOK 密钥签名，此时你只需输入你自己设置的密码，重启后会出现蓝色界面，选`Enroll MOK`，输入刚才的密码即可安装成功。
 
 - **直接安装开发包**
 
@@ -72,7 +72,11 @@ sudo apt install nvidia-driver-565-open
 
 `-open` 后缀为 NVIDIA 开源内核模块版，同时拉入运行 CUDA 程序所需的用户态库，无需再单独装 CUDA 运行时。若要编译开发，再 `sudo apt install cuda-toolkit` 即可。
 
-> 包名中的版本号按需替换，可用 `apt search 'nvidia-driver-.*-open'` 查看可用版本；Secure Boot 场景同样需要 MOK 签名。
+**注意几个坑点**：
+
+- 包名中的版本号按需替换，可用 `apt search 'nvidia-driver-.*-open'` 查看可用版本；
+- Secure Boot 场景同样需要 MOK 签名；
+- 建议优先使用 `open` 版本保证能驱动，后续可装闭源版。
 
 无论什么办法，只要重启后输入 `nvidia-smi`，终端输出能看到显卡型号、驱动版本、显存信息，就代表安装成功。
 
