@@ -192,7 +192,7 @@
 .about-privacy-list em { color: var(--text); font-style: normal; font-weight: 600; }
 
 /* ---------- 响应式 ---------- */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .about-stats { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; }
   .about-card { padding: 18px 16px; }

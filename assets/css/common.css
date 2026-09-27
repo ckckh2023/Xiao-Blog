@@ -449,7 +449,7 @@ img { max-width: 100%; display: block; }
 .docs-head-row h1 { margin: 0; }
 
 /* ---------- 响应式导航栏与卡片网格 ---------- */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .site-nav { padding: 0 12px; gap: 8px; }
   .site-nav .nav-id { display: none; }
   .site-nav .gitee-link, .site-nav .gitcode-link { display: none; }
@@ -508,6 +508,17 @@ img { max-width: 100%; display: block; }
   }
   .site-nav .nav-more-link:hover { background: var(--active-bg); color: var(--text); }
   .site-nav .nav-more-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
+  /* 手机端默认 90% 缩放 */
+  html { zoom: 0.9; }
+  /* 分页组件竖向 */
+  .pagination {
+    flex-wrap: wrap;
+  }
+  .pg-jump {
+    flex-basis: 100%;
+    justify-content: center;
+    margin-left: 0;
+  }
 }
 
 /* ---------- 搜索高亮 ---------- */
@@ -598,7 +609,3 @@ mark {
 }
 .pg-jump-input { -moz-appearance: textfield; }
 
-/* ---------- 手机端默认 90% 缩放 ---------- */
-@media (max-width: 768px) {
-  html { zoom: 0.9; }
-}

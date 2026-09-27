@@ -341,7 +341,7 @@
 }
 
 /* ---------- 响应式 ---------- */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .docs-layout { flex-direction: column; }
   .docs-sidebar {
     width: 100%;

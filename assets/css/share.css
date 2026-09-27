@@ -404,7 +404,7 @@
 }
 
 /* ---------- 响应式窄屏侧边栏置顶 ---------- */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .share-layout { grid-template-columns: 1fr; }
   .share-sidebar {
     position: static;

@@ -294,7 +294,7 @@
 .gb-dialog-body::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
 /* ---------- 移动端表单两列堆叠样式 ---------- */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .gb-form-row { flex-direction: column; }
 }
 
