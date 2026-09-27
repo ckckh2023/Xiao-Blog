@@ -171,6 +171,7 @@ img { max-width: 100%; display: block; }
   color: var(--link);
   transform: translateY(-1px);
 }
+.site-nav .github-link:active { transform: translateY(0); }
 .site-nav .github-link svg { width: 16px; height: 16px; }
 .site-nav .gitcode-link svg { width: 14px; height: 14px; }
 
@@ -186,9 +187,10 @@ img { max-width: 100%; display: block; }
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
-.theme-toggle:hover { border-color: var(--link); color: var(--link); }
+.theme-toggle:hover { border-color: var(--link); color: var(--link); transform: translateY(-1px); }
+.theme-toggle:active { transform: translateY(0); }
 .theme-toggle svg { width: 18px; height: 18px; }
 .theme-toggle .icon-sun,
 .theme-toggle .icon-moon,
@@ -200,6 +202,8 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
 /* 主题菜单面板 */
 .theme-menu-panel {
   position: absolute;
+  top: 100%;
+  margin-top: 4px;
   min-width: 150px;
   padding: 6px;
   background: var(--surface);
@@ -233,9 +237,10 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   white-space: nowrap;
   cursor: pointer;
   text-align: left;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 .theme-menu-link svg { width: 16px; height: 16px; flex-shrink: 0; }
-.theme-menu-link:hover { background: var(--active-bg); color: var(--text); }
+.theme-menu-link:hover { background: var(--active-bg); color: var(--text); transform: translateX(2px); }
 .theme-menu-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
 
 /* 移动端的三点更多菜单在桌面端隐藏 */
@@ -549,8 +554,9 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
   }
-  .site-nav .nav-more-link:hover { background: var(--active-bg); color: var(--text); }
+  .site-nav .nav-more-link:hover { background: var(--active-bg); color: var(--text); transform: translateX(2px); }
   .site-nav .nav-more-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
   /* 手机端默认 90% 缩放 */
   html { zoom: 0.9; }

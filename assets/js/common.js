@@ -441,11 +441,8 @@
       btn.setAttribute("aria-expanded", "false");
     }
     function open() {
-      var navRect = holder.getBoundingClientRect();
-      var btnRect = btn.getBoundingClientRect();
       panel.style.left = "auto";
-      panel.style.right = (navRect.right - btnRect.right) + "px";
-      panel.style.top = (btnRect.bottom - navRect.top + 4) + "px";
+      panel.style.right = (holder.offsetWidth - (btn.offsetLeft + btn.offsetWidth)) + "px";
       panel.classList.add("open");
       panel.setAttribute("aria-hidden", "false");
       btn.setAttribute("aria-expanded", "true");
