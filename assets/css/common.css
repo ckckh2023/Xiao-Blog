@@ -237,10 +237,10 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   white-space: nowrap;
   cursor: pointer;
   text-align: left;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  transition: color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 .theme-menu-link svg { width: 16px; height: 16px; flex-shrink: 0; }
-.theme-menu-link:hover { background: var(--active-bg); color: var(--text); transform: translateX(2px); }
+.theme-menu-link:hover { color: var(--link); box-shadow: inset 0 0 0 1px var(--link); transform: translateX(2px); }
 .theme-menu-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
 
 /* 移动端的三点更多菜单在桌面端隐藏 */
@@ -554,9 +554,9 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    transition: color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
   }
-  .site-nav .nav-more-link:hover { background: var(--active-bg); color: var(--text); transform: translateX(2px); }
+  .site-nav .nav-more-link:hover { color: var(--link); box-shadow: inset 0 0 0 1px var(--link); transform: translateX(2px); }
   .site-nav .nav-more-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
   /* 手机端默认 90% 缩放 */
   html { zoom: 0.9; }
