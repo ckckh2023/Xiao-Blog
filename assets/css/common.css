@@ -190,9 +190,53 @@ img { max-width: 100%; display: block; }
 }
 .theme-toggle:hover { border-color: var(--link); color: var(--link); }
 .theme-toggle svg { width: 18px; height: 18px; }
-.theme-toggle .icon-moon { display: none; }
-[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-[data-theme="dark"] .theme-toggle .icon-moon { display: inline; }
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon,
+.theme-toggle .icon-auto { display: none; }
+html[data-theme-mode="auto"] .theme-toggle .icon-auto,
+html[data-theme-mode="light"] .theme-toggle .icon-sun,
+html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
+
+/* 主题菜单面板 */
+.theme-menu-panel {
+  position: absolute;
+  min-width: 150px;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  z-index: 101;
+  transform: scaleY(0);
+  transform-origin: top center;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.theme-menu-panel.open {
+  transform: scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.theme-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: left;
+}
+.theme-menu-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+.theme-menu-link:hover { background: var(--active-bg); color: var(--text); }
+.theme-menu-link.active { color: var(--text); font-weight: 700; background: var(--active-bg); }
 
 /* 移动端的三点更多菜单在桌面端隐藏 */
 .site-nav .nav-more,
