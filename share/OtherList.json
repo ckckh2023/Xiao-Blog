@@ -1,104 +1,8 @@
 [
   {
-    "id": "maple-mono",
-    "name": "Maple Mono",
-    "description": "开源圆角等宽字体，专为开发者和极客设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
-    "officialUrl": "https://font.subf.dev",
-    "iconUrl": "https://font.subf.dev/favicon.svg",
-    "installType": [
-      { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
-      { "title": "懒人包（GitHub Releases）", "url": "https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN-unhinted.zip" },
-      { "title": "懒人包（123云盘）", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-DeiM" }
-    ],
-    "platforms": ["Windows", "macOS", "Linux"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": "https://github.com/subframe7536/maple-font",
-    "tags": ["字体", "开发工具", "跨平台"],
-    "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽；可变字体、圆角设计和细粒度 OpenType 配置，让编码体验丝滑且高度个性化。"
-  },
-  {
-    "id": "github-chinese",
-    "name": "GitHub 中文化脚本",
-    "description": "一款让 GitHub 界面全面中文化的用户脚本，支持菜单栏、标题、按钮等界面元素的智能汉化，并具备正则匹配、时间本地化等高级功能。需要提前安装篡改猴插件。",
-    "officialUrl": null,
-    "iconUrl": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
-    "installType": [
-      { "title": "GreasyFork（稳定版）", "url": "https://greasyfork.org/scripts/435208" },
-      { "title": "GitHub（开发版）", "url": "https://github.com/maboloshi/github-chinese/raw/gh-pages/main.user.js" },
-      { "title": "南大镜像（开发版）", "url": "https://mirror.nju.edu.cn/github-chinese/main(nju.edu).user.js" },
-      { "title": "VS Code 扩展", "url": "https://github.com/maboloshi/github-chinese/actions/runs/31630076817/artifacts/9154698976" }
-    ],
-    "platforms": ["Web"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": "https://github.com/maboloshi/github-chinese",
-    "tags": ["浏览器扩展", "翻译汉化"],
-    "recommendReason": "源自 52cik/github-hans，持续更新维护，支持 Tampermonkey、Violentmonkey 等多种脚本管理器，提供开发版与稳定版双通道，词库每周自动更新，让中文用户无障碍使用 GitHub。"
-  },
-  {
-    "id": "tampermonkey",
-    "name": "篡改猴",
-    "description": "全球用户量最大的用户脚本管理器，支持 Chrome、Edge、Firefox、Safari 等主流浏览器，可一键安装并自动更新 Greasy Fork 等站点的脚本，为网页添加去广告、界面汉化、批量下载、快捷键增强等各类功能。",
-    "officialUrl": "https://www.tampermonkey.net/",
-    "iconUrl": "https://www.tampermonkey.net/images/icon48.png",
-    "installType": [
-      { "title": "官方网站（可自动匹配浏览器）", "url": "https://www.tampermonkey.net/" },
-      { "title": "Chrome 插件商店", "url": "https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo" },
-      { "title": "Edge 插件商店", "url": "https://microsoftedge.microsoft.com/addons/detail/iikmkjmpaadaobahmlepeloendndfphd" },
-      { "title": "Firefox 附加组件", "url": "https://addons.mozilla.org/firefox/addon/tampermonkey/" }
-    ],
-    "platforms": ["Web"],
-    "blogs": [
-      { "title": "Tampermonkey 官方常见问题", "url": "https://www.tampermonkey.net/faq.php?locale=zh" }
-    ],
-    "status": "active",
-    "repoUrl": null,
-    "tags": ["浏览器扩展", "效率工具"],
-    "recommendReason": "用户脚本生态的入口级工具：装好之后就能配合本站已收录的 GitHub 中文化脚本一起使用，还能一键获取去广告、网页增强、批量下载等海量脚本；支持脚本自动更新、云端备份与跨设备同步，并兼容暴力猴等主流脚本格式，是浏览器里性价比最高的效率补充。"
-  },
-  {
-    "id": "github-proxy",
-    "name": "GitHub Proxy Website (Akams)",
-    "description": "一个为 GitHub 用户提供文件加速访问的公益服务项目。支持 API、Git Clone、Releases、Archive、Gist、Raw 等多种资源的代理加速下载，用户只需将 GitHub 链接粘贴到输入框或通过 URL 前缀代理方式即可快速下载。",
-    "officialUrl": "https://github.akams.cn/",
-    "iconUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M7.75 11c-.69 0-1.25.56-1.25 1.25v1.5a1.25 1.25 0 1 0 2.5 0v-1.5C9 11.56 8.44 11 7.75 11zm1.27 4.5a.469.469 0 0 1 .48-.5h5a.47.47 0 0 1 .48.5c-.116 1.316-.759 2.5-2.98 2.5s-2.864-1.184-2.98-2.5zm7.23-4.5c-.69 0-1.25.56-1.25 1.25v1.5a1.25 1.25 0 1 0 2.5 0v-1.5c0-.69-.56-1.25-1.25-1.25z\"/><path fill-rule=\"evenodd\" d=\"M21.255 3.82a1.725 1.725 0 0 0-2.141-1.195c-.557.16-1.406.44-2.264.866c-.78.386-1.647.93-2.293 1.677A18.442 18.442 0 0 0 12 5c-.93 0-1.784.059-2.569.17c-.645-.74-1.505-1.28-2.28-1.664a13.876 13.876 0 0 0-2.265-.866a1.725 1.725 0 0 0-2.141 1.196a23.645 23.645 0 0 0-.69 3.292c-.125.97-.191 2.07-.066 3.112C1.254 11.882 1 13.734 1 15.527C1 19.915 3.13 23 12 23c8.87 0 11-3.053 11-7.473c0-1.794-.255-3.647-.99-5.29c.127-1.046.06-2.15-.066-3.125a23.652 23.652 0 0 0-.689-3.292zM20.5 14c.5 3.5-1.5 6.5-8.5 6.5s-9-3-8.5-6.5c.583-4 3-6 8.5-6s7.928 2 8.5 6z\"/></svg>",
-    "installType": [
-      { "title": "GitHub Releases（Chromium 插件版）", "url": "https://github.com/hubporg/ghproxy-extension/releases/latest" },
-      { "title": "Chrome 插件商店", "url": "https://chromewebstore.google.com/detail/github-accelerator-github/bcbnfbcmbcoogjihnoediilgpfohkdef" },
-      { "title": "Edge 插件商店", "url": "https://microsoftedge.microsoft.com/addons/detail/pingkpgackfhaonibagjlibmobkhgdml" },
-      { "title": "Firefox 附加组件", "url": "https://addons.mozilla.org/addon/github-accelerator/" }
-    ],
-    "platforms": ["Web"],
-    "blogs": [
-      { "title": "官方插件安装教程", "url": "https://www.hubp.org/projects/extension/install" }
-    ],
-    "status": "active",
-    "repoUrl": "https://github.com/hubporg/CF-GitHub-Proxy",
-    "tags": ["代理", "网络加速", "在线工具"],
-    "recommendReason": "作为一款公益性质的 GitHub 加速服务，它无需注册、无需搭建服务器即可使用。网站本身也是一个镜像合集站点，汇集了当前可用的数十个镜像站点。支持 API、Git Clone、Releases、Archive、Gist、Raw 等多种资源的代理加速，能有效解决国内访问 GitHub 速度慢或无法访问的问题。"
-  },
-  {
-    "id": "mingw",
-    "name": "Mingw-w64",
-    "description": "Windows 平台上的 GCC 编译工具链，支持 C、C++、Fortran 等多种语言，提供完整的 POSIX 兼容层和 Windows 原生 API 接口，是开发跨平台 C/C++ 应用的基石。",
-    "officialUrl": "https://www.mingw-w64.org/",
-    "iconUrl": "https://www.mingw-w64.org/logo.svg",
-    "installType": [
-      { "title": "GitHub Releases", "url": "https://github.com/niXman/mingw-builds-binaries/releases/latest" },
-      { "title": "SourceForge", "url": "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": "https://github.com/niXman/mingw-builds-binaries",
-    "tags": ["编译构建", "C++", "开发工具"],
-    "recommendReason": "作为 Windows 上最成熟的开源编译环境，它支持 32/64 位应用编译，与 MSYS2、CMake 等工具无缝集成，被 Code::Blocks、CLion 等 IDE 广泛采用，是开源开发者从 Linux 迁移到 Windows 的首选编译工具。"
-  },
-  {
     "id": "nodejs",
     "name": "Node.js",
-    "description": "一个基于 Chrome V8 引擎的免费、开源、跨平台 JavaScript 运行时环境，让开发者能够使用 JavaScript 编写命令行工具和服务器端脚本，AI agent工具很多都需要它。",
+    "description": "一个基于 Chrome V8 引擎的免费、开源、跨平台 JavaScript 运行时环境，让开发者能够使用 JavaScript 编写命令行工具和服务器端脚本，大部分 Agent 工具都需要它。",
     "officialUrl": "https://nodejs.org/",
     "iconUrl": "https://nodejs.org/static/images/logo-hexagon-card.png",
     "installType": [
@@ -115,93 +19,9 @@
     "recommendReason": "作为服务端 JavaScript 的事实标准，Node.js 采用事件驱动、非阻塞 I/O 模型，轻量且高效。它拥有 npm 全球最大的开源库生态系统，由 OpenJS 基金会托管并采用开放治理模式，社区极为活跃。无论是构建微服务、CLI 工具还是全栈应用，Node.js 都是现代开发者的核心基础设施。"
   },
   {
-    "id": "metaso",
-    "name": "秘塔 AI 搜索",
-    "description": "一款国产 AI 搜索引擎，专注于学术搜索与科研场景，能自动总结搜索结果、生成结构化大纲并引用文献来源，为学术研究、文献调研与知识问答提供一站式智能解答。",
-    "officialUrl": "https://metaso.cn/",
-    "iconUrl": "https://metaso.cn/favicon.ico",
-    "installType": [
-      { "title": "官方网站下载", "url": "https://metaso.cn/open-app" }
-    ],
-    "platforms": ["Web", "Android"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": null,
-    "tags": ["AI", "学术工具", "在线工具"],
-    "recommendReason": "无需登录即可使用，针对学术场景深度优化：自动聚合多来源信息、生成带引用的大纲式总结，支持中英文文献检索与语义问答，是学生与科研人员快速完成文献调研、理清知识脉络的得力助手。"
-  },
-  {
-    "id": "office-tool-plus",
-    "name": "Office Tool Plus",
-    "description": "一款强大且实用的 Office 部署与管理工具，基于微软官方 Office 部署工具（ODT）制作，支持自定义安装、激活、卸载及配置管理，内置迅雷和 Downloader 下载引擎，让 Office 的部署与管理变得简单高效。",
-    "officialUrl": "https://otp.landian.vip/",
-    "iconUrl": "https://www.officetool.plus/favicon.ico",
-    "installType": [
-      { "title": "官方网站", "url": "https://otp.landian.vip/zh-cn/download.html" },
-      { "title": "GitHub Releases", "url": "https://github.com/YerongAI/Office-Tool/releases/latest" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [
-      { "title": "Office Tool Plus官方文档", "url": "https://www.officetool.plus/zh-cn/" }
-    ],
-    "status": "active",
-    "repoUrl": "https://github.com/YerongAI/Office-Tool",
-    "tags": ["办公软件", "安装部署", "激活工具"],
-    "recommendReason": "完全免费开源，所有安装文件均来自微软官方服务器；支持 Microsoft 365、Office 2016-2024、Visio、Project 等全系列产品；提供自定义部署、激活管理、强制卸载、创建 ISO、文档转换等丰富功能；绿色免安装，解压即用，是 Office 部署与管理的一站式解决方案。"
-  },
-  {
-    "id": "diskgenius",
-    "name": "DiskGenius",
-    "description": "一款集数据恢复、分区管理、备份还原于一体的专业磁盘工具软件，由DOS版DiskMan发展而来，支持MBR/GPT分区表及NTFS、FAT32、exFAT、ReFS、EXT4等十余种文件系统。",
-    "officialUrl": "https://www.diskgenius.cn/",
-    "iconUrl": "https://www.diskgenius.cn/favicon.ico",
-    "installType": [
-      { "title": "官方网站", "url": "https://www.diskgenius.cn/download.php" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": null,
-    "tags": ["磁盘工具", "数据恢复", "系统工具"],
-    "recommendReason": "二十七年匠心打磨的国产磁盘工具标杆，集分区管理、数据恢复、系统迁移、坏道检测修复于一体；支持无损调整分区大小、GPT/MBR互转、RAID虚拟重组、虚拟机磁盘直读等高级功能；提供免费版和专业版，同一安装包注册即升级，是个人用户和企业运维的磁盘管理首选工具。"
-  },
-  {
-    "id": "geek",
-    "name": "Geek Uninstaller",
-    "description": "一款专为 Windows 设计的免费、绿色、轻量级软件卸载工具，能够彻底卸载应用程序并深度清理残留的文件与注册表项，有效解决软件卸载不净的问题。",
-    "officialUrl": "https://geekuninstaller.com",
-    "iconUrl": "https://geekuninstaller.com/favicon.ico",
-    "installType": [
-      { "title": "官方网站", "url": "https://geekuninstaller.com/download" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": null,
-    "tags": ["系统工具", "卸载工具"],
-    "recommendReason": "单文件绿色便携，体积仅 3MB 左右；支持常规卸载与强制卸载模式，可绕过损坏软件的卸载程序直接清理；卸载后通过深度扫描自动清理残留，并兼容卸载 Microsoft Store 应用，是 Windows 用户必备的卸载利器。"
-  },
-  {
-    "id": "rufus",
-    "name": "Rufus",
-    "description": "一款免费、开源、轻量级的USB启动盘制作工具，可将ISO镜像快速写入U盘，用于系统安装、BIOS刷写等场景。",
-    "officialUrl": "https://rufus.ie/",
-    "iconUrl": "https://rufus.ie/favicon.ico",
-    "installType": [
-      { "title": "官方网站", "url": "https://rufus.ie/downloads/" },
-      { "title": "GitHub Releases", "url": "https://github.com/pbatard/rufus/releases" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": "https://github.com/pbatard/rufus",
-    "tags": ["启动盘", "系统工具"],
-    "recommendReason": "Rufus以其极小的体积、媲美同类工具两倍的制作速度和强大的功能著称。它支持UEFI与Legacy双启动模式，能绕过TPM等限制安装Windows 11，甚至可检测扩容U盘，是装机必备的神器。"
-  },
-  {
     "id": "docker",
     "name": "Docker",
-    "description": "一个开源的容器化平台，允许开发者将应用及其依赖打包成轻量、可移植的容器，在任何支持 Docker 的环境中以一致的方式运行。它极大地简化了开发、部署和运维流程，是现代云原生和微服务架构的基石。",
+    "description": "一个开源的容器化平台，允许开发者将应用及其依赖打包成轻量、可移植的容器，在任何支持 Docker 的环境中以一致的方式运行。",
     "officialUrl": "https://www.docker.com/",
     "iconUrl": "https://www.docker.com/app/uploads/2024/02/cropped-docker-logo-favicon-270x270.png",
     "installType": [],
@@ -213,124 +33,6 @@
     "repoUrl": "https://github.com/docker/docker-ce",
     "tags": ["容器", "虚拟化", "开发工具", "跨平台"],
     "recommendReason": "作为容器技术的行业标准，Docker 让环境一致性、快速交付和资源隔离变得前所未有的简单，强大的生态和社区支持使其成为开发和运维人员必备的核心工具。"
-  },
-  {
-    "id": "python-install-manager",
-    "name": "Python Install Manager",
-    "description": "Python 官方推出的 Windows 运行时安装与管理工具，用于替代传统的可执行安装程序（传统安装程序将从 Python 3.16 起停止发布）。",
-    "officialUrl": "https://www.python.org/",
-    "iconUrl": "https://www.python.org/static/favicon.ico",
-    "installType": [
-      { "title": "MSIX 安装包", "url": "https://www.python.org/ftp/python/pymanager/python-manager-26.3.msix" },
-      { "title": "MSI 安装包", "url": "https://www.python.org/ftp/python/pymanager/python-manager-26.3.msi" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [
-      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=python-guide&sub=version-isolation&sub2=windows-isolation" }
-    ],
-    "status": "active",
-    "repoUrl": "https://github.com/python/pymanager",
-    "tags": ["Python", "开发工具"],
-    "recommendReason": "Python 官方推出的下一代 Windows 安装管理方案，通过 `py` 命令即可安装、管理和切换多个 Python 版本（支持回溯到 3.5），告别传统 exe 安装器的繁琐；自动更新、配置检查、完整清理等特性一应俱全，是 Windows 下 Python 开发者的官方首选工具。"
-  },
-  {
-    "id": "hrkill",
-    "name": "火绒恶性木马专杀工具",
-    "description": "火绒安全推出的针对恶性木马的独立专杀工具（与火绒本体独立），无需安装火绒主程序即可使用，可查杀各类流行木马、Rootkit 及顽固恶意程序，适合已中毒电脑的应急清理。",
-    "officialUrl": "https://bbs.huorong.cn/thread-18575-1-1.html",
-    "iconUrl": "https://cdn-uc.huorong.cn/data/avatar/000/01/05/57_avatar_middle.jpg?version=1789530672",
-    "installType": [
-      { "title": "官方论坛下载", "url": "https://www.huorong.cn/hrkill/download.php" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": null,
-    "tags": ["安全工具", "系统工具"],
-    "recommendReason": "由火绒安全团队针对国内流行木马持续更新的独立专杀工具，体积小、绿色免安装，可在系统已被木马劫持时应急查杀；查杀规则与火绒主程序同步，对 Rootkit、顽固木马有针对性处理能力，是中毒应急清理的可靠选择。"
-  },
-  {
-    "id": "comfyui",
-    "name": "ComfyUI",
-    "description": "一款强大且模块化的开源AI图像生成图形界面，采用节点/流程图式界面，让用户无需编码即可设计并执行复杂的Stable Diffusion工作流。",
-    "officialUrl": "https://comfy.org/zh-CN/",
-    "iconUrl": "https://mintcdn.com/dripart/maKDA164-rrTfyxY/favicon.ico?fit=max",
-    "installType": [
-      { "title": "桌面应用 (Desktop App)", "url": "https://www.comfy.org/download" }
-    ],
-    "platforms": ["Windows", "macOS", "Linux"],
-    "blogs": [
-      { "title": "ComfyUI 官方文档", "url": "https://docs.comfy.org/zh/" },
-      { "title": "ComfyUI 示例工作流", "url": "https://comfyanonymous.github.io/ComfyUI_examples/" }
-    ],
-    "status": "active",
-    "repoUrl": "https://github.com/Comfy-Org/ComfyUI",
-    "tags": ["AI", "图形图像", "跨平台"],
-    "recommendReason": "作为全球领先的视觉AI平台，ComfyUI以可视化编程思维为核心，凭借其高显存效率（比同类工具节省30-50%显存）、强大的扩展性以及自动化友好的特性，已成为Black Forest Labs和Stability AI等模型发布机构的首选展示平台。"
-  },
-  {
-    "id": "xiazaitool",
-    "name": "下载狗",
-    "description": "一款功能强大的在线视频解析与下载工具，支持哔哩哔哩、抖音、快手、小红书、TikTok、微博、YouTube、今日头条、Twitter(X)等国内外主流视频平台。提供网页在线版和桌面客户端，支持无水印下载、批量解析及4K超清视频下载等功能。",
-    "officialUrl": "https://www.xiazaitool.com/?ref=325242mR",
-    "iconUrl": "https://ts4.tc.mm.bing.net/th/id/ODF.R_8sCgU-FHT25VAvImCTVA?w=32&h=32&qlt=97&pcl=fffffa&o=6&pid=1.2",
-    "installType": [
-      { "title": "官方网站", "url": "https://www.xiazaitool.com/parseVideo/main/clientDownload.html" }
-    ],
-    "platforms": ["Web", "Windows", "macOS"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": null,
-    "tags": ["下载工具", "在线工具"],
-    "recommendReason": "支持国内外数十个主流视频平台，提供网页端与桌面客户端双模式，操作简单，输入链接即可解析下载。客户端版本支持B站1080p/4K超清视频下载、YouTube超清视频及下载记录功能，稳定性更佳。"
-  },
-  {
-    "id": "wenshushu",
-    "name": "文叔叔",
-    "description": "一款主打永不限速的云存储与文件传输工具，支持通过手机号、邮箱或链接，向任何人发送任意文件。无需加好友即可传文件，单个文件最大支持 5GB。",
-    "officialUrl": "https://www.wenshushu.cn/?i=VHSEFM",
-    "iconUrl": "https://pp.myapp.com/ma_icon/0/icon_53977258_1767846916/256",
-    "installType": [
-      { "title": "官方网站", "url": "https://www.wenshushu.cn/download" }
-    ],
-    "platforms": ["Web", "Android", "iOS"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": null,
-    "tags": ["文件传输", "在线工具"],
-    "recommendReason": "主打永不限速，上传下载速度不受限制。无需加好友、无需注册即可通过链接或手机号收发文件，操作简单仅需两步。免费提供大容量云盘空间，支持小程序、网页和 App 多端使用，是替代传统网盘传输文件的效率工具。"
-  },
-  {
-    "id": "heu-kms-activator",
-    "name": "HEU_KMS_Activator",
-    "description": "一款由“知彼而知己”基于 MDL 论坛 KMS Server Emulator 开发的 Windows 和 Office 智能激活工具，支持 KMS/OEM 等多种激活方式，无需联网即可一键激活。",
-    "officialUrl": null,
-    "iconUrl": "https://avatars.githubusercontent.com/u/52116327?s=64&v=4",
-    "installType": [
-      { "title": "GitHub Releases", "url": "https://github.com/zbezj/HEU_KMS_Activator/releases" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": "https://github.com/zbezj/HEU_KMS_Activator",
-    "tags": ["激活工具", "系统工具"],
-    "recommendReason": "智能识别最佳激活方式，支持所有 Windows 和 Office VL 版本，无需联网即可一键激活。"
-  },
-  {
-    "id": "wepe",
-    "name": "微PE工具箱",
-    "description": "一款免费、纯净、无捆绑软件的 WinPE 维护系统工具。它基于 Win10PE 内核，全面支持 NVMe 盘，集成了分区助手、DiskGenius、WinNTSetup 等实用维护工具。微PE 支持将 PE 安装到系统启动项、制作可启动 U 盘、移动硬盘或生成 ISO 镜像，致力于让复杂的技术操作简单化，是装机和系统维护的得力助手。",
-    "officialUrl": "https://www.wepe.com.cn/",
-    "iconUrl": "https://www.wepe.com.cn/images/download/u54.png?v12",
-    "installType": [
-      { "title": "官方网站", "url": "https://www.wepe.com.cn/download.html" }
-    ],
-    "platforms": ["Windows"],
-    "blogs": [],
-    "status": "unknown",
-    "repoUrl": null,
-    "tags": ["启动盘", "系统工具"],
-    "recommendReason": "微PE工具箱是国内口碑极佳的纯净PE系统，真正做到了无广告、无捆绑。它体积小巧、功能全面，集成了系统维护所需的各类刚需工具。无论是系统安装、硬盘分区还是数据恢复，微PE都能提供稳定、高效的支持，是每个Windows用户都值得拥有的“急救盘”。"
   },
   {
     "id": "opencv",
@@ -352,9 +54,66 @@
     "recommendReason": "作为计算机视觉领域的开放事实标准，OpenCV 以高度优化的 C++ 核心与易用的 Python 绑定著称，可与 NumPy、PyTorch 等深度学习生态无缝衔接，轻松完成图像分类、目标检测、人脸识别等任务，是实现图像视觉算法的效率保障。"
   },
   {
+    "id": "mingw",
+    "name": "Mingw-w64",
+    "description": "Windows 平台上的 GCC 编译工具链，支持 C、C++、Fortran 等多种语言，提供完整的 POSIX 兼容层和 Windows 原生 API 接口。",
+    "officialUrl": "https://www.mingw-w64.org/",
+    "iconUrl": "https://www.mingw-w64.org/logo.svg",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/niXman/mingw-builds-binaries/releases/latest" },
+      { "title": "SourceForge", "url": "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/niXman/mingw-builds-binaries",
+    "tags": ["编译构建", "C++", "开发工具"],
+    "recommendReason": "作为 Windows 上最成熟的开源编译环境，它支持 32/64 位应用编译，与 MSYS2、CMake 等工具无缝集成，被 Code::Blocks、CLion 等 IDE 广泛采用，是开源开发者从 Linux 迁移到 Windows 的首选编译工具。"
+  },
+  {
+    "id": "python-install-manager",
+    "name": "Python Install Manager",
+    "description": "Python 官方推出的 Windows 运行时安装与管理工具，用于替代传统的可执行安装程序，而传统安装程序将从 Python 3.16 起停止发布。",
+    "officialUrl": "https://www.python.org/",
+    "iconUrl": "https://www.python.org/static/favicon.ico",
+    "installType": [
+      { "title": "MSIX 安装包", "url": "https://www.python.org/ftp/python/pymanager/python-manager-26.3.msix" },
+      { "title": "MSI 安装包", "url": "https://www.python.org/ftp/python/pymanager/python-manager-26.3.msi" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=python-guide&sub=version-isolation&sub2=windows-isolation" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/python/pymanager",
+    "tags": ["Python", "开发工具"],
+    "recommendReason": "Python 官方推出的下一代 Windows 安装管理方案，通过 `py` 命令即可安装、管理和切换多个 Python 版本（支持回溯到 3.5），告别传统 exe 安装器的繁琐；自动更新、配置检查、完整清理等特性一应俱全，是 Windows 下 Python 开发者的官方首选工具。"
+  },
+  {
+    "id": "tampermonkey",
+    "name": "篡改猴",
+    "description": "全球用户量最大的用户脚本管理器，支持 Chrome、Edge、Firefox、Safari 等主流浏览器，可一键安装并自动更新 Greasy Fork 等站点的脚本，为网页添加各类脚本功能。",
+    "officialUrl": "https://www.tampermonkey.net/",
+    "iconUrl": "https://www.tampermonkey.net/images/icon48.png",
+    "installType": [
+      { "title": "官方网站（可自动匹配浏览器）", "url": "https://www.tampermonkey.net/" },
+      { "title": "Chrome 插件商店", "url": "https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo" },
+      { "title": "Edge 插件商店", "url": "https://microsoftedge.microsoft.com/addons/detail/iikmkjmpaadaobahmlepeloendndfphd" },
+      { "title": "Firefox 附加组件", "url": "https://addons.mozilla.org/firefox/addon/tampermonkey/" }
+    ],
+    "platforms": ["Web"],
+    "blogs": [
+      { "title": "Tampermonkey 官方常见问题", "url": "https://www.tampermonkey.net/faq.php?locale=zh" }
+    ],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["浏览器扩展", "效率工具"],
+    "recommendReason": "用户脚本生态的入口级工具：装好之后就能配合本站已收录的 GitHub 中文化脚本一起使用，还能一键获取去广告、网页增强、批量下载等海量脚本；支持脚本自动更新、云端备份与跨设备同步，并兼容暴力猴等主流脚本格式，是浏览器里性价比最高的效率补充。"
+  },
+  {
     "id": "immersive-translate",
     "name": "沉浸式翻译插件",
-    "description": "一款开源的浏览器双语翻译插件，将外文网页渲染为中英对照的沉浸式阅读模式，支持 PDF 文档、视频字幕、社交平台等场景的划词与全文翻译，是浏览外文站点与阅读 GitHub 技术文档的得力助手。",
+    "description": "一款开源的浏览器双语翻译插件，将外文网页渲染为中英对照的沉浸式阅读模式，支持 PDF 文档、视频字幕、社交平台等场景的划词与全文翻译，浏览外文站点与阅读 GitHub 技术文档必备。",
     "officialUrl": "https://www.immersivetranslate.net/",
     "iconUrl": "https://www.tudingai.com/wp-content/uploads/2024/10/1728808727-%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91.png",
     "installType": [
@@ -367,6 +126,245 @@
     "repoUrl": "https://github.com/immersive-translate/immersive-translate",
     "tags": ["浏览器扩展", "翻译汉化", "效率工具"],
     "recommendReason": "读外文技术文档、逛 GitHub 时，中英对照双栏译文兼顾原意与速度，不打断阅读节奏；还支持整页 PDF、双语视频字幕与划词翻译，可选用 DeepL、GPT 等多家引擎，开源免费，是外语阅读困难户的救星。"
+  },
+  {
+    "id": "github-chinese",
+    "name": "GitHub 中文化脚本",
+    "description": "一款让 GitHub 界面全面中文化的用户脚本，支持菜单栏、标题、按钮等界面元素的智能汉化，并具备正则匹配、时间本地化等高级功能。注意需要提前安装篡改猴插件。",
+    "officialUrl": null,
+    "iconUrl": "https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg",
+    "installType": [
+      { "title": "GreasyFork（稳定版）", "url": "https://greasyfork.org/scripts/435208" },
+      { "title": "GitHub（开发版）", "url": "https://github.com/maboloshi/github-chinese/raw/gh-pages/main.user.js" },
+      { "title": "南大镜像（开发版）", "url": "https://mirror.nju.edu.cn/github-chinese/main(nju.edu).user.js" },
+      { "title": "VS Code 扩展", "url": "https://github.com/maboloshi/github-chinese/actions/runs/31630076817/artifacts/9154698976" }
+    ],
+    "platforms": ["Web"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/maboloshi/github-chinese",
+    "tags": ["浏览器扩展", "翻译汉化"],
+    "recommendReason": "源自 52cik/github-hans，持续更新维护，支持 Tampermonkey、Violentmonkey 等多种脚本管理器，提供开发版与稳定版双通道，词库每周自动更新，让中文用户无障碍使用 GitHub。"
+  },
+  {
+    "id": "rufus",
+    "name": "Rufus",
+    "description": "一款免费、开源、轻量级的 USB 启动盘制作工具，可将 ISO 镜像快速写入U盘，用于系统安装、BIOS 刷写等场景。",
+    "officialUrl": "https://rufus.ie/",
+    "iconUrl": "https://rufus.ie/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://rufus.ie/downloads/" },
+      { "title": "GitHub Releases", "url": "https://github.com/pbatard/rufus/releases" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/pbatard/rufus",
+    "tags": ["启动盘", "系统工具"],
+    "recommendReason": "Rufus以其极小的体积、媲美同类工具两倍的制作速度和强大的功能著称。它支持UEFI与Legacy双启动模式，能绕过TPM等限制安装Windows 11，甚至可检测扩容U盘，是装机必备的神器。"
+  },
+  {
+    "id": "wepe",
+    "name": "微PE工具箱",
+    "description": "一款免费、纯净、无捆绑软件的 WinPE 维护系统工具。它基于 Win10 PE 内核，全面支持 NVMe 盘，集成了分区助手、DiskGenius、WinNTSetup 等实用维护工具。",
+    "officialUrl": "https://www.wepe.com.cn/",
+    "iconUrl": "https://www.wepe.com.cn/images/download/u54.png?v12",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.wepe.com.cn/download.html" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "unknown",
+    "repoUrl": null,
+    "tags": ["启动盘", "系统工具"],
+    "recommendReason": "微PE工具箱是国内口碑极佳的纯净PE系统，真正做到了无广告、无捆绑。它体积小巧、功能全面，集成了系统维护所需的各类刚需工具。无论是系统安装、硬盘分区还是数据恢复，微PE都能提供稳定、高效的支持，是每个Windows用户都值得拥有的“急救盘”。"
+  },
+  {
+    "id": "diskgenius",
+    "name": "DiskGenius",
+    "description": "一款集数据恢复、分区管理、备份还原于一体的专业磁盘工具软件，由 DOS 版 DiskMan 发展而来，支持 MBR/GPT 分区表及 NTFS、FAT32、exFAT、ReFS、EXT4 等十余种文件系统。",
+    "officialUrl": "https://www.diskgenius.cn/",
+    "iconUrl": "https://www.diskgenius.cn/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.diskgenius.cn/download.php" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["磁盘工具", "数据恢复", "系统工具"],
+    "recommendReason": "二十七年匠心打磨的国产磁盘工具标杆，集分区管理、数据恢复、系统迁移、坏道检测修复于一体；支持无损调整分区大小、GPT/MBR互转、RAID虚拟重组、虚拟机磁盘直读等高级功能；提供免费版和专业版，同一安装包注册即升级，是个人用户和企业运维的磁盘管理首选工具。"
+  },
+  {
+    "id": "ninite",
+    "name": "Ninite",
+    "description": "一款免费的 Windows 软件批量安装与自动更新服务网站。用户在官网勾选所需软件后，下载一个极小的 Ninite 安装器即可一键静默安装全部选定应用，并支持日后一键批量更新，全程无广告、无捆绑、无各种全家桶软件。",
+    "officialUrl": "https://ninite.com/",
+    "iconUrl": "https://ninite.com/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://ninite.com/" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["安装部署", "系统工具", "在线工具"],
+    "recommendReason": "装机、重装系统后的效率神器，一次勾选即可批量静默安装 Chrome、VSCode、7-Zip 等常用软件，安装全程无广告、无捆绑、无附加推广软件；之后还能用同一个安装器一键批量更新所有软件，省去逐个下载安装的繁琐步骤。"
+  },
+  {
+    "id": "geek",
+    "name": "Geek Uninstaller",
+    "description": "一款专为 Windows 设计的免费、绿色、轻量级软件卸载工具，能够彻底卸载应用程序并深度清理残留的文件与注册表项，有效解决软件卸载不净的问题。",
+    "officialUrl": "https://geekuninstaller.com",
+    "iconUrl": "https://geekuninstaller.com/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://geekuninstaller.com/download" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["系统工具", "卸载工具"],
+    "recommendReason": "单文件绿色便携，体积仅 3MB 左右；支持常规卸载与强制卸载模式，可绕过损坏软件的卸载程序直接清理；卸载后通过深度扫描自动清理残留，并兼容卸载 Microsoft Store 应用，是 Windows 用户必备的卸载利器。"
+  },
+  {
+    "id": "office-tool-plus",
+    "name": "Office Tool Plus",
+    "description": "一款强大且实用的 Office 部署与管理工具，基于微软官方 Office 部署工具制作，支持自定义安装、激活、卸载及配置管理，内置迅雷和 Downloader 下载引擎，让 Office 的部署与管理变得简单高效。",
+    "officialUrl": "https://otp.landian.vip/",
+    "iconUrl": "https://www.officetool.plus/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://otp.landian.vip/zh-cn/download.html" },
+      { "title": "GitHub Releases", "url": "https://github.com/YerongAI/Office-Tool/releases/latest" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "Office Tool Plus官方文档", "url": "https://www.officetool.plus/zh-cn/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/YerongAI/Office-Tool",
+    "tags": ["办公软件", "安装部署", "激活工具"],
+    "recommendReason": "完全免费开源，所有安装文件均来自微软官方服务器；支持 Microsoft 365、Office 2016-2024、Visio、Project 等全系列产品；提供自定义部署、激活管理、强制卸载、创建 ISO、文档转换等丰富功能；绿色免安装，解压即用，是 Office 部署与管理的一站式解决方案。"
+  },
+  {
+    "id": "heu-kms-activator",
+    "name": "HEU_KMS_Activator",
+    "description": "一款基于 MDL 论坛 KMS Server Emulator 开发的 Windows 和 Office 智能激活工具，支持 KMS/OEM 等多种激活方式，无需联网即可一键激活。",
+    "officialUrl": null,
+    "iconUrl": "https://avatars.githubusercontent.com/u/52116327?s=64&v=4",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/zbezj/HEU_KMS_Activator/releases" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/zbezj/HEU_KMS_Activator",
+    "tags": ["激活工具", "系统工具"],
+    "recommendReason": "智能识别最佳激活方式，支持所有 Windows 和 Office VL 版本，无需联网即可一键激活。"
+  },
+  {
+    "id": "hrkill",
+    "name": "火绒恶性木马专杀工具",
+    "description": "火绒安全推出的针对恶性木马的独立专杀工具（与火绒本体独立），无需安装火绒主程序即可使用，可查杀各类流行木马、Rootkit 及顽固恶意程序，适合已中毒电脑的应急清理。",
+    "officialUrl": "https://bbs.huorong.cn/thread-18575-1-1.html",
+    "iconUrl": "https://cdn-uc.huorong.cn/data/avatar/000/01/05/57_avatar_middle.jpg?version=1789530672",
+    "installType": [
+      { "title": "官方论坛下载", "url": "https://www.huorong.cn/hrkill/download.php" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["安全工具", "系统工具"],
+    "recommendReason": "由火绒安全团队针对国内流行木马持续更新的独立专杀工具，体积小、绿色免安装，可在系统已被木马劫持时应急查杀；查杀规则与火绒主程序同步，对 Rootkit、顽固木马有针对性处理能力，是中毒应急清理的可靠选择。"
+  },
+  {
+    "id": "comfyui",
+    "name": "ComfyUI",
+    "description": "一款强大且模块化的开源AI图像生成图形界面，采用节点/流程图式界面，让用户无需编码即可设计并执行复杂的 Stable Diffusion 工作流。",
+    "officialUrl": "https://comfy.org/zh-CN/",
+    "iconUrl": "https://mintcdn.com/dripart/maKDA164-rrTfyxY/favicon.ico?fit=max",
+    "installType": [
+      { "title": "桌面应用 (Desktop App)", "url": "https://www.comfy.org/download" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "ComfyUI 官方文档", "url": "https://docs.comfy.org/zh/" },
+      { "title": "ComfyUI 示例工作流", "url": "https://comfyanonymous.github.io/ComfyUI_examples/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/Comfy-Org/ComfyUI",
+    "tags": ["AI", "图形图像", "跨平台"],
+    "recommendReason": "作为全球领先的视觉AI平台，ComfyUI以可视化编程思维为核心，凭借其高显存效率（比同类工具节省30-50%显存）、强大的扩展性以及自动化友好的特性，已成为Black Forest Labs和Stability AI等模型发布机构的首选展示平台。"
+  },
+  {
+    "id": "metaso",
+    "name": "秘塔 AI 搜索",
+    "description": "一款国产 AI 搜索引擎，专注于学术搜索与科研场景，能自动总结搜索结果、生成结构化大纲并引用文献来源，为学术研究、文献调研与知识问答提供一站式智能解答。",
+    "officialUrl": "https://metaso.cn/",
+    "iconUrl": "https://metaso.cn/favicon.ico",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://metaso.cn/open-app" }
+    ],
+    "platforms": ["Web", "Android"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["AI", "学术工具", "在线工具"],
+    "recommendReason": "无需登录即可使用，针对学术场景深度优化：自动聚合多来源信息、生成带引用的大纲式总结，支持中英文文献检索与语义问答，是学生与科研人员快速完成文献调研、理清知识脉络的得力助手。"
+  },
+  {
+    "id": "github-proxy",
+    "name": "GitHub Proxy Website (Akams)",
+    "description": "一个为 GitHub 用户提供文件加速访问的公益服务项目。支持 API、Git Clone、Releases、Archive、Gist、Raw 等多种资源的代理加速下载。",
+    "officialUrl": "https://github.akams.cn/",
+    "iconUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M7.75 11c-.69 0-1.25.56-1.25 1.25v1.5a1.25 1.25 0 1 0 2.5 0v-1.5C9 11.56 8.44 11 7.75 11zm1.27 4.5a.469.469 0 0 1 .48-.5h5a.47.47 0 0 1 .48.5c-.116 1.316-.759 2.5-2.98 2.5s-2.864-1.184-2.98-2.5zm7.23-4.5c-.69 0-1.25.56-1.25 1.25v1.5a1.25 1.25 0 1 0 2.5 0v-1.5c0-.69-.56-1.25-1.25-1.25z\"/><path fill-rule=\"evenodd\" d=\"M21.255 3.82a1.725 1.725 0 0 0-2.141-1.195c-.557.16-1.406.44-2.264.866c-.78.386-1.647.93-2.293 1.677A18.442 18.442 0 0 0 12 5c-.93 0-1.784.059-2.569.17c-.645-.74-1.505-1.28-2.28-1.664a13.876 13.876 0 0 0-2.265-.866a1.725 1.725 0 0 0-2.141 1.196a23.645 23.645 0 0 0-.69 3.292c-.125.97-.191 2.07-.066 3.112C1.254 11.882 1 13.734 1 15.527C1 19.915 3.13 23 12 23c8.87 0 11-3.053 11-7.473c0-1.794-.255-3.647-.99-5.29c.127-1.046.06-2.15-.066-3.125a23.652 23.652 0 0 0-.689-3.292zM20.5 14c.5 3.5-1.5 6.5-8.5 6.5s-9-3-8.5-6.5c.583-4 3-6 8.5-6s7.928 2 8.5 6z\"/></svg>",
+    "installType": [
+      { "title": "GitHub Releases（Chromium 插件版）", "url": "https://github.com/hubporg/ghproxy-extension/releases/latest" },
+      { "title": "Chrome 插件商店", "url": "https://chromewebstore.google.com/detail/github-accelerator-github/bcbnfbcmbcoogjihnoediilgpfohkdef" },
+      { "title": "Edge 插件商店", "url": "https://microsoftedge.microsoft.com/addons/detail/pingkpgackfhaonibagjlibmobkhgdml" },
+      { "title": "Firefox 附加组件", "url": "https://addons.mozilla.org/addon/github-accelerator/" }
+    ],
+    "platforms": ["Web"],
+    "blogs": [
+      { "title": "官方插件安装教程", "url": "https://www.hubp.org/projects/extension/install" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/hubporg/CF-GitHub-Proxy",
+    "tags": ["代理", "网络加速", "在线工具"],
+    "recommendReason": "作为一款公益性质的 GitHub 加速服务，它无需注册、无需搭建服务器即可使用。网站本身也是一个镜像合集站点，汇集了当前可用的数十个镜像站点。支持 API、Git Clone、Releases、Archive、Gist、Raw 等多种资源的代理加速，能有效解决国内访问 GitHub 速度慢或无法访问的问题。"
+  },
+  {
+    "id": "wenshushu",
+    "name": "文叔叔",
+    "description": "一款主打永不限速的云存储与文件传输工具，支持通过手机号、邮箱或链接，向任何人发送任意文件，无需加好友即可传文件。",
+    "officialUrl": "https://www.wenshushu.cn/?i=VHSEFM",
+    "iconUrl": "https://pp.myapp.com/ma_icon/0/icon_53977258_1767846916/256",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.wenshushu.cn/download" }
+    ],
+    "platforms": ["Web", "Android", "iOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["文件传输", "在线工具"],
+    "recommendReason": "主打永不限速，上传下载速度不受限制。无需加好友、无需注册即可通过链接或手机号收发文件，操作简单仅需两步。免费提供大容量云盘空间，支持小程序、网页和 App 多端使用，是替代传统网盘传输文件的效率工具。"
+  },
+  {
+    "id": "xiazaitool",
+    "name": "下载狗",
+    "description": "一款功能强大的在线视频解析与下载工具，支持哔哩哔哩、抖音、快手、小红书、TikTok、微博、YouTube、今日头条、Twitter(X) 等国内外主流视频平台，提供网页在线版和桌面客户端。",
+    "officialUrl": "https://www.xiazaitool.com/?ref=325242mR",
+    "iconUrl": "https://ts4.tc.mm.bing.net/th/id/ODF.R_8sCgU-FHT25VAvImCTVA?w=32&h=32&qlt=97&pcl=fffffa&o=6&pid=1.2",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.xiazaitool.com/parseVideo/main/clientDownload.html" }
+    ],
+    "platforms": ["Web", "Windows", "macOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["下载工具", "在线工具"],
+    "recommendReason": "支持国内外数十个主流视频平台，提供网页端与桌面客户端双模式，操作简单，输入链接即可解析下载。客户端版本支持B站1080p/4K超清视频下载、YouTube超清视频及下载记录功能，稳定性更佳。"
   },
   {
     "id": "manim",
@@ -386,19 +384,21 @@
     "recommendReason": "作为 3Blue1Brown 数学科普视频背后的动画引擎，Manim 用代码精确驱动几何与变换，让抽象数学概念可视化，是制作教学动画、科普视频与数学演示的利器。"
   },
   {
-    "id": "ninite",
-    "name": "Ninite",
-    "description": "一款免费的 Windows 软件批量安装与自动更新服务网站。用户在官网勾选所需软件后，下载一个极小的 Ninite 安装器即可一键静默安装全部选定应用，并支持日后一键批量更新，全程无广告、无捆绑、无各种全家桶软件。",
-    "officialUrl": "https://ninite.com/",
-    "iconUrl": "https://ninite.com/favicon.ico",
+    "id": "maple-mono",
+    "name": "Maple Mono",
+    "description": "开源圆角等宽字体，专为开发者和极客设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
+    "officialUrl": "https://font.subf.dev",
+    "iconUrl": "https://font.subf.dev/favicon.svg",
     "installType": [
-      { "title": "官方网站", "url": "https://ninite.com/" }
+      { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
+      { "title": "懒人包（GitHub Releases）", "url": "https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN-unhinted.zip" },
+      { "title": "懒人包（123云盘）", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-DeiM" }
     ],
-    "platforms": ["Windows"],
+    "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [],
     "status": "active",
-    "repoUrl": null,
-    "tags": ["安装部署", "系统工具", "在线工具"],
-    "recommendReason": "装机、重装系统后的效率神器，一次勾选即可批量静默安装 Chrome、VSCode、7-Zip 等常用软件，安装全程无广告、无捆绑、无附加推广软件；之后还能用同一个安装器一键批量更新所有软件，省去逐个下载安装的繁琐步骤。"
+    "repoUrl": "https://github.com/subframe7536/maple-font",
+    "tags": ["字体", "开发工具", "跨平台"],
+    "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽；可变字体、圆角设计和细粒度 OpenType 配置，让编码体验丝滑且高度个性化。"
   }
 ]
