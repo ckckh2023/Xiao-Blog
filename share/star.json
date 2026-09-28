@@ -14,8 +14,7 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/microsoft/vscode",
-    "tags": ["编辑器", "开发工具", "跨平台"],
-    "recommendReason": "插件生态覆盖前后端、AI、云原生等所有热门领域，启动轻快，定制灵活，堪称“编辑器之王”。"
+    "tags": ["编辑器", "开发工具", "跨平台"]
   },
   {
     "id": "maple-mono",
@@ -32,8 +31,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/subframe7536/maple-font",
-    "tags": ["字体", "开发工具", "跨平台"],
-    "recommendReason": "完美融合了 JetBrains Mono 的整洁、Fira Code 的连字与手写风格斜体，同时原生支持 Nerd-Font 图标和中英文 2:1 等宽；可变字体、圆角设计和细粒度 OpenType 配置，让编码体验丝滑且高度个性化。"
+    "tags": ["字体", "开发工具", "跨平台"]
   },
   {
     "id": "motrix-next",
@@ -49,8 +47,7 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/AnInsomniacy/motrix-next",
-    "tags": ["下载工具", "跨平台"],
-    "recommendReason": "基于 Aria2 Next 引擎，采用 Tauri 2 + Vue 3 + TypeScript 重构，安装包仅 ~20MB；支持多协议下载、BT 选择性下载、浏览器扩展集成、系统托盘、代理控制等丰富特性，是 Motrix 用户的最佳升级选择。"
+    "tags": ["下载工具", "跨平台"]
   },
   {
     "id": "deepseek-harness",
@@ -69,7 +66,6 @@
     ],
     "status": "active",
     "repoUrl": "https://github.com/deepseek-ai/deepseek-harness",
-    "tags": ["AI", "智能体", "开发工具"],
-    "recommendReason": "DeepSeek 官方出品的智能体开发框架，采用插件化架构，灵活可扩展，适合想要基于 DeepSeek 构建定制化 AI 应用的开发者。"
+    "tags": ["AI", "智能体", "开发工具"]
   }
 ]

@@ -16,7 +16,6 @@
     ],
     "status": "active or unknown or deprecated",
     "repoUrl": "string or null",
-    "tags": ["tags", "tags", "tags"],
-    "recommendReason": "string"
+    "tags": ["tags", "tags", "tags"]
   }
 ]
