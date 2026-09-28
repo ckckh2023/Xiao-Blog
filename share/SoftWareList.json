@@ -109,14 +109,17 @@
     "recommendReason": "OpenAI 官方维护的编码智能体，Apache-2.0 开源、迭代节奏极快；一条命令即可装上 CLI，Windows 也有官方 PowerShell 脚本，另有 npm 与 Homebrew 等装法；既能在终端里结对改代码，也能在 IDE 内联协作或把任务丢到云端并行执行；内置沙箱与审批机制，配合 AGENTS.md 还能沉淀团队规范，是当前最主流的编码智能体之一。"
   },
   {
-    "id": "motrix-next",
+    "id": "rayburst",
     "name": "Rayburst（原 Motrix Next）",
     "description": "一款基于 Tauri 2 + Rust 从头重构的全功能下载管理器，支持 HTTP、FTP、ED2K、BitTorrent 及磁力链接，继承 Motrix 经典交互，拥有更轻量的安装包和更现代的技术栈。",
     "officialUrl": "https://rayburst.pages.dev/",
     "iconUrl": "https://rayburst.pages.dev/assets/img/logo.svg",
     "installType": [
       { "title": "官方网站下载", "url": "https://rayburst.pages.dev/#download" },
-      { "title": "GitHub Releases", "url": "https://github.com/AnInsomniacy/motrix-next/releases/latest" }
+      { "title": "GitHub Releases", "url": "https://github.com/AnInsomniacy/motrix-next/releases/latest" },
+      { "title": "Chrome 插件商店", "url": "https://chromewebstore.google.com/detail/ofeajdebdjajhkmcmamagokecnbephhl" },
+      { "title": "Edge 插件商店", "url": "https://microsoftedge.microsoft.com/addons/detail/loojjolhejmakcdlbidigoniobfanjlb" },
+      { "title": "Firefox 附加组件", "url": "https://addons.mozilla.org/firefox/addon/rayburst-connect/" }
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [],
@@ -609,7 +612,7 @@
   {
     "id": "mysql",
     "name": "MySQL",
-    "description": "Oracle 旗下全球最流行的开源关系型数据库管理系统（RDBMS），社区版遵循 GPL 协议免费使用。采用客户端/服务器架构，InnoDB 引擎支持事务、行级锁与外键，并内置主从复制、分组复制等高可用方案，是 Web 应用（LAMP/LNMP）与各类后端服务最常用的数据库之一。",
+    "description": "Oracle 旗下全球最流行的开源关系型数据库管理系统，社区版遵循 GPL 协议免费使用。采用客户端/服务器架构，InnoDB 引擎支持事务、行级锁与外键，并内置主从复制、分组复制等高可用方案，是 Web 应用（LAMP/LNMP）与各类后端服务最常用的数据库之一。",
     "officialUrl": "https://www.mysql.com/cn/",
     "iconUrl": "https://www.mysql.com/common/logos/logo-mysql-170x115.png",
     "installType": [
@@ -623,5 +626,24 @@
     "repoUrl": "https://github.com/mysql/mysql-server",
     "tags": ["数据库", "开发工具", "跨平台"],
     "recommendReason": "作为 LAMP/LNMP 经典技术栈中的“M”，MySQL 社区版免费开源、部署简单、文档与社区生态极为成熟；InnoDB 事务引擎稳定可靠，主从复制与读写分离方案遍地可查，配合各类 GUI 工具与 ORM 几乎零门槛上手，是后端开发与数据存储入门进阶的首选数据库。"
+  },
+  {
+    "id": "nsis",
+    "name": "NSIS",
+    "description": "NSIS 是 Nullsoft 推出的开源、可脚本化的 Windows 安装程序制作系统，通过简洁的脚本语言声明安装逻辑，可生成体积极小、卸载完整的安装包，是众多知名软件的打包方案。",
+    "officialUrl": "https://nsis.sourceforge.io/",
+    "iconUrl": "https://a.fsdn.com/allura/p/nsis/icon",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://nsis.sourceforge.io/Download" },
+      { "title": "SourceForge", "url": "https://sourceforge.net/projects/nsis/files/" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "NSIS 官方文档", "url": "https://nsis.sourceforge.io/Docs/" }
+    ],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["安装打包", "开发工具"],
+    "recommendReason": "作为 Winamp 团队出品的开源安装包制作工具，NSIS 生成的安装包体积极小、启动极快，脚本灵活可扩展，配合 HM NIS Edit 等可视化编辑器上手成本低；众多知名软件都采用它打包，是 Windows 平台制作专业安装程序的经典之选。"
   }
 ]
