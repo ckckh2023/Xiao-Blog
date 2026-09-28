@@ -3,8 +3,8 @@
     "children": [
       { "id": "linux-install-guide", "title": "Linux 相关安装教程",
         "children": [
-          { "id": "install-ubuntu", "title": "Linux 实体机安装教程（Ubuntu 版）" },
-          { "id": "wsl-ubuntu", "title": "Windows 下安装 Linux 子系统（WSL）" },
+          { "id": "install-ubuntu", "title": "Ubuntu 实体机安装教程" },
+          { "id": "wsl-ubuntu", "title": "Windows 下 WSL 安装及使用教程" },
           { "id": "install-after-config", "title": "Linux 安装后初步配置教程" }
         ]
       },
@@ -54,7 +54,7 @@
           { "id": "linux-qt-package", "title": "Linux 平台 Qt 程序打包教程" }
         ]
       },
-      { "id": "qifw-guide", "title": "Qt Installer Framework (QIFW) 使用教程" }
+      { "id": "qifw-guide", "title": "Qt Installer Framework 使用教程" }
     ]
   },
   { "id": "python-guide", "title": "Python 相关技巧及建议",
@@ -87,7 +87,7 @@
     "children": [
       { "id": "windows-agent-prompt", "title": "Windows AI Agent 提示词配置" },
       { "id": "dsh-guide", "title": "DeepSeek Harness 使用与配置指南" },
-      { "id": "npm-question", "title": "Agent 工具链包管理器的安全策略障碍与解决方案" },
+      { "id": "npm-question", "title": "Agent 工具的安装障碍与解决方案" },
       { "id": "agent-data-location", "title": "Agent 工具历史记录存储位置" }
     ]
   },

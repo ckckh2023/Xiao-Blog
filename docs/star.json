@@ -2,21 +2,21 @@
   {
     "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=dsh-guide",
     "title": "DeepSeek Harness 使用与配置指南",
-    "excerpt": "DeepSeek Harness的完整使用教程：环境准备、三种安装方式、首次启动配置、插件安装与管理，并附常见问题解答与 Windows 懒人版安装方式。"
+    "excerpt": "DeepSeek Harness 的完整使用教程，现在已经提供不用折腾的官方桌面版，有需要可以来看看。"
   },
   {
-    "url": "https://xiao-blog.top/docs/article?id=git-guide&sub=git-ssh-guide&sub2=git-ssh-config",
-    "title": "Git SSH 配置方法",
-    "excerpt": "Git SSH 客户端完整配置指南：密钥生成、配置文件编写、私钥权限设置、公钥添加与连接测试，附常见问题排查。"
+    "url": "https://xiao-blog.top/docs/article?id=git-guide&sub=git-basic-usage",
+    "title": "Git 基础用法",
+    "excerpt": "Git 日常用法速查之回滚、暂存、分支、合并，几个常用的命令掌握了即学会了版本管理，文末附懒人版使用总结。"
   },
   {
-    "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=windows-agent-prompt",
-    "title": "Windows AI Agent 提示词配置",
-    "excerpt": "Windows 下让 AI Agent 输出可执行命令的提示词配置建议：优先使用 Git Bash、失败后回退 PowerShell 7 的完整策略与提示词模板，含安装步骤与注意事项。"
+    "url": "https://xiao-blog.top/docs/article?id=linux-guide&sub=linux-install-guide&sub2=install-ubuntu",
+    "title": "Linux 实体机安装教程（Ubuntu 版）",
+    "excerpt": "Ubuntu 实体机安装全流程，下文还有分区、时区、软件源配置与本人多次装机遇到的坑点。"
   },
   {
-    "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question",
-    "title": "Agent 工具链包管理器的安全策略障碍与解决方案",
-    "excerpt": "解决 Windows 与 Linux 下 AI Agent 工具链部署的三类典型障碍：PowerShell 执行策略限制、npm install-scripts 白名单拦截与 pnpm minimumReleaseAge 供应链策略，含诊断方法与永久解决方案。"
+    "url": "https://xiao-blog.top/docs/article?id=web-develop-guide&sub=page-deploy-guide&sub2=cloudflare-pages-deploy",
+    "title": "Cloudflare Pages 部署教程",
+    "excerpt": "Cloudflare Pages 部署静态站点流程，有需要部署个人站点的可以参考此文档，本站源码公开可复用部署你的个人博客。"
   }
 ]
