@@ -376,6 +376,22 @@
     "recommendReason": "VLC 是世界上最受欢迎的开源媒体播放器之一，以“能播放任何内容”著称。它完全免费、无广告、无间谍软件，支持所有主流操作系统，无需额外安装解码器即可播放几乎所有格式。无论是播放本地文件、光盘、流媒体，还是作为视频转换工具，VLC 都是值得信赖的首选。"
   },
   {
+    "id": "uuyc",
+    "name": "UU远程",
+    "description": "网易官方推出的远程控制软件，依托自研的低延迟传输技术与全国节点布局，提供跨设备远程桌面、文件传输、远程游戏与远程办公等能力，界面简洁、上手零门槛。",
+    "officialUrl": "https://uuyc.163.com/",
+    "iconUrl": "https://uuyc.163.com/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://uuyc.163.com/" }
+    ],
+    "platforms": ["Windows", "macOS", "Android", "iOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["远程控制", "跨平台"],
+    "recommendReason": "网易官方出品，背靠 UU 加速器多年积累的网络节点与抗丢包传输技术，远程连接稳定流畅、低延迟，尤其适合远程游戏、远程办公与跨设备协助；全平台覆盖、无需复杂配置，是个人用户与远程协助场景的省心之选。"
+  },
+  {
     "id": "potplayer",
     "name": "PotPlayer",
     "description": "由 KMP 原作者打造、Daum（Kakao）分发的 Windows 全能影音播放器，以极低的资源占用和强大的硬件加速著称，内置丰富解码器几乎通吃所有音视频格式，并支持逐帧播放、字幕特效、3D/VR 输出、直播源播放与电视录制等进阶功能。",
