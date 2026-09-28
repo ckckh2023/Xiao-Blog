@@ -59,7 +59,7 @@
       { "title": "社区桌面版", "url": "https://www.dshdesktop.cn/" },
       { "title": "社区桌面版（GitHub Releases）", "url": "https://github.com/anywhere-labs/deepseek-harness-desktop/releases" }
     ],
-    "platforms": ["Web"],
+    "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
       { "title": "DeepSeek 官方文档", "url": "https://deepseek-harness.github.io/deepseek-harness" },
       { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=ai-agent&sub=dsh-guide" }
