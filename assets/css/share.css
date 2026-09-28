@@ -255,6 +255,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: auto;
   margin-bottom: 14px;
 }
 .share-card .sc-platforms {
@@ -306,7 +307,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: auto;
+  margin-top: 0;
   padding-top: 14px;
 }
 .share-card .sc-actions-left {
