@@ -131,3 +131,9 @@ sudo apt install git curl vim # 此为一般常用工具等，后续更新
 ```
 
 > 你可以学习包管理系统，Ubuntu 使用的是 apt 仓库管理系统，可以查看[此文档](https://xiao-blog.top/docs/article?id=linux-guide&sub=software-package-guide&sub2=apt-repository-guide)；关于 Ubuntu 强制推行的风评较差的 snap 仓库管理系统卸载方法可以查看[此文档](https://xiao-blog.top/docs/article?id=linux-guide&sub=software-package-guide&sub2=snap-uninstall-guide)。
+
+最后，你可以在终端输入 `sudo apt install fastfetch -y`，安装完成后输入 `fastfetch` 就能看到下面的内容啦！
+
+<img src="Ubuntu.png">
+
+> 拿这张图片展示你的 Linux 系统去吧！Arch 教徒都爱这么玩～虽然我们不是～
