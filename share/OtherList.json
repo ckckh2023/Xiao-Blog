@@ -3,14 +3,14 @@
     "id": "nodejs",
     "name": "Node.js",
     "description": "一个基于 Chrome V8 引擎的免费、开源、跨平台 JavaScript 运行时环境，让开发者能够使用 JavaScript 编写命令行工具和服务器端脚本，大部分 Agent 工具都需要它。",
-    "officialUrl": "https://nodejs.org/",
+    "officialUrl": "https://nodejs.org/zh-cn/",
     "iconUrl": "https://nodejs.org/static/images/logo-hexagon-card.png",
     "installType": [
       { "title": "官方网站下载", "url": "https://nodejs.org/zh-cn/download" }
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
-      { "title": "Node.js 官方博客", "url": "https://nodejs.org/en/blog/" },
+      { "title": "Node.js 官方博客", "url": "https://nodejs.org/zh-cn/blog/" },
       { "title": "Node.js 中文文档", "url": "https://nodejs.org/zh-cn/docs/" }
     ],
     "status": "active",
@@ -39,7 +39,7 @@
     "officialUrl": "https://opencv.org/",
     "iconUrl": "https://opencv.ac.cn/wp-content/uploads/2020/07/cropped-Fav-192x192.png",
     "installType": [
-      { "title": "官方 Release 包", "url": "https://opencv.org/releases/" },
+      { "title": "官方 Release 网站", "url": "https://opencv.org/releases/" },
       { "title": "GitHub Releases", "url": "https://github.com/opencv/opencv/releases/" }
     ],
     "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],

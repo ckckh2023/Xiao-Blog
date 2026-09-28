@@ -1,6 +1,6 @@
 在 Qt 应用程序开发完成后，如何将程序交付给没有安装 Qt 开发环境的用户运行，是每一位 Qt 开发者都会面临的问题。直接复制可执行文件往往会导致“缺少 xxx.dll”或程序闪退等问题，其根本原因在于 Qt 程序依赖于大量的动态链接库、插件和资源文件。
 
-Qt 官方为此提供了 **windeployqt** 工具，能够帮助开发者快速、准确地将应用程序所需的所有 Qt 相关依赖项打包到一起。
+Qt 官方为此提供了 **windeployqt** 工具，能够帮助开发者将应用程序所需的所有 Qt 相关依赖项打包到一起。
 
 ---
 
@@ -102,14 +102,12 @@ windeployqt 必须使用与项目编译器**匹配的版本**，且两种编译�
 
 ## 常用命令行参数
 
-windeployqt 提供了丰富的命令行参数，允许开发者对部署过程进行精细化控制。
+windeployqt 提供了许多命令行参数，**有需要**可以看看。
 
 ### 基本参数
 
 | 参数 | 说明 |
 |------|------|
-| `--help`, `-h` | 显示帮助信息 |
-| `--version`, `-v` | 显示版本信息 |
 | `--dir <目录>` | 指定输出目录（默认与 .exe 同目录） |
 | `--libdir <路径>` | 指定库文件的复制目标路径 |
 | `--plugindir <路径>` | 指定插件的复制目标路径 |
@@ -169,11 +167,11 @@ windeployqt MyApp.exe --dry-run --verbose
 
 ## 进阶用法：结合安装包制作工具
 
-完成 windeployqt 打包后，可以进一步使用安装包制作工具将整个文件夹封装为专业的安装程序。常用的工具有：
+完成 windeployqt 打包后，可以进一步使用安装包制作工具将整个文件夹封装为专业的安装程序，可以参考下列打包工具：
 
-- **Qt Installer Framework**：Qt 官方提供的安装包制作框架，功能强大，可查看我的这篇[文档](https://xiao-blog.top/docs/article?id=qt-guide&sub=qifw-guide)
-- **Inno Setup**：免费、功能强大、脚本语法简单
-- **NSIS**（Nullsoft Scriptable Install System）：免费、高度可定制
+**Qt Installer Framework**：Qt 官方提供的安装包制作框架，功能强大，可查看我的这篇[文档](https://xiao-blog.top/docs/article?id=qt-guide&sub=qifw-guide)
+
+> 常见的还有Inno Setup、[NSIS](https://xiao-blog.top/share/?type=software&name=NSIS) 等打包工具。
 
 ---
 

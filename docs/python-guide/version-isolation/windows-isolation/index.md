@@ -1,14 +1,14 @@
 在 Windows 上，如果你同时安装了 Python 3.11 和 Python 3.14，直接输入 `python` 命令时，系统只会调用 PATH 环境变量中**排在最前面**的那个版本。这会导致你无法精确控制哪个项目使用哪个 Python 版本，极易引发混乱。
 
-更麻烦的是，过去从 python.org 下载独立的 `.exe` 安装包来安装 Python，容易造成电脑同时存在多个版本、`python` 和 `py` 命令指向混乱、`pip` 装错环境等问题。为了解决这些痛点，Python 官方推出了新一代的解决方案。
+更麻烦的是，每当安装新版本的时候都需要从 python.org 下载独立的 `.exe` 安装包来安装 Python，容易使系统同时存在多个版本导致环境混乱的问题。为了解决这些痛点，Python 官方推出了新一代的解决方案。
 
 ---
 
-## 首选方案：Python Install Manager（官方推荐）
+## 首选方案：Python Install Manager
 
 **Python Install Manager** 是 Python 官方团队为 Windows 平台打造的**新一代 Python 安装与版本管理工具**。它统一了安装 Python 和管理多个 Python 版本这两个功能，是未来 Python 在 Windows 上的主流安装方式。
 
-> **重要提示**：从 **Python 3.16** 开始，传统的独立 `.exe` 安装包将停止发布。因此，**现在就迁移到 Python Install Manager 是最明智的选择**。
+> **重要提示**：从 **Python 3.16** 开始，传统的独立 `.exe` 安装包将停止发布。因此，**学习使用 Python Install Manager 是很明智的选择**。
 
 ### 安装方式
 
@@ -69,14 +69,12 @@ py install --configure
 | `py -3.11` | 启动 Python 3.11 |
 | `py -3.11 -m pip install requests` | 使用 Python 3.11 的 pip 安装第三方包 |
 
-> **建议**：官方已经明确传统安装包将在 Python 3.16 停止发布，建议尽早切换到 Python Install Manager，一劳永逸。
+> **建议**：官方已经明确传统安装包将在 Python 3.16 停止发布，还是建议尽早切换到 Python Install Manager。
 
 ---
 
-## 总结
+从最优学习解法来说，在 Windows 上管理多版本 Python 时，推荐以下做法：
 
-在 Windows 上管理多版本 Python 时，推荐以下做法：
-
-1.  **优先使用 Python Install Manager**：通过 `py install` 安装所有 Python 版本，通过 `py list` 和 `py uninstall` 统一管理，彻底告别 `.exe` 安装包的混乱。
-2.  **使用 `py -3.X` 选择版本**：始终使用 `py -3.X` 的形式来明确指定你要使用的 Python 版本。
-3.  **结合虚拟环境**：用 `py -3.11 -m venv myenv` 创建虚拟环境，精准锁定该环境使用的 Python 版本，可查看[我的博客](https://xiao-blog.top/docs/article?id=python-guide&sub=venv-guide)。
+- **优先使用 Python Install Manager**：通过 `py install` 安装所有 Python 版本，通过 `py list` 和 `py uninstall` 统一管理，彻底告别 `.exe` 安装包的混乱。
+- **使用 `py -3.X` 选择版本**：始终使用 `py -3.X` 的形式来明确指定你要使用的 Python 版本。
+- **结合虚拟环境**：用 `py -3.11 -m venv myenv` 创建虚拟环境，精准锁定该环境使用的 Python 版本，可查看[我的博客](https://xiao-blog.top/docs/article?id=python-guide&sub=venv-guide)。
