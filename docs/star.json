@@ -6,17 +6,17 @@
   },
   {
     "url": "https://xiao-blog.top/docs/article?id=git-guide&sub=git-basic-usage",
-    "title": "Git 基础用法",
+    "title": "Git 基础用法详细展示",
     "excerpt": "Git 日常用法速查之回滚、暂存、分支、合并，几个常用的命令掌握了即学会了版本管理，文末附懒人版使用总结。"
   },
   {
     "url": "https://xiao-blog.top/docs/article?id=linux-guide&sub=linux-install-guide&sub2=install-ubuntu",
-    "title": "Linux 实体机安装教程（Ubuntu 版）",
+    "title": "Ubuntu 实体机安装教程",
     "excerpt": "Ubuntu 实体机安装全流程，下文还有分区、时区、软件源配置与本人多次装机遇到的坑点。"
   },
   {
     "url": "https://xiao-blog.top/docs/article?id=web-develop-guide&sub=page-deploy-guide&sub2=cloudflare-pages-deploy",
-    "title": "Cloudflare Pages 部署教程",
+    "title": "Cloudflare Pages 静态站点部署教程",
     "excerpt": "Cloudflare Pages 部署静态站点流程，有需要部署个人站点的可以参考此文档，本站源码公开可复用部署你的个人博客。"
   }
 ]
