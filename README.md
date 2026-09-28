@@ -14,7 +14,7 @@
 - **好友页与关于页**：好友列表、站点统计、隐私政策
 - **RSS 订阅**：Edge Function 动态生成 RSS 2.0
 - **主题系统**：深浅色切换
-- **完整 SEO**：sitemap.xml / robots.txt / OG meta / Twitter Card / JSON-LD
+- **完整 SEO**：sitemap.xml / robots.txt / OG meta / Twitter Card
 
 ## 技术栈
 

@@ -4,3 +4,5 @@
 /.arts
 /.vscode
 /sh
+.env
+/node_modules
