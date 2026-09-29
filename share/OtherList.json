@@ -364,7 +364,7 @@
   {
     "id": "maple-mono",
     "name": "Maple Mono",
-    "description": "开源圆角等宽字体，专为开发者和极客设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
+    "description": "开源圆角等宽字体，主要为中文开发者用户设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
     "officialUrl": "https://font.subf.dev",
     "iconUrl": "https://font.subf.dev/favicon.svg",
     "installType": [

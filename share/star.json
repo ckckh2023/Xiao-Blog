@@ -2,7 +2,7 @@
   {
     "id": "vscode",
     "name": "Visual Studio Code",
-    "description": "微软推出的免费、开源、跨平台的轻量级代码编辑器，内置丰富的扩展支持，为开发者提供智能代码补全、调试、版本控制、终端等一站式编码体验。",
+    "description": "微软推出的免费、开源、跨平台的轻量级代码编辑器，有丰富的扩展生态支持，不愧为最全能的编码器。",
     "officialUrl": "https://code.visualstudio.com",
     "iconUrl": "https://code.visualstudio.com/assets/apple-touch-icon.png",
     "installType": [
@@ -19,7 +19,7 @@
   {
     "id": "maple-mono",
     "name": "Maple Mono",
-    "description": "开源圆角等宽字体，专为开发者和极客设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
+    "description": "开源圆角等宽字体，主要为中文开发者用户设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
     "officialUrl": "https://font.subf.dev",
     "iconUrl": "https://font.subf.dev/favicon.svg",
     "installType": [
@@ -52,7 +52,7 @@
   {
     "id": "deepseek-harness",
     "name": "DeepSeek Harness (dsh)",
-    "description": "DeepSeek AI 官方推出的开源智能体框架，采用“一切皆插件”的架构设计，由 Cordis 驱动，支持通过插件灵活扩展功能，目前处于开发者预览阶段。",
+    "description": "DeepSeek AI 官方推出的开源智能体框架，采用一切皆插件的架构设计，由 Cordis 驱动，支持通过插件灵活扩展功能，目前处于开发者预览阶段。",
     "officialUrl": "https://www.deepseek.com/harness/",
     "iconUrl": "https://fe-static.deepseek.com/platform/favicon.svg",
     "installType": [
