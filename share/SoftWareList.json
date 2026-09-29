@@ -551,8 +551,7 @@
     "officialUrl": "https://www.deepseek.com/harness/",
     "iconUrl": "https://fe-static.deepseek.com/platform/favicon.svg",
     "installType": [
-      { "title": "官方桌面版（Windows X64）", "url": "https://download.deepseek.com/dsh-desk/bin/win-x64/deepseek-harness-0.2.0-rc.2-win-x64.exe" },
-      { "title": "官方桌面版（Apple Silicon）", "url": "https://download.deepseek.com/dsh-desk/bin/mac-arm64/deepseek-harness-0.2.0-rc.2-mac-arm64.dmg" },
+      { "title": "官方桌面版", "url": "https://www.deepseek.com/harness/" },
       { "title": "社区桌面版", "url": "https://www.dshdesktop.cn/" },
       { "title": "社区桌面版（GitHub Releases）", "url": "https://github.com/anywhere-labs/deepseek-harness-desktop/releases" }
     ],
