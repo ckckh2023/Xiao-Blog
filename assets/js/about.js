@@ -7,31 +7,6 @@
 
   var SITE_BIRTH = new Date("2026-08-13T00:00:00+08:00").getTime();
 
-  /* 递归收集所有文档节点的 id 路径 */
-  function walkDocs(list, ids, nodes) {
-    list.forEach(function (it) {
-      var childIds = ids.concat([it.id]);
-      nodes.push(childIds);
-      if (it.children) walkDocs(it.children, childIds, nodes);
-    });
-  }
-
-  function docMdPath(ids) {
-    return "/docs/" + ids.map(encodeURIComponent).join("/") + "/index.md";
-  }
-
-  /* 仅统计实际存在 index.md 的文档 */
-  function countExistingDocs(list) {
-    var nodes = [];
-    walkDocs(list, [], nodes);
-    return Promise.all(nodes.map(function (ids) {
-      return fetch(docMdPath(ids), { method: "HEAD" }).then(function (r) {
-        return r.ok ? 1 : 0;
-      }).catch(function () { return 0; });
-    })).then(function (arr) {
-      return arr.reduce(function (a, b) { return a + b; }, 0);
-    });
-  }
 
   function setNum(id, val) {
     var el = document.getElementById(id);
@@ -57,13 +32,13 @@
 
   /* 拉取各数据源计算统计 */
   Promise.all([
-    fetch("/docs/DocsList.json").then(function (r) { return r.json(); }).catch(function () { return []; }),
+    fetch("/api/docs-count").then(function (r) { return r.json(); }).catch(function () { return { ok: false }; }),
     fetch("/repo/RepoList.json").then(function (r) { return r.json(); }).catch(function () { return []; }),
     fetch("/share/SoftWareList.json").then(function (r) { return r.json(); }).catch(function () { return []; }),
     fetch("/share/OtherList.json").then(function (r) { return r.json(); }).catch(function () { return []; }),
     fetch("/api/guestbook").then(function (r) { return r.json(); }).catch(function () { return { list: [] }; })
   ]).then(function (res) {
-    countExistingDocs(res[0]).then(function (n) { setNum("stat-docs", n); });
+    setNum("stat-docs", (res[0] && res[0].ok) ? res[0].count : 0);
     setNum("stat-repos", res[1].length);
     setNum("stat-shares", res[2].length + res[3].length);
     setNum("stat-guestbook", (res[4] && res[4].list) ? res[4].list.length : 0);
