@@ -20,7 +20,7 @@
     location: "China",
     company: null,
     followers: 10,
-    public_repos: 8
+    public_repos: 10
   };
 
   /* 本地数据高优先级 */
