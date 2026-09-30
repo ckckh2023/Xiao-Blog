@@ -45,8 +45,9 @@ export async function onRequestGet(context) {
     var count = 0;
     await Promise.all(nodes.map(function (ids) {
       var mdPath = DOCS + ids.map(encodeURIComponent).join("/") + "/index.md";
-      return env.ASSETS.fetch(new Request(SITE + mdPath, { method: "HEAD" })).then(function (r) {
+      return env.ASSETS.fetch(new Request(SITE + mdPath)).then(function (r) {
         if (r.ok) count++;
+        if (r.body && r.body.cancel) r.body.cancel();
       }).catch(function () {});
     }));
 
