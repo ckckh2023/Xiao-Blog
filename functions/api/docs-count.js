@@ -2,8 +2,7 @@
    functions/api/docs-count.js - 文档计数 API
    路由：GET /api/docs-count
    返回：{ ok, count }
-   - count：DocsList.json 树中实际存在 index.md 的节点数
-
+   - count：DocsList.json 树中的叶子节点数
    Cache-Control: 5 分钟边缘缓存
    ============================================================ */
 
@@ -20,13 +19,14 @@ function json(data, status) {
   });
 }
 
-/* 递归收集所有文档节点的 id 路径 */
-function walkDocs(list, ids, nodes) {
+/* 递归统计叶子节点 */
+function countLeaves(list) {
+  var n = 0;
   list.forEach(function (it) {
-    var childIds = ids.concat([it.id]);
-    nodes.push(childIds);
-    if (it.children) walkDocs(it.children, childIds, nodes);
+    if (it.children && it.children.length) n += countLeaves(it.children);
+    else n++;
   });
+  return n;
 }
 
 export async function onRequestGet(context) {
@@ -39,19 +39,7 @@ export async function onRequestGet(context) {
     var list = await resp.json();
     if (!Array.isArray(list)) return json({ ok: false, error: "DocsList 格式错误" }, 500);
 
-    var nodes = [];
-    walkDocs(list, [], nodes);
-
-    var count = 0;
-    await Promise.all(nodes.map(function (ids) {
-      var mdPath = DOCS + ids.map(encodeURIComponent).join("/") + "/index.md";
-      return env.ASSETS.fetch(new Request(SITE + mdPath)).then(function (r) {
-        if (r.ok) count++;
-        if (r.body && r.body.cancel) r.body.cancel();
-      }).catch(function () {});
-    }));
-
-    return json({ ok: true, count: count });
+    return json({ ok: true, count: countLeaves(list) });
   }
   catch (e) {
     console.error("[docs-count] 获取失败：", e);
