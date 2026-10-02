@@ -299,6 +299,7 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   gap: 6px;
   padding: 6px 14px;
   font-size: 14px;
+  line-height: 1.6;
   font-weight: 500;
   font-family: inherit;
   border-radius: 6px;

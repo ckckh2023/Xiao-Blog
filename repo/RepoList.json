@@ -47,11 +47,12 @@
     "url": null,
     "repo": "https://github.com/ckckh2023/notepad--",
     "other_repo": [
-      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/notepad--" }
+      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/notepad--" },
+      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/notepad--" }
     ],
     "desc": "NotePad-- 项目的 Qt 6 复刻版本，旨在引入更多高版本特性与本人开发的新功能，用于替代系统自带的文本编辑器与 NotePad++。",
     "stars": 0,
-    "tags": ["C++", "HTML", "NSIS", "C", "CSS", "QMake", "JavaScript", "CMake", "Inno Setup", "Python", "Makefile", "Batchfile"]
+    "tags": ["C++", "HTML", "NSIS", "SIP", "C", "CSS", "JavaScript", "CMake", "Inno Setup", "Python", "Makefile", "Batchfile", "QMake"]
   },
   {
     "id": "TsingHuaelt-VMIC",
