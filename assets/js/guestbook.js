@@ -265,9 +265,7 @@
         var nickname = inputName.value.trim() || "匿名";
         var body = inputBody.value.trim();
         var qq = inputQQ ? inputQQ.value.trim() : "";
-        if (!qq) { setHint("请填写 QQ 号", true); inputQQ.focus(); return; }
         var avatar = avatarFromQQ(qq);
-        if (avatar === null) { setHint("QQ 号应为 5-11 位数字", true); inputQQ.focus(); return; }
         if (!body) { setHint("请先填写留言内容再预览", true); inputBody.focus(); return; }
         setHint("");
         var cardHTML = gbCard.gbCardHTML({
