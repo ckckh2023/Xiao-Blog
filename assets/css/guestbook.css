@@ -368,7 +368,7 @@
 @media (max-width: 768px) {
   .gb-form-box { grid-template-columns: 1fr; }
   .gb-md-badge span { display: none; }
-  .gb-textarea { min-height: 64px; }
+  .gb-textarea { min-height: 128px; }
 }
 
 /* ---------- 刷新按钮 ---------- */
