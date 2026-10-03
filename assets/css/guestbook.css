@@ -25,7 +25,7 @@
   min-width: 0;
 }
 .gb-form-title {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text);
   margin: 0;
@@ -111,7 +111,7 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   resize: vertical;
-  min-height: 160px;
+  min-height: 190px;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   font-family: inherit;
