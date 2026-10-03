@@ -203,6 +203,24 @@
     "tags": ["办公软件", "跨平台"]
   },
   {
+    "id": "obsidian",
+    "name": "Obsidian",
+    "description": "一款基于 Markdown 的本地知识库与双链笔记应用，支持双向链接、关系图谱、丰富插件生态与主题自定义，数据完全本地存储。",
+    "officialUrl": "https://obsidian.md/zh/",
+    "iconUrl": "https://obsidian.md/favicon.ico",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://obsidian.md/zh/download" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],
+    "blogs": [
+      { "title": "Obsidian 官方帮助", "url": "https://help.obsidian.md/" },
+      { "title": "Obsidian 中文社区", "url": "https://forum-zh.obsidian.md/" }
+    ],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["笔记", "知识管理"]
+  },
+  {
     "id": "everything",
     "name": "Everything",
     "description": "一款专为 Windows 设计的极速文件搜索工具，基于文件名实时定位文件和文件夹，能快速从海量数据中精准找到指定文件。",
@@ -357,7 +375,7 @@
     "tags": ["文件传输", "跨平台"]
   },
   {
-    "id": "mi-hyper-connect",
+    "id": "xiaomi-connect",
     "name": "小米互联服务",
     "description": "小米 HyperOS 推出的跨端智联服务，实现小米手机与各种设备之间的互联共享，小米手机持有者必备。",
     "officialUrl": "https://hyperos.mi.com/continuity/",
@@ -542,6 +560,24 @@
     "tags": ["数据库", "开发工具", "跨平台"]
   },
   {
+    "id": "dbeaver",
+    "name": "DBeaver Community",
+    "description": "一款开源跨平台的通用数据库 GUI 客户端，支持 MySQL、PostgreSQL、SQLite、Oracle、SQL Server、MongoDB、Redis 等几乎所有主流数据库，提供数据编辑、SQL 编辑器、ER 图、数据导出与比较等功能。",
+    "officialUrl": "https://dbeaver.io/",
+    "iconUrl": "https://dbeaver.io/wp-content/uploads/2015/09/beaver-head.png",
+    "installType": [
+      { "title": "官方社区版网站下载", "url": "https://dbeaver.io/download/" },
+      { "title": "GitHub Releases", "url": "https://github.com/dbeaver/dbeaver/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "DBeaver 官方企业版文档", "url": "https://dbeaver.com/docs/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/dbeaver/dbeaver",
+    "tags": ["数据库", "开发工具"]
+  },
+  {
     "id": "codex",
     "name": "OpenAI Codex",
     "description": "OpenAI 官方推出的编码智能体，以 Rust 编写的开源命令行工具为核心，可在终端中直接读写代码库、执行命令并提交改动，同时提供 VS Code / Cursor / Windsurf 扩展、桌面应用与云端并行任务等多种形态。",
@@ -549,7 +585,8 @@
     "iconUrl": "https://avatars.githubusercontent.com/u/14957082?s=200&v=4",
     "installType": [
       { "title": "Npm Package", "url": "https://www.npmjs.com/package/@openai/codex" },
-      { "title": "GitHub Releases", "url": "https://github.com/openai/codex/releases/latest" }
+      { "title": "GitHub Releases", "url": "https://github.com/openai/codex/releases/latest" },
+      { "title": "VSCode 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=openai.chatgpt" }
     ],
     "platforms": ["Windows", "macOS", "Linux", "Web"],
     "blogs": [

@@ -221,6 +221,23 @@
     "tags": ["安装部署", "系统工具", "在线工具"]
   },
   {
+    "id": "chocolatey",
+    "name": "Chocolatey",
+    "description": "Windows 平台上的包管理器（类似 Linux 的 apt/yum 仓库），通过命令行一键安装、升级、卸载软件包，支持版本固定、依赖管理与脚本化部署，喜欢 Linux 包管理器的一定要试试。",
+    "officialUrl": "https://chocolatey.org/",
+    "iconUrl": "https://img.chocolatey.org/favicons/apple-touch-icon-180x180.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://chocolatey.org/install" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "Chocolatey 官方文档", "url": "https://docs.chocolatey.org/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/chocolatey/choco",
+    "tags": ["包管理", "安装部署"]
+  },
+  {
     "id": "geek",
     "name": "Geek Uninstaller",
     "description": "一款专为 Windows 设计的免费、绿色、轻量级软件卸载工具，能够彻底卸载应用程序并深度清理残留的文件与注册表项，有效解决软件卸载不净的问题。",
@@ -300,6 +317,25 @@
     "status": "active",
     "repoUrl": "https://github.com/Comfy-Org/ComfyUI",
     "tags": ["AI", "图形图像", "跨平台"]
+  },
+  {
+    "id": "codegeex",
+    "name": "CodeGeeX",
+    "description": "智谱 AI 推出的免费 AI 编程助手，基于 GLM 大模型，提供代码生成与补全、自动注释、代码翻译、单元测试生成、Bug 修复与代码审查等能力，支持 VS Code、JetBrains 全系列、Vim/NeoVim 等编辑器插件。",
+    "officialUrl": "https://codegeex.cn/",
+    "iconUrl": "https://ts3.tc.mm.bing.net/th/id/ODF.ZhcjNV4C6lmzprZznpdWNA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://codegeex.cn/downloadGuide" },
+      { "title": "VS Code 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=aminer.codegeex" },
+      { "title": "JetBrains 插件仓库", "url": "https://plugins.jetbrains.com/plugin/20587-codegeex-ai-coding-assistant" },
+      { "title": "HBuilderX 插件市场", "url": "https://ext.dcloud.net.cn/plugin?id=15497" },
+      { "title": "Visual Studio 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=aminer.CodeGeeXVisualStudio" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/THUDM/CodeGeeX",
+    "tags": ["AI", "编程助手"]
   },
   {
     "id": "metaso",
