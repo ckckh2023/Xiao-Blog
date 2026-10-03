@@ -25,10 +25,11 @@
   min-width: 0;
 }
 .gb-form-title {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: var(--text);
   margin: 0;
+  text-align: center;
 }
 .gb-form-main {
   display: flex;
