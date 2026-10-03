@@ -199,23 +199,6 @@
       });
     }
 
-    /* QQ 说明气泡（移动端） */
-    var qqInfoBtn = document.getElementById("gb-qq-info");
-    var qqPopover = document.getElementById("gb-qq-popover");
-    if (qqInfoBtn && qqPopover) {
-      qqInfoBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        var open = qqPopover.classList.toggle("is-open");
-        qqInfoBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
-      document.addEventListener("click", function (e) {
-        if (!qqPopover.classList.contains("is-open")) return;
-        if (e.target === qqInfoBtn || qqInfoBtn.contains(e.target) ||
-            e.target === qqPopover || qqPopover.contains(e.target)) return;
-        qqPopover.classList.remove("is-open");
-        qqInfoBtn.setAttribute("aria-expanded", "false");
-      });
-    }
 
     function setHint(msg, isErr) {
       if (!hint) return;
