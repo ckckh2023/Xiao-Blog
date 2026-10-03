@@ -9,13 +9,29 @@
   flex-direction: column;
   gap: 12px;
 }
-.gb-form-row {
-  display: flex;
+.gb-form-box {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.gb-form-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.gb-form-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
 }
 .gb-input {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
   padding: 8px 12px;
   font-size: 14px;
   line-height: 1.5;
@@ -31,6 +47,47 @@
   border-color: var(--link);
   box-shadow: 0 0 0 3px var(--active-bg);
 }
+.gb-md-badge {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+  padding: 8px 4px;
+}
+.gb-md-icon { display: block; }
+.gb-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.gb-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 0;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.gb-tool:hover {
+  color: var(--text);
+  background: var(--code-bg);
+  border-color: var(--border);
+}
+.gb-tool:active { background: var(--active-bg); }
 .gb-textarea {
   width: 100%;
   padding: 10px 12px;
@@ -41,7 +98,7 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   resize: vertical;
-  min-height: 96px;
+  min-height: 120px;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   font-family: inherit;
@@ -295,7 +352,8 @@
 
 /* ---------- 移动端表单两列堆叠样式 ---------- */
 @media (max-width: 768px) {
-  .gb-form-row { flex-direction: column; }
+  .gb-form-box { grid-template-columns: 1fr; }
+  .gb-md-badge { flex: 0 0 auto; flex-direction: row; gap: 8px; padding: 6px 4px; }
 }
 
 /* ---------- 刷新按钮 ---------- */

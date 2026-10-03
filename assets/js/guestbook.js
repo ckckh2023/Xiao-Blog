@@ -140,6 +140,43 @@
     });
   }
 
+  /* ---------- Markdown 工具栏插入辅助 ---------- */
+  function insertMd(textarea, type) {
+    var start = textarea.selectionStart;
+    var end = textarea.selectionEnd;
+    var value = textarea.value;
+    var sel = value.slice(start, end);
+
+    function apply(nv, s, e) {
+      textarea.value = nv;
+      textarea.focus();
+      try { textarea.setSelectionRange(s, e == null ? s : e); } catch (err) {}
+      textarea.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+
+    if (type === "h1") {
+      var ls = value.lastIndexOf("\n", start - 1) + 1;
+      apply(value.slice(0, ls) + "## " + value.slice(ls), ls + 3 + (end - start), ls + 3 + (end - start));
+    } else if (type === "bold") {
+      apply(value.slice(0, start) + "**" + sel + "**" + value.slice(end), start + 2, start + 2 + sel.length);
+    } else if (type === "italic") {
+      apply(value.slice(0, start) + "*" + sel + "*" + value.slice(end), start + 1, start + 1 + sel.length);
+    } else if (type === "quote") {
+      var ls = value.lastIndexOf("\n", start - 1) + 1;
+      apply(value.slice(0, ls) + "> " + value.slice(ls), ls + 2 + (end - start), ls + 2 + (end - start));
+    } else if (type === "code") {
+      apply(value.slice(0, start) + "`" + sel + "`" + value.slice(end), start + 1, start + 1 + sel.length);
+    } else if (type === "link") {
+      if (sel) {
+        var nv = value.slice(0, start) + "[" + sel + "](url)" + value.slice(end);
+        var up = start + 1 + sel.length + 2;
+        apply(nv, up, up + 3);
+      } else {
+        apply(value.slice(0, start) + "[文本](url)" + value.slice(end), start + 1, start + 3);
+      }
+    }
+  }
+
   /* ---------- 发布表单 ---------- */
   function initForm() {
     var form = document.getElementById("guestbook-form");
@@ -150,6 +187,17 @@
     var btn = form.querySelector("#gb-submit");
     var hint = form.querySelector("#gb-form-hint");
     if (!inputName || !inputBody || !btn) return;
+
+    /* Markdown 工具栏 */
+    var toolbar = form.querySelector(".gb-toolbar");
+    if (toolbar) {
+      toolbar.addEventListener("click", function (e) {
+        var toolBtn = e.target.closest(".gb-tool");
+        if (!toolBtn) return;
+        e.preventDefault();
+        insertMd(inputBody, toolBtn.getAttribute("data-md"));
+      });
+    }
 
     function setHint(msg, isErr) {
       if (!hint) return;
