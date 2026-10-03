@@ -51,6 +51,27 @@
     "tags": ["计算机视觉", "图形图像", "开发工具", "跨平台"]
   },
   {
+    "id": "cuda-toolkit",
+    "name": "CUDA Toolkit",
+    "description": "NVIDIA 推出的并行计算平台与编程模型 SDK，包含 nvcc 编译器、CUDA Runtime、cuBLAS/cuFFT/cuSPARSE/cuRAND 等加速库以及 Nsight Systems/Compute、cuda-gdb、compute-sanitizer 等开发与调优工具，是开发英伟达 GPU 加速程序的核心工具链。",
+    "officialUrl": "https://developer.nvidia.com/cuda-toolkit",
+    "iconUrl": "https://developer.nvidia.com/assets/favicon-81bff16cada05fcff11e5711f7e6212bdc2e0a32ee57cd640a8cf66c87a6cbe6.ico",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://developer.nvidia.com/cuda-downloads" },
+      { "title": "Linux apt/yum 官方源", "url": "https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#package-manager-installation" },
+      { "title": "历史版本归档", "url": "https://developer.nvidia.com/cuda-toolkit-archive" }
+    ],
+    "platforms": ["Windows", "Linux"],
+    "blogs": [
+      { "title": "CUDA C++ 编程指南", "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/" },
+      { "title": "CUDA 安装指南（Linux）", "url": "https://docs.nvidia.com/cuda/cuda-installation-guide-linux/" },
+      { "title": "CUDA 安装指南（Windows）", "url": "https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/" }
+    ],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["GPU", "并行计算", "开发工具"]
+  },
+  {
     "id": "mingw",
     "name": "Mingw-w64",
     "description": "Windows 平台上的 GCC 编译工具链，支持 C、C++、Fortran 等多种语言，提供完整的 POSIX 兼容层和 Windows 原生 API 接口。",

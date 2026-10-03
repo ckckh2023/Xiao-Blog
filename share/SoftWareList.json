@@ -357,6 +357,22 @@
     "tags": ["文件传输", "跨平台"]
   },
   {
+    "id": "mi-hyper-connect",
+    "name": "小米互联服务",
+    "description": "小米 HyperOS 推出的跨端智联服务，实现小米手机与各种设备之间的互联共享，小米手机持有者必备。",
+    "officialUrl": "https://hyperos.mi.com/continuity/",
+    "iconUrl": "https://cia.hyperos.mi.com/connect2/ai-s-logo.png",
+    "installType": [
+      { "title": "官方网站下载（Windows 版本）", "url": "https://hyperos.mi.com/continuity/abilities/ab0019" },
+      { "title": "官方网站下载（macOS 或 iOS/iPadOS 版本）", "url": "https://hyperos.mi.com/continuity/abilities/ab0016" }
+    ],
+    "platforms": ["Windows", "macOS", "iOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["文件传输", "设备互联"]
+  },
+  {
     "id": "clash-verge-rev",
     "name": "Clash Verge Rev",
     "description": "一款基于 Tauri 框架构建的现代化跨平台 Clash Meta 图形用户界面客户端，是原 Clash Verge 停更后由社区持续维护的延续版本，提供简洁美观的界面和强大的代理管理功能。",
