@@ -656,3 +656,7 @@ mark {
 }
 .pg-jump-input { -moz-appearance: textfield; }
 
+@media (max-width: 768px) {
+  .pg-jump { margin-left: 0; }
+}
+
