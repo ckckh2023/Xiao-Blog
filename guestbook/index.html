@@ -43,16 +43,7 @@
                    placeholder="昵称 *" required autocomplete="off">
             <input id="gb-input-qq" class="gb-input" type="text" inputmode="numeric"
                    maxlength="11" placeholder="QQ" autocomplete="off">
-            <div class="gb-md-badge">
-              <svg class="gb-md-icon" viewBox="0 0 24 24" width="30" height="24"
-                   aria-hidden="true" fill="none" stroke="currentColor"
-                   stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="5" width="20" height="14" rx="2.5"/>
-                <path d="M6.5 15V9.5l2.5 2.5 2.5-2.5V15"/>
-                <path d="M17 9v4M14 11l3 3 3-3"/>
-              </svg>
-              <span>支持 Markdown</span>
-            </div>
+
           </div>
           <div class="gb-form-main">
             <div class="gb-toolbar" role="toolbar" aria-label="Markdown 编辑工具栏">
@@ -88,6 +79,16 @@
                   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71a5 5 0 0 0 1.5-3.34"/>
                 </svg>
               </button>
+              <div class="gb-md-badge">
+                <svg class="gb-md-icon" viewBox="0 0 24 24" width="22" height="18"
+                     aria-hidden="true" fill="none" stroke="currentColor"
+                     stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="2.5"/>
+                  <path d="M6.5 15V9.5l2.5 2.5 2.5-2.5V15"/>
+                  <path d="M17 9v4M14 11l3 3 3-3"/>
+                </svg>
+                <span>支持 Markdown</span>
+              </div>
             </div>
             <textarea id="gb-input-body" class="gb-textarea" rows="6" maxlength="2000"
                       placeholder="留言内容 *" required></textarea>

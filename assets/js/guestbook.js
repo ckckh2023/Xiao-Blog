@@ -156,11 +156,11 @@
 
     if (type === "h1") {
       var ls = value.lastIndexOf("\n", start - 1) + 1;
-      apply(value.slice(0, ls) + "## " + value.slice(ls), ls + 3 + (end - start), ls + 3 + (end - start));
+      apply(value.slice(0, ls) + "### " + value.slice(ls), ls + 4 + (end - start), ls + 4 + (end - start));
     } else if (type === "bold") {
       apply(value.slice(0, start) + "**" + sel + "**" + value.slice(end), start + 2, start + 2 + sel.length);
     } else if (type === "italic") {
-      apply(value.slice(0, start) + "*" + sel + "*" + value.slice(end), start + 1, start + 1 + sel.length);
+      apply(value.slice(0, start) + "_" + sel + "_" + value.slice(end), start + 1, start + 1 + sel.length);
     } else if (type === "quote") {
       var ls = value.lastIndexOf("\n", start - 1) + 1;
       apply(value.slice(0, ls) + "> " + value.slice(ls), ls + 2 + (end - start), ls + 2 + (end - start));
