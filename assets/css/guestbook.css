@@ -23,7 +23,12 @@
   flex-direction: column;
   gap: 10px;
   min-width: 0;
-  justify-content: center;
+}
+.gb-form-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
 }
 .gb-form-main {
   display: flex;
