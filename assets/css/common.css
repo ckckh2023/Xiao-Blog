@@ -130,6 +130,7 @@ img { max-width: 100%; display: block; }
   height: 2px;
   background: var(--active-border);
   border-radius: 2px;
+  transform: translateZ(0);
   transition: width 0.25s ease;
 }
 .site-nav .nav-item:hover { color: var(--text); }
@@ -139,11 +140,6 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
 }
 .site-nav .nav-item.active::after { width: calc(100% - 28px); }
-
-/* 低分辨率屏高亮条渲染修复 */
-@media (max-resolution: 1dppx) {
-  .site-nav .nav-item::after { height: 3px; }
-}
 
 .site-nav .nav-spacer { flex: 1; }
 
