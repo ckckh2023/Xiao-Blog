@@ -82,12 +82,9 @@ img { max-width: 100%; display: block; }
   z-index: 100;
   display: flex;
   flex-direction: column;
-  background: var(--nav-bg);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--border);
 }
-/* 顶栏内容行，现在支持公告条合入顶栏 */
+/* 顶栏内容行 */
 .site-nav .nav-inner {
   position: relative;
   display: flex;
@@ -96,6 +93,9 @@ img { max-width: 100%; display: block; }
   gap: 16px;
   height: 56px;
   padding: 0 24px;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
 }
 
 .site-nav .nav-avatar {
@@ -391,6 +391,9 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   font-size: 13.5px;
   line-height: 1.5;
   border-top: 1px solid var(--border);
+  /* 微毛玻璃：公告行自己做一层轻磨砂，透出下方页面内容 */
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  backdrop-filter: saturate(180%) blur(10px);
 }
 .notice-text {
   flex: 1;
@@ -408,26 +411,26 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
 /* 黄色警示样式 */
 .notice-bar-warn {
   color: #7a5b00;
-  background: rgba(255, 248, 219, 0.85);
+  background: rgba(255, 248, 219, 0.6);
 }
 [data-theme="dark"] .notice-bar-warn {
   color: #ffe08a;
-  background: rgba(59, 50, 0, 0.72);
+  background: rgba(59, 50, 0, 0.5);
 }
 /* 生日公告样式 */
 .notice-bar-birthday {
   color: #8a1c4b;
   background: linear-gradient(90deg,
-    rgba(255, 227, 238, 0.9) 0%,
-    rgba(255, 240, 246, 0.9) 55%,
-    rgba(255, 234, 204, 0.9) 100%);
+    rgba(255, 227, 238, 0.62) 0%,
+    rgba(255, 240, 246, 0.55) 55%,
+    rgba(255, 234, 204, 0.62) 100%);
 }
 [data-theme="dark"] .notice-bar-birthday {
   color: #ffd6e8;
   background: linear-gradient(90deg,
-    rgba(67, 20, 44, 0.86) 0%,
-    rgba(61, 22, 48, 0.86) 55%,
-    rgba(67, 42, 20, 0.86) 100%);
+    rgba(67, 20, 44, 0.55) 0%,
+    rgba(61, 22, 48, 0.5) 55%,
+    rgba(67, 42, 20, 0.55) 100%);
 }
 /* 关闭按钮 */
 .notice-close {
