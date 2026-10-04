@@ -22,6 +22,8 @@
   --active-border: #0969da;
   /* 顶栏实际高度，由于公告并入顶栏后顶栏会变高，固定定位元素应改用该变量 */
   --nav-h: 56px;
+  /* 顶栏内公告行的总高度，同样由 common.js 更新；下拉菜单据此下移 */
+  --notice-h: 0px;
 }
 
 /* ---------- 深色模式 ---------- */
@@ -87,6 +89,7 @@ img { max-width: 100%; display: block; }
 /* 顶栏内容行 */
 .site-nav .nav-inner {
   position: relative;
+  z-index: 2;
   display: flex;
   flex: none;
   align-items: center;
@@ -208,7 +211,8 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
 .theme-menu-panel {
   position: absolute;
   top: 100%;
-  margin-top: 4px;
+  /* 有公告时整体下移到公告下方，不再压住公告 */
+  margin-top: calc(4px + var(--notice-h, 0px));
   min-width: 150px;
   padding: 6px;
   background: var(--surface);
@@ -391,7 +395,8 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   font-size: 13.5px;
   line-height: 1.5;
   border-top: 1px solid var(--border);
-  /* 微毛玻璃：公告行自己做一层轻磨砂，透出下方页面内容 */
+  z-index: 1;
+  /* 公告行自己的轻磨砂 */
   -webkit-backdrop-filter: saturate(180%) blur(10px);
   backdrop-filter: saturate(180%) blur(10px);
 }
@@ -551,7 +556,8 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
     display: block;
     position: absolute;
     top: 100%;
-    margin-top: 4px;
+    /* 有公告时整体下移到公告下方 */
+    margin-top: calc(4px + var(--notice-h, 0px));
     min-width: 140px;
     padding: 6px;
     background: var(--surface);
