@@ -148,6 +148,35 @@
     });
   }
 
+  /* ---------- 站主生日公告 ----------
+     仅在每年 10 月 4 日（站主生日）当天出现；
+     同一会话内只提示一次，点击公告文本可前往留言板送祝福。 */
+  var BIRTHDAY_MONTH = 10;
+  var BIRTHDAY_DAY = 4;
+  var BIRTHDAY_SEEN_KEY = "birthday_notice_seen";
+
+  function birthdaySeenOn(stamp) {
+    try { return sessionStorage.getItem(BIRTHDAY_SEEN_KEY) === stamp; }
+    catch (e) { return false; }
+  }
+  function markBirthdaySeen(stamp) {
+    try { sessionStorage.setItem(BIRTHDAY_SEEN_KEY, stamp); } catch (e) {}
+  }
+
+  function maybeShowBirthdayNotice() {
+    var now = new Date();
+    if (now.getMonth() + 1 !== BIRTHDAY_MONTH || now.getDate() !== BIRTHDAY_DAY) return;
+    var stamp = now.getFullYear() + "-" + BIRTHDAY_MONTH + "-" + BIRTHDAY_DAY;
+    if (birthdaySeenOn(stamp)) return;
+    markBirthdaySeen(stamp);
+    showNotice("🎂 今天是站主的生日！感谢你参观本站，如果愿意可以去留言板留下你的祝福！", {
+      level: "birthday",
+      link: root() + "guestbook/",
+      linkTarget: "_self"
+    });
+  }
+  global.maybeShowBirthdayNotice = maybeShowBirthdayNotice;
+
   /* 带 ETag 条件请求的 GitHub API 获取
      有缓存时带 If-None-Match 重新校验；
      304 复用缓存并刷新时间戳；
@@ -739,5 +768,6 @@
     mountNav();
     mountYear();
     mountFooterLogo();
+    maybeShowBirthdayNotice();
   });
 })(window);

@@ -406,6 +406,17 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   background: #3b3200;
   border-bottom: 1px solid #55471c;
 }
+/* 生日公告样式 */
+.notice-bar-birthday {
+  color: #8a1c4b;
+  background: linear-gradient(90deg, #ffe3ee 0%, #fff0f6 55%, #ffeacc 100%);
+  border-bottom: 1px solid #f6c2d8;
+}
+[data-theme="dark"] .notice-bar-birthday {
+  color: #ffd6e8;
+  background: linear-gradient(90deg, #43142c 0%, #3d1630 55%, #432a14 100%);
+  border-bottom: 1px solid #6d2f4c;
+}
 /* 关闭按钮 */
 .notice-close {
   flex-shrink: 0;
@@ -659,4 +670,3 @@ mark {
 @media (max-width: 768px) {
   .pg-jump { margin-left: 0; }
 }
-
