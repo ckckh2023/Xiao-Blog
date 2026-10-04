@@ -92,6 +92,7 @@
        options.onClose     关闭时回调
        options.link        点击公告文本跳转的 URL，默认不启用
        options.linkTarget  跳转 target，默认 "_blank"；为 "_blank" 时自动加 rel="noopener noreferrer"
+       options.onLinkClick 点击公告链接时回调
      返回关闭函数；后续其他场景可直接复用该接口。 */
   function showNotice(message, options) {
     var body = document.body;
@@ -103,6 +104,9 @@
     if (opts.link) {
       var linkAttrs = { class: "notice-text notice-text-link", href: opts.link, target: opts.linkTarget };
       if (opts.linkTarget === "_blank") linkAttrs.rel = "noopener noreferrer";
+      if (typeof opts.onLinkClick === "function") {
+        linkAttrs.onclick = function () { opts.onLinkClick(); };
+      }
       bar.appendChild(utils.el("a", linkAttrs, message));
     }
     else bar.appendChild(utils.el("span", { class: "notice-text" }, message));
@@ -148,31 +152,31 @@
     });
   }
 
-  /* ---------- 站主生日公告 ----------
-     仅在每年 10 月 4 日（站主生日）当天出现；
-     同一会话内只提示一次，点击公告文本可前往留言板送祝福。 */
+  /* ---------- 站主生日公告 ---------- */
   var BIRTHDAY_MONTH = 10;
   var BIRTHDAY_DAY = 4;
-  var BIRTHDAY_SEEN_KEY = "birthday_notice_seen";
+  var BIRTHDAY_DISMISS_KEY = "birthday_notice_dismissed";
 
-  function birthdaySeenOn(stamp) {
-    try { return sessionStorage.getItem(BIRTHDAY_SEEN_KEY) === stamp; }
+  function birthdayDismissed(stamp) {
+    try { return localStorage.getItem(BIRTHDAY_DISMISS_KEY) === stamp; }
     catch (e) { return false; }
   }
-  function markBirthdaySeen(stamp) {
-    try { sessionStorage.setItem(BIRTHDAY_SEEN_KEY, stamp); } catch (e) {}
+  function dismissBirthdayNotice(stamp) {
+    try { localStorage.setItem(BIRTHDAY_DISMISS_KEY, stamp); } catch (e) {}
   }
 
   function maybeShowBirthdayNotice() {
     var now = new Date();
     if (now.getMonth() + 1 !== BIRTHDAY_MONTH || now.getDate() !== BIRTHDAY_DAY) return;
     var stamp = now.getFullYear() + "-" + BIRTHDAY_MONTH + "-" + BIRTHDAY_DAY;
-    if (birthdaySeenOn(stamp)) return;
-    markBirthdaySeen(stamp);
+    if (birthdayDismissed(stamp)) return;
+    var dismiss = function () { dismissBirthdayNotice(stamp); };
     showNotice("🎂 今天是站主的生日！感谢你参观本站，如果愿意可以去留言板留下你的祝福！", {
       level: "birthday",
       link: root() + "guestbook/",
-      linkTarget: "_self"
+      linkTarget: "_self",
+      onClose: dismiss,
+      onLinkClick: dismiss
     });
   }
   global.maybeShowBirthdayNotice = maybeShowBirthdayNotice;
