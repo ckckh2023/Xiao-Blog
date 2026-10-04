@@ -556,6 +556,10 @@
   function mountFooterLogo() {
     var links = document.querySelectorAll(".site-footer .footer-repo-link:not(.footer-github-icon)");
     for (var i = 0; i < links.length; i++) {
+      var wrapper = document.createElement("span");
+      wrapper.className = "footer-repo";
+      links[i].parentNode.insertBefore(wrapper, links[i]);
+      wrapper.appendChild(links[i]);
       var a = document.createElement("a");
       a.className = "footer-repo-link footer-github-icon";
       a.href = links[i].href;
@@ -563,7 +567,7 @@
       a.rel = links[i].rel;
       a.setAttribute("aria-label", "GitHub 仓库");
       a.innerHTML = GITHUB_MARK_SVG;
-      links[i].parentNode.insertBefore(a, links[i].nextSibling);
+      wrapper.appendChild(a);
     }
   }
   global.mountFooterLogo = mountFooterLogo;

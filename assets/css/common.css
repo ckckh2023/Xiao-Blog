@@ -361,18 +361,18 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   border-top: 1px solid var(--border);
   margin-top: 48px;
 }
+.site-footer .footer-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
 .site-footer .footer-repo-link {
   color: inherit;
   text-decoration: none;
   transition: color .15s ease;
 }
-.site-footer .footer-repo-link:hover {
+.site-footer .footer-repo:hover .footer-repo-link {
   color: #0969da;
-}
-.site-footer .footer-github-icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 4px;
 }
 .site-footer .footer-github-icon svg {
   width: 16px;
