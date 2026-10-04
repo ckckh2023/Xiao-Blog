@@ -144,10 +144,6 @@
     if (!header) return;
     var h = header.offsetHeight;
     if (h > 0) document.documentElement.style.setProperty("--nav-h", h + "px");
-    var noticeH = 0;
-    var bars = header.querySelectorAll(".notice-bar");
-    for (var i = 0; i < bars.length; i++) noticeH += bars[i].offsetHeight;
-    document.documentElement.style.setProperty("--notice-h", noticeH + "px");
   }
 
   /* 监听顶栏尺寸变化 */

@@ -22,8 +22,6 @@
   --active-border: #0969da;
   /* 顶栏实际高度，由于公告并入顶栏后顶栏会变高，固定定位元素应改用该变量 */
   --nav-h: 56px;
-  /* 顶栏内公告行的总高度，同样由 common.js 更新；下拉菜单据此下移 */
-  --notice-h: 0px;
 }
 
 /* ---------- 深色模式 ---------- */
@@ -211,8 +209,7 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
 .theme-menu-panel {
   position: absolute;
   top: 100%;
-  /* 有公告时整体下移到公告下方，不再压住公告 */
-  margin-top: calc(4px + var(--notice-h, 0px));
+  margin-top: 4px;
   min-width: 150px;
   padding: 6px;
   background: var(--surface);
@@ -556,8 +553,7 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
     display: block;
     position: absolute;
     top: 100%;
-    /* 有公告时整体下移到公告下方 */
-    margin-top: calc(4px + var(--notice-h, 0px));
+    margin-top: 4px;
     min-width: 140px;
     padding: 6px;
     background: var(--surface);
