@@ -116,6 +116,7 @@
       if (closed) return;
       closed = true;
       bar.remove();
+      syncNavHeight();
       if (typeof opts.onClose === "function") opts.onClose();
     };
     if (opts.closable) {
@@ -132,9 +133,37 @@
     if (header && header.classList && header.classList.contains("site-nav")) header.appendChild(bar);
     else if (header && header.parentNode) header.insertAdjacentElement("afterend", bar);
     else body.insertBefore(bar, body.firstChild);
+    syncNavHeight();
     return close;
   }
   global.showNotice = showNotice;
+
+  /* ---------- 顶栏高度同步 ---------- */
+  function syncNavHeight() {
+    var header = document.getElementById("site-nav");
+    if (!header) return;
+    var h = header.offsetHeight;
+    if (h > 0) document.documentElement.style.setProperty("--nav-h", h + "px");
+  }
+
+  /* 监听顶栏尺寸变化 */
+  function watchNavHeight() {
+    syncNavHeight();
+    var header = document.getElementById("site-nav");
+    if (!header) return;
+    if (window.ResizeObserver) {
+      if (watchNavHeight._ro) watchNavHeight._ro.disconnect();
+      watchNavHeight._ro = new ResizeObserver(function () { syncNavHeight(); });
+      watchNavHeight._ro.observe(header);
+    }
+    if (!watchNavHeight._bound) {
+      watchNavHeight._bound = true;
+      window.addEventListener("resize", syncNavHeight);
+      window.addEventListener("load", syncNavHeight);
+    }
+  }
+  global.syncNavHeight = syncNavHeight;
+  global.watchNavHeight = watchNavHeight;
 
   /* GitHub API 不可用时提醒一次；用户手动关闭后本机不再弹出 */
   var GH_NOTICE_KEY = "gh_notice_dismissed";
@@ -775,6 +804,7 @@
     mountNav();
     mountYear();
     mountFooterLogo();
+    watchNavHeight();
     maybeShowBirthdayNotice();
   });
 })(window);
