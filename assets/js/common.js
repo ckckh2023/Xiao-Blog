@@ -129,7 +129,8 @@
     if (opts.autoHide > 0) setTimeout(close, opts.autoHide);
 
     var header = document.getElementById("site-nav");
-    if (header && header.parentNode) header.insertAdjacentElement("afterend", bar);
+    if (header && header.classList && header.classList.contains("site-nav")) header.appendChild(bar);
+    else if (header && header.parentNode) header.insertAdjacentElement("afterend", bar);
     else body.insertBefore(bar, body.firstChild);
     return close;
   }
@@ -356,28 +357,30 @@
     }).join("");
 
     return (
-      '<img class="nav-avatar" src="' + GITHUB_AVATAR + '" alt="avatar" ' +
-        'onerror="this.style.visibility=\'hidden\'">' +
-      '<a class="nav-id" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
-        GITHUB_USER + "</a>" +
-      '<nav class="nav-items">' + items + "</nav>" +
-      '<button class="nav-more" type="button" aria-label="更多导航" aria-expanded="false">' +
-        MORE_SVG + "</button>" +
-      '<div class="nav-more-panel" role="menu" aria-hidden="true">' + panelLinks + "</div>" +
-      '<div class="nav-spacer"></div>' +
-      '<div class="nav-right">' +
-        '<a class="github-link" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
-          GITHUB_ICON_SVG + "<span>GitHub</span></a>" +
-        '<a class="github-link gitee-link" href="' + GITEE_HOME + '" target="_blank" rel="noopener">' +
-          GITEE_ICON_SVG + "<span>Gitee</span></a>" +
-        '<a class="github-link gitcode-link" href="' + GITCODE_HOME + '" target="_blank" rel="noopener">' +
-          GITCODE_ICON_SVG + "<span>GitCode</span></a>" +
-        '<button class="theme-toggle" type="button" aria-label="切换主题" aria-expanded="false">' +
-          AUTO_SVG + SUN_SVG + MOON_SVG + "</button>" +
-        '<div class="theme-menu-panel" role="menu" aria-hidden="true">' +
-          '<button class="theme-menu-link" type="button" role="menuitem" data-mode="auto">' + AUTO_SVG + "<span>跟随系统</span></button>" +
-          '<button class="theme-menu-link" type="button" role="menuitem" data-mode="light">' + SUN_SVG + "<span>亮色模式</span></button>" +
-          '<button class="theme-menu-link" type="button" role="menuitem" data-mode="dark">' + MOON_SVG + "<span>暗色模式</span></button>" +
+      '<div class="nav-inner">' +
+        '<img class="nav-avatar" src="' + GITHUB_AVATAR + '" alt="avatar" ' +
+          'onerror="this.style.visibility=\'hidden\'">' +
+        '<a class="nav-id" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
+          GITHUB_USER + "</a>" +
+        '<nav class="nav-items">' + items + "</nav>" +
+        '<button class="nav-more" type="button" aria-label="更多导航" aria-expanded="false">' +
+          MORE_SVG + "</button>" +
+        '<div class="nav-more-panel" role="menu" aria-hidden="true">' + panelLinks + "</div>" +
+        '<div class="nav-spacer"></div>' +
+        '<div class="nav-right">' +
+          '<a class="github-link" href="' + GITHUB_HOME + '" target="_blank" rel="noopener">' +
+            GITHUB_ICON_SVG + "<span>GitHub</span></a>" +
+          '<a class="github-link gitee-link" href="' + GITEE_HOME + '" target="_blank" rel="noopener">' +
+            GITEE_ICON_SVG + "<span>Gitee</span></a>" +
+          '<a class="github-link gitcode-link" href="' + GITCODE_HOME + '" target="_blank" rel="noopener">' +
+            GITCODE_ICON_SVG + "<span>GitCode</span></a>" +
+          '<button class="theme-toggle" type="button" aria-label="切换主题" aria-expanded="false">' +
+            AUTO_SVG + SUN_SVG + MOON_SVG + "</button>" +
+          '<div class="theme-menu-panel" role="menu" aria-hidden="true">' +
+            '<button class="theme-menu-link" type="button" role="menuitem" data-mode="auto">' + AUTO_SVG + "<span>跟随系统</span></button>" +
+            '<button class="theme-menu-link" type="button" role="menuitem" data-mode="light">' + SUN_SVG + "<span>亮色模式</span></button>" +
+            '<button class="theme-menu-link" type="button" role="menuitem" data-mode="dark">' + MOON_SVG + "<span>暗色模式</span></button>" +
+          "</div>" +
         "</div>" +
       "</div>"
     );

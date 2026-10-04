@@ -79,14 +79,21 @@ img { max-width: 100%; display: block; }
   top: 0;
   z-index: 100;
   display: flex;
-  align-items: center;
-  gap: 16px;
-  height: 56px;
-  padding: 0 24px;
+  flex-direction: column;
   background: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--border);
+}
+/* 顶栏内容行，现在支持公告条合入顶栏 */
+.site-nav .nav-inner {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 16px;
+  height: 56px;
+  padding: 0 24px;
 }
 
 .site-nav .nav-avatar {
@@ -378,9 +385,10 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 16px;
-  font-size: 14px;
+  padding: 8px 24px;
+  font-size: 13.5px;
   line-height: 1.5;
+  border-top: 1px solid var(--border);
 }
 .notice-text {
   flex: 1;
@@ -398,24 +406,26 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
 /* 黄色警示样式 */
 .notice-bar-warn {
   color: #7a5b00;
-  background: #fff8db;
-  border-bottom: 1px solid #f0d48a;
+  background: rgba(255, 248, 219, 0.85);
 }
 [data-theme="dark"] .notice-bar-warn {
   color: #ffe08a;
-  background: #3b3200;
-  border-bottom: 1px solid #55471c;
+  background: rgba(59, 50, 0, 0.72);
 }
 /* 生日公告样式 */
 .notice-bar-birthday {
   color: #8a1c4b;
-  background: linear-gradient(90deg, #ffe3ee 0%, #fff0f6 55%, #ffeacc 100%);
-  border-bottom: 1px solid #f6c2d8;
+  background: linear-gradient(90deg,
+    rgba(255, 227, 238, 0.9) 0%,
+    rgba(255, 240, 246, 0.9) 55%,
+    rgba(255, 234, 204, 0.9) 100%);
 }
 [data-theme="dark"] .notice-bar-birthday {
   color: #ffd6e8;
-  background: linear-gradient(90deg, #43142c 0%, #3d1630 55%, #432a14 100%);
-  border-bottom: 1px solid #6d2f4c;
+  background: linear-gradient(90deg,
+    rgba(67, 20, 44, 0.86) 0%,
+    rgba(61, 22, 48, 0.86) 55%,
+    rgba(67, 42, 20, 0.86) 100%);
 }
 /* 关闭按钮 */
 .notice-close {
@@ -507,7 +517,8 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
 
 /* ---------- 响应式导航栏与卡片网格 ---------- */
 @media (max-width: 768px) {
-  .site-nav { padding: 0 12px; gap: 8px; }
+  .site-nav .nav-inner { padding: 0 12px; gap: 8px; }
+  .notice-bar { padding: 8px 12px; }
   .site-nav .nav-id { display: none; }
   .site-nav .gitee-link, .site-nav .gitcode-link { display: none; }
   .project-grid { grid-template-columns: 1fr; }
