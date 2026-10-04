@@ -1,4 +1,4 @@
-/* ============================================================
+RSS 和 sitemap 都会输出全部 32 篇文章/* ============================================================
    functions/sitemap.xml.js - 动态生成站点地图
    路由：/sitemap.xml
    ============================================================ */
@@ -19,8 +19,8 @@ function docMdPath(ids) {
 function walk(list, ids, nodes) {
   list.forEach(function (it) {
     var childIds = ids.concat([it.id]);
-    nodes.push({ ids: childIds });
-    if (it.children) walk(it.children, childIds, nodes);
+    if (it.children && it.children.length) walk(it.children, childIds, nodes);
+    else nodes.push({ ids: childIds });
   });
 }
 

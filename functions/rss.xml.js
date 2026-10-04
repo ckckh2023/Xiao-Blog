@@ -23,8 +23,8 @@ function walk(list, ids, titles, nodes) {
   list.forEach(function (it) {
     var childIds = ids.concat([it.id]);
     var childTitles = titles.concat([it.title]);
-    nodes.push({ ids: childIds, title: childTitles.join(" - ") });
-    if (it.children) walk(it.children, childIds, childTitles, nodes);
+    if (it.children && it.children.length) walk(it.children, childIds, childTitles, nodes);
+    else nodes.push({ ids: childIds, title: childTitles.join(" - ") });
   });
 }
 
