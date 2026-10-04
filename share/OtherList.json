@@ -307,7 +307,7 @@
     "officialUrl": "https://comfy.org/zh-CN/",
     "iconUrl": "https://mintcdn.com/dripart/maKDA164-rrTfyxY/favicon.ico?fit=max",
     "installType": [
-      { "title": "桌面应用 (Desktop App)", "url": "https://www.comfy.org/download" }
+      { "title": "官方网站下载", "url": "https://www.comfy.org/download" }
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
@@ -321,7 +321,7 @@
   {
     "id": "codegeex",
     "name": "CodeGeeX",
-    "description": "智谱 AI 推出的免费 AI 编程助手，基于 GLM 大模型，提供代码生成与补全、自动注释、代码翻译、单元测试生成、Bug 修复与代码审查等能力，支持 VS Code、JetBrains 全系列、Vim/NeoVim 等编辑器插件。",
+    "description": "智谱 AI 推出的免费 AI 编程助手，基于 GLM 大模型，提供代码生成与补全、自动注释、代码翻译、单元测试生成、Bug 修复与代码审查等能力，支持 VS Code、JetBrains 全系列、HBuilderX、Visual Studio 等编辑器插件。",
     "officialUrl": "https://codegeex.cn/",
     "iconUrl": "https://ts3.tc.mm.bing.net/th/id/ODF.ZhcjNV4C6lmzprZznpdWNA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2",
     "installType": [
