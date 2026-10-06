@@ -1,4 +1,4 @@
-本文介绍 Linux 系统安装完成后的**初步配置**：查看硬件与驱动状态、管理内核模块、配置模块加载行为、固件与签名、以及常见硬件（显卡、无线网卡）的配置要点。**驱动的具体安装方式（apt 仓库、源码编译等）将在其他文档专门介绍**。
+本文介绍 Linux 系统安装完成后的**初步配置**：系统更新、软件源更换、显卡驱动安装、中文输入法、双系统时间、防火墙及常用软件，**其余高级内容将在其他文档专门介绍**。
 
 > Linux 系统内的大量内容涉及命令行，建议设置快捷键 `Super + T` 快速启动终端！
 
@@ -41,9 +41,7 @@ sudo apt update
 lspci | grep -i vga
 ```
 
-> Intel 核显与 AMD 显卡使用预装的开源驱动性能已经很好不需要多余配置，AMD 独显安装官方闭源驱动使用 ROCm 的教程后续出。
-
-> 如果你拥有 Nvidia 独显，这将是 **最难** 配置的步骤。
+> 核显使用预装的开源驱动几乎不需要多余配置，AMD 独显安装官方闭源驱动使用 ROCm 的教程后续出。
 
 ### 安装方法
 
@@ -67,7 +65,7 @@ sudo ubuntu-drivers autoinstall
 
 ```bash
 sudo apt update
-sudo apt install nvidia-driver-565-open
+sudo apt install nvidia-driver-XXX-open # XXX 需替换，如 565、595 等等
 ```
 
 `-open` 后缀为 NVIDIA 开源内核模块版，同时拉入运行 CUDA 程序所需的用户态库，无需再单独装 CUDA 运行时。若要编译开发，再 `sudo apt install cuda-toolkit` 即可。
@@ -84,19 +82,66 @@ sudo apt install nvidia-driver-565-open
 
 ## 系统设置
 
-### 中文输入法
+### 中文输入法配置
 
 Ubuntu 24.04+ 推荐使用 **fcitx5** 框架：
 
 ```bash
-sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt
+sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fcitx5-frontend-qt6 fcitx5-pinyin
 ```
 
-安装后注销重新登录，在「设置 → 区域与语言」中将输入法框架切换为 Fcitx 5，再运行 `fcitx5-configtool` 添加拼音输入法。默认使用 `Ctrl + Space` 切换中英文。
+#### 安装后处理
 
-> 若托盘未显示输入法图标，检查环境变量是否设置了 `GTK_IM_MODULE=fcitx`、`QT_IM_MODULE=fcitx`、`XMODIFIERS=@im=fcitx`，新版 fcitx5 通常会自动配置。
+Ubuntu 默认预装 IBus 及其引擎，会与 fcitx5 争抢输入法总线名，**需卸载引擎，保留核心库**：
 
-### 双系统时间不对
+```bash
+sudo apt purge -y ibus-libpinyin ibus-table ibus-table-wubi ibus-table-cangjie* ibus-chewing ibus-m17n
+```
+
+#### 配置环境变量
+
+我们需要在 `~/.config/environment.d` 创建 `fcitx5.conf` 文件，填入以下内容：
+
+```conf
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+QT_IM_MODULES=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+CLUTTER_IM_MODULE=fcitx
+```
+
+改完必须**注销重新登录或重启**，`environment.d` 只在会话启动时由 systemd 读取。
+
+#### 设置开机自启
+
+```bash
+mkdir -p ~/.config/autostart
+cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
+```
+
+#### 配置输入法
+
+终端输入 `fcitx5-configtool`，在「输入法」页把 `拼音` 加入左侧列表。
+
+**若要「开机默认就是中文」**，编辑 `~/.config/fcitx5/config`：
+
+```ini
+[Behavior]
+ActiveByDefault=True
+```
+
+#### 解决候选框位置错乱的问题
+
+fcitx5 会主动弹通知提示安装输入法面板这个 GNOME Shell 扩展：https://extensions.gnome.org/extension/261/kimpanel/
+
+**原因**：GNOME 的 Wayland `input-method` 协议**不传递光标坐标**，所以输入法候选框的位置偏离输入框！
+
+> 在链接页面安装扩展后重启即可解决此问题。
+
+---
+
+### 双系统时间配置
 
 Windows 把硬件时钟当作本地时间，Linux 当作 UTC，导致装双系统后切换系统时间会差 8 小时。最简单的解决方法是让 Linux 也使用本地时间：
 
