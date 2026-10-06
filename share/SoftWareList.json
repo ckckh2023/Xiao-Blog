@@ -69,6 +69,21 @@
     "tags": ["压缩解压"]
   },
   {
+    "id": "adobe-acrobat",
+    "name": "Adobe Acrobat",
+    "description": "Adobe 官方推出的全球最知名的 PDF 文档阅读与编辑工具，支持查看、创建、编辑、转换、签名、加密 PDF 文件，是 PDF 文件的事实标准。",
+    "officialUrl": "https://www.adobe.com/cn/acrobat.html",
+    "iconUrl": "https://get.adobe.com/reader/becd275d1b/images/adobe_logo.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://get.adobe.com/cn/reader/otherversions/" }
+    ],
+    "platforms": ["Windows", "macOS", "Android"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["PDF", "办公软件"]
+  },
+  {
     "id": "7zip",
     "name": "7-Zip",
     "description": "一款开源免费的高压缩率文件归档工具，支持绝大部分主流压缩格式，简洁好用。",
@@ -650,6 +665,22 @@
     "status": "deprecated",
     "repoUrl": null,
     "tags": ["IDE", "C++", "开发工具"]
+  },
+  {
+    "id": "windhawk",
+    "name": "Windhawk",
+    "description": "一款专为 Windows 设计的开源系统修改工具，允许用户通过安装模组来定制和增强系统行为与样式，注意 Windows 平台美化可能有风险。",
+    "officialUrl": "https://windhawk.net/",
+    "iconUrl": "https://windhawk.net/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://windhawk.net/" },
+      { "title": "GitHub Releases", "url": "https://github.com/ramensoftware/windhawk/releases/latest" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/ramensoftware/windhawk",
+    "tags": ["系统工具", "界面美化"]
   },
   {
     "id": "ext2-volume-manager",
