@@ -124,12 +124,7 @@ cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
 
 终端输入 `fcitx5-configtool`，在「输入法」页把 `拼音` 加入左侧列表。
 
-**若要「开机默认就是中文」**，编辑 `~/.config/fcitx5/config`：
-
-```ini
-[Behavior]
-ActiveByDefault=True
-```
+> 若需要开机默认中文，编辑 `~/.config/fcitx5/config` 使得 `[Behavior]` 项为 `ActiveByDefault=True`。
 
 #### 解决候选框位置错乱的问题
 
@@ -137,7 +132,7 @@ fcitx5 会主动弹通知提示安装输入法面板这个 GNOME Shell 扩展：
 
 **原因**：GNOME 的 Wayland `input-method` 协议**不传递光标坐标**，所以输入法候选框的位置偏离输入框！
 
-> 在链接页面安装扩展后重启即可解决此问题。
+> 在[此链接](https://extensions.gnome.org/extension/261/kimpanel/)页面安装扩展后重启即可解决此问题。
 
 ---
 
