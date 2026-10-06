@@ -2,7 +2,7 @@
   {
     "id": "chrome",
     "name": "Google Chrome",
-    "description": "谷歌推出的全球用户量最大的网页浏览器，基于开源 Chromium 内核（几乎大部分浏览器都使用的此内核），覆盖 Windows、macOS、Linux 与移动端。",
+    "description": "谷歌推出的全球用户量最大的网页浏览器，基于几乎大部分浏览器都在使用的开源 Chromium 内核，覆盖 Windows、macOS、Linux 与移动端。",
     "officialUrl": "https://www.google.cn/chrome/",
     "iconUrl": "https://www.google.cn/chrome/static/images/chrome-logo-m100.svg",
     "installType": [

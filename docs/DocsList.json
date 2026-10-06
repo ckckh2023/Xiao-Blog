@@ -32,11 +32,11 @@
   },
   { "id": "c-cpp-guide", "title": "C/C++ 相关指导及建议",
     "children": [
-      { "id": "compile-introduction", "title": "C/C++ 编译方法介绍",
+      { "id": "compile-introduction", "title": "C/C++ 编译工具及使用方法介绍",
         "children": [
-          { "id": "msvc-guide", "title": "MSVC 编译方法及指导" },
-          { "id": "gcc-guide", "title": "GCC 编译方法及指导" },
-          { "id": "cmake-guide", "title": "CMake 编译方法及指导" }
+          { "id": "msvc-guide", "title": "MSVC 编译器使用方法（Windows 平台）" },
+          { "id": "gcc-guide", "title": "GCC 编译器使用方法（Linux 与 Windows 平台" },
+          { "id": "cmake-guide", "title": "CMake 编译工具使用方法及指导" }
         ]
       },
       { "id": "develop-study", "title": "C/C++ 开发学习建议及指导",

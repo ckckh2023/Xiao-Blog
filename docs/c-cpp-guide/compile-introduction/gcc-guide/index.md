@@ -1,5 +1,7 @@
 gcc/g++ 是 GNU 编译器集合中的 C/C++ 编译器，是 Linux 平台上最广泛使用的 C++ 编译工具，它开源、跨平台，支持多种语言和架构。
 
+> Windows 下有移植版本 Mingw，是适合 Windows C/C++ 初学者的工具，因为 MSVC 阉割了许多 C 语言特性。
+
 ---
 
 ## 环境配置
@@ -12,7 +14,8 @@ sudo apt update
 sudo apt install build-essential
 
 # CentOS/RHEL/Fedora
-sudo dnf groupinstall "Development Tools"
+sudo dnf groupinstall "Development Tools" # 较新版本（使用 dnf)
+sudo yum groupinstall "Development Tools" # 较旧版本（使用 yum）
 ```
 
 安装完成后，可通过 `g++ --version` 验证安装。

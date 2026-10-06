@@ -124,6 +124,8 @@ sudo ufw status verbose
 
 ## 安装常用软件
 
+> 如果你是 C/C++ 开发者，可以使用 `sudo apt install build-essential` 立刻配置好开发环境，可以去[此文档](https://xiao-blog.top/docs/article?id=c-cpp-guide&sub=compile-introduction&sub2=gcc-guide)查看。
+
 这些是一些命令行工具，你也可以去我的[分享页](https://xiao-blog.top/share/)寻找好用的 Linux 桌面应用。
 
 ```bash
