@@ -338,6 +338,23 @@
     "tags": ["AI", "编程助手"]
   },
   {
+    "id": "maple-mono",
+    "name": "Maple Mono",
+    "description": "开源圆角等宽字体，主要为中文开发者用户设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
+    "officialUrl": "https://font.subf.dev",
+    "iconUrl": "https://font.subf.dev/favicon.svg",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
+      { "title": "懒人包（GitHub Releases）", "url": "https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN-unhinted.zip" },
+      { "title": "懒人包（123云盘）", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-DeiM" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/subframe7536/maple-font",
+    "tags": ["字体", "开发工具", "跨平台"]
+  },
+  {
     "id": "metaso",
     "name": "秘塔 AI 搜索",
     "description": "一款国产 AI 搜索引擎，专注于学术搜索与科研场景，能自动总结搜索结果、生成结构化大纲并引用文献来源，为学术研究、文献调研与知识问答提供一站式智能解答。",
@@ -417,22 +434,5 @@
     "status": "active",
     "repoUrl": "https://github.com/3b1b/manim",
     "tags": ["Python", "动画制作", "开发工具"]
-  },
-  {
-    "id": "maple-mono",
-    "name": "Maple Mono",
-    "description": "开源圆角等宽字体，主要为中文开发者用户设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
-    "officialUrl": "https://font.subf.dev",
-    "iconUrl": "https://font.subf.dev/favicon.svg",
-    "installType": [
-      { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
-      { "title": "懒人包（GitHub Releases）", "url": "https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN-unhinted.zip" },
-      { "title": "懒人包（123云盘）", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-DeiM" }
-    ],
-    "platforms": ["Windows", "macOS", "Linux"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": "https://github.com/subframe7536/maple-font",
-    "tags": ["字体", "开发工具", "跨平台"]
   }
 ]
