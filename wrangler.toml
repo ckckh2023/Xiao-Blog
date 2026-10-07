@@ -1,15 +1,24 @@
 # Cloudflare Pages 配置：D1 数据库绑定
 # 部署：wrangler pages deploy . --project-name=<page name>
 # 本地开发：wrangler pages dev .
-# 获取 database_id： wrangler d1 list
-
-# 也可以在 Cloudflare Dashboard -> Pages 项目 -> Settings -> Functions -> D1 bindings 手动绑定
 
 name = "xiao-blog"
 compatibility_date = "2024-09-01"
 pages_build_output_dir = "."
 
+# 留言板数据库绑定
+# 获取 database_id： wrangler d1 list
+# 然后把返回的name 和 id 填到下方
+
 [[d1_databases]]
 binding = "GUESTBOOK"
 database_name = "xiao-guestbook"
 database_id = "ec50a6ab-f132-4217-b000-99a13ddb53aa"
+
+# GitHub API 代理 KV 缓存
+# 需要先创建 namespace：wrangler kv namespace create <namespace name>
+# 然后把返回的 id 填到下方
+
+[[kv_namespaces]]
+binding = "GITHUB_CACHE"
+id = "841bc647b7a547fb9c91ceb566e55829"

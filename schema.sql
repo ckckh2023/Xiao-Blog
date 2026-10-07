@@ -1,10 +1,10 @@
 -- ============================================================
 -- schema.sql - 留言板数据库初始化
---   本地：  wrangler d1 execute <sqlite name> --local  --file=./schema.sql
---   远程：  wrangler d1 execute <sqlite name> --remote --file=./schema.sql
+-- 本地：  wrangler d1 execute <sqlite name> --local  --file=./schema.sql
+-- 远程：  wrangler d1 execute <sqlite name> --remote --file=./schema.sql
 
---   重置：  wrangler d1 execute <sqlite name> --remote --command="DROP TABLE IF EXISTS messages"
---           wrangler d1 execute <sqlite name> --remote --file=./schema.sql
+-- 重置：  wrangler d1 execute <sqlite name> --remote --command="DROP TABLE IF EXISTS messages"
+--         wrangler d1 execute <sqlite name> --remote --file=./schema.sql
 -- ============================================================
 
 -- 留言表

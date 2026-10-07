@@ -10,7 +10,7 @@
   var GITHUB_USER = "ckckh2023";
   var GITHUB_AVATAR = "/assets/icons/head.jpg";
   var GITHUB_HOME = "https://github.com/" + GITHUB_USER;
-  var GITHUB_API = "https://api.github.com/users/" + GITHUB_USER;
+  var GITHUB_API = "/api/github/users/" + GITHUB_USER;
   var GITEE_HOME = "https://gitee.com/" + GITHUB_USER;
   var GITCODE_HOME = "https://gitcode.com/" + GITHUB_USER;
 

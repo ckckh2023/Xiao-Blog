@@ -34,7 +34,7 @@
   global.fetchRepoList = fetchRepoList;
 
   /* ---------- GitHub 仓库详情获取 ---------- */
-  var REPO_API = "https://api.github.com/repos/";
+  var REPO_API = "/api/github/repos/";
 
   /* 获取仓库简介和真实 star 数 */
   function fetchRepoInfo(fullName) {
