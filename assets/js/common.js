@@ -165,22 +165,6 @@
   global.syncNavHeight = syncNavHeight;
   global.watchNavHeight = watchNavHeight;
 
-  /* GitHub API 不可用时提醒一次；用户手动关闭后本机不再弹出 */
-  var GH_NOTICE_KEY = "gh_notice_dismissed";
-  function ghNoticeDismissed() {
-    try { return localStorage.getItem(GH_NOTICE_KEY) === "1"; } catch (e) { return false; }
-  }
-  function dismissGhNotice() {
-    try { localStorage.setItem(GH_NOTICE_KEY, "1"); } catch (e) {}
-  }
-  var ghIssuesNoticed = false;
-  function notifyGitHubIssues() {
-    if (ghIssuesNoticed || ghNoticeDismissed()) return;
-    ghIssuesNoticed = true;
-    showNotice("GitHub API 暂时不可用或已达请求上限，部分数据可能不是最新，请稍后访问重试。", {
-      onClose: dismissGhNotice
-    });
-  }
 
   /* ---------- 站主生日公告 ---------- */
   var BIRTHDAY_MONTH = 10;
@@ -236,9 +220,7 @@
         return json;
       });
     }).catch(function (err) {
-      if (!err.status || err.status >= 500 || err.status === 403 || err.status === 429) {
-        notifyGitHubIssues();
-      }
+
       if (entry) {
         console.warn("[gh-api] 请求失败，回退缓存 " + key + "：", err);
         return entry.d;

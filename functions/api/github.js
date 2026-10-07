@@ -1,10 +1,11 @@
 /* ============================================================
    GitHub API 代理与 KV 缓存的实现
    前端请求 /api/github/{path} -> 代理到 https://api.github.com/{path}
-   KV 命中且未过期则直接返回缓存，过期则带 ETag 协商回源
 
-   可以将 GITHUB_TOKEN 放到 CF Secrets 来提高限额
+   可以创建 GitHub Personal access tokens (classic)，给予 public_repo 权限，
+   并以 GITHUB_TOKEN 作为密钥名放到 Cloudflare Pages 的变量与密钥来提高限额
    ============================================================*/
+
 var GITHUB_API_BASE = "https://api.github.com/";
 var CACHE_TTL = 3600; /* 1 小时 */
 
