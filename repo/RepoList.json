@@ -52,7 +52,7 @@
     ],
     "desc": "NotePad-- 项目的 Qt 6 复刻版本，旨在引入更多高版本特性与本人开发的新功能，用于替代系统自带的文本编辑器与 NotePad++。",
     "stars": 0,
-    "tags": ["C++", "HTML", "NSIS", "SIP", "C", "CSS", "JavaScript", "CMake", "Inno Setup", "Python", "Makefile", "Batchfile", "QMake"]
+    "tags": ["C++", "HTML", "NSIS", "SIP", "C", "CSS", "JavaScript", "CMake", "Inno Setup", "Python", "Makefile", "Batchfile"]
   },
   {
     "id": "TsingHuaelt-VMIC",

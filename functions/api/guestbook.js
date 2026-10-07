@@ -6,7 +6,9 @@
       POST /api/guestbook            发布留言
    数据表 messages：id, nickname, body, avatar, ip_hash, created_at
    id 策略：新留言 id = MAX(id) + 1
-   D1 绑定：详见 wrangler.toml 的 env.GUESTBOOK 配置项
+   D1 绑定：详见 wrangler.toml 的 d1_databases 配置项
+
+   需要以 GUESTBOOK_SALT 作为密钥名将哈希盐值放到 Cloudflare Pages 的变量与密钥！
    ============================================================ */
 
 const RATE_LIMIT_MS = 10 * 60 * 1000;   /* 每 IP 10 分钟一次 */
@@ -23,9 +25,9 @@ function json(data, status = 200) {
 }
 
 /* ---------- IP 哈希 ---------- */
-async function hashIP(ip) {
+async function hashIP(ip, salt) {
   if (!ip) return "unknown";
-  const data = new TextEncoder().encode(ip + "::xiao-gb-salt");
+  const data = new TextEncoder().encode(ip + salt);
   const buf = await crypto.subtle.digest("SHA-256", data);
   return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
 }
@@ -118,7 +120,7 @@ export async function onRequestPost(context) {
 
     /* IP 哈希和频率限制 */
     const ip = request.headers.get("CF-Connecting-IP") || "";
-    const ipHash = await hashIP(ip);
+    const ipHash = await hashIP(ip, env.GUESTBOOK_SALT);
 
     const recent = await env.GUESTBOOK.prepare(
       "SELECT created_at FROM messages WHERE ip_hash = ? ORDER BY created_at DESC LIMIT 1"
