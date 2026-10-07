@@ -21,12 +21,13 @@ function jsonResponse(data, etag, cacheStatus) {
   });
 }
 
-export async function onRequest(context) {
+export async function onRequestGet(context) {
   var request = context.request;
   var env = context.env;
   var url = new URL(request.url);
   var ghPath = url.pathname.replace(/^\/api\/github\/?/, "");
   if (!ghPath) return new Response("Bad Request", { status: 400 });
+  if (!/^users\/|^repos\//.test(ghPath)) return new Response("Forbidden", { status: 403 });
   var ghUrl = GITHUB_API_BASE + ghPath + (url.search || "");
   var cacheKey = "gh:" + ghPath + (url.search || "");
 
