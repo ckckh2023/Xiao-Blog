@@ -135,6 +135,7 @@
   color: var(--text-muted);
 }
 .gb-form-hint-err { color: #d33; }
+.gb-form-hint-ok { color: #2196f3; }
 .gb-submitting { opacity: 0.75; cursor: wait; }
 .gb-form-actions {
   display: flex;

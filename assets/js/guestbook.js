@@ -198,10 +198,10 @@
     }
 
 
-    function setHint(msg, isErr) {
+    function setHint(msg, isErr, isOk) {
       if (!hint) return;
       hint.textContent = msg || "";
-      hint.className = "gb-form-hint" + (isErr ? " gb-form-hint-err" : "");
+      hint.className = "gb-form-hint" + (isErr ? " gb-form-hint-err" : isOk ? " gb-form-hint-ok" : "");
     }
 
     function setLoading(on) {
@@ -246,7 +246,7 @@
           return;
         }
         inputBody.value = "";
-        setHint("留言发布成功！");
+        setHint("留言发布成功！", false, true);
         wallPage = 1; /* 发布成功后回到第一页 */
         /* 清除本地缓存，确保刷新后立即看到新留言 */
         try { localStorage.removeItem(GB_WALL_CACHE_KEY); } catch (e) {}

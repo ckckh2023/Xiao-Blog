@@ -220,7 +220,6 @@
         return json;
       });
     }).catch(function (err) {
-
       if (entry) {
         console.warn("[gh-api] 请求失败，回退缓存 " + key + "：", err);
         return entry.d;

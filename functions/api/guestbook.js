@@ -96,6 +96,7 @@ export async function onRequestPost(context) {
   const { request, env } = context;
   try {
     await ensureSchema(env);
+    if (!env.GUESTBOOK_SALT) return json({ error: "服务器未配置 GUESTBOOK_SALT" }, 500);
 
     /* 解析请求体 */
     let payload;
