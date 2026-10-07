@@ -12,7 +12,7 @@
   {
     "url": "https://xiao-blog.top/docs/article?id=linux-guide&sub=linux-install-guide&sub2=install-ubuntu",
     "title": "Ubuntu 实体机安装教程",
-    "excerpt": "Ubuntu 实体机安装全流程，下文还有分区、时区、软件源配置与本人多次装机遇到的坑点。"
+    "excerpt": "Ubuntu 实体机安装全流程，包括分区、时区、显卡驱动配置、中文输入法配置与本人多次装机遇到的坑点。"
   },
   {
     "url": "https://xiao-blog.top/docs/article?id=web-develop-guide&sub=page-deploy-guide&sub2=cloudflare-pages-deploy",

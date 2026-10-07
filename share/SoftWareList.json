@@ -19,7 +19,7 @@
   {
     "id": "vscode",
     "name": "Visual Studio Code",
-    "description": "微软推出的免费、开源、跨平台的轻量级代码编辑器，有丰富的扩展生态支持，不愧为最全能的编码器。",
+    "description": "微软推出的免费、开源、跨平台的轻量级代码编辑器，有丰富的扩展生态支持，不愧为最全能的代码编辑器。",
     "officialUrl": "https://code.visualstudio.com",
     "iconUrl": "https://code.visualstudio.com/assets/apple-touch-icon.png",
     "installType": [
