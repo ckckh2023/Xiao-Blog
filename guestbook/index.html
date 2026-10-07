@@ -33,12 +33,12 @@
 
     <!-- 留言发布入口 -->
     <section class="panel">
-      <form id="guestbook-form" class="gb-form">
+      <form id="guestbook-form" class="gb-form" autocomplete="on">
         <div class="gb-form-box">
           <div class="gb-form-side">
             <div class="gb-form-title">写下你的留言</div>
-            <input id="gb-input-name" class="gb-input" type="text" maxlength="32" placeholder="昵称" required autocomplete="off">
-            <input id="gb-input-qq" class="gb-input" type="text" inputmode="numeric" maxlength="11" placeholder="QQ" required autocomplete="off">
+            <input id="gb-input-name" class="gb-input" type="text" name="nickname" maxlength="32" placeholder="昵称" required autocomplete="name">
+            <input id="gb-input-qq" class="gb-input" type="text" name="qq" inputmode="numeric" maxlength="11" placeholder="QQ" required autocomplete="username">
             <div class="gb-qq-hint">
               <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"
                    fill="none" stroke="currentColor" stroke-width="2"
