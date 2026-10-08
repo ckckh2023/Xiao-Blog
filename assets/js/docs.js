@@ -447,6 +447,30 @@
     el.textContent = "最后更新：" + d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
   }
 
+  var ALERT_TYPES = {
+    CAUTION: { cls: "alert-caution", title: "注意" },
+    WARNING: { cls: "alert-warning", title: "警告" },
+    TIP: { cls: "alert-tip", title: "提示" },
+    IMPORTANT: { cls: "alert-important", title: "重要提示" }
+  };
+
+  function convertAlerts(box) {
+    box.querySelectorAll("blockquote").forEach(function (bq) {
+      var first = bq.firstElementChild;
+      if (!first || first.tagName !== "P") return;
+      var m = first.textContent.trim().match(/^\[!(CAUTION|WARNING|TIP|IMPORTANT)\]$/i);
+      if (!m) return;
+      var cfg = ALERT_TYPES[m[1].toUpperCase()];
+      if (!cfg) return;
+      bq.removeChild(first);
+      bq.classList.add(cfg.cls);
+      var title = document.createElement("p");
+      title.className = "alert-title";
+      title.textContent = cfg.title;
+      bq.insertBefore(title, bq.firstChild);
+    });
+  }
+
   function renderDocMarkdown(selector, mdUrl) {
     var box = document.querySelector(selector);
     if (!box) return Promise.resolve();
@@ -469,6 +493,7 @@
       if (!data || !data.ok) throw new Error((data && data.error) || "文章加载失败");
       fillDocUpdated(data.date || data.lastModified);
       box.innerHTML = parse(data.markdown);
+      convertAlerts(box);
       box.querySelectorAll("img").forEach(function (img) {
         var s = img.getAttribute("src");
         if (s && !/^(https?:)?\/\//i.test(s) && !/^data:/i.test(s) && s.charAt(0) !== "/") img.src = mdDir + s;
