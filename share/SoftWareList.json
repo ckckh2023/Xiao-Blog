@@ -87,8 +87,8 @@
     "id": "7zip",
     "name": "7-Zip",
     "description": "一款开源免费的高压缩率文件归档工具，支持绝大部分主流压缩格式，简洁好用。",
-    "officialUrl": "https://www.7-zip.org/",
-    "iconUrl": "https://www.7-zip.org/7ziplogo.png",
+    "officialUrl": "https://sparanoid.com/lab/7z/",
+    "iconUrl": "https://sparanoid.com/lab/7z/img/7ziplogo.png",
     "installType": [
       { "title": "官方网站下载", "url": "https://www.7-zip.org/download.html" },
       { "title": "官方中文版网站下载", "url": "https://sparanoid.com/lab/7z/download.html" },
@@ -206,7 +206,8 @@
     "officialUrl": "https://zh-cn.libreoffice.org/",
     "iconUrl": "https://ts4.tc.mm.bing.net/th/id/ODF.XMzYNBp7TRcwdUcpqMfogA?w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2",
     "installType": [
-      { "title": "官方网站", "url": "https://zh-cn.libreoffice.org/download/" }
+      { "title": "官方网站下载", "url": "https://www.libreoffice.org/download/" },
+      { "title": "官方中文版网站下载", "url": "https://zh-cn.libreoffice.org/download/" }
     ],
     "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [
