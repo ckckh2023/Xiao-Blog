@@ -13,7 +13,7 @@
 | 操作 | Windows 命令 | Linux/macOS 命令 | 说明 |
 | :--- | :--- | :--- | :--- |
 | **创建环境** | `py -3.11 -m venv .venv` | `python3.11 -m venv .venv` | 创建名为 `.venv` 的虚拟环境目录。 |
-| **激活环境** | `.venv\Scripts\activate.bat`<br>或 `.venv\Scripts\Activate.ps1`（PowerShell） | `source .venv/bin/activate` | 激活虚拟环境。 |
+| **激活环境** | `.venv\Scripts\activate.bat`<br>或 `.venv\Scripts\Activate.ps1` | `source .venv/bin/activate` | 激活虚拟环境。 |
 | **退出环境** | `deactivate` | `deactivate` | 退出当前激活的虚拟环境。 |
 | **导出依赖** | `pip freeze > requirements.txt` | `pip freeze > requirements.txt` | 将当前环境的所有包及其版本导出到文件。 |
 | **安装依赖** | `pip install -r requirements.txt` | `pip install -r requirements.txt` | 安装 `requirements.txt` 文件列出的所有包。 |
