@@ -6,7 +6,8 @@
 
 DeepSeek Harness（简称 **dsh**）是 DeepSeek 开源的一款 AI Agent 运行框架，核心设计理念是 **"一切皆插件"** ——模型、工具、Agent 循环、UI 界面等所有能力均由插件组合而成，可自由替换与灵活重组。
 
-> **注意**：官方已经开发了 DeepSeek Harness 桌面版，该版本仍然处于预览版本，兼容性有待提升。如果你非常懒人不想折腾，可以直接[点此](https://www.deepseek.com/harness/)下载使用。
+> [!CAUTION]
+> 官方已经开发了 DeepSeek Harness 桌面版，该版本仍然处于预览版本，兼容性有待提升。如果你非常懒人不想折腾，可以直接[点此](https://www.deepseek.com/harness/)下载使用。
 
 ---
 
@@ -18,6 +19,7 @@ dsh 需要 **Node.js ≥ 22**，推荐使用 24+ LTS 版本。
 
 可前往查看我分享的 [Node.js](https://xiao-blog.top/share/?type=other&name=nodejs)，下载并安装最新版本。
 
+> [!TIP]
 > Windows 用户懒人版安装教程：点击[此处](https://nodejs.org/dist/v24.21.0/node-v24.21.0-x64.msi)直接下载并安装即可。
 
 ### 2. 安装 pnpm（插件管理必需）
@@ -30,6 +32,7 @@ npm install -g pnpm
 
 安装完成后**必须重启终端**，让系统环境变量生效，否则 `dsh plugin` 命令会报错找不到 pnpm。
 
+> [!CAUTION]
 > 安装可能会遇到报错，如果有请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)。
 
 ---
@@ -54,6 +57,7 @@ npx @deepseek-ai/dsh web
 npm install -g @deepseek-ai/dsh
 ```
 
+> [!CAUTION]
 > 安装可能会遇到报错，如果有请查看此篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)。
 
 安装完成后，直接使用 `dsh` 命令：
@@ -75,7 +79,7 @@ npm update -g @deepseek-ai/dsh
 pip install deepseek-harness-sdk
 ```
 
->  本人没使用过也不清楚具体使用方法，请参考[官方文档](https://deepseek-harness.github.io/deepseek-harness/guide/python-sdk)。
+>  本人没使用过也不清楚具体使用方法，如有需要请参考[官方文档](https://deepseek-harness.github.io/deepseek-harness/guide/python-sdk)。
 
 ---
 
@@ -91,9 +95,10 @@ pip install deepseek-harness-sdk
 
 ## 插件管理（核心功能）
 
+> [!IMPORTANT]
 > 本教程提供懒人版插件管理方式：终端运行 `dsh plugin --profile web add dshmarket`，再次打开 Web UI 在**设置界面**即可看到插件市场。
 
-### 1. 插件安装命令
+### 插件安装命令
 
 基本语法：
 
@@ -112,9 +117,10 @@ dsh plugin --profile <profile名称> add <插件包名>
 | **从本地目录安装** | `dsh plugin --profile web add ./my-plugin` |
 | **带版本号安装（推荐锁定版本）** | `dsh plugin --profile web add @liustack/modlens@3.17.2` |
 
+> [!IMPORTANT]
 >  **安装插件前确保 `pnpm` 已在 PATH 中**。建议锁定固定版本号，不建议使用 `@latest` 标签。
 
-### 2. 插件生效
+### 插件生效
 
 - 安装声明了 `dsh.bundle.patch` 的插件后，**需要重启 dsh 服务才能生效**：
 
@@ -124,11 +130,7 @@ dsh plugin --profile <profile名称> add <插件包名>
 
 - 部分纯 Cordis 插件支持**实时生效**，无需重启。
 
-### 3. 在 Web UI 中管理插件
-
-安装插件后，可以在 **设置 → 插件** 中查看已安装的插件列表。部分插件管理面板还支持一键启用/停用。
-
-### 4. 实用插件推荐
+### 实用插件推荐
 
 终端运行 `dsh plugin --profile web xxx` 命令即可安装。
 
