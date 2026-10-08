@@ -151,6 +151,14 @@
 .docs-content blockquote p { margin-bottom: 0; }
 .docs-content blockquote p + p { margin-top: 10px; }
 /* GitHub 风格 Alerts：> [!CAUTION] / [!WARNING] / [!TIP] / [!IMPORTANT] */
+.docs-content blockquote.alert-caution,
+.docs-content blockquote.alert-warning,
+.docs-content blockquote.alert-tip,
+.docs-content blockquote.alert-important {
+  border-left-width: 4px;
+  border-radius: 0 8px 8px 0;
+  color: var(--text);
+}
 .docs-content blockquote.alert-caution { border-left-color: #d4a72c; background: #fff8c5; }
 .docs-content blockquote.alert-warning { border-left-color: #d1242f; background: #ffebe9; }
 .docs-content blockquote.alert-tip { border-left-color: #1a7f37; background: #dafbe1; }
@@ -159,7 +167,22 @@
 [data-theme="dark"] .docs-content blockquote.alert-warning { border-left-color: #f85149; background: rgba(255, 235, 233, 0.10); }
 [data-theme="dark"] .docs-content blockquote.alert-tip { border-left-color: #3fb950; background: rgba(218, 251, 225, 0.10); }
 [data-theme="dark"] .docs-content blockquote.alert-important { border-left-color: #a371f7; background: rgba(251, 239, 255, 0.10); }
-.docs-content blockquote .alert-title { font-weight: 700; margin-bottom: 8px; }
+.docs-content blockquote .alert-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.docs-content blockquote .alert-title svg { flex: none; }
+.docs-content blockquote.alert-caution .alert-title { color: #9a6700; }
+.docs-content blockquote.alert-warning .alert-title { color: #cf222e; }
+.docs-content blockquote.alert-tip .alert-title { color: #1a7f37; }
+.docs-content blockquote.alert-important .alert-title { color: #8250df; }
+[data-theme="dark"] .docs-content blockquote.alert-caution .alert-title { color: #d4a72c; }
+[data-theme="dark"] .docs-content blockquote.alert-warning .alert-title { color: #f85149; }
+[data-theme="dark"] .docs-content blockquote.alert-tip .alert-title { color: #3fb950; }
+[data-theme="dark"] .docs-content blockquote.alert-important .alert-title { color: #a371f7; }
 .docs-content h4 { font-size: 15px; margin: 16px 0 6px; }
 .docs-content h5 { font-size: 14px; margin: 14px 0 6px; }
 .docs-content h6 { font-size: 13px; margin: 12px 0 6px; color: var(--text-muted); }
