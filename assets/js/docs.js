@@ -458,11 +458,16 @@
     box.querySelectorAll("blockquote").forEach(function (bq) {
       var first = bq.firstElementChild;
       if (!first || first.tagName !== "P") return;
-      var m = first.textContent.trim().match(/^\[!(CAUTION|WARNING|TIP|IMPORTANT)\]$/i);
+      var node = first.firstChild;
+      if (!node || node.nodeType !== 3) return;
+      var m = node.nodeValue.match(/^\[!(CAUTION|WARNING|TIP|IMPORTANT)\][ \t]*\r?\n?/i);
       if (!m) return;
       var cfg = ALERT_TYPES[m[1].toUpperCase()];
       if (!cfg) return;
-      bq.removeChild(first);
+      var rest = node.nodeValue.slice(m[0].length);
+      if (rest.length) node.nodeValue = rest;
+      else first.removeChild(node);
+      if (!first.hasChildNodes()) bq.removeChild(first);
       bq.classList.add(cfg.cls);
       var title = document.createElement("p");
       title.className = "alert-title";
