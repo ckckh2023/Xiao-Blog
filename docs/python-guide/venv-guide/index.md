@@ -16,7 +16,7 @@
 | **激活环境** | `.venv\Scripts\activate.bat`（CMD）<br>`.venv\Scripts\Activate.ps1`（PowerShell） | `source .venv/bin/activate` | 激活虚拟环境。 |
 | **退出环境** | `deactivate` | `deactivate` | 退出当前激活的虚拟环境。 |
 | **导出依赖** | `pip freeze > requirements.txt` | `pip freeze > requirements.txt` | 将当前环境的所有包及其版本导出到文件。 |
-| **安装依赖** | `pip install -r requirements.txt` | `pip install -r requirements.txt` | 根据 `requirements.txt` 文件安装所有依赖包。 |
+| **安装依赖** | `pip install -r requirements.txt` | `pip install -r requirements.txt` | 安装 `requirements.txt` 文件列出的所有包。 |
 
 > [!TIP]
 > 激活虚拟环境后，命令行提示符前会出现 `(.venv)` 标识。
