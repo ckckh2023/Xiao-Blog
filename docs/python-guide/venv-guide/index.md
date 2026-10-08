@@ -12,11 +12,14 @@
 
 | 操作 | Windows 命令 | Linux/macOS 命令 | 说明 |
 | :--- | :--- | :--- | :--- |
-| **创建环境** | `py -3.11 -m venv .venv` | `python3.11 -m venv .venv` | 创建名为 `.venv` 的虚拟环境目录。建议使用 `.venv` 作为目录名。 |
-| **激活环境** | `.venv\Scripts\activate.bat`（CMD）<br>`.venv\Scripts\Activate.ps1`（PowerShell） | `source .venv/bin/activate` | 激活虚拟环境。激活后，命令行提示符前会出现 `(.venv)` 标识。 |
+| **创建环境** | `py -3.11 -m venv .venv` | `python3.11 -m venv .venv` | 创建名为 `.venv` 的虚拟环境目录。 |
+| **激活环境** | `.venv\Scripts\activate.bat`（CMD）<br>`.venv\Scripts\Activate.ps1`（PowerShell） | `source .venv/bin/activate` | 激活虚拟环境。 |
 | **退出环境** | `deactivate` | `deactivate` | 退出当前激活的虚拟环境。 |
 | **导出依赖** | `pip freeze > requirements.txt` | `pip freeze > requirements.txt` | 将当前环境的所有包及其版本导出到文件。 |
 | **安装依赖** | `pip install -r requirements.txt` | `pip install -r requirements.txt` | 根据 `requirements.txt` 文件安装所有依赖包。 |
+
+> [!TIP]
+> 激活虚拟环境后，命令行提示符前会出现 `(.venv)` 标识。
 
 > [!CAUTION]
 > PowerShell 下首次执行 `Activate.ps1` 可能被默认执行策略拦截，需先运行 `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` 放宽，详见我的这篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)。

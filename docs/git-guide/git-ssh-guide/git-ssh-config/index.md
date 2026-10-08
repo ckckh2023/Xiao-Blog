@@ -88,7 +88,7 @@ icacls $key /remove "BUILTIN\Administrators" "NT AUTHORITY\SYSTEM" "BUILTIN\User
 icacls $key /grant:r "$($env:USERNAME):R"
 ```
 
-> [!CUATION]
+> [!CAUTION]
 > Windows 平台必须要使用全局绝对路径而不是 `~/.ssh/id_ed25519`，否则会报错。示例中通过 `$env:USERPROFILE` 自动展开为完整的用户目录路径。
 
 > [!TIP]
