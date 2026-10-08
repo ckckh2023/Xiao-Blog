@@ -37,7 +37,7 @@
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/Xiao-Blog" }
     ],
     "desc": "个人技术博客站点，部署于 Cloudflare Pages。内置文档知识库、项目展示、工具分享、留言板与好友页等模块。",
-    "stars": 5,
+    "stars": 6,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
@@ -52,7 +52,7 @@
     ],
     "desc": "NotePad-- 项目的 Qt 6 复刻版本，旨在引入更多高版本特性与本人开发的新功能，用于替代系统自带的文本编辑器与 NotePad++。",
     "stars": 0,
-    "tags": ["C++", "HTML", "NSIS", "SIP", "C", "CSS", "JavaScript", "CMake", "Inno Setup", "Python", "Makefile", "Batchfile"]
+    "tags": ["C++", "HTML", "NSIS", "C", "CSS", "QMake", "Other"]
   },
   {
     "id": "TsingHuaelt-VMIC",

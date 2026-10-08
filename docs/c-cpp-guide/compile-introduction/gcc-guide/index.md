@@ -64,8 +64,8 @@ g++ -o myapp main.cpp utils.cpp -I./include -L./lib -lmylib
 此处仅提供 MinGW-w64 的安装和使用方法（因为过于懒人）：下载并解压到某个合适的目录，将 `bin/` 目录添加到系统环境变量即可。
 
 **编译 Windows 可执行文件：**
-```bash
-g++ main.cpp -o program.exe
+```pwsh
+g++ -o program.exe main.cpp
 ```
 
 需要注意 Windows 下的路径分隔符问题。
