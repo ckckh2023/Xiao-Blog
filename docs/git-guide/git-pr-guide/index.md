@@ -2,6 +2,7 @@
 
 > 下文以 GitHub 界面为例说明 PR 操作，Git 命令部分统一以 `bash` 给出；Windows 平台建议在 `Git Bash` 中执行。
 
+> [!TIP]
 > GitLab 称同一概念为 **Merge Request（MR）**，流程类似。
 
 ---
@@ -158,7 +159,8 @@ git push origin main
 ```
 也可以在 GitHub 网页上点 `Sync fork` 一键同步。
 
-> **注意**：所有改动都应放在特性分支，`main` 只用于镜像上游，你**不应在 `main` 上直接开发**。
+> [!CAUTION]
+> 所有改动都应放在特性分支，`main` 只用于镜像上游，你**不应在 `main` 上直接开发**。
 
 ---
 
@@ -197,6 +199,7 @@ git rebase --continue
 git push --force-with-lease
 ```
 
+> [!WARNING]
 > rebase 后历史改写，推送需 `--force-with-lease` 而不是 `--force`。
 
 ---

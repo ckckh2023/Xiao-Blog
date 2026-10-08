@@ -1,5 +1,6 @@
 本文介绍 Linux 系统安装完成后的**初步配置**：系统更新、软件源更换、显卡驱动安装、中文输入法、双系统时间、防火墙及常用软件，**其余高级内容将在其他文档专门介绍**。
 
+>[!TIP]
 > Linux 系统内的大量内容涉及命令行，建议设置快捷键 `Super + T` 快速启动终端！
 
 ---
@@ -26,9 +27,10 @@ sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.so
 sudo sed -i 's|http://archive.ubuntu.com/ubuntu|https://mirrors.tuna.tsinghua.edu.cn/ubuntu|g' /etc/apt/sources.list.d/ubuntu.sources
 sudo apt update
 ```
-
+> [!TIP]
 > 其他可选镜像：阿里 `https://mirrors.aliyun.com/ubuntu`、中科大 `https://mirrors.ustc.edu.cn/ubuntu`。更换后务必执行 `sudo apt update` 使新源生效。
 
+> [!CAUTION]
 > 清华源由于削减镜像存储份额导致**许多镜像可能无法下载**，如发现软件包缺失请不要犹豫，直接更换镜像源！
 
 ---
@@ -49,6 +51,7 @@ lspci | grep -i vga
 
 打开“软件和更新 → 附加驱动”，选择推荐的 NVIDIA 驱动，点击应用更改，然后重启。
 
+> [!CAUTION]
 > 此方法可能不生效，如果不生效请尝试下个方法。
 
 - **命令行（Ubuntu 版本）**
@@ -59,7 +62,8 @@ ubuntu-drivers devices
 sudo ubuntu-drivers autoinstall
 ```
 
-> 如果你开启了 `Secure Boot`，命令执行完会出现蓝色界面提示使用 MOK 密钥签名，此时你只需输入你自己设置的密码，重启后会出现蓝色界面，选`Enroll MOK`，输入刚才的密码即可安装成功。
+> [!TIP]
+> 如果你开启了 `Secure Boot`，命令执行完会出现蓝色界面提示使用 MOK 密钥签名，此时你只需输入你自己设置的密码；随后重启，重启后会出现相同的蓝色界面，选择 `Enroll MOK`，输入刚才的密码即可安装成功。
 
 - **直接安装开发包**
 
@@ -124,6 +128,7 @@ cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/
 
 终端输入 `fcitx5-configtool`，在「输入法」页把 `拼音` 加入左侧列表。
 
+> [!TIP]
 > 若需要开机默认中文，编辑 `~/.config/fcitx5/config` 使得 `[Behavior]` 项为 `ActiveByDefault=True`。
 
 #### 解决候选框位置错乱的问题
@@ -144,6 +149,7 @@ Windows 把硬件时钟当作本地时间，Linux 当作 UTC，导致装双系�
 sudo timedatectl set-local-rtc 1
 ```
 
+> [!TIP]
 > 也可以在 Windows 中以管理员身份打开 CMD，复制并运行以下命令 `Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1 /f` 运行即可恢复正常。
 
 ---
@@ -164,6 +170,7 @@ sudo ufw status verbose
 
 ## 安装常用软件
 
+> [!TIP]
 > 如果你是 C/C++ 开发者，可以使用 `sudo apt install build-essential` 立刻配置好开发环境，可以去[此文档](https://xiao-blog.top/docs/article?id=c-cpp-guide&sub=compile-introduction&sub2=gcc-guide)查看。
 
 这些是一些命令行工具，你也可以去我的[分享页](https://xiao-blog.top/share/)寻找好用的 Linux 桌面应用。
@@ -172,6 +179,7 @@ sudo ufw status verbose
 sudo apt install git curl vim # 此为一般常用工具等，后续更新
 ```
 
+> [!TIP]
 > 你可以学习包管理系统，Ubuntu 使用的是 apt 仓库管理系统，可以查看[此文档](https://xiao-blog.top/docs/article?id=linux-guide&sub=software-package-guide&sub2=apt-repository-guide)；关于 Ubuntu 强制推行的风评较差的 snap 仓库管理系统卸载方法可以查看[此文档](https://xiao-blog.top/docs/article?id=linux-guide&sub=software-package-guide&sub2=snap-uninstall-guide)。
 
 最后，你可以在终端输入 `sudo apt install fastfetch -y`，安装完成后输入 `fastfetch` 就能看到下面的内容啦！

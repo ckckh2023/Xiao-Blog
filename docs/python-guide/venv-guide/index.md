@@ -18,7 +18,8 @@
 | **导出依赖** | `pip freeze > requirements.txt` | `pip freeze > requirements.txt` | 将当前环境的所有包及其版本导出到文件。 |
 | **安装依赖** | `pip install -r requirements.txt` | `pip install -r requirements.txt` | 根据 `requirements.txt` 文件安装所有依赖包。 |
 
-> **注意**：PowerShell 下首次执行 `Activate.ps1` 可能被默认执行策略拦截，需先运行 `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` 放宽，详见我的这篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)。CMD 无此限制。
+> [!CAUTION]
+> PowerShell 下首次执行 `Activate.ps1` 可能被默认执行策略拦截，需先运行 `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` 放宽，详见我的这篇[文档](https://xiao-blog.top/docs/article?id=ai-agent&sub=npm-question)。
 
 ---
 
@@ -28,6 +29,7 @@
     - **Windows**：`py -3.11 -m venv .venv`
     - **Linux/macOS**：`python3.11 -m venv .venv`
 
+    > [!TIP]
     > 使用 `py -3.11`（Windows）或 `python3.11`（Linux）可以**精准锁定**虚拟环境的 Python 版本，避免意外使用错误的解释器。
 
 - **激活虚拟环境**：
@@ -45,12 +47,13 @@
 
         此时即在虚拟环境内，可自主调用 Python 解释器。
 
-        > **提示**：该方法需要运行 `deactivate` 退出虚拟环境
+        > [!CAUTION]
+        > 该方法需要运行 `deactivate` 退出虚拟环境！
 
     - **方案二**：直接在命令行中调用虚拟环境中的 Python 解释器：
         `.venv\Scripts\python.exe main.py`（Windows）或`.venv/bin/python main.py`（Unix）
 
-        即用即开，无需激活虚拟环境。
+        此方法即用即开，无需激活虚拟环境。
 
 - **导出环境依赖**：
     ```bash

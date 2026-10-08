@@ -8,6 +8,7 @@
 
 注册 Cloudflare 账号并登录 [Cloudflare Dashboard](https://dash.cloudflare.com/)。两种部署方式均需在 **Workers & Pages** 模块下操作。
 
+> [!CAUTION]
 > 若选择 Wrangler CLI 方式，还需本地安装 Node.js（v18+）及 Wrangler。
 
 Nodejs 可前往查看我的[分享页](https://xiao-blog.top/share/?type=other&name=nodejs)，下载并安装最新版本，Windows 用户点击[此处](https://nodejs.org/dist/v24.21.0/node-v24.21.0-x64.msi)直接下载并安装即可。
@@ -18,6 +19,7 @@ Wrangler 可在 Node.js 环境安装好后执行该命令安装：
 npm install -g wrangler
 ```
 
+> [!TIP]
 > 可使用 `wrangler --version` 检验是否安装好。
 
 ---
@@ -78,6 +80,7 @@ git push origin main
 
 推送到 `main` 分支即触发生产部署；推送到其他分支则触发预览部署。可在部署页查看每次构建状态与日志，支持一键回滚到任意历史版本。
 
+> [!TIP]
 > 也可在仓库设置中接入其他 Git 提供商（GitLab），同理执行对应操作即可。
 
 ---
@@ -155,6 +158,7 @@ database_name = "my-database"
 database_id = "<数据库ID>"
 ```
 
+> [!TIP]
 > `pages_build_output_dir` 指定构建产物目录。配置 D1、KV、R2 等绑定的 ID 可通过 `npx wrangler d1 list` 等命令查询。完整字段参考 [Wrangler 配置文档](https://developers.cloudflare.com/workers/wrangler/configuration/)。
 
 配置完成后部署命令可简化，因为会自动读取配置。
@@ -182,7 +186,8 @@ Wrangler CLI 可集成到任意 CI/CD 平台。推荐使用 API Token 而非交�
    wrangler pages deploy ./dist --project-name=my-site --branch=main
    ```
 
-> GitHub Actions 中可直接使用 `cloudflare/pages-action@v1` 或上述命令。注意不要将 API Token 提交到仓库，应存放在 Actions Secrets 或 CI 平台的加密变量中。
+> [!CAUTION]
+> GitHub Actions 中可直接使用 `cloudflare/pages-action@v1` 或上述命令。但是不要将 API Token 提交到仓库，应存放在 Actions Secrets 或 CI 平台的加密变量中。
 
 ---
 
@@ -202,6 +207,7 @@ Wrangler CLI 可集成到任意 CI/CD 平台。推荐使用 API Token 而非交�
 
 - 等待证书签发，状态变为 **Active** 即可访问。
 
+> [!TIP]
 > 顶级域名（如 `example.com`）绑定到 Pages 时，Cloudflare 会自动配置根域 CNAME flattening。若域名不在 Cloudflare 托管，需在 DNS 服务商处添加 CNAME 记录指向 `<项目名>.pages.dev`，部分 DNS 服务商不支持根域 CNAME，可改用 ALIAS/ANAME 记录或迁移 DNS 到 Cloudflare。
 
 ---
@@ -228,6 +234,7 @@ Wrangler CLI 可集成到任意 CI/CD 平台。推荐使用 API Token 而非交�
 
 **A：** 确认 Edge Functions 函数文件位于仓库的 `functions/` 目录下，且文件名符合路由约定。Wrangler 部署时 `pages_build_output_dir` 应指向含 `functions/` 的项目根目录，而非仅构建产物目录！
 
+> [!CAUTION]
 > 本人已经遇上过这样的情况，请严格注意函数文件位置！
 
 ### Q：超出免费额度

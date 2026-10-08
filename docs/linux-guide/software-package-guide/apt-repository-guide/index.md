@@ -17,6 +17,7 @@ Ubuntu 的软件源配置自 24.04 起改为新格式，旧版仍使用单一文
 | Ubuntu 24.04+ | `/etc/apt/sources.list.d/ubuntu.sources` | deb822 新格式 |
 | Ubuntu 22.04 及更早 | `/etc/apt/sources.list` | 传统单行格式 |
 
+> [!TIP]
 > 第三方源统一放在 `/etc/apt/sources.list.d/` 目录下，每个源一个 `.list` 或 `.sources` 文件，便于单独管理。
 
 ### 查看当前软件源
@@ -27,6 +28,7 @@ cat /etc/apt/sources.list # 22.04 及更早
 apt-cache policy # 查看所有源及优先级
 ```
 
+> [!TIP]
 > `apt-cache policy` 会列出每个仓库的 URL、组件与优先级，是排查源问题最实用的命令。
 
 ### 备份软件源
@@ -38,6 +40,7 @@ sudo cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.so
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak # 22.04 及更早
 ```
 
+> [!TIP]
 > 恢复时把 `.bak` 文件覆盖回去，再执行 `sudo apt update` 即可。
 
 ---
@@ -67,6 +70,7 @@ sudo apt update
 - 中科大：`https://mirrors.ustc.edu.cn/ubuntu`
 - 华为云：`https://repo.huaweicloud.com/ubuntu`
 
+> [!CAUTION]
 > 更换后务必执行 `sudo apt update` 使新源生效。若出现 Hash 校验失败，多为镜像同步未完成，可更换其他镜像或等待几小时后重试。
 
 ---
@@ -75,6 +79,7 @@ sudo apt update
 
 PPA（Personal Package Archive）是 Launchpad 上的个人软件包仓库，常用于获取官方源中未收录或版本较旧的软件。
 
+> [!WARNING]
 > PPA 不建议在非 Ubuntu 系统上使用，因为 Ubuntu 的 PPA 仓库与 Launchpad 紧密绑定，其他发行版无法使用。
 
 ### 添加 PPA
@@ -116,6 +121,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 ```
 
+> [!TIP]
 > Ubuntu 22.04 起推荐将密钥存放在 `/etc/apt/keyrings/` 目录，而非旧的 `/etc/apt/trusted.gpg.d/`，这样每个源使用独立密钥，安全性更高。
 
 ### 添加源文件
@@ -200,6 +206,7 @@ sudo rm -rf /var/lib/apt/lists/*
 sudo apt update
 ```
 
+> [!TIP]
 > 清空本地索引缓存后重新更新即可。若反复出现，建议更换镜像源。
 
 ### 源不可用或 404

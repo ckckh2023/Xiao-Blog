@@ -1,6 +1,7 @@
 MSVC（Microsoft Visual C++）是微软推出的 C/C++ 编译器工具集，包含编译器（cl.exe）、链接器、标准库和相关实用工具。它是 Windows 平台上最主流的 C++ 开发工具，深度集成于 Visual Studio 生态系统中。
 
-> **注意**：MSVC 编译器 `cl.exe` 只能在支持 Microsoft Visual Studio for Windows 的操作系统上运行，且必须从 Visual Studio 开发者命令提示符中启动。
+> [!CAUTION]
+> MSVC 编译器 `cl.exe` 只能在支持 Microsoft Visual Studio for Windows 的操作系统上运行，且必须从 Visual Studio 开发者命令提示符中启动。
 
 ---
 
@@ -24,9 +25,11 @@ cl /EHsc hello.cpp
 
 `/EHsc` 指定了 C++ 异常处理模型，是 MSVC 编译 C++ 程序时常用的选项。
 
-> 注意需要先进入 MSVC 编译环境，否则 `cl.exe` 命令可能无法识别。
+> [!CAUTION]
+> 需要先进入 MSVC 编译环境，否则 `cl.exe` 命令可能无法识别。
 
->  **警告**：环境默认在 VS 安装目录，需要先 `cd` 到工作环境才可以运行！！！
+> [!WARNING]
+> 环境默认在 VS 安装目录，需要先 `cd` 到工作环境才可以运行！！！
 
 ---
 

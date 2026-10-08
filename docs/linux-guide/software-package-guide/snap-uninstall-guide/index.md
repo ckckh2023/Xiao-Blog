@@ -1,6 +1,7 @@
 由于 Snap 包管理器以及 Snap 包在 Ubuntu 预装且行为过于流氓，许多用户深受其扰。本文介绍在 Ubuntu 中**完全移除 Snap 软件包**的步骤：卸载已安装的 Snap 组件、阻止 apt 自动重装、以及用 apt/PPA 替代 Snap 版的软件商店与 Firefox。
 
-> **警告**：这些步骤会移除 Ubuntu 系统中两个关键程序：软件商店和 Firefox，执行前请确认已做好备份。
+> [!WARNING]
+> 这些步骤会移除 Ubuntu 系统中的软件商店和 Firefox，执行前请确认已做好备份。
 
 ---
 
@@ -27,7 +28,8 @@ sudo snap remove --purge core24 core20 core18 # 具体请看 snap list 列出的
 sudo snap remove --purge snapd
 ```
 
-> 建议按上述顺序依次卸载，因为部分 Snap 包可能依赖其它 Snap 包。
+> [!IMPORTANT]
+> 建议按上述顺序依次卸载，因为部分 Snap 包可能依赖其它 Snap 包导致 Snap 起死回生。
 
 最后通过 apt 移除 Snap 服务：
 
@@ -41,6 +43,7 @@ sudo apt remove --autoremove snapd
 
 移除 snapd 之后，磁盘上仍会留下大量残留：`/var/lib/snapd`、空的 `/snap` 与 `~/snap` 目录、以及 AppArmor 配置片段。
 
+> [!CAUTION]
 > 先卸载残留的 tmpfs 挂载点，否则后续 `rm -rf` 会因 `device busy` 失败。
 
 ```bash
@@ -70,6 +73,7 @@ EOF
 
 再次运行 `sudo apt update`，确保 Snap 彻底被移除。
 
+> [!TIP]
 > 建议长期保留 `nosnap.pref`，它不只拦截 snapd 自身，还能防止 Chrome、Edge、Steam 等第三方软件在升级时通过依赖把 snapd 重新拖回来。
 
 ---
@@ -82,6 +86,7 @@ EOF
 sudo apt install --install-suggests gnome-software
 ```
 
+> [!CAUTION]
 > 必须使用 `--install-suggests` 参数，否则 Snap 又会被拉回来。
 
 ### 安装 apt 版 Firefox

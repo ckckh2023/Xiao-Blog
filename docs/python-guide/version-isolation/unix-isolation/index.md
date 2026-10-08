@@ -13,7 +13,8 @@ Linux 系统（如 Ubuntu、Debian）通常预装了一个或多个 Python 版�
 ls /usr/bin/python*
 ```
 
-> **注意**：系统自带的 Python 被许多底层工具（如 `apt`、系统设置、软件中心）所依赖，因此**不要**直接往系统 Python 中安装第三方包（`pip install` 会被 PEP 668 保护机制拦截）。
+> [!CAUTION]
+> 系统自带的 Python 被许多底层工具（如 `apt`、系统设置、软件中心）所依赖，因此**不要**直接往系统 Python 中安装第三方包（`pip install` 会被 PEP 668 保护机制拦截）。
 
 ### 安装不同版本的 Python
 
@@ -30,7 +31,8 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 ```
 
-> **提示**：Deadsnakes 提供两个版本：稳定版（`ppa:deadsnakes/ppa`）和尝鲜版（`ppa:deadsnakes/nightly`）。如果想体验最新的 Python 开发版，可以添加 nightly 版本。
+> [!TIP]
+> Deadsnakes 提供两个版本：稳定版（`ppa:deadsnakes/ppa`）和尝鲜版（`ppa:deadsnakes/nightly`）。如果想体验最新的 Python 开发版，可以添加 nightly 版本。
 
 #### 安装指定版本的 Python
 
@@ -77,7 +79,8 @@ sudo apt install python3.11 python3.11-venv python3.11-dev
 sudo apt install python3.11-full
 ```
 
-> **注意**：`-full` 包会安装更多依赖，占用更多磁盘空间。如果只是日常开发，安装 `python3.x` + `python3.x-venv` + `python3.x-dev` 通常就足够了。只有在需要完整标准库（如使用 Tkinter 开发 GUI 应用）时才需要安装 `-full`。
+> [!CAUTION]
+> `-full` 包会安装更多依赖，占用更多磁盘空间。如果只是日常开发，安装 `python3.x` + `python3.x-venv` + `python3.x-dev` 通常就足够了。只有在需要完整标准库（如使用 Tkinter 开发 GUI 应用）时才需要安装 `-full`。
 
 ---
 
@@ -130,13 +133,15 @@ source .venv/bin/activate
 pip install requests
 ```
 
+> [!TIP]
 > 虚拟环境的完整用法可查看我的[文档](https://xiao-blog.top/docs/article?id=python-guide&sub=venv-guide)。虚拟环境内的包完全隔离，不会污染系统 Python，也更安全。
 
 ---
 
 #### 导出与安装依赖清单
 
-> 以下内容建立在非系统 Python 环境的情况下！
+> [!WARNING]
+> 以下内容建立在非系统 Python 环境的情况下！请不要使用系统 Python 环境安装第三方包！
 
 ```bash
 # 导出当前环境的所有包
@@ -170,4 +175,5 @@ sudo update-alternatives --config python3
 
 ---
 
-> **重要提醒**：在实际开发中，**强烈建议每个项目独立使用虚拟环境**（详见我的[文档](https://xiao-blog.top/docs/article?id=python-guide&sub=venv-guide)）。这可以避免不同项目之间的依赖冲突，也能让包管理更加清晰。虚拟环境内的包全部隔离，不会污染系统环境。
+> [!IMPORTANT]
+> 在实际开发中，**强烈建议每个项目独立使用虚拟环境**（详见我的[文档](https://xiao-blog.top/docs/article?id=python-guide&sub=venv-guide)）。这可以避免不同项目之间的依赖冲突，也能让包管理更加清晰。虚拟环境内的包全部隔离，不会污染系统环境。

@@ -71,6 +71,7 @@ git clone -b <分支名> <仓库URL>
 git clone --depth 1 <仓库URL>
 ```
 
+> [!TIP]
 > `<仓库URL>` 可为 HTTPS 或 SSH 地址，关于远程地址请查看[此文档](https://xiao-blog.top/docs/article?id=git-guide&sub=git-remote-guide)。
 
 ---
@@ -132,7 +133,7 @@ dist/
 
 ---
 
-## 提交更改（git commit）
+## 提交更改
 
 `git commit` 把暂存区的快照固化成仓库区中的一条提交记录，这是版本管理真正"存档"的一步。
 
@@ -146,6 +147,7 @@ git commit -m "提交说明"
 
 **提交信息** 建议一行简明扼要，以动词开头、描述本次改动的目的，例如 `修复登录页空指针异常` 而非 `改了点东西`。若需多行，第一行作标题，空一行后写正文。
 
+> [!CAUTION]
 > 提交信息一定要规范！你回滚的时候会回来感谢我的[doge]。
 
 ### 跳过 add 直接提交已跟踪文件
@@ -156,6 +158,7 @@ git commit -m "提交说明"
 git commit -am "提交说明"
 ```
 
+> [!CAUTION]
 > `-a` 只对**已跟踪**文件的修改和删除生效，新增的未跟踪文件仍需先 `git add`。
 
 ### 修改最近一次提交

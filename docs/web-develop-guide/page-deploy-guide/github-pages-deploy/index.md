@@ -168,6 +168,7 @@ export default defineConfig({
   www.example.com
   ```
 
+  > [!TIP]
   > 也可在 **Settings → Pages → Custom domain** 中直接填写并保存。
 
 - 到域名 DNS 服务商处添加解析记录：
@@ -179,6 +180,7 @@ export default defineConfig({
 
 - Pages 设置有需要可以勾选 **Enforce HTTPS**。
 
+> [!TIP]
 > 顶级域名使用 A 记录指向 GitHub 的四个 IP；子域名使用 CNAME 指向 `<用户名>.github.io`。DNS 生效通常需要数分钟到数小时，等待生效即可。
 
 ### 域名变更后 404

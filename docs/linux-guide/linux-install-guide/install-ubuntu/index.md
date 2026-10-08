@@ -33,7 +33,8 @@ sha256sum ubuntu-24.04-desktop-amd64.iso
     - **目标系统类型**：UEFI（或 BIOS）
 4. 点击"开始"，等待写入完成。
 
-> U 盘原数据会被清空，请提前备份 U 盘数据。
+> [!WARNING]
+> 在此操作之后 U 盘原数据会被清空，请提前备份 U 盘数据。
 
 ### Linux / macOS 平台
 
@@ -47,7 +48,8 @@ sudo dd if=ubuntu-24.04-desktop-amd64.iso of=<设备名> bs=4M status=progress #
 sync # 处理并弹出
 ```
 
-> **注意**：`of=` 必须指向 U 盘整盘设备（如 `/dev/sdb`），**不是分区**（如 `/dev/sdb1`），否则无法引导。并且写错设备会覆盖对应磁盘的所有数据，务必通过 `lsblk` 确认设备名。
+> [!CAUTION]
+> `of=` 必须指向 U 盘整盘设备（如 `/dev/sdb`），**不是分区**（如 `/dev/sdb1`），否则无法引导。并且写错设备会覆盖对应磁盘的所有数据，务必通过 `lsblk` 确认设备名。
 
 ---
 
@@ -58,6 +60,7 @@ sync # 处理并弹出
 
 - 在 BIOS 启动菜单中选择 U 盘项调整到最顶层。
     > UEFI 模式下 U 盘启动项通常带 `UEFI:` 前缀，有 `Hard Drive` 等字符。
+
 - 进入 Ubuntu 安装界面后，选择 `Try or Install Ubuntu`。
 
 
@@ -87,12 +90,14 @@ sync # 处理并弹出
     | `/boot/efi` | 512MB | EFI System Partition | EFI 引导分区 |
     | `/` | 30GB+ | ext4 | 根分区，系统文件 |
 
-    > **双系统注意**：EFI 分区若已存在（例如原 Windows 用户），**不要新建**，直接挂载到 `/boot/efi` 即可，避免破坏原引导。
+    > [!CAUTION]
+    > EFI 分区若已存在（例如原 Windows 用户），**不要新建**，直接挂载到 `/boot/efi` 即可，避免破坏原引导。
 
 - **时区**：选择你所在的时区（如 Asia/Shanghai）。
 - **用户信息**：填写用户名、主机名、密码，密码会在许多情况用到！
 - **安装**，等待安装完成，提示重启时立刻拔出 U 盘。
 
+> [!TIP]
 > 安装完成后可查看我的这篇[文档](https://xiao-blog.top/docs/article?id=linux-guide&sub=linux-install-guide&sub2=install-after-config)进行安装后配置。
 
 ---

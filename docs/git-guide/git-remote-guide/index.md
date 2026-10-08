@@ -25,7 +25,8 @@ git config --global credential.helper cache        # 内存缓存，默认 15 �
 git config --global credential.helper store        # 明文写入 ~/.git-credentials
 ```
 
-> **重要**：GitHub 自 2021 年 8 月起不再接受账号密码进行 Git 操作，需改用 **Personal Access Token** 代替密码。在 GitHub Settings → Developer settings → Personal access tokens 生成后，推送时密码栏填入 PAT 即可。
+> [!IMPORTANT]
+> GitHub 自 2021 年 8 月起不再接受账号密码进行 Git 操作，需改用 **Personal Access Token** 代替密码。在 GitHub Settings → Developer settings → Personal access tokens 生成后，推送时密码栏填入 PAT 即可。
 
 ### SSH
 
@@ -34,6 +35,7 @@ git config --global credential.helper store        # 明文写入 ~/.git-credent
 
 **两种方式切换**：若仓库当前用的是 HTTPS，想改用 SSH，用 `git remote set-url` 修改远程地址即可（后续有介绍）。
 
+> [!TIP]
 > 网络受限环境可先用 HTTPS；长期使用或需频繁推送，配置好 SSH 会更方便。
 
 ---
@@ -84,6 +86,7 @@ git remote remove <别名>
 git remote show <别名>
 ```
 
+> [!TIP]
 > `origin` 只是约定俗成的默认别名，并非固定；一个本地仓库可同时关联多个远程（如 `origin` 指自己的 fork，`upstream` 指原仓库），配合 `git pull upstream main` 拉取上游更新。
 
 ---
@@ -125,9 +128,12 @@ git push --tags
 ```bash
 git push --force
 ```
+
+> [!TIP]
 > 普通 `--force` 会无条件覆盖，有冲掉他人提交的风险。更安全的做法是使用 `--force-with-lease` 而不是 `--force` ，它会在远程被他人改动时拒绝推送。
 
-> **警告**：强制推送会改写远程历史，在共享分支上应尽量避免，否则会让协作者的本地仓库出现冲突。
+> [!WARNING]
+> 强制推送会改写远程历史，在共享分支上应尽量避免，否则会让协作者的本地仓库出现冲突。
 
 ---
 

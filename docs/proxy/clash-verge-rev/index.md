@@ -1,5 +1,8 @@
+> [!IMPORTANT]
 > 本文面向网络学习者与开发者，仅介绍 Clash Verge Rev 客户端的通用使用方法。  
-> 请将代理用于合法场景，例如管理自己的服务器、企业内网访问、开发调试等，并遵守当地法律法规。
+
+> [!WARNING]
+> 请将代理用于合法场景，例如管理自己的服务器、企业内网访问、开发调试等，并遵守当地法律法规，因不遵守法规导致的问题后果自负。
 
 ---
 
@@ -7,6 +10,7 @@
 
 Clash Verge Rev 是一个跨平台的 Clash 图形化客户端，支持 Windows、macOS、Linux。它基于 Clash Meta（mihomo）内核，提供配置管理、节点选择、规则分流、系统代理等功能。
 
+> [!CAUTION]
 > 使用前请确认你拥有代理服务器的合法使用权，并遵守所在地法律法规。
 
 --- 
@@ -15,6 +19,7 @@ Clash Verge Rev 是一个跨平台的 Clash 图形化客户端，支持 Windows�
 
 你可以在我的[分享页](https://xiao-blog.top/share/?type=software&name=clash)找到它，按照流程下载安装即可。
 
+> [!TIP]
 > Windows 用户懒人版教程可[点此](https://gh-proxy.com/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.5.2/Clash.Verge_2.5.2_x64-setup.exe)下载安装
 
 安装完成后启动软件。
@@ -27,6 +32,7 @@ Clash Verge Rev 需要一份 YAML 格式的配置文件，其中包含代理节�
 
 进入“订阅”页面，可以选择**从 URL 导入**：粘贴配置文件链接（例如企业或服务商提供的`合法`配置地址）。
 
+> [!TIP]
 > 订阅链接通常由你的服务商提供，是一个 https:// 开头的链接，必须为`合法`链接。
 
 --- 
@@ -71,4 +77,5 @@ Clash Verge Rev 需要一份 YAML 格式的配置文件，其中包含代理节�
 
 不需要代理时，请关闭“系统代理”开关，避免影响正常网络。
 
+> [!IMPORTANT]
 > 请务必在合法、合规的前提下使用，遵守法律法规。

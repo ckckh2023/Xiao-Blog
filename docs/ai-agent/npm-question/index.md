@@ -37,7 +37,8 @@ Windows 默认的 PowerShell 执行策略为 `Restricted`，即只允许交互�
 
   修改后可通过 `Get-ExecutionPolicy` 验证。
 
-> **注意**：若在非个人环境，应遵循组织安全策略，避免盲目放宽至 `Unrestricted`。
+> [!CAUTION]
+> 若在非个人环境，应遵循组织安全策略，避免盲目放宽至 `Unrestricted`。
 
 ---
 
@@ -80,6 +81,7 @@ npm config set allow-scripts "pnpm,@deepseek-ai/dsh-subprocess-local,koffi,node-
 
 该设置永久生效于当前用户的所有全局安装。
 
+> [!CAUTION]
 > 如果你的 `allow-scripts` 有值，记得把这些值加进去，因为该配置不是增加值而是覆盖值。。。
 
 **步骤二：手动触发已安装包的脚本重建**  
@@ -118,7 +120,8 @@ minimumReleaseAge: 1440
 
 若未显式配置，则使用 pnpm 默认值，也可通过 `pnpm config get minimumReleaseAge` 查看。
 
-> 注意该配置仅在 `pnpm-workspace.yaml` 中生效，不适用 `.npmrc`。
+> [!CAUTION]
+> 该配置仅在 `pnpm-workspace.yaml` 中生效，不适用 `.npmrc`。
 
 #### 解决方法如下
 
@@ -146,6 +149,7 @@ pnpm install
 
 这样可彻底移除问题包，且不触发策略检查。（
 
+> [!WARNING]
 > 此方法有风险，建议优先使用方法一！
 
 #### 补充：为特定包设置例外

@@ -56,12 +56,17 @@ g++ -o myapp main.cpp utils.cpp -I./include -L./lib -lmylib
 
 在 Windows 上使用 g++，需要安装 MinGW-w64 或 MSYS2 环境。
 
+> [!TIP]
 > 安装 MinGW-w64可以查看我的[分享页](https://xiao-blog.top/share/?type=other&name=mingw)，它相对更加便捷轻量。
 
-> 64 位电脑前缀为 `x86_64`，Windows 11/10 请选择 `posix-seh-ucrt-rt`，Windows 8/7 请选择 `posix-seh-msvcrt-rt`;<br>
-> 32 位电脑前缀为 `i686`，Windows 11/10 请选择 `posix-dwarf-ucrt-rt`，Windows 8/7 请选择 `posix-dwarf-msvcrt-rt`;
+- 64 位电脑前缀为 `x86_64`，Windows 11/10 请选择 `posix-seh-ucrt-rt`，Windows 8/7 请选择 `posix-seh-msvcrt-rt`;
+- 32 位电脑前缀为 `i686`，Windows 11/10 请选择 `posix-dwarf-ucrt-rt`，Windows 8/7 请选择 `posix-dwarf-msvcrt-rt`;
 
-此处仅提供 MinGW-w64 的安装和使用方法（因为过于懒人）：下载并解压到某个合适的目录，将 `bin/` 目录添加到系统环境变量即可。
+
+此处仅提供 MinGW-w64 的安装和使用方法：
+
+- 下载并解压到某个合适的目录;
+- 将 `mingw64/bin/` 目录添加到系统环境变量即可。
 
 **编译 Windows 可执行文件：**
 ```pwsh

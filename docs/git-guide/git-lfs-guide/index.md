@@ -72,7 +72,8 @@ git lfs track "*.mp4" "*.zip"  # 一次跟踪多种类型
 models/*.bin filter=lfs diff=lfs merge=lfs -text
 ```
 
-> **关键**：`.gitattributes` 本身必须被 Git 跟踪并提交，否则他人克隆后 LFS 规则不生效：
+> [!IMPORTANT]
+> `.gitattributes` 本身必须被 Git 跟踪并提交，否则他人克隆后 LFS 规则不生效：
 
 ```bash
 git add .gitattributes
@@ -157,6 +158,7 @@ git config -l | Select-String lfs
 
 默认情况下，LFS 端点**跟随 `origin` 远程地址**自动推导，无需手动设置。仅当需要把 LFS 指向与 Git 仓库不同的服务器时，才需要显式配置。
 
+> [!CAUTION]
 > 这里有坑，当不存在 `origin` 远程源且有多个远程源时，LFS 文件系统可能因此混乱，需要手动配置。
 
 ```bash
@@ -231,6 +233,7 @@ git lfs migrate import --include="*.psd"
 
 执行后所有历史提交中匹配 `*.psd` 的文件都会被替换为 LFS 指针，`.git` 体积会显著下降。
 
+> [!WARNING]
 > 此操作会改写历史，**若仓库已推送且有人协作，必须通知所有协作者重新克隆**，否则会出现哈希不一致。
 
 迁移完成后，本地旧的对象仍占用空间，可清理：

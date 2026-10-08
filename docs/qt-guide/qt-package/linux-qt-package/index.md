@@ -45,8 +45,10 @@ cqtdeployer -bin MyApp -qmake <qmake 路径> -targetDir <输出路径>
 - `-recursiveDepth`：递归扫描深度，帮助发现间接依赖
 - `-targetDir`：输出目录
 
+> [!TIP]
 > qmake 示例路径：`/home/Users/Qt/6.10.3/gcc_64/bin/qmake` 或 `/opt/Qt/6.10.3/gcc_64/bin/qmake`。
 
+> [!IMPORTANT]
 > 如果希望更激进地捕获系统依赖，可使用 `deploySystem` 参数，但效果因环境而异，建议搭配手动补全。
 
 ---
@@ -108,4 +110,5 @@ AppDir/
 └── translations/        # 可选翻译文件
 ```
 
-将此目录内容整体作为 QIFW 组件的数据源，即可实现一键安装，可参考我的另一篇[文档](https://xiao-blog.top/docs/article?id=qt-guide&sub=qifw-guide)。
+> [!TIP]
+> 将此目录内容整体作为 QIFW 组件的数据源，即可实现一键安装，可参考我的另一篇[文档](https://xiao-blog.top/docs/article?id=qt-guide&sub=qifw-guide)。

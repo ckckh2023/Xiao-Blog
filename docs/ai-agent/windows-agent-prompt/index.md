@@ -55,11 +55,12 @@ For Windows-specific tasks (registry, COM, etc.), explicitly use pwsh -c "..." .
 2. **安装 PowerShell 7**  
    可查看我的[分享页](https://xiao-blog.top/share/?type=software&name=pwsh)，若未安装，请从 [Microsoft 官方](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)下载最新版 PowerShell 7。安装后，确保 `pwsh.exe` 位于 PATH 中，以便通过命令行调用。
 
-3. **配置 AI 工具的系统提示词**  
-   > 其实也让 AI Agent 工具自主写入上述提示词，拒绝繁琐配置流程。
-
+3. **配置 AI 工具的系统提示词**
    - 对于 ChatGPT 或 Copilot，可将上述提示词放入“自定义指令”或“系统提示”区域。  
    - 对于 Cursor、Continue 等编辑器插件，可在项目规则文件如 `.cursorrules`中声明。  
+
+   > [!TIP]
+   > 其实也让 AI Agent 工具自主写入上述提示词，拒绝繁琐配置流程。
 
 4. **验证环境**  
    在任意终端中执行 `git --version` 和 `pwsh --version` ，如有输出证明已经可用。

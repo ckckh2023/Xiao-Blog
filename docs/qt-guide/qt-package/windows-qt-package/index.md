@@ -15,13 +15,15 @@ windeployqt.exe 位于 Qt 安装目录的 `bin` 子目录下，具体路径与 Q
 - `C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe`
 - `C:\Qt\6.11.1\mingw_64\bin\windeployqt.exe`
 
+> [!CAUTION]
 > 需要自行寻找工具位置，一般位于版本号的编译器文件夹的 `bin` 子目录中。
 
 ### 工作原理
 
 windeployqt 将 .exe 文件或包含 .exe 文件的目录作为参数，通过扫描可执行文件的导入表（Import Table）来识别所需的 Qt 库。对于 QML 应用程序，当指定 `--qmldir` 参数时，工具会调用 qmlimportscanner 扫描 QML 文件中的 import 语句，收集所需的 QML 模块依赖。
 
-> 注意：windeployqt **仅能导入 Qt 库**，无法处理其他依赖项（如第三方库 OpenCV ）。
+> [!CAUTION]
+> windeployqt **仅能导入 Qt 库**，无法处理其他依赖项（如第三方库 OpenCV ）。
 
 ---
 
@@ -41,6 +43,7 @@ windeployqt 将 .exe 文件或包含 .exe 文件的目录作为参数，通过�
 
     记录当前项目使用的 Qt 版本和编译器类型（如 Qt 6.10.3 MSVC2022 64-bit），并找到对应的 windeployqt 路径。
 
+    > [!WARNING]
     > 不同版本、不同编译器对应的依赖库完全不同，使用错误的 windeployqt 版本会导致部署失败。
 
 ---
@@ -69,7 +72,8 @@ windeployqt 必须使用与项目编译器**匹配的版本**，且两种编译�
 
 - 缺失时常见报错："找不到 libgcc_s_seh-1.dll"或"无法定位程序输入点"。
 
-> **切勿混用**：MSVC 编译的 .exe 不能加载 MinGW 构建的 Qt DLL，反之亦然。发布目录中的所有二进制文件必须来自同一编译器套件。
+> [!WARNING]
+> MSVC 编译的 .exe 不能加载 MinGW 构建的 Qt DLL，反之亦然。发布目录中的所有二进制文件必须来自同一编译器套件，不可混用。
 
 ---
 
@@ -77,6 +81,7 @@ windeployqt 必须使用与项目编译器**匹配的版本**，且两种编译�
 
 获取 windeployqt.exe 的路径后，打开命令行窗口（PowerShell），可执行以下命令：
 
+> [!CAUTION]
 > 下方命令的 `C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe` 要更换成自己的路径！
 
 - **Widget 应用程序**：
@@ -90,6 +95,7 @@ windeployqt 必须使用与项目编译器**匹配的版本**，且两种编译�
     & "C:\Qt\6.10.3\msvc2022_64\bin\windeployqt.exe" MyQmlApp.exe --qmldir <源码 QML 路径>
     ```
 
+    > [!CAUTION]
     > `--qmldir` 参数需要指向**项目源码中 QML 文件所在的目录**（即包含 .qml 文件的文件夹），而非 Qt 安装目录下的 qml 路径。
 
 命令执行完成后，查看发布文件夹，会发现 windeployqt 已自动将所需的 DLL、插件和资源文件复制到 .exe 所在目录。
@@ -171,6 +177,7 @@ windeployqt MyApp.exe --dry-run --verbose
 
 **Qt Installer Framework**：Qt 官方提供的安装包制作框架，功能强大，可查看我的这篇[文档](https://xiao-blog.top/docs/article?id=qt-guide&sub=qifw-guide)
 
+> [!TIP]
 > 常见的还有Inno Setup、[NSIS](https://xiao-blog.top/share/?type=software&name=NSIS) 等打包工具。
 
 ---

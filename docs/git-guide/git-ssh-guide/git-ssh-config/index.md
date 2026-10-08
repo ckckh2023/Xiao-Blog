@@ -2,6 +2,7 @@
 
 本文**专注于 SSH 客户端的配置**，涵盖密钥生成、配置文件编写、私钥权限设置以及常见问题的排查，并提供 `pwsh` 与 `bash` 下的具体操作命令，帮助开发者在任何平台上都能顺利完成 SSH 配置。由于配置操作比较麻烦，并无懒人版教程。
 
+> [!CAUTION]
 > 在 Windows 平台，为了保证兼容性，请优先使用 `Git Bash` 来完成配置！
 
 ---
@@ -49,6 +50,7 @@ Host github.com
     IdentityFile ~/.ssh/id_ed25519
 ```
 
+> [!CAUTION]
 > 对于 `config` 文件，强烈建议在 Windows 平台依旧使用 `/` 而不是反斜杠 `\` ，否则可能导致路径解析错误！
 
 ---
@@ -57,6 +59,7 @@ Host github.com
 
 SSH 客户端对私钥文件的权限有严格限制：**私钥只能被当前用户读取，任何其他用户或组都不能有任何权限**。权限设置不当会导致 `Permissions too open` 或 `Permission denied (publickey)` 错误。
 
+> [!CAUTION]
 > 下列命令中的密钥路径均为 `~/.ssh/id_ed25519`，需要自行更改！
 
 ### Linux / macOS
@@ -75,6 +78,7 @@ Windows 自带的 OpenSSH 同样要求严格权限，需要使用 `icacls` 工�
 
 **操作步骤（以管理员身份打开 PowerShell）**：
 
+> [!TIP]
 > 如果你不想这么麻烦，使用 `Git Bash` 按照上述 Linux 的方法使用即可
 
 ```powershell
@@ -83,9 +87,12 @@ icacls $key /inheritance:r
 icacls $key /remove "BUILTIN\Administrators" "NT AUTHORITY\SYSTEM" "BUILTIN\Users" "Everyone"
 icacls $key /grant:r "$($env:USERNAME):R"
 ```
-> **注意**：Windows 平台必须要使用全局绝对路径而不是 `~/.ssh/id_ed25519`，否则会报错。示例中通过 `$env:USERPROFILE` 自动展开为完整的用户目录路径。
 
-> **提示**：若以管理员身份运行，且登录的管理员账户并非密钥使用者，请将 `$env:USERNAME` 手动替换为实际用户名。
+> [!CUATION]
+> Windows 平台必须要使用全局绝对路径而不是 `~/.ssh/id_ed25519`，否则会报错。示例中通过 `$env:USERPROFILE` 自动展开为完整的用户目录路径。
+
+> [!TIP]
+> 若以管理员身份运行，且登录的管理员账户并非密钥使用者，请将 `$env:USERNAME` 手动替换为实际用户名。
 
 **验证权限**：
 
@@ -107,7 +114,8 @@ icacls "$env:USERPROFILE\.ssh\id_ed25519"
 cat ~/.ssh/id_ed25519.pub
 ```
 
-> 注意：务必确认复制的是带 .pub 后缀的公钥文件，而非私钥文件。
+> [!CAUTION]
+> 务必确认复制的是带 .pub 后缀的公钥文件，而非私钥文件。
 
 ### 添加到 GitHub
 
@@ -166,4 +174,5 @@ Host github.com
     IdentityFile ~/.ssh/github/id_ed25519
 ```
 
+> [!CAUTION]
 > 需要将 `HostName` 改为 `ssh.github.com` 而不是之前的 `github.com`。

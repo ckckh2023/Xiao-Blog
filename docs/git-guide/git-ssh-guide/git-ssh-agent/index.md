@@ -10,7 +10,10 @@
 eval "$(ssh-agent -s)"
 ```
 
-> 当关闭终端时，ssh-agent 的环境变量将会失效，需要重新启动。<br>
+> [!CAUTION]
+> 当关闭终端时，ssh-agent 的环境变量将会失效，需要重新启动。
+
+> [!TIP]
 > 可以通过 `env | grep SSH_` 获取环境变量 `SSH_AUTH_SOCK` 和 `SSH_AGENT_PID` 重新 `export` 到下一个终端利用。
 
 
@@ -74,6 +77,7 @@ git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 
 本脚本为 `bash` 脚本，用于自动启动 ssh-agent 并添加私钥，适用于 Linux / macOS 平台， Windows 平台需使用 Git Bash。<br>
 
+> [!CAUTION]
 > 需要使用 `source ./ssh-agent.sh` 启动，脚本会自动添加私钥并显示当前已加载的密钥。
 
 ```bash

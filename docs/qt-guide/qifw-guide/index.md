@@ -46,6 +46,7 @@ my_projects/
 
 ## 基础配置
 
+> [!TIP]
 > 懒人版配置教程：按照以下配置，替换中文内容即可
 
 ### config.xml 示例
@@ -64,6 +65,7 @@ my_projects/
 </Installer>
 ```
 
+> [!TIP]
 > `@ApplicationsDir@` 会根据系统自动解析为合适的应用程序目录（Windows 下为 `C:\Program Files`，Linux 下为 `/opt`）。但请注意，Windows 下 `Program Files` 通常需要管理员权限，可考虑使用 `@HomeDir@/项目名字` 避免权限问题。
 
 ### package.xml 示例
@@ -91,7 +93,8 @@ my_projects/
 
 QIFW 通过 `installscript.qs` 中的操作创建开始菜单/桌面快捷方式。
 
->  第一行需要 `function Component() {}` 构造函数（可在此初始化变量）。
+> [!CAUTION]
+> 第一行需要 `function Component() {}` 构造函数，一般在此初始化变量。
 
 ### Windows 下创建开始菜单快捷方式和桌面快捷方式：
 
@@ -195,6 +198,7 @@ Component.prototype.createOperations = function()
     "/opt/Qt/Tools/QtInstallerFramework/4.11/bin/binarycreator" -c config/config.xml -p packages Setup.run
     ```
 
+> [!CAUTION]
 > 路径需要自己改动，一般都类似于示例路径！
 
 若要生成离线安装包（不包含维护工具），可添加 `--offline-only` 参数。但推荐保留维护工具，以便后续更新。

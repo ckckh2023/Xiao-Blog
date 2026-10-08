@@ -32,6 +32,7 @@ wsl --install
 
 安装完成后，首次启动 Ubuntu 会要求设置用户名和密码。
 
+> [!TIP]
 > 此用户即为 WSL 内的默认用户，拥有 sudo 权限，与 Windows 账户无关；
 
 输入密码时会发现无法显示密码，这是正常的保证安全的措施。
@@ -71,6 +72,7 @@ wsl -d Ubuntu-24.04 # 启动指定发行版
 | `wsl --update` | 更新 WSL 内核 |
 | `wsl --unregister -d Ubuntu` | 卸载发行版 |
 
+> [!TIP]
 > 可以使用我[分享页](https://xiao-blog.top/share/?type=software&name=wsl)的开源项目 WSL Dashboard 管理，图形界面更方便。
 
 ---
@@ -87,12 +89,14 @@ Windows 的 C 盘挂载在 `/mnt/c/`：
 cd /mnt/c/ # 此为 Windows 的 C 盘文件
 ```
 
-> **性能提示**：在 WSL 内操作 Windows 文件系统性能较差，**开发项目应放在 WSL 原生文件系统**（如 `~/projects/`）内，性能可接近原生 Linux。
+> [!IMPORTANT]
+> 在 WSL 内操作 Windows 文件系统性能较差，**开发项目应放在 WSL 原生文件系统**（如 `~/projects/`）内，性能可接近原生 Linux。
 
 ### Windows 访问 WSL 文件
 
 在资源管理器地址栏输入 `\\wsl$\Ubuntu\` 或使用新版路径 `\\wsl.localhost\Ubuntu\`。
 
+> [!TIP]
 > 可直接用 Windows 程序打开 WSL 内的项目文件，但是依旧会有性能问题。
 
 ### 用 VSCode 连接 WSL
@@ -137,6 +141,7 @@ generateResolvConf=true  # 自动生成 /etc/resolv.conf
 
 修改后需 `wsl --terminate -d <发行版>` 再重启该实例。
 
+> [!TIP]
 > **systemd 启用后**可使用 `systemctl` 管理服务，一般在 Docker、nginx、Redis 等开发环境有较大用处。
 
 ---

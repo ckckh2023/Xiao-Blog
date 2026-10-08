@@ -142,7 +142,8 @@ dsh plugin --profile <profile名称> add <插件包名>
 | **@ychris12138/dsh-usage-stats** | Token 额度使用面板 |
 | **@linxin666/dsh-web-all** | 实用插件集合 |
 
-> 更多插件可以在 [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com) 浏览，或查看 GitHub 上的 [`dsh-plugin` Topic](https://github.com/topics/dsh-plugin)。
+> [!TIP]
+> 更多插件可以在 [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com) 浏览，或查看 GitHub 上的 `dsh-plugin` [板块](https://github.com/topics/dsh-plugin)。
 
 ---
 
@@ -165,7 +166,3 @@ dsh plugin --profile <profile名称> add <插件包名>
 
 ### Q：如何排查配置问题？
 使用 `dsh --dump-config` 查看叠加后的最终配置。
-
----
-
-以上就是 dsh 的完整使用教程。核心流程总结为：**装 Node.js → 装 pnpm → 启动 dsh → 配置 API Key → 安装插件扩展能力**。遇到问题优先用 `dsh --dump-config` 排查配置，插件管理记住 `dsh plugin --profile web add <包名>` 这条核心命令即可。
