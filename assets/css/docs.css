@@ -481,7 +481,20 @@
     padding: 16px;
   }
   .docs-sidebar.drawer-open { transform: translateX(0); }
-  .docs-content { padding: 24px 16px 48px; }
+  .docs-home .docs-sidebar {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    transform: none;
+    z-index: auto;
+    padding: 24px 16px;
+  }
+  .docs-content { padding: 16px 16px 48px; }
   .doc-breadcrumb { display: inline; }
   .docs-toc-trigger {
     display: inline-flex;
@@ -495,7 +508,7 @@
     background: var(--surface);
     color: var(--text-muted);
     cursor: pointer;
-    vertical-align: middle;
+    vertical-align: top;
     margin-right: 8px;
     transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
