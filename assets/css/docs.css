@@ -492,7 +492,7 @@
     border-bottom: 1px solid var(--border);
     transform: none;
     z-index: auto;
-    padding: 24px 16px;
+    padding: 16px;
   }
   .docs-content { padding: 16px 16px 48px; }
   .doc-breadcrumb { display: inline; }
