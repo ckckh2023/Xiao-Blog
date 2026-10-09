@@ -271,6 +271,7 @@
   color: var(--text-muted);
 }
 .doc-feedback-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -291,17 +292,37 @@
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* 点赞效果动画 */
+.fb-burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.fb-spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: fb-spark 0.6s var(--d, 0s) ease-out forwards;
+}
+@keyframes fb-spark {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  70% { opacity: 0.8; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0.2); opacity: 0; }
+}
 .doc-feedback-icon {
   width: 22px;
   height: 22px;
   display: block;
 }
 .doc-feedback-icon .thumb-outline {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 40;
-  stroke-linejoin: round;
-  stroke-linecap: round;
+  fill: currentColor;
 }
 .doc-feedback-icon .thumb-solid {
   display: none;

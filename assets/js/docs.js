@@ -457,8 +457,28 @@
     btn.addEventListener("click", function () {
       var active = holder.classList.toggle("active");
       btn.setAttribute("aria-pressed", active ? "true" : "false");
+      if (active) spawnFeedbackBurst(btn);
     });
     holder.__feedbackBound = true;
+  }
+
+  /* 点赞效果动画 */
+  function spawnFeedbackBurst(btn) {
+    var N = 12;
+    var layer = document.createElement("span");
+    layer.className = "fb-burst";
+    for (var i = 0; i < N; i++) {
+      var p = document.createElement("span");
+      p.className = "fb-spark";
+      var ang = (Math.PI * 2 * i) / N + (Math.random() - 0.5) * 0.4;
+      var dist = 24 + Math.random() * 16;
+      p.style.setProperty("--tx", (Math.cos(ang) * dist).toFixed(1) + "px");
+      p.style.setProperty("--ty", (Math.sin(ang) * dist).toFixed(1) + "px");
+      p.style.setProperty("--d", (Math.random() * 0.1).toFixed(2) + "s");
+      layer.appendChild(p);
+    }
+    btn.appendChild(layer);
+    setTimeout(function () { if (layer.parentNode) layer.parentNode.removeChild(layer); }, 750);
   }
 
   /* 从 HTTP Last-Modified 头解析并填充最后更新日期
