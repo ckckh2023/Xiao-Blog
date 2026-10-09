@@ -305,7 +305,7 @@
 }
 .doc-feedback-icon .thumb-solid {
   display: none;
-  fill: var(--border);
+  fill: currentColor;
 }
 .doc-feedback.active .doc-feedback-icon .thumb-outline {
   display: none;
