@@ -245,12 +245,77 @@
   margin: 0 12px;
 }
 
+/* 文章底部信息条 */
+.doc-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
 /* 文章最后更新日期 */
 .doc-updated {
-  margin-top: 16px;
   font-size: 13px;
   color: var(--text-muted);
-  text-align: right;
+  text-align: left;
+}
+
+/* 文章反馈 */
+.doc-feedback {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.doc-feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.doc-feedback-btn:hover {
+  color: var(--link);
+  border-color: var(--link);
+}
+.doc-feedback-btn:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+.doc-feedback-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.doc-feedback-icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 60;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+.doc-feedback.active .doc-feedback-btn {
+  color: var(--link);
+  border-color: var(--link);
+  background: var(--active-bg);
+}
+.doc-feedback.active .doc-feedback-icon path {
+  fill: currentColor;
+  stroke: none;
+}
+.doc-feedback.active .doc-feedback-text {
+  color: var(--link);
 }
 
 /* ---------- 文档目录页 ---------- */

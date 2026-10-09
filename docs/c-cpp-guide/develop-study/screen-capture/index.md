@@ -139,7 +139,7 @@ int main(int argc, char *argv[]) {
 ```
 
 > [!CAUTION]
-> 使用 `mingw64/g++` 编译时需要链接 gdi32 库：`g++ main.cpp -lgdi32`，msvc 则不需要担心此问题。
+> 使用 `msvc` 编译时需要链接 user32 和 gdi32 库：`cl main.cpp user32.lib gdi32.lib`；使用 `mingw64/g++` 编译时需要链接 gdi32 库：`g++ main.cpp -lgdi32`。
 
 ---
 
