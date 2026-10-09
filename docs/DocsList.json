@@ -41,7 +41,8 @@
       },
       { "id": "develop-study", "title": "C/C++ 开发学习建议及指导",
         "children": [
-          { "id": "console-clear", "title": "控制台在不同平台下的清屏方法" }
+          { "id": "console-clear", "title": "终端在不同平台下的清屏方法" },
+          { "id": "screen-capture", "title": "在不同平台的截屏方法介绍" }
         ]
       }
     ]
