@@ -298,11 +298,13 @@
       sidebar.classList.add("drawer-open");
       overlay.classList.add("active");
       trigger.setAttribute("aria-expanded", "true");
+      document.documentElement.classList.add("docs-drawer-lock");
     }
     function close() {
       sidebar.classList.remove("drawer-open");
       overlay.classList.remove("active");
       trigger.setAttribute("aria-expanded", "false");
+      document.documentElement.classList.remove("docs-drawer-lock");
     }
     trigger.addEventListener("click", function () {
       if (sidebar.classList.contains("drawer-open")) close(); else open();

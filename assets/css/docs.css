@@ -455,18 +455,11 @@
   font-weight: 600;
 }
 
-/* 文章页内容头部 */
-.docs-content-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.docs-content-head .doc-breadcrumb { margin-bottom: 0; }
 
 /* 目录抽屉触发按钮与遮罩 */
 .docs-toc-trigger { display: none; }
 .docs-drawer-overlay { display: none; }
+.docs-drawer-lock { overflow: hidden; }
 
 /* ---------- 响应式 ---------- */
 @media (max-width: 768px) {
@@ -489,19 +482,21 @@
   }
   .docs-sidebar.drawer-open { transform: translateX(0); }
   .docs-content { padding: 24px 16px 48px; }
+  .doc-breadcrumb { display: inline; }
   .docs-toc-trigger {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     padding: 0;
     border: 1px solid var(--border);
     border-radius: 6px;
     background: var(--surface);
     color: var(--text-muted);
     cursor: pointer;
-    flex-shrink: 0;
+    vertical-align: middle;
+    margin-right: 8px;
     transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
   .docs-toc-trigger:hover {
@@ -513,7 +508,7 @@
     outline: 2px solid var(--border);
     outline-offset: 2px;
   }
-  .docs-toc-trigger svg { width: 16px; height: 16px; display: block; }
+  .docs-toc-trigger svg { width: 18px; height: 18px; display: block; }
   .docs-drawer-overlay {
     display: block;
     position: fixed;
