@@ -102,7 +102,7 @@
   global.fetchDocsList = fetchDocsList;
 
   /* 侧边栏折叠图标 */
-  var SIDEBAR_TOGGLE_SVG = '<svg viewBox="0 0 12 12" width="10" height="10" fill="currentColor" aria-hidden="true"><path d="M4 2L10 6L4 10Z"/></svg>';
+  var SIDEBAR_TOGGLE_SVG = '<svg viewBox="0 0 1024 1024" width="12" height="12" fill="currentColor" aria-hidden="true"><g transform="rotate(-90 512 512)"><path d="M877.4656 317.201067a34.133333 34.133333 0 0 1 0 48.264533l-341.333333 341.333333a34.133333 34.133333 0 0 1-48.264534 0l-341.333333-341.333333a34.133333 34.133333 0 0 1 48.264533-48.264533L512 634.402133l317.201067-317.201066a34.133333 34.133333 0 0 1 48.264533 0z"/></g></svg>';
 
   function isPrefix(short, long) {
     if (!long || short.length > long.length) return false;
@@ -449,9 +449,9 @@
 
   var ALERT_TYPES = {
     CAUTION: { cls: "alert-caution", title: "注意", icon: '<svg viewBox="0 0 16 16" width="16" height="16"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="5" r="0.9" fill="currentColor"/><rect x="7.1" y="6.7" width="1.8" height="5.3" fill="currentColor"/></svg>' },
-    WARNING: { cls: "alert-warning", title: "警告", icon: '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M8 1.6 14.25 12.4A1 1 0 0 1 13.39 14H2.61a1 1 0 0 1-.86-1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="6.2" r="0.9" fill="currentColor"/><rect x="7.1" y="7.9" width="1.8" height="4" fill="currentColor"/></svg>' },
+    WARNING: { cls: "alert-warning", title: "警告", icon: '<svg viewBox="0 0 16 16" width="16" height="16"><path d="M8 1.6 14.25 12.4A1 1 0 0 1 13.39 14H2.61a1 1 0 0 1-.86-1.6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="7.1" y="6.3" width="1.8" height="4.2" fill="currentColor"/><circle cx="8" cy="11.7" r="0.9" fill="currentColor"/></svg>' },
     TIP: { cls: "alert-tip", title: "提示", icon: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M8 1.6a4.8 4.8 0 0 0-3.05 8.5c.4.4.65.9.65 1.45v.15h4.8v-.15c0-.55.25-1.05.65-1.45A4.8 4.8 0 0 0 8 1.6Z"/><path d="M6.3 12.2h3.4v.7a.7.7 0 0 1-.7.7H7a.7.7 0 0 1-.7-.7Z"/></svg>' },
-    IMPORTANT: { cls: "alert-important", title: "重要提示", icon: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M8 1.6a.7.7 0 0 1 .7.7v.25a4.3 4.3 0 0 1 3.6 4.25v2.1l.75 1.25H2.95l.75-1.25v-2.1A4.3 4.3 0 0 1 7.3 2.55v-.25A.7.7 0 0 1 8 1.6Z"/><path d="M6.35 13.4a1.65 1.65 0 0 0 3.3 0"/></svg>' }
+    IMPORTANT: { cls: "alert-important", title: "重要提示", icon: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M8 1.6a.7.7 0 0 1 .7.7v.25a4.3 4.3 0 0 1 3.6 4.25v2.1l.75 1.25H2.95l.75-1.25v-2.1A4.3 4.3 0 0 1 7.3 2.55v-.25A.7.7 0 0 1 8 1.6Z"/><path d="M6.35 12.8a1.65 1.65 0 0 0 3.3 0"/></svg>' }
   };
 
   function convertAlerts(box) {
