@@ -1,5 +1,6 @@
 本文介绍 **Git LFS**（Large File Storage）的用途与工作原理，并给出安装初始化、跟踪规则配置、日常推拉、克隆含 LFS 仓库以及将已有大文件迁移至 LFS 的完整流程。Git LFS 用于解决 Git 在管理大型二进制文件时仓库体积膨胀的问题，是游戏开发、机器学习、多媒体项目中的常见补丁。
 
+> [!TIP]
 > Git LFS 命令在各平台语法一致，下文示例统一以 `bash` 给出；Windows 平台建议在 `Git Bash` 中执行。
 
 ---
@@ -73,12 +74,7 @@ models/*.bin filter=lfs diff=lfs merge=lfs -text
 ```
 
 > [!IMPORTANT]
-> `.gitattributes` 本身必须被 Git 跟踪并提交，否则他人克隆后 LFS 规则不生效：
-
-```bash
-git add .gitattributes
-git commit -m "配置 LFS 跟踪规则"
-```
+> `.gitattributes` 本身必须被 Git 跟踪并提交，否则他人克隆后 LFS 规则不生效！
 
 查看当前跟踪规则：
 
@@ -234,7 +230,7 @@ git lfs migrate import --include="*.psd"
 执行后所有历史提交中匹配 `*.psd` 的文件都会被替换为 LFS 指针，`.git` 体积会显著下降。
 
 > [!WARNING]
-> 此操作会改写历史，**若仓库已推送且有人协作，必须通知所有协作者重新克隆**，否则会出现哈希不一致。
+> 此操作会改写历史，**若仓库已推送且有人协作，必须通知所有协作者重新克隆**，否则会出现哈希不一致的问题。
 
 迁移完成后，本地旧的对象仍占用空间，可清理：
 

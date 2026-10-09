@@ -322,7 +322,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
+  color: var(--text);
   transition: color 0.15s ease;
 }
 .docs-sidebar .sidebar-toggle svg {

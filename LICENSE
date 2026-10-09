@@ -49,9 +49,9 @@ License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 Internatio
 ================================================================================
 
 assets/vendor/ 下的第三方库遵循其各自原始协议：
-  - Vue 3 (vue-3.5.41.global.js): MIT License — <https://vuejs.org>
+  - Vue 3 (vue-3.5.41.global.js 与 vue-3.5.41.runtime.global.js): MIT License — <https://vuejs.org>
   - marked (marked-14.1.4.min.js): MIT License — <https://marked.js.org>
-  - highlight.js (highlight-11.11.1.min.js + powershell-11.11.1.min.js): BSD-3-Clause — <https://highlightjs.org>
+  - highlight.js (highlight-11.11.1.min.js 与 powershell-11.11.1.min.js): BSD-3-Clause — <https://highlightjs.org>
   - DOMPurify (dompurify@3.1.6): MPL 2.0 / Apache 2.0 双协议 — <https://github.com/cure53/DOMPurify>
 
 ================================================================================
