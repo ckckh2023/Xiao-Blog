@@ -102,7 +102,7 @@
   global.fetchDocsList = fetchDocsList;
 
   /* 侧边栏折叠图标 */
-  var SIDEBAR_TOGGLE_SVG = '<svg viewBox="0 0 1024 1024" width="12" height="12" fill="none" stroke="currentColor" aria-hidden="true"><g transform="rotate(-90 512 512)" stroke-width="120" stroke-linecap="round" stroke-linejoin="round"><path d="M256 384 L512 640 L768 384"/></g></svg>';
+  var SIDEBAR_TOGGLE_SVG = '<svg viewBox="0 0 1024 1024" width="12" height="12" fill="none" stroke="currentColor" aria-hidden="true"><g transform="rotate(-90 512 512)" stroke-width="120" stroke-linecap="round" stroke-linejoin="round"><path d="M220 340 L512 680 L780 340"/></g></svg>';
 
   function isPrefix(short, long) {
     if (!long || short.length > long.length) return false;

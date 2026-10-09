@@ -46,11 +46,11 @@ wrangler d1 execute xiao-guestbook --remote --file=./schema.sql # 数据库初�
 wrangler kv namespace create xiao-repo-cache # 创建 GitHub KV 缓存
 ```
 
-> `wrangler.toml` 已配置 D1 绑定 `GUESTBOOK` -> 数据库 `xiao-guestbook`，KV 绑定 `GITHUB_CACHE` -> namespace `xiao-repo-cache`，需自行更改。
+`wrangler.toml` 已配置 D1 绑定 `GUESTBOOK` -> 数据库 `xiao-guestbook`，KV 绑定 `GITHUB_CACHE` -> namespace `xiao-repo-cache`，需自行更改。
 
 ## 环境变量
 
-在 Cloudflare Pages 仪表板 -> 设置 -> **环境变量（机密）**中配置：
+在 Cloudflare Pages 仪表板 -> 设置 -> **环境变量（机密）** 中配置：
 
 | 变量名 | 说明 |
 | --- | --- |
