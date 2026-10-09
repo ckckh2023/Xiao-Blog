@@ -35,7 +35,12 @@
 
     <!-- 渲染右侧正文内容 -->
     <article class="docs-content">
-      <div id="doc-breadcrumb" class="doc-breadcrumb"></div>
+      <div class="docs-content-head">
+        <button type="button" id="docs-toc-trigger" class="docs-toc-trigger" aria-label="打开目录" aria-expanded="false">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="2"/><path d="M4.75 2.5v11"/></svg>
+        </button>
+        <div id="doc-breadcrumb" class="doc-breadcrumb"></div>
+      </div>
       <h1 id="doc-title">加载中…</h1>
       <div id="doc-body" class="doc-body">
         <div class="status-box">正文加载中…</div>
@@ -47,6 +52,8 @@
       <div id="pagination" class="docs-pagination"></div>
     </article>
   </div>
+
+  <div id="docs-drawer-overlay" class="docs-drawer-overlay"></div>
 
   <!-- 页尾允许改动，但需保留 ckckh2023 著作权，删去则代表你违反本项目协议 -->
   <footer class="site-footer">

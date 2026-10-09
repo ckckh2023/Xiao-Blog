@@ -287,6 +287,32 @@
   }
   global.renderPagination = renderPagination;
 
+  /* 移动端目录抽屉 */
+  function bindDrawerToggle() {
+    var trigger = document.getElementById("docs-toc-trigger");
+    var sidebar = document.getElementById("docs-sidebar");
+    var overlay = document.getElementById("docs-drawer-overlay");
+    if (!trigger || !sidebar || !overlay || trigger.__drawerBound) return;
+    trigger.__drawerBound = true;
+    function open() {
+      sidebar.classList.add("drawer-open");
+      overlay.classList.add("active");
+      trigger.setAttribute("aria-expanded", "true");
+    }
+    function close() {
+      sidebar.classList.remove("drawer-open");
+      overlay.classList.remove("active");
+      trigger.setAttribute("aria-expanded", "false");
+    }
+    trigger.addEventListener("click", function () {
+      if (sidebar.classList.contains("drawer-open")) close(); else open();
+    });
+    overlay.addEventListener("click", close);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+  }
+
   /* 文章模板页初始化 */
   function initArticlePage() {
     var query = new URLSearchParams(window.location.search);
@@ -300,6 +326,8 @@
     var idPath = [id];
     if (sub) idPath.push(sub);
     if (sub2) idPath.push(sub2);
+
+    bindDrawerToggle();
 
     return fetchDocsList().then(function (list) {
       var node = findNodeByPath(list, idPath);
