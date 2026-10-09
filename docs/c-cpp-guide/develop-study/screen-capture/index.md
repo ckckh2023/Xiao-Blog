@@ -35,6 +35,9 @@ GDI（Graphics Device Interface）是 Windows 早期的图形接口，通过设�
 
 ### 完整示例代码
 
+> [!CAUTION]
+> 使用 `msvc` 编译时需要链接 user32 和 gdi32 库：`cl main.cpp user32.lib gdi32.lib`；使用 `mingw64/g++` 编译时需要链接 gdi32 库：`g++ main.cpp -lgdi32`。
+
 ```cpp
 #include <cstdio>
 #include <windows.h>
@@ -65,7 +68,8 @@ bool SaveBitmapImage(HBITMAP hBitmap, const char* Filename) {
 
     hdc = GetDC(NULL);
 
-    GetDIBits(hdc,
+    GetDIBits(
+        hdc,
         hBitmap,
         0,
         (UINT)bmp.bmHeight,
@@ -137,9 +141,6 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
-
-> [!CAUTION]
-> 使用 `msvc` 编译时需要链接 user32 和 gdi32 库：`cl main.cpp user32.lib gdi32.lib`；使用 `mingw64/g++` 编译时需要链接 gdi32 库：`g++ main.cpp -lgdi32`。
 
 ---
 
@@ -248,7 +249,7 @@ bool SaveXImageAsBmp(XImage* img, const char* filePath) {
     return true;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     Display* disp = XOpenDisplay(NULL);
     if (!disp) {
         printf("Cannot open xDisplay\n");
@@ -259,15 +260,24 @@ int main() {
     int width  = DisplayWidth(disp, DefaultScreen(disp));
     int height = DisplayHeight(disp, DefaultScreen(disp));
 
-    XImage* img = XGetImage(disp, root, 0, 0, width, height, AllPlanes, ZPixmap);
+    XImage* img = XGetImage(
+        disp,
+        root,
+        0,
+        0,
+        width,
+        height,
+        AllPlanes,
+        ZPixmap
+    );
     if (!img) {
         printf("Failed to get image\n");
         XCloseDisplay(disp);
         return 1;
     }
 
-    bool ok = SaveXImageAsBmp(img, "ScreenShot.bmp");
-    printf(ok ? "Screenshot saved successfully\n" : "Failed to save screenshot\n");
+    if (SaveXImageAsBmp(img, "ScreenShot.bmp")) printf("Screenshot saved successfully\n");
+    else printf("Failed to save screenshot\n");
 
     XDestroyImage(img);
     XCloseDisplay(disp);
@@ -338,3 +348,99 @@ BMP 格式实现简单、无需第三方库。若要保存为 PNG/JPG，可使�
 ### Q: X11 的 `XGetImage` 性能瓶颈在哪？
 
 `XGetImage` 默认走网络协议把像素从 X Server 拷到客户端，是软件拷贝。大分辨率下逐像素 `XGetPixel` 更慢。优化方案：直接按 `img->data` 做批量内存拷贝，或改用 `XShmGetImage`（MIT-SHM 共享内存扩展），可显著减少拷贝开销。
+
+---
+
+## 使用 libpng 保存 PNG
+
+libpng 是官方维护的 PNG 参考库，用标准 C 编写，仅依赖 zlib，，是替代手写 BMP 的跨平台方案。
+
+> [!CAUTION]
+> libpng 要求传入的像素**自上而下**逐行排列。而 BMP / `GetDIBits` / `XGetImage` 的像素通常是**自下而上**存储的，直接喂给 libpng 会导致图像上下颠倒。调用前需按行翻转，或在上面的 BMP 示例中把循环改为从 `y = 0` 到 `height - 1` 收集。
+
+```cpp
+#include <png.h>
+#include <cstdio>
+#include <cstring>
+
+bool SaveRgbAsPng(const unsigned char* rgb, int width, int height, const char* filename) {
+    FILE* fp = fopen(filename, "wb");
+    if (!fp) return false;
+
+    png_structp png_ptr = png_create_write_struct(PNG_LIBPNG_VER_STRING, nullptr, nullptr, nullptr);
+    if (!png_ptr) {
+        fclose(fp);
+        return false;
+    }
+
+    png_infop info_ptr = png_create_info_struct(png_ptr);
+    if (!info_ptr) {
+        png_destroy_write_struct(&png_ptr, nullptr);
+        fclose(fp);
+        return false;
+    }
+
+    if (setjmp(png_jmpbuf(png_ptr))) {
+        png_destroy_write_struct(&png_ptr, &info_ptr);
+        fclose(fp);
+        return false;
+    }
+
+    png_init_io(png_ptr, fp);
+
+    png_set_IHDR(
+        png_ptr,
+        info_ptr,
+        width, height, 8,
+        PNG_COLOR_TYPE_RGB,
+        PNG_INTERLACE_NONE,
+        PNG_COMPRESSION_TYPE_DEFAULT,
+        PNG_FILTER_TYPE_DEFAULT
+    );
+
+    png_write_info(png_ptr, info_ptr);
+
+    // libpng 要求传入每行的起始指针数组
+    png_bytep* rows = new png_bytep[height];
+    for (int y = 0; y < height; y++) rows[y] = (png_bytep)(rgb + (long)y * width * 3);
+    png_write_image(png_ptr, rows);
+    delete[] rows;
+
+    png_write_end(png_ptr, info_ptr);
+
+    png_destroy_write_struct(&png_ptr, &info_ptr);
+    fclose(fp);
+    return true;
+}
+```
+
+> [!CAUTION]
+> libpng 按 `PNG_COLOR_TYPE_RGB` 写入时默认期望 **R,G,B** 顺序。Windows BMP 与 X11 `ZPixmap` 常见的是 **B,G,R**，保存前需交换 R 与 B 两个通道，否则红蓝会互换。
+
+### 接入上面的截屏示例
+
+在前面的 BMP 保存函数基础上，只改两处即可改存 PNG：
+
+- **翻转行序**：BMP/`GetDIBits` 像素自下而上，PNG 需自上而下（X11 用 `XGetPixel` 按 `y` 递增读取时已是自上而下，无需翻转）。
+- **交换 R/B**：BMP 与 X11 `ZPixmap` 常见是 BGR，而 PNG 需 RGB。
+
+把像素整理成连续、自上而下、RGB、无 padding 的缓冲区后调用 `SaveRgbAsPng`。对应到 `main` 中，只需替换一行调用：
+
+- **Windows GDI**：`SaveBitmapImage(hBitmap, "ScreenShot.bmp")` -> `SaveHBitmapAsPng(hBitmap, screenWidth, screenHeight, "ScreenShot.png")`
+- **Linux X11**：`SaveXImageAsBmp(img, "ScreenShot.bmp")` -> `SaveXImageAsPng(img, "ScreenShot.png")`
+
+> [!TIP]
+> 追求性能时，X11 可不逐像素 `XGetPixel`，直接按 `img->data` + `img->red_mask/green_mask/blue_mask` 做批量转换，再喂给 `SaveRgbAsPng`。
+
+### `libpng` 各平台安装与编译
+
+| 平台 | 安装 | 编译链接 |
+| --- | --- | --- |
+| Windows (vcpkg) | `vcpkg install libpng` | `cl main.cpp libpng.lib zlib.lib` |
+| Windows (MinGW) | MSYS2 `pacman -S mingw-w64-x86_64-libpng` | `g++ main.cpp -lpng -lz` |
+| Linux (apt) | `sudo apt install libpng-dev` | `g++ main.cpp -lpng -lz` |
+| Linux (yum) | `sudo yum install libpng-devel` | `g++ main.cpp -lpng -lz` |
+| macOS (brew) | `brew install libpng` | `g++ main.cpp -lpng -lz` |
+
+> [!TIP]
+> 若不想引入 libpng，只需使用单头库 `stb_image_write.h` 的 `stbi_write_png` 也能写出 PNG；但 libpng 对压缩参数、渐进式写入、错误处理控制更细，更适合生产环境。
