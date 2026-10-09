@@ -508,7 +508,7 @@
     background: var(--surface);
     color: var(--text-muted);
     cursor: pointer;
-    vertical-align: top;
+    vertical-align: middle;
     margin-right: 8px;
     transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
