@@ -25,9 +25,8 @@
       updated.textContent = d.getFullYear() + "-" +
         String(d.getMonth() + 1).padStart(2, "0") + "-" +
         String(d.getDate()).padStart(2, "0");
-    } else {
-      updated.textContent = document.lastModified;
     }
+    else updated.textContent = document.lastModified;
   }
 
   /* 拉取各数据源计算统计 */
