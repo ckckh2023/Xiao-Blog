@@ -32,7 +32,7 @@
   },
   { "id": "c-cpp-guide", "title": "C/C++ 相关指导及建议",
     "children": [
-      { "id": "compile-introduction", "title": "C/C++ 编译工具及使用方法介绍",
+      { "id": "compile-introduction", "title": "C/C++ 编译工具及使用讲解",
         "children": [
           { "id": "msvc-guide", "title": "MSVC 编译器使用方法（Windows 平台）" },
           { "id": "gcc-guide", "title": "GCC 编译器使用方法（Linux 与 Windows 平台）" },

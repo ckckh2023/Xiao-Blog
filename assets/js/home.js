@@ -19,7 +19,7 @@
     bio: "没招了没招了没招了",
     location: "China",
     company: null,
-    followers: 10,
+    followers: 11,
     public_repos: 10
   };
 
