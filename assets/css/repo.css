@@ -44,20 +44,18 @@
   color: var(--text-muted);
   margin-bottom: 14px;
 }
-.project-card .pc-meta .star {
+.project-card .pc-meta .star,
+.project-card .pc-meta .fork {
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
-.project-card .pc-meta .star svg {
-  width: 13px;
-  height: 13px;
-}
-.project-card .pc-meta .fork {
+.project-card .pc-meta .star .ico,
+.project-card .pc-meta .fork .ico {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
 }
+.project-card .pc-meta .star svg,
 .project-card .pc-meta .fork svg {
   width: 13px;
   height: 13px;
