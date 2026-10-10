@@ -353,7 +353,7 @@ BMP 格式实现简单、无需第三方库。若要保存为 PNG/JPG，可使�
 
 ## 使用 libpng 保存 PNG
 
-libpng 是官方维护的 PNG 参考库，用标准 C 编写，仅依赖 zlib，，是替代手写 BMP 的跨平台方案。
+libpng 是官方维护的 PNG 参考库，用标准 C 编写，仅依赖 zlib，是替代手写 BMP 的跨平台方案。
 
 > [!CAUTION]
 > libpng 要求传入的像素**自上而下**逐行排列。而 BMP / `GetDIBits` / `XGetImage` 的像素通常是**自下而上**存储的，直接喂给 libpng 会导致图像上下颠倒。调用前需按行翻转，或在上面的 BMP 示例中把循环改为从 `y = 0` 到 `height - 1` 收集。

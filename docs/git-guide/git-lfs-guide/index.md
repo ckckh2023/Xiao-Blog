@@ -251,7 +251,7 @@ git gc --prune=now
 
 ```text
 version https://git-lfs.github.com/spec/v1
-oid sha256:4d7a214614ab293d2c4f7d8e3f2c9b1a5e8d2f0c6b3a9e7d4c1b8a5e2d9c6b3
+oid sha256:4d7a214614ab293d2c4f7d8e3f2c9b1a5e8d2f0c6b3a9e7d4c1b8a5e2d9c6b3a
 size 12345678
 ```
 

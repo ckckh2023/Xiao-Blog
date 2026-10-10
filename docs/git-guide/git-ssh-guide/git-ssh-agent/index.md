@@ -75,7 +75,7 @@ git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 
 ### 懒人版自助脚本
 
-本脚本为 `bash` 脚本，用于自动启动 ssh-agent 并添加私钥，适用于 Linux / macOS 平台， Windows 平台需使用 Git Bash。<br>
+本脚本为 `bash` 脚本，用于自动启动 ssh-agent 并添加私钥，适用于 Linux / macOS 平台， Windows 平台需使用 Git Bash。
 
 > [!CAUTION]
 > 需要使用 `source ./ssh-agent.sh` 启动，脚本会自动添加私钥并显示当前已加载的密钥。

@@ -50,6 +50,26 @@ cl /EHsc hello.cpp
 cl /EHsc /Fe:myapp.exe main.cpp utils.cpp
 ```
 
+### C 与 C++ 编译差异
+
+MSVC 在编译 C 和 C++ 代码时行为不同，需注意以下几点：
+
+| 差异点 | C 代码 | C++ 代码 |
+|--------|--------|----------|
+| 指定语言 | `/TC`（所有源文件视为 C） | `/TP`（所有源文件视为 C++，默认） |
+| 标准版本 | `/std:c11` 或 `/std:c17` | `/std:c++17`、`/std:c++20` 等 |
+| 异常处理 | 不适用 | 需 `/EHsc` 启用 C++ 异常 |
+
+> [!CAUTION]
+> MSVC 在编译 C 代码时，会对 `scanf`、`strcpy` 等不安全函数发出 C4996 警告，建议使用带 `_s` 后缀的安全版本（如 `scanf_s`）。若需禁用警告，可在文件开头定义 `#define _CRT_SECURE_NO_WARNINGS`，或编译时加 `/D_CRT_SECURE_NO_WARNINGS`。
+
+```pwsh
+cl /TC /std:c11 /D_CRT_SECURE_NO_WARNINGS main.c
+```
+
+> [!CAUTION]
+> MSVC 对 C 语言标准的支持较晚，`/std:c11` 和 `/std:c17` 在 VS2019 16.8+ 才可用，且仅支持 C11/C17 的部分特性，建议使用 mingw/gcc 编译器，具体可查看[此文档](https://xiao-blog.top/docs/article?id=c-cpp-guide&sub=compile-introduction&sub2=gcc-guide)。
+
 ---
 
 ## 跨平台开发的局限与策略

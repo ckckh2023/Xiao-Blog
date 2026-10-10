@@ -173,7 +173,7 @@ Wrangler CLI 可集成到任意 CI/CD 平台。推荐使用 API Token 而非交�
 
 - 在 Dashboard → **My Profile → API Tokens** 创建 Token，模板选择 **Edit Cloudflare Workers**。
 
--在 CI 环境中设置环境变量：
+- 在 CI 环境中设置环境变量：
 
    ```bash
    export CLOUDFLARE_API_TOKEN="<你的API Token>"

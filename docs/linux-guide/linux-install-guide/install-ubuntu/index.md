@@ -8,7 +8,7 @@
 - **国内镜像加速**：官方源在国内下载速度较慢，可使用国内镜像站：
     [阿里源](https://mirrors.aliyun.com/ubuntu-releases/) | [中科大源](https://mirrors.ustc.edu.cn/ubuntu-releases/)
 
-下载得到 `.iso` 镜像文件后，可以使用以下命令校验文件完整性校验 SHA256 值，确保文件完整无损：
+下载得到 `.iso` 镜像文件后，可以使用以下命令校验文件完整性，比对 SHA256 值，确保文件完整无损：
 
 ```bash
 sha256sum ubuntu-24.04-desktop-amd64.iso
