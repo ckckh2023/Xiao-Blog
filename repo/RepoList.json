@@ -10,6 +10,7 @@
     ],
     "desc": "BTIR 是一个面向临床与科研的脑肿瘤 MRI 一站式分析平台。只需在浏览器中拖入 DICOM 或 NIfTI 文件夹，即可自动完成模态匹配、病灶分类与三维分割，并生成综合结论与 AI 解读。内置多用户隔离、异步任务队列与 3D 体渲染，开箱即用。",
     "stars": 6,
+    "forks": 0,
     "tags": ["Python","JavaScript","HTML","CSS","Shell"]
   },
   {
@@ -24,6 +25,7 @@
     ],
     "desc": "TrashGo 是一款集多种图像信息识别功能于一体的智能工具，旨在帮助用户快速识别图像信息，并提供趣味互动体验。无论是垃圾分类、人脸识别，TrashGo 都能轻松应对。",
     "stars": 16,
+    "forks": 2,
     "tags": ["C++","QML","CMake","C"]
   },
   {
@@ -38,6 +40,7 @@
     ],
     "desc": "个人技术博客站点，部署于 Cloudflare Pages。内置文档知识库、项目展示、工具分享、留言板与好友页等模块。",
     "stars": 7,
+    "forks": 3,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
@@ -50,8 +53,9 @@
       { "title": "Gitee", "url": "https://gitee.com/ckckh2023/TsingHuaelt-VMIC" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TsingHuaelt-VMIC" }
     ],
-    "desc": "让清英在线的网页录音只能拿到本插件注入的本地音频，而不是真实麦克风。",
+    "desc": "让清英在线的网页录音只能拿到本插件注入的本地音频，而不是真实麦克风。本项目仅供研究自动化测试原理，违反学校平台规定的行为后果自负！",
     "stars": 9,
+    "forks": 0,
     "tags": ["JavaScript", "CSS", "HTML"]
   },
   {
@@ -66,6 +70,7 @@
     ],
     "desc": "NotePad-- 项目的 Qt 6 复刻版本，旨在引入更多高版本特性与本人开发的新功能，用于替代系统自带的文本编辑器与 NotePad++。",
     "stars": 0,
+    "forks": 0,
     "tags": ["C++", "HTML", "NSIS", "C", "CSS", "QMake", "Other"]
   },
   {
@@ -77,6 +82,7 @@
     "other_repo": [],
     "desc": "纯终端的学生信息管理系统",
     "stars": 0,
+    "forks": 0,
     "tags": ["C++"]
   }
 ]

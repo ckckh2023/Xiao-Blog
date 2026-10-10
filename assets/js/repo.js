@@ -36,11 +36,15 @@
   /* ---------- GitHub 仓库详情获取 ---------- */
   var REPO_API = "/api/github/repos/";
 
+  var FORK_SVG = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"/></svg>';
+
+  var STAR_SVG = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.984a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>';
+
   /* 获取仓库简介和真实 star 数 */
   function fetchRepoInfo(fullName) {
     var key = "repo:" + fullName;
     return fetchGitHubJSON(REPO_API + fullName, key).then(function (d) {
-      return { desc: d.description || "", stars: d.stargazers_count || 0 };
+      return { desc: d.description || "", stars: d.stargazers_count || 0, forks: d.forks_count || 0 };
     }).catch(function (err) {
       console.warn("[repo] info 获取失败 " + fullName + "：", err);
       return null;
@@ -71,6 +75,7 @@
       if (info) {
         if (info.desc) p.desc = info.desc;
         p.stars = info.stars;
+        p.forks = info.forks;
       }
       else {
         if (!p.desc) p.desc = "暂无简介";
@@ -162,10 +167,12 @@
       h("div", { class: "pc-title", innerHTML: highlight(p.name, q) }),
       h("div", { class: "pc-desc", innerHTML: highlight(descText, q) }),
       tagsNode,
-      h("div", { class: "pc-meta" }, [
-        h("span", { class: "star" }, "★ " + (p.stars || 0)),
-        h("span", "#" + p.id)
-      ]),
+      h("div", { class: "pc-meta" }, (function () {
+        var m = [h("span", { class: "star", innerHTML: STAR_SVG + (p.stars || 0) })];
+        if (p.forks) m.push(h("span", { class: "fork", innerHTML: FORK_SVG + p.forks }));
+        m.push(h("span", "#" + p.id));
+        return m;
+      })()),
       h("div", { class: "pc-actions" }, actions)
     ]);
   }
