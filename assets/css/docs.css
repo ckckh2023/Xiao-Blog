@@ -481,19 +481,6 @@
     padding: 16px;
   }
   .docs-sidebar.drawer-open { transform: translateX(0); }
-  .docs-home .docs-sidebar {
-    position: relative;
-    top: auto;
-    left: auto;
-    bottom: auto;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    transform: none;
-    z-index: auto;
-    padding: 16px;
-  }
   .docs-content { padding: 16px 16px 48px; }
   .doc-breadcrumb { display: inline; }
   .docs-toc-trigger {
