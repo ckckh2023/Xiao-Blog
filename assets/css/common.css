@@ -481,6 +481,8 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   flex-shrink: 0;
   margin-left: 10px;
   display: inline-flex;
+  align-items: center;
+  line-height: 0;
   color: var(--text-muted);
   pointer-events: none;
 }
@@ -488,9 +490,9 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
 .search-box .search-input {
   flex: 1;
   min-width: 0;
-  padding: 6px 8px;
+  padding: 0 8px;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 32px;
   color: var(--text);
   background: transparent;
   border: none;
