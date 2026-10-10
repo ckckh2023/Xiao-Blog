@@ -284,8 +284,10 @@
   cursor: pointer;
   transition: color 0.2s ease;
 }
-.doc-feedback-btn:hover {
-  color: var(--text);
+@media (hover: hover) {
+  .doc-feedback-btn:hover {
+    color: var(--text);
+  }
 }
 .doc-feedback-btn:focus-visible {
   outline: 2px solid var(--border);
@@ -482,8 +484,9 @@
   }
   .docs-sidebar.drawer-open { transform: translateX(0); }
   .docs-content { padding: 16px 16px 48px; }
-  .doc-breadcrumb { display: inline; }
+  .docs-content h1 { clear: left; }
   .docs-toc-trigger {
+    float: left;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -495,7 +498,6 @@
     background: var(--surface);
     color: var(--text-muted);
     cursor: pointer;
-    vertical-align: middle;
     margin-right: 8px;
     transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
