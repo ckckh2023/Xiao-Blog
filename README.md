@@ -1,6 +1,8 @@
 # Xiao-Blog
 
-个人技术博客站点，部署于 Cloudflare Pages，**零构建零依赖，源码即产物**。
+中文 | [English](README.en.md)
+
+个人技术博客站点，部署于 Cloudflare Pages，**本项目零构建零依赖，源码即产物**。
 
 > 在线访问：<https://xiao-blog.top>
 
@@ -50,9 +52,13 @@ wrangler kv namespace create xiao-repo-cache # 创建 GitHub KV 缓存
 
 ## 环境变量
 
-在 Cloudflare Pages 仪表板 -> 设置 -> **环境变量（机密）** 中配置：
+需要在 Cloudflare Pages 仪表板 -> 设置 -> **环境变量（机密）** 中配置：
 
 | 变量名 | 说明 |
 | --- | --- |
 | `GITHUB_TOKEN` | GitHub Classic Token，需要 `public_repo` 权限 |
 | `GUESTBOOK_SALT` | 留言板 IP 哈希盐值 |
+
+## 感谢开源社区
+
+如果你复刻了我的项目，并且准备使用它搭建你自己的博客，可以邀请我成为你仓库的开发者，我会向你推送我的一些修复与优化补丁~
