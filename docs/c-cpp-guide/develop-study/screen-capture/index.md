@@ -159,14 +159,14 @@ int main(int argc, char *argv[]) {
 
 ## Linux 上的截屏方式
 
-Linux 桌面有两套显示协议：传统的 **X11**（X Window System）和现代的 **Wayland**。它们的截屏接口完全不同，需要分别处理。
+Linux 桌面有两套显示协议：传统的 **X11** 和现代的 **Wayland**。它们的截屏接口完全不同，需要分别处理。
 
 ### X11 方式
 
 X11 是 Linux 上历史悠久的显示协议，截屏接口非常直接。核心思路是通过 `XOpenDisplay` 连接显示服务器，获取根窗口（`DefaultRootWindow`），再用 `XGetImage` 一次性把整个屏幕的像素读到一个 `XImage` 结构里。
 
 - **优点**：API 简单，几行代码即可完成；兼容所有 X11 桌面（GNOME、KDE、XFCE 的 X11 会话）。
-- **缺点**：X11 已逐步被 Wayland 取代；`XGetImage` 走的是软件拷贝，性能不如硬件加速方案；在 Wayland 会话下通过 XWayland 运行时，只能截到 XWayland 自己的窗口，截不到原生 Wayland 窗口。
+- **缺点**：X11 已逐步被 Wayland 取代；`XGetImage` 走的是软件拷贝，性能不如硬件加速方案；其次在 Wayland 会话下通过 XWayland 运行时，只能截到 XWayland 自己的窗口，截不到原生 Wayland 窗口。
 
 > [!CAUTION]
 > 编译时需要链接 X11 库：`g++ main.cpp -lX11`
@@ -315,7 +315,7 @@ Wayland 出于安全设计，**不允许客户端任意读取其他窗口或整�
 | 适用场景 | 普通桌面截图 | 录屏、游戏截图 | X11 桌面截图 | Wayland 桌面截图/录屏 |
 
 > [!TIP]
-> 实际工程中常见的做法是：Windows 优先尝试 Desktop Duplication API，失败时回退到 GDI；Linux 上根据 `XDG_SESSION_TYPE` 环境变量判断是 X11 还是 Wayland，分别走 Xlib 或 portal/grim 路径，这样既兼顾性能，又保证跨平台兼容性。
+> 实际工程中常见的做法是：Windows 优先尝试 Desktop Duplication API，失败时回退到 GDI；而 Linux 上根据 `XDG_SESSION_TYPE` 环境变量判断是 X11 还是 Wayland，分别走 Xlib 或 portal/grim 路径，这样既兼顾性能，又保证跨平台兼容性。
 
 ---
 
