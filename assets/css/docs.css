@@ -459,6 +459,8 @@
 
 
 /* 目录抽屉触发按钮与遮罩 */
+.docs-content-head { display: block; margin-bottom: 8px; }
+.docs-content-head .doc-breadcrumb { margin-bottom: 0; }
 .docs-toc-trigger { display: none; }
 .docs-drawer-overlay { display: none; }
 .docs-drawer-lock { overflow: hidden; }
@@ -484,9 +486,8 @@
   }
   .docs-sidebar.drawer-open { transform: translateX(0); }
   .docs-content { padding: 16px 16px 48px; }
-  .docs-content h1 { clear: left; }
+  .docs-content-head { display: flex; align-items: center; gap: 8px; }
   .docs-toc-trigger {
-    float: left;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -498,8 +499,7 @@
     background: var(--surface);
     color: var(--text-muted);
     cursor: pointer;
-    vertical-align: middle;
-    margin-right: 8px;
+    flex-shrink: 0;
     transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
   .docs-toc-trigger:hover {
