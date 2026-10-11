@@ -50,6 +50,8 @@ cl /EHsc hello.cpp
 cl /EHsc /Fe:myapp.exe main.cpp utils.cpp
 ```
 
+---
+
 ### C 与 C++ 编译差异
 
 MSVC 在编译 C 和 C++ 代码时行为不同，需注意以下几点：
