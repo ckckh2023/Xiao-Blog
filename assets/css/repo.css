@@ -59,7 +59,6 @@
 .project-card .pc-meta .fork svg {
   width: 13px;
   height: 13px;
-  transform: translateY(-1px);
 }
 .project-card .pc-actions {
   display: flex;
