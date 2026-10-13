@@ -23,12 +23,12 @@
 ├── guestbook/               # 留言页
 ├── friend/                  # 好友页
 ├── about/                   # 关于页
-├── functions/[[path]].js    # 敏感文件拦截
 ├── functions/api/
 │   ├── article.js           # 文章内容 API
 │   ├── docs-count.js        # 文档阅读计数
 │   ├── guestbook.js         # 留言板 API
 │   └── github/[[path]].js   # GitHub API 代理
+├── functions/[[path]].js    # 敏感文件拦截
 ├── functions/rss.xml.js     # 动态 RSS 生成
 └── functions/sitemap.xml.js # 动态 sitemap 生成
 ```
