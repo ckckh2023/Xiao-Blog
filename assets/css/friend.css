@@ -6,7 +6,7 @@
 /* ---------- 好友卡片网格 ---------- */
 .friend-wall {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
   gap: 20px;
 }
 
