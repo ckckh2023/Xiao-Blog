@@ -23,6 +23,7 @@
 ├── guestbook/               # 留言页
 ├── friend/                  # 好友页
 ├── about/                   # 关于页
+├── functions/[[path]].js    # 敏感文件拦截
 ├── functions/api/
 │   ├── article.js           # 文章内容 API
 │   ├── docs-count.js        # 文档阅读计数
