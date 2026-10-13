@@ -83,6 +83,7 @@
   border-radius: 4px;
   font-size: 13px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  overflow-wrap: break-word;
 }
 .docs-content pre {
   background: var(--code-bg);
@@ -106,7 +107,7 @@
   transition: background 0.2s ease;
 }
 .docs-content pre:hover::-webkit-scrollbar-thumb { background: var(--border); }
-.docs-content pre code { background: none; padding: 0; }
+.docs-content pre code { background: none; padding: 0; overflow-wrap: normal; }
 .docs-content .code-block-wrap { position: relative; margin-bottom: 16px; }
 .docs-content .code-block-wrap pre { margin-bottom: 0; }
 .docs-content li .code-block-wrap { margin: 8px 0; }
@@ -530,6 +531,8 @@
 
 /* ---------- 文章正文表格 ---------- */
 .doc-body table {
+  display: block;
+  overflow-x: auto;
   border-collapse: collapse;
   margin: 16px 0;
   width: 100%;
