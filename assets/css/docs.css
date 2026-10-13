@@ -6,21 +6,25 @@
 /* ---------- 文档布局 ---------- */
 .docs-layout {
   display: flex;
+  gap: 24px;
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 24px;
   min-height: calc(100vh - var(--nav-h, 56px));
 }
 
 .docs-sidebar {
   width: 280px;
   flex-shrink: 0;
-  background: var(--sidebar-bg);
-  border-right: 1px solid var(--border);
-  padding: 24px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
   position: sticky;
-  top: var(--nav-h, 56px);
+  top: calc(var(--nav-h, 56px) + 16px);
   align-self: flex-start;
-  max-height: calc(100vh - var(--nav-h, 56px));
+  max-height: calc(100vh - var(--nav-h, 56px) - 40px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -468,7 +472,7 @@
 
 /* ---------- 响应式 ---------- */
 @media (max-width: 768px) {
-  .docs-layout { flex-direction: column; }
+  .docs-layout { flex-direction: column; gap: 0; padding: 0; }
   .docs-sidebar {
     position: fixed;
     top: 0;
@@ -477,8 +481,10 @@
     width: 280px;
     max-height: none;
     height: 100%;
+    border: none;
     border-right: 1px solid var(--border);
-    border-bottom: none;
+    border-radius: 0 12px 12px 0;
+    box-shadow: none;
     transform: translateX(-100%);
     transition: transform 0.25s ease;
     z-index: 1000;
