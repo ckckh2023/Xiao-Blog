@@ -21,7 +21,7 @@
 .gb-form-side {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   min-width: 0;
 }
 .gb-form-title {
@@ -29,7 +29,10 @@
   font-weight: 600;
   color: var(--text);
   margin: 0;
-  text-align: center;
+  min-height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .gb-form-main {
   display: flex;
