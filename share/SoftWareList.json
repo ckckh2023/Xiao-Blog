@@ -656,7 +656,7 @@
     "name": "Dev-C++",
     "description": "Windows 上经典的轻量级 C/C++ IDE，界面简洁，专为入门学习和竞赛调试而设计。",
     "officialUrl": "https://www.bloodshed.net/",
-    "iconUrl": "https://a.fsdn.com/allura/p/orwelldevcpp/icon?1480458710",
+    "iconUrl": "https://a.fsdn.com/allura/p/orwelldevcpp/icon",
     "installType": [
       { "title": "SourceForge", "url": "https://sourceforge.net/projects/orwelldevcpp/" },
       { "title": "123云盘", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-WmjI" }
@@ -666,6 +666,21 @@
     "status": "deprecated",
     "repoUrl": null,
     "tags": ["IDE", "C++", "开发工具"]
+  },
+  {
+    "id": "logisim-evolution",
+    "name": "Logisim-evolution",
+    "description": "经典 Logisim 的社区延续版本，一款开源的数字逻辑电路设计与模拟工具，广泛用于高校数字逻辑与计算机组成原理课程教学，支持电路绘制、子电路封装、组合与时序逻辑模拟，在高校比 Proteus 更有优势。",
+    "officialUrl": null,
+    "iconUrl": "https://avatars.githubusercontent.com/u/84764158",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/logisim-evolution/logisim-evolution/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/logisim-evolution/logisim-evolution",
+    "tags": ["电路设计", "跨平台"]
   },
   {
     "id": "windhawk",
