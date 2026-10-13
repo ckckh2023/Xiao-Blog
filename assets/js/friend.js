@@ -61,7 +61,7 @@
       box.innerHTML = '<div class="status-box">暂无好友。</div>';
       return;
     }
-    var cls = "project-grid project-grid-" + (perRow || 2);
+    var cls = "friend-wall";
     box.innerHTML = '<div class="' + cls + '">' +
       items.map(function (it) { return friendCardHTML(it, q); }).join("") + "</div>";
   }
