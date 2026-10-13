@@ -1,0 +1,16 @@
+# Cloudflare Pages 部署忽略文件
+
+# 项目说明与元信息
+README.md
+README.en.md
+LICENSE
+.gitignore
+
+# Cloudflare 配置
+wrangler.toml
+
+# 数据库 schema
+schema.sql
+
+# 工具与缓存目录
+/.github
