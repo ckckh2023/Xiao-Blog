@@ -10,7 +10,7 @@ pages_build_output_dir = "."
 # 获取 database_id： wrangler d1 create >database name>
 # 然后把返回的name 和 id 填到下方
 
-# 建议在数据库设置中启用读取复制，可以降低数据库读取延迟
+# 建议在 D1 数据库设置中启用读取复制，此功能可以降低数据库读取延迟
 
 [[d1_databases]]
 binding = "GUESTBOOK"
