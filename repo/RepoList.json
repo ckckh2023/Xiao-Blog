@@ -74,15 +74,18 @@
     "tags": ["C++", "HTML", "NSIS", "C", "CSS", "QMake", "Other"]
   },
   {
-    "id": "EasyStudent-JustFreshMan",
-    "name": "极简学生信息管理系统",
-    "full_name": "ckckh2023/EasyStudent-JustFreshMan",
+    "id": "DSH-VSCode-SideBar",
+    "name": "DSH VSCode 侧边栏扩展插件",
+    "full_name": "ckckh2023/DSH-VSCode-SideBar",
     "url": null,
-    "repo": "https://github.com/ckckh2023/EasyStudent-JustFreshMan",
-    "other_repo": [],
-    "desc": "纯终端的学生信息管理系统",
+    "repo": "https://github.com/ckckh2023/DSH-VSCode-SideBar",
+    "other_repo": [
+      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/DSH-VSCode-SideBar" },
+      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/DSH-VSCode-SideBar" }
+    ],
+    "desc": "DeepSeek Harness 的 VSCode 侧边栏扩展插件，允许用户更方便地兼顾开发与对话。",
     "stars": 0,
     "forks": 0,
-    "tags": ["C++"]
+    "tags": []
   }
 ]
