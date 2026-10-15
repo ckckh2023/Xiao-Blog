@@ -59,7 +59,7 @@
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
       console.warn("[star] docs/star.json 加载失败：", err);
-      return [];
+      return null;
     });
   }
   global.fetchStarDocs = fetchStarDocs;
@@ -70,7 +70,7 @@
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
       console.warn("[star] share/star.json 加载失败：", err);
-      return [];
+      return null;
     });
   }
   global.fetchStarShares = fetchStarShares;
@@ -110,7 +110,7 @@
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
       console.warn("[star] guestbook/star.json 加载失败：", err);
-      return [];
+      return null;
     });
   }
   global.fetchStarGuestbook = fetchStarGuestbook;

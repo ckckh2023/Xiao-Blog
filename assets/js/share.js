@@ -9,13 +9,13 @@
   var utils = global.Utils;
   var root = global.root;
 
-  /* 软件列表 */
+  /* 软件列表  */
   function fetchShareList() {
     return utils.fetchJSON(root() + "share/SoftWareList.json").then(function (list) {
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
       console.warn("[share] SoftWareList.json 加载失败：", err);
-      return [];
+      return null;
     });
   }
   global.fetchShareList = fetchShareList;
@@ -26,7 +26,7 @@
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
       console.warn("[share] OtherList.json 加载失败：", err);
-      return [];
+      return null;
     });
   }
   global.fetchOtherList = fetchOtherList;

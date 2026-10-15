@@ -139,6 +139,10 @@
 
     /* 精选项目：从 /repo/star.json 加载，由本地内容与 GitHub API 获取 */
     fetchStarProjects().then(function (list) {
+      if (list == null) {
+        document.getElementById("featured-projects").innerHTML = '<div class="status-box">精选项目加载失败，请稍后重试。</div>';
+        return;
+      }
       mountProjectGrid("#featured-projects", list.slice(0, 2), 2, {
         primary: "访问主页",
         secondary: "项目源码"
@@ -147,16 +151,28 @@
 
     /* 精选文档：从 /docs/star.json 加载 */
     fetchStarDocs().then(function (list) {
+      if (list == null) {
+        document.getElementById("featured-wiki").innerHTML = '<div class="status-box">精选文档加载失败，请稍后重试。</div>';
+        return;
+      }
       mountWikiCards("#featured-wiki", list, 2, 4);
     });
 
     /* 精选分享：从 /share/star.json 加载 */
     fetchStarShares().then(function (list) {
+      if (list == null) {
+        document.getElementById("featured-share").innerHTML = '<div class="status-box">精选分享加载失败，请稍后重试。</div>';
+        return;
+      }
       mountShareGrid("#featured-share", list, 2);
     });
 
     /* 精选留言：从 /guestbook/star.json 加载留言 id 数组，按 id 从 D1 数据库批量获取渲染 */
     fetchStarGuestbook().then(function (list) {
+      if (list == null) {
+        document.getElementById("featured-guestbook").innerHTML = '<div class="status-box">精选留言加载失败，请稍后重试。</div>';
+        return;
+      }
       mountGuestbookCards("#featured-guestbook", list);
     });
   </script>

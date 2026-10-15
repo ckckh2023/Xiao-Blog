@@ -17,7 +17,7 @@
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
       console.warn("[star] repo/star.json 加载失败：", err);
-      return [];
+      return null;
     });
   }
   global.fetchStarProjects = fetchStarProjects;
@@ -28,7 +28,7 @@
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
       console.warn("[repo] RepoList.json 加载失败：", err);
-      return [];
+      return null;
     });
   }
   global.fetchRepoList = fetchRepoList;
@@ -223,7 +223,8 @@
     function render() {
       var items = getFiltered();
       if (!items.length) {
-        container.innerHTML = '<div class="' + cls + '"><div class="status-box">未找到匹配的项目。</div></div>';
+        container.innerHTML = '<div class="status-box">' +
+          (query.trim() ? "未找到匹配的项目。" : "暂无项目。") + "</div>";
         pager.setCurrent(1, 0);
         return;
       }

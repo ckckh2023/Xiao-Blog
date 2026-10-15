@@ -51,6 +51,10 @@
     /* 全部项目：从 /repo/RepoList.json 加载，由本地内容与 GitHub API 获取 */
     var repoGridCtrl = null;
     fetchRepoList().then(function (list) {
+      if (list == null) {
+        document.getElementById("all-projects").innerHTML = '<div class="status-box">项目列表加载失败，请稍后重试。</div>';
+        return;
+      }
       repoGridCtrl = mountProjectGrid("#all-projects", list, 2);
       mountSearchBox("#repo-search", {
         placeholder: "搜索项目…",

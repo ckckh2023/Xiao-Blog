@@ -15,7 +15,7 @@
       return Array.isArray(list) ? list : [];
     }).catch(function (err) {
       console.warn("[friend] FriendList.json 加载失败：", err);
-      return [];
+      return null;
     });
   }
   global.fetchFriendList = fetchFriendList;

@@ -90,14 +90,21 @@
       return cat === "other" ? fetchOtherList() : fetchShareList();
     }
 
-    /* 确保某分类数据已加载 */
+    /* 确保某分类数据已加载；返回的 Promise 以 true/false 表示成败，失败不缓存（下次切换分类可重试） */
     function ensureLoaded(cat) {
-      if (loadedState[cat]) return Promise.resolve();
+      if (loadedState[cat]) return Promise.resolve(true);
       if (!loadingState[cat]) {
         loadingState[cat] = loadCategory(cat).then(function (list) {
+          if (list == null) {
+            loadingState[cat] = null;
+            var box = document.getElementById("all-shares");
+            if (box) box.innerHTML = '<div class="status-box">分享列表加载失败，请稍后重试。</div>';
+            return false;
+          }
           if (cat === "other") otherList = list;
           else softwareList = list;
           loadedState[cat] = true;
+          return true;
         });
       }
       return loadingState[cat];
@@ -191,7 +198,7 @@
       }
       var box = document.getElementById("all-shares");
       if (!list.length) {
-        box.innerHTML = '<div class="status-box">' + (filterState.platforms.length || filterState.tags.length || filterState.query ? "未找到匹配的项目。" : "暂无分享。") + "</div>";
+        box.innerHTML = '<div class="status-box">' + (filterState.platforms.length || filterState.tags.length || filterState.query ? "未找到匹配的分享。" : "暂无分享。") + "</div>";
         if (sharePager) sharePager.destroy();
         return;
       }
@@ -249,7 +256,8 @@
       applyCategoryUI();
       syncURL();
       document.getElementById("all-shares").innerHTML = '<div class="status-box">加载中…</div>';
-      ensureLoaded(cat).then(function () {
+      ensureLoaded(cat).then(function (ok) {
+        if (!ok) return; /* 加载失败已在 ensureLoaded 中提示 */
         renderTagList();
         applyFilter();
       });
@@ -308,7 +316,8 @@
     var ogUrlEl = document.head.querySelector('meta[property="og:url"]');
     if (ogUrlEl) ogUrlEl.setAttribute("content", canonURL);
 
-    ensureLoaded(filterState.category).then(function () {
+    ensureLoaded(filterState.category).then(function (ok) {
+      if (!ok) return; /* 加载失败已在 ensureLoaded 中提示 */
       renderTagList();
       applyFilter();
       var search = mountSearchBox("#share-search", {

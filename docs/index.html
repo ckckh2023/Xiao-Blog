@@ -89,6 +89,10 @@
     }
 
     fetchDocsList().then(function (list) {
+      if (list == null) {
+        document.getElementById("docs-index-list").innerHTML = '<div class="status-box">文档列表加载失败，请稍后重试。</div>';
+        return;
+      }
       allDocs = list;
       renderDocsIndex(allDocs, false, "");
       mountSearchBox("#docs-search", {

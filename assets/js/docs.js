@@ -88,6 +88,7 @@
     return text;
   }
 
+  /* 成功返回数组并缓存，失败则返回 null 不缓存 */
   function fetchDocsList() {
     if (docsListCache) return Promise.resolve(docsListCache);
     return utils.fetchJSON(DOCS_LIST_URL).then(function (list) {
@@ -95,8 +96,7 @@
       return docsListCache;
     }).catch(function (err) {
       console.warn("[docs] DocsList.json 加载失败：", err);
-      docsListCache = [];
-      return docsListCache;
+      return null;
     });
   }
   global.fetchDocsList = fetchDocsList;
@@ -182,6 +182,7 @@
     var holder = document.getElementById("docs-sidebar");
     if (!holder) return Promise.resolve();
     return fetchDocsList().then(function (list) {
+      if (!list) list = [];
       var html = "<h3>目录</h3>";
       list.forEach(function (it) {
         html += renderSidebarNode(it, [], currentPath);
@@ -253,6 +254,7 @@
     var holder = document.getElementById("pagination");
     if (!holder) return Promise.resolve();
     return fetchDocsList().then(function (list) {
+      if (!list) list = [];
       var seq = flattenDocsSequence(list);
       var idx = -1;
       for (var i = 0; i < seq.length; i++) {
@@ -332,6 +334,7 @@
     bindDrawerToggle();
 
     return fetchDocsList().then(function (list) {
+      if (!list) list = [];
       var node = findNodeByPath(list, idPath);
       if (!node) {
         window.location.replace(DOCS_BASE);

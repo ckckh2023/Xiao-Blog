@@ -99,6 +99,10 @@
     }
 
     fetchFriendList().then(function (list) {
+      if (list == null) {
+        document.getElementById("all-friends").innerHTML = '<div class="status-box">好友列表加载失败，请稍后重试。</div>';
+        return;
+      }
       allFriends = list;
       applyFriends();
       mountSearchBox("#friend-search", {
