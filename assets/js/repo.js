@@ -144,160 +144,135 @@
     openSelectDialog("选择项目源码仓库", items);
   }
 
-  /* ---------- Vue 项目卡片渲染 ----------
+  /* ---------- 项目卡片渲染 ----------
+     p: 项目对象
+     idx: 在 projects 全量数组中的索引，供事件委托 data-source 定位
+     labels: 按钮文案
+     q: 搜索关键词 */
+  function projectCardHTML(p, idx, labels, q) {
+    var descText = p.loading ? "加载中…" : (p.desc || "暂无简介");
+    var tagsHTML;
+    if (p.loading) {
+      tagsHTML = '<div class="pc-tags"><span class="pc-tag pc-tag-loading">…</span></div>';
+    } else {
+      tagsHTML = '<div class="pc-tags">' + (p.tags || []).map(function (t) {
+        return '<span class="pc-tag">' + highlight(t, q) + "</span>";
+      }).join("") + "</div>";
+    }
+    var actions = [];
+    if (p.url) {
+      actions.push('<a class="btn btn-primary" href="' + utils.escapeHTML(p.url) +
+        '" target="_blank" rel="noopener">' + utils.escapeHTML(labels.primary) + "</a>");
+    }
+    if (Array.isArray(p.other_repo) && p.other_repo.length) {
+      actions.push('<button class="btn" type="button" data-source="' + idx + '">' +
+        utils.escapeHTML(labels.secondary) + "</button>");
+    } else {
+      actions.push('<a class="btn" href="' + utils.escapeHTML(p.repo || "") +
+        '" target="_blank" rel="noopener">' + utils.escapeHTML(labels.secondary) + "</a>");
+    }
+    var meta = ['<span class="star"><span class="ico">' + STAR_SVG + "</span>" + String(p.stars || 0) + "</span>"];
+    if (p.forks) meta.push('<span class="fork"><span class="ico">' + FORK_SVG + "</span>" + String(p.forks) + "</span>");
+    meta.push("<span>#" + utils.escapeHTML(String(p.id)) + "</span>");
+    return '<article class="card project-card" data-project-id="' + utils.escapeHTML(String(p.id)) + '">' +
+      '<div class="pc-title">' + highlight(p.name, q) + "</div>" +
+      '<div class="pc-desc">' + highlight(descText, q) + "</div>" +
+      tagsHTML +
+      '<div class="pc-meta">' + meta.join("") + "</div>" +
+      '<div class="pc-actions">' + actions.join("") + "</div>" +
+    "</article>";
+  }
+
+  /* ---------- 项目网格挂载 ----------
      selector: 挂载点选择器
      list:     项目数组
      perRow:   每行列数
      labels:   按钮文案
-     返回控制器 setQuery(q) 可触发响应式过滤重渲染；
+     返回控制器 setQuery(q) 可触发过滤重渲染；
      但首页精选项目不接收返回值。 */
-  function projectCardVNode(h, p, labels, q) {
-    var tags = (p.tags || []).map(function (t) {
-      return h("span", { class: "pc-tag", innerHTML: highlight(t, q) });
-    });
-    var descText = p.loading ? "加载中…" : (p.desc || "暂无简介");
-    var tagsNode = p.loading
-      ? h("div", { class: "pc-tags" }, [h("span", { class: "pc-tag pc-tag-loading" }, "…")])
-      : (tags.length ? h("div", { class: "pc-tags" }, tags) : h("div", { class: "pc-tags" }, []));
-    var actions = [];
-    if (p.url) actions.push(h("a", { class: "btn btn-primary", href: p.url, target: "_blank", rel: "noopener" }, labels.primary));
-    if (Array.isArray(p.other_repo) && p.other_repo.length) actions.push(h("button", { class: "btn", type: "button", onClick: function () { handleSourceRepo(p.repo, p.other_repo); } }, labels.secondary));
-    else actions.push(h("a", { class: "btn", href: p.repo, target: "_blank", rel: "noopener" }, labels.secondary));
-    return h("article", { class: "card project-card", key: p.id }, [
-      h("div", { class: "pc-title", innerHTML: highlight(p.name, q) }),
-      h("div", { class: "pc-desc", innerHTML: highlight(descText, q) }),
-      tagsNode,
-      h("div", { class: "pc-meta" }, (function () {
-        var m = [h("span", { class: "star" }, [h("span", { class: "ico", innerHTML: STAR_SVG }), String(p.stars || 0)])];
-        if (p.forks) m.push(h("span", { class: "fork" }, [h("span", { class: "ico", innerHTML: FORK_SVG }), String(p.forks)]));
-        m.push(h("span", "#" + p.id));
-        return m;
-      })()),
-      h("div", { class: "pc-actions" }, actions)
-    ]);
-  }
-
-  /* ---------- Vue 分页 ---------- */
-  function paginationVNode(h, total, pageSize, current, onPick) {
-    var items = buildPageItems(total, pageSize, current, 1);
-    if (!items.length) return null;
-    var pages = Math.ceil(total / pageSize);
-    var btns = [];
-    btns.push(h("button", {
-      class: "pg-btn pg-nav", type: "button", disabled: current === 1,
-      onClick: function () { if (current > 1) onPick(current - 1); }
-    }, "上一页"));
-    items.forEach(function (it) {
-      if (it === "...") {
-        btns.push(h("span", { class: "pg-ellipsis", "aria-hidden": "true" }, "…"));
-      } else {
-        var active = it === current;
-        var attrs = {
-          class: "pg-btn" + (active ? " pg-active" : ""),
-          type: "button",
-          onClick: function () { if (it !== current) onPick(it); }
-        };
-        if (active) attrs["aria-current"] = "page";
-        btns.push(h("button", attrs, String(it)));
-      }
-    });
-    btns.push(h("button", {
-      class: "pg-btn pg-nav", type: "button", disabled: current === pages,
-      onClick: function () { if (current < pages) onPick(current + 1); }
-    }, "下一页"));
-    /* 跳转到指定页 */
-    btns.push(h("span", { class: "pg-jump" }, [
-      "跳转到第",
-      h("input", {
-        class: "pg-jump-input", type: "number", min: "1", inputmode: "numeric",
-        "aria-label": "跳转到第几页",
-        onKeydown: function (e) {
-          if (e.key !== "Enter") return;
-          var v = parseInt(e.target.value, 10);
-          if (isNaN(v)) return;
-          if (v < 1) v = 1;
-          if (v > pages) v = pages;
-          e.target.value = "";
-          e.target.blur();
-          onPick(v);
-        }
-      }),
-      "页"
-    ]));
-    return h("div", { class: "pagination" }, btns);
-  }
-
   function mountProjectGrid(selector, list, perRow, labels) {
-    if (!window.Vue) {
-      console.warn("[project-grid] Vue 未加载，跳过渲染");
-      return null;
-    }
-    var V = window.Vue;
-    var createApp = V.createApp, ref = V.ref, computed = V.computed, onMounted = V.onMounted, watch = V.watch, h = V.h;
     var container = document.querySelector(selector);
     if (!container) return null;
     var cls = "project-grid" + (perRow ? " project-grid-" + perRow : "");
     var lab = Object.assign({ primary: "访问主页", secondary: "项目源码" }, labels || {});
     var PAGE_SIZE = 10; /* 分页内卡片数量调节项 */
-    var initial = list.map(function (p) {
+    var projects = list.map(function (p) {
       return Object.assign({}, p, {
         tags: (p.tags || []).slice(),
         loading: false
       });
     });
+    var query = "";
+    var currentPage = 1;
 
-    /* query 提到 setup 外部，使返回的控制器闭包能访问并触发响应式重渲染 */
-    var query = ref("");
-    var currentPage = ref(1);
-    var app = createApp({
-      setup: function () {
-        var projects = ref(initial);
-        var filtered = computed(function () {
-          var q = query.value.toLowerCase().trim();
-          if (!q) return projects.value;
-          return projects.value.filter(function (p) { return matchProject(p, q); });
-        });
-        var paginated = computed(function () {
-          var items = filtered.value;
-          var pages = Math.ceil(items.length / PAGE_SIZE);
-          if (pages <= 1) return items;
-          var cur = currentPage.value;
-          if (cur < 1) cur = 1;
-          if (cur > pages) cur = pages;
-          var start = (cur - 1) * PAGE_SIZE;
-          return items.slice(start, start + PAGE_SIZE);
-        });
-        /* 搜索时重置页码 */
-        watch(query, function () { currentPage.value = 1; });
-        onMounted(function () {
-          projects.value.forEach(function (p, i) {
-            enrichProject(p).then(function () {
-              /* enrich 就地更新，赋新对象触发重渲染 */
-              projects.value[i] = Object.assign({}, p);
-            });
-          });
-        });
-        return function () {
-          var items = filtered.value;
-          var q = query.value;
-          if (!items.length) {
-            return h("div", { class: cls }, [
-              h("div", { class: "status-box" }, "未找到匹配的项目。")
-            ]);
-          }
-          var grid = h("div", { class: cls },
-            paginated.value.map(function (p) { return projectCardVNode(h, p, lab, q); })
-          );
-          var pg = paginationVNode(h, items.length, PAGE_SIZE, currentPage.value, function (p) {
-            if (global.smoothScrollTo) global.smoothScrollTo(container);
-            currentPage.value = p;
-          });
-          return pg ? [grid, pg] : grid;
-        };
-      }
+    ensurePaginationHolder(selector, "project-pagination");
+    var pager = mountPagination("#project-pagination", {
+      total: projects.length,
+      pageSize: PAGE_SIZE,
+      current: 1,
+      scrollAnchor: container,
+      onChange: function (p) { currentPage = p; render(); }
     });
-    app.mount(selector);
-    return { setQuery: function (q) { query.value = q || ""; } };
+
+    function getFiltered() {
+      var q = query.toLowerCase().trim();
+      if (!q) return projects;
+      return projects.filter(function (p) { return matchProject(p, q); });
+    }
+
+    function render() {
+      var items = getFiltered();
+      if (!items.length) {
+        container.innerHTML = '<div class="' + cls + '"><div class="status-box">未找到匹配的项目。</div></div>';
+        pager.setCurrent(1, 0);
+        return;
+      }
+      var pages = Math.ceil(items.length / PAGE_SIZE);
+      if (currentPage < 1) currentPage = 1;
+      if (currentPage > pages) currentPage = pages;
+      var start = (currentPage - 1) * PAGE_SIZE;
+      var pageItems = items.slice(start, start + PAGE_SIZE);
+      container.innerHTML = '<div class="' + cls + '">' +
+        pageItems.map(function (p) {
+          return projectCardHTML(p, projects.indexOf(p), lab, query);
+        }).join("") +
+        "</div>";
+      pager.setCurrent(currentPage, items.length);
+    }
+
+    /* 卡片事件委托仅绑定一次，避免重渲染累积监听器 */
+    if (!container._projectBound) {
+      container.addEventListener("click", function (e) {
+        var src = e.target.closest("[data-source]");
+        if (src) {
+          var idx = parseInt(src.getAttribute("data-source"), 10);
+          var item = projects[idx];
+          if (item) handleSourceRepo(item.repo, item.other_repo);
+        }
+      });
+      container._projectBound = true;
+    }
+
+    /* enrich 完成后合并重渲染，注意只触发一次重建 */
+    var pending = false;
+    function scheduleRender() {
+      if (pending) return;
+      pending = true;
+      Promise.resolve().then(function () { pending = false; render(); });
+    }
+
+    /* 首次渲染本地数据，enrich 后台补充再合并重渲染，注意此处使用了 KV 缓存，需要新建 namespace */
+    render();
+    projects.forEach(function (p) {
+      enrichProject(p).then(scheduleRender);
+    });
+    return {
+      setQuery: function (q) {
+        query = q || "";
+        currentPage = 1;
+        render();
+      }
+    };
   }
   global.mountProjectGrid = mountProjectGrid;
 })(window);
