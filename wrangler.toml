@@ -3,7 +3,7 @@
 # 本地开发：wrangler pages dev .
 
 name = "xiao-blog"
-compatibility_date = "2024-09-01"
+compatibility_date = "2024-12-16"
 pages_build_output_dir = "."
 
 # 留言板数据库绑定
