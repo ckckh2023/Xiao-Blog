@@ -67,20 +67,21 @@ export async function onRequestGet(context) {
     await ensureSchema(env);
     const url = new URL(request.url);
     const idsParam = url.searchParams.get("ids");
+    const session = env.GUESTBOOK.withSession();
 
     /* 按 id 批量获取 */
     if (idsParam) {
       const ids = idsParam.split(",").map(s => parseInt(s, 10)).filter(n => !isNaN(n) && n > 0);
       if (!ids.length) return json({ list: [] });
       const placeholders = ids.map(() => "?").join(",");
-      const { results } = await env.GUESTBOOK.prepare(
+      const { results } = await session.prepare(
         "SELECT * FROM messages WHERE id IN (" + placeholders + ") ORDER BY id DESC"
       ).bind(...ids).all();
       return json({ list: (results || []).map(normalize) });
     }
 
     /* 获取全部留言 */
-    const { results } = await env.GUESTBOOK.prepare(
+    const { results } = await session.prepare(
       "SELECT * FROM messages ORDER BY id DESC"
     ).all();
     return json({ list: (results || []).map(normalize) });
@@ -122,8 +123,9 @@ export async function onRequestPost(context) {
     /* IP 哈希和频率限制 */
     const ip = request.headers.get("CF-Connecting-IP") || "";
     const ipHash = await hashIP(ip, env.GUESTBOOK_SALT);
+    const session = env.GUESTBOOK.withSession("first-primary");
 
-    const recent = await env.GUESTBOOK.prepare(
+    const recent = await session.prepare(
       "SELECT created_at FROM messages WHERE ip_hash = ? ORDER BY created_at DESC LIMIT 1"
     ).bind(ipHash).first();
 
@@ -136,17 +138,17 @@ export async function onRequestPost(context) {
     }
 
     const createdAt = new Date().toISOString();
-    await env.GUESTBOOK.prepare(
+    await session.prepare(
       "INSERT INTO messages (id, nickname, body, avatar, ip_hash, created_at) " +
       "SELECT COALESCE(MAX(id), 0) + 1, ?, ?, ?, ?, ? FROM messages"
     ).bind(nickname, body, avatar || null, ipHash, createdAt).run();
 
-    let inserted = await env.GUESTBOOK.prepare(
+    let inserted = await session.prepare(
       "SELECT * FROM messages WHERE ip_hash = ? AND created_at = ? ORDER BY id DESC LIMIT 1"
     ).bind(ipHash, createdAt).first();
 
     if (!inserted) {
-      inserted = await env.GUESTBOOK.prepare(
+      inserted = await session.prepare(
         "SELECT * FROM messages ORDER BY id DESC LIMIT 1"
       ).first();
     }
