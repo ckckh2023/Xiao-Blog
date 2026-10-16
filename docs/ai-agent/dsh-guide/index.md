@@ -137,10 +137,15 @@ dsh plugin --profile <profile名称> add <插件包名>
 | 插件 | 功能 |
 |------|------|
 | **dshmarket** | DeepSeek 插件市场 |
-| **dsh-better-sidebar** | Web UI 右侧工作区面板 |
+| **@deepseek-harness-tui/dsh-tui** | DSH TUI 全屏终端交互 |
 | **@linxin666/dsh-remote-web-ui** | 手机局域网访问 Web UI |
 | **@ychris12138/dsh-usage-stats** | Token 额度使用面板 |
 | **@linxin666/dsh-web-all** | 实用插件集合 |
+
+也可以去[支持](https://github.com/ckckh2023/DSH-VSCode-SideBar)本人正在开发的 `DSH-VSCode-SideBar` 插件。
+
+> [!CAUTION]
+> DSH TUI 可以通过 `dsh plugin --profile tui add @deepseek-harness-tui/dsh-tui` 安装插件后运行 `dsh tui` 启动，注意这里是 `tui` 而不是 `web`！
 
 > [!TIP]
 > 更多插件可以在 [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com) 浏览，或查看 GitHub 上的 `dsh-plugin` [板块](https://github.com/topics/dsh-plugin)。
