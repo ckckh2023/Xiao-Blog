@@ -81,6 +81,11 @@
         "children": [
           { "id": "qq-image-url", "title": "QQ 头像 URL 获取方法" }
         ]
+      },
+      { "id": "electron-guide", "title": "Electron 桌面应用框架的使用教程",
+        "children": [
+          { "id": "electron-web-prepare", "title": "Electron 打包含有 API 的网页前端的前提准备" }
+        ]
       }
     ]
   },
