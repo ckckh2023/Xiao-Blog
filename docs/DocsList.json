@@ -71,20 +71,20 @@
   },
   { "id": "web-develop-guide", "title": "Web 开发相关指南及建议",
     "children": [
-      { "id": "page-deploy-guide", "title": "静态页面部署教程",
+      { "id": "page-deploy-guide", "title": "Web 静态页面部署教程",
         "children": [
           { "id": "github-pages-deploy", "title": "GitHub Pages 部署教程" },
           { "id": "cloudflare-pages-deploy", "title": "Cloudflare Pages 部署教程" }
         ]
       },
-      { "id": "image-url", "title": "图片 URL 获取方法",
-        "children": [
-          { "id": "qq-image-url", "title": "QQ 头像 URL 获取方法" }
-        ]
-      },
       { "id": "electron-guide", "title": "Electron 桌面应用框架的使用教程",
         "children": [
           { "id": "electron-web-prepare", "title": "Electron 打包含有 API 的网页前端的前提准备" }
+        ]
+      },
+      { "id": "image-url", "title": "图片 URL 获取方法",
+        "children": [
+          { "id": "qq-image-url", "title": "QQ 头像 URL 获取方法" }
         ]
       }
     ]
