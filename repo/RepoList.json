@@ -77,15 +77,15 @@
     "id": "DSH-VSCode-SideBar",
     "name": "DSH VSCode 侧边栏扩展插件",
     "full_name": "ckckh2023/DSH-VSCode-SideBar",
-    "url": null,
+    "url": "https://www.deepseek.com/harness/",
     "repo": "https://github.com/ckckh2023/DSH-VSCode-SideBar",
     "other_repo": [
       { "title": "Gitee", "url": "https://gitee.com/ckckh2023/DSH-VSCode-SideBar" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/DSH-VSCode-SideBar" }
     ],
-    "desc": "DeepSeek Harness 的 VSCode 侧边栏扩展插件，允许用户更方便地兼顾开发与对话。",
+    "desc": "DeepSeek Harness 的 VSCode 侧边栏扩展插件，允许用户更方便地兼顾开发与对话。此插件目前仍使用 Web UI 而非自制 VSCode 原生 UI！",
     "stars": 0,
     "forks": 0,
-    "tags": []
+    "tags": ["JavaScript"]
   }
 ]
