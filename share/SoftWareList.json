@@ -445,7 +445,7 @@
     "name": "PowerShell 7",
     "description": "微软推出的新一代跨平台命令行 shell 和脚本语言，基于 .NET Core，兼容 Windows、macOS 和 Linux，提供强大的对象管道、自动化能力和丰富的系统管理功能。",
     "officialUrl": null,
-    "iconUrl": "https://learn.microsoft.com/media/logos/logo-powershell-core.svg",
+    "iconUrl": "https://raw.githubusercontent.com/PowerShell/PowerShell/master/assets/ps_black_64.svg",
     "installType": [
       { "title": "GitHub Releases", "url": "https://github.com/PowerShell/PowerShell/releases/latest" },
       { "title": "微软商店", "url": "https://www.microsoft.com/store/apps/9MZ1SNWT0N5D" }
@@ -534,7 +534,8 @@
     "officialUrl": "https://chatboxai.app/zh/",
     "iconUrl": "https://chatboxai.app/icon.png",
     "installType": [
-      { "title": "官方", "url": "https://chatboxai.app/zh#download" }
+      { "title": "官方网站下载", "url": "https://chatboxai.app/zh#download" },
+      { "title": "GitHub Release", "url": "https://github.com/chatboxai/chatbox/releases/latest" }
     ],
     "platforms": ["Windows", "macOS", "Linux", "Web", "Android", "iOS"],
     "blogs": [],
