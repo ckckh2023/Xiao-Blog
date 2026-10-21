@@ -403,8 +403,9 @@
   font-size: 14px;
   color: inherit;
 }
-.docs-sidebar .sidebar-group-active > .sidebar-group-header > .sidebar-group-title {
+.docs-sidebar .sidebar-group-active > .sidebar-group-header {
   color: var(--link);
+  background: var(--active-bg);
 }
 .docs-sidebar .sidebar-toggle {
   flex-shrink: 0;
