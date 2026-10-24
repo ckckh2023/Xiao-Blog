@@ -150,8 +150,11 @@ git pull origin <分支名>
 - **变基式拉取**：以变基代替合并，保持线性提交历史、避免产生 merge commit：
 
 ```bash
-git pull --rebase
+git pull --rebase origin <分支名>
 ```
+
+> [!TIP]
+> 只要远程和本地的提交记录内容不重叠，且没有冲突，`git pull --rebase` 通常是合并的最优解。
 
 **只下载不合并**：`fetch` 仅把远程更新取到本地，不改动工作区，比 `pull` 更安全——可先查看远程发生了什么再决定如何整合：
 

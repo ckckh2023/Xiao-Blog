@@ -355,6 +355,22 @@
     "tags": ["字体", "开发工具", "跨平台"]
   },
   {
+    "id": "manim",
+    "name": "Manim",
+    "description": "3Blue1Brown 出品的 Python 程序化动画引擎，专注于制作解释性数学视频，通过编写 Python 代码即可精确控制每个几何元素与变换，渲染出高质量的数学动画和教学视频。",
+    "officialUrl": null,
+    "iconUrl": "https://3b1b.github.io/manim/_static/transparent_graph.png",
+    "installType": [],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Manim 官方文档", "url": "https://3b1b.github.io/manim/" },
+      { "title": "Manim 第三方中文文档", "url": "https://docs.manim.org.cn/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/3b1b/manim",
+    "tags": ["Python", "动画制作", "开发工具"]
+  },
+  {
     "id": "metaso",
     "name": "秘塔 AI 搜索",
     "description": "一款国产 AI 搜索引擎，专注于学术搜索与科研场景，能自动总结搜索结果、生成结构化大纲并引用文献来源，为学术研究、文献调研与知识问答提供一站式智能解答。",
@@ -418,21 +434,5 @@
     "status": "active",
     "repoUrl": null,
     "tags": ["下载工具", "在线工具"]
-  },
-  {
-    "id": "manim",
-    "name": "Manim",
-    "description": "3Blue1Brown 出品的 Python 程序化动画引擎，专注于制作解释性数学视频，通过编写 Python 代码即可精确控制每个几何元素与变换，渲染出高质量的数学动画和教学视频。",
-    "officialUrl": null,
-    "iconUrl": "https://3b1b.github.io/manim/_static/transparent_graph.png",
-    "installType": [],
-    "platforms": ["Windows", "macOS", "Linux"],
-    "blogs": [
-      { "title": "Manim 官方文档", "url": "https://3b1b.github.io/manim/" },
-      { "title": "Manim 第三方中文文档", "url": "https://docs.manim.org.cn/" }
-    ],
-    "status": "active",
-    "repoUrl": "https://github.com/3b1b/manim",
-    "tags": ["Python", "动画制作", "开发工具"]
   }
 ]

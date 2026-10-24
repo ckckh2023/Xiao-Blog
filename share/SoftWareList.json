@@ -460,6 +460,26 @@
     "tags": ["终端", "开发工具", "跨平台"]
   },
   {
+    "id": "codex",
+    "name": "OpenAI Codex",
+    "description": "OpenAI 官方推出的编码智能体，以 Rust 编写的开源命令行工具为核心，可在终端中直接读写代码库、执行命令并提交改动，同时提供 VS Code / Cursor / Windsurf 扩展、桌面应用与云端并行任务等多种形态。",
+    "officialUrl": "https://chatgpt.com/codex",
+    "iconUrl": "https://avatars.githubusercontent.com/u/14957082?s=200&v=4",
+    "installType": [
+      { "title": "Npm Package", "url": "https://www.npmjs.com/package/@openai/codex" },
+      { "title": "GitHub Releases", "url": "https://github.com/openai/codex/releases/latest" },
+      { "title": "VSCode 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=openai.chatgpt" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Web"],
+    "blogs": [
+      { "title": "Codex 官方文档", "url": "https://developers.openai.com/codex" },
+      { "title": "IDE 扩展安装指南", "url": "https://developers.openai.com/codex/ide" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/openai/codex",
+    "tags": ["AI", "智能体", "开发工具", "跨平台"]
+  },
+  {
     "id": "steam++",
     "name": "Watt Toolkit（原 Steam++）",
     "description": "原名 Steam++，是一个开源跨平台的多功能游戏工具箱，提供网络加速、账号切换、库存管理、本地令牌等丰富功能，旨在优化 Steam 的体验。",
@@ -593,26 +613,6 @@
     "status": "active",
     "repoUrl": "https://github.com/dbeaver/dbeaver",
     "tags": ["数据库", "开发工具"]
-  },
-  {
-    "id": "codex",
-    "name": "OpenAI Codex",
-    "description": "OpenAI 官方推出的编码智能体，以 Rust 编写的开源命令行工具为核心，可在终端中直接读写代码库、执行命令并提交改动，同时提供 VS Code / Cursor / Windsurf 扩展、桌面应用与云端并行任务等多种形态。",
-    "officialUrl": "https://chatgpt.com/codex",
-    "iconUrl": "https://avatars.githubusercontent.com/u/14957082?s=200&v=4",
-    "installType": [
-      { "title": "Npm Package", "url": "https://www.npmjs.com/package/@openai/codex" },
-      { "title": "GitHub Releases", "url": "https://github.com/openai/codex/releases/latest" },
-      { "title": "VSCode 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=openai.chatgpt" }
-    ],
-    "platforms": ["Windows", "macOS", "Linux", "Web"],
-    "blogs": [
-      { "title": "Codex 官方文档", "url": "https://developers.openai.com/codex" },
-      { "title": "IDE 扩展安装指南", "url": "https://developers.openai.com/codex/ide" }
-    ],
-    "status": "active",
-    "repoUrl": "https://github.com/openai/codex",
-    "tags": ["AI", "智能体", "开发工具", "跨平台"]
   },
   {
     "id": "deepseek-harness",
