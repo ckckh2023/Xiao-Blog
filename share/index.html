@@ -47,7 +47,7 @@
         <div class="share-sidebar-title">标签</div>
         <div class="share-tags-info" id="share-tags-info"></div>
         <div class="share-tags" id="share-tags">
-          <div class="status-box">加载中…</div>
+          <div class="share-tags-empty">加载中…</div>
         </div>
 
         <div class="share-sidebar-title">平台</div>
@@ -256,7 +256,7 @@
       applyCategoryUI();
       syncURL();
       document.getElementById("all-shares").innerHTML = '<div class="status-box">加载中…</div>';
-      document.getElementById("share-tags").innerHTML = '<div class="status-box">加载中…</div>';
+      document.getElementById("share-tags").innerHTML = '<div class="share-tags-empty">加载中…</div>';
       ensureLoaded(cat).then(function (ok) {
         if (!ok) return; /* 加载失败已在 ensureLoaded 中提示 */
         renderTagList();
