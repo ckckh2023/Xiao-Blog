@@ -114,6 +114,7 @@
   flex-wrap: wrap;
   gap: 6px;
 }
+.share-tags > .status-box { width: 100%; }
 .share-tag-btn {
   display: inline-flex;
   align-items: center;
