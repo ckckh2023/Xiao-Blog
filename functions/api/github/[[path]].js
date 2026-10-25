@@ -8,6 +8,7 @@
 
 var GITHUB_API_BASE = "https://api.github.com/";
 var CACHE_TTL = 3600; /* 1 小时 */
+var ALLOWED_PATH = /^(users\/ckckh2023(\/|$)|repos\/ckckh2023\/)/;
 
 function jsonResponse(data, etag, cacheStatus) {
   return new Response(JSON.stringify(data), {
@@ -27,7 +28,7 @@ export async function onRequestGet(context) {
   var url = new URL(request.url);
   var ghPath = url.pathname.replace(/^\/api\/github\/?/, "");
   if (!ghPath) return new Response("Bad Request", { status: 400 });
-  if (!/^users\/|^repos\//.test(ghPath)) return new Response("Forbidden", { status: 403 });
+  if (!ALLOWED_PATH.test(ghPath)) return new Response("Forbidden", { status: 403 });
   var ghUrl = GITHUB_API_BASE + ghPath + (url.search || "");
   var cacheKey = "gh:" + ghPath + (url.search || "");
 
@@ -61,7 +62,7 @@ export async function onRequestGet(context) {
     }
 
     if (!ghRes.ok) {
-      if (cached) return jsonResponse(cached.d, cached.etag, "STALE");
+      if (cached && (Date.now() - cached.t) < CACHE_TTL * 1000) return jsonResponse(cached.d, cached.etag, "STALE");
       return new Response("GitHub API error: " + ghRes.status, { status: ghRes.status });
     }
 
@@ -71,7 +72,7 @@ export async function onRequestGet(context) {
     return jsonResponse(data, etag, "MISS");
   }
   catch (err) {
-    if (cached) return jsonResponse(cached.d, cached.etag, "STALE");
-    return new Response("Proxy error: " + err.message, { status: 502 });
+    if (cached && (Date.now() - cached.t) < CACHE_TTL * 1000) return jsonResponse(cached.d, cached.etag, "STALE");
+    return new Response("GitHub API 代理请求失败", { status: 502 });
   }
 }
