@@ -17,6 +17,21 @@
     "tags": ["浏览器", "跨平台"]
   },
   {
+    "id": "firefox",
+    "name": "Mozilla Firefox",
+    "description": "Mozilla 推出的免费、开源、跨平台网页浏览器，注重隐私保护与用户自由，采用独立 Gecko 内核，是 Chrome 之外最受欢迎的浏览器之一。",
+    "officialUrl": "https://www.firefox.com/zh-CN/",
+    "iconUrl": "https://www.firefox.com/media/img/logos/firefox/firefox-logo.svg",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.firefox.com/zh-CN/download/" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/mozilla-firefox/firefox",
+    "tags": ["浏览器", "跨平台"]
+  },
+  {
     "id": "vscode",
     "name": "Visual Studio Code",
     "description": "微软推出的免费、开源、跨平台的轻量级代码编辑器，有丰富的扩展生态支持，不愧为最全能的代码编辑器。",
@@ -32,6 +47,21 @@
     "status": "active",
     "repoUrl": "https://github.com/microsoft/vscode",
     "tags": ["编辑器", "开发工具", "跨平台"]
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "description": "基于 VSCode 二次开发的 AI 代码编辑器，深度集成主流大模型，提供智能补全、对话式编程、代码库问答与 Agent 模式，是当下热门的 AI 原生编辑器之一。",
+    "officialUrl": "https://cursor.com/",
+    "iconUrl": "https://cursor.com/favicon.ico",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://cursor.com/cn/download" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["编辑器", "AI", "跨平台"]
   },
   {
     "id": "git",
@@ -287,6 +317,21 @@
     "tags": ["系统工具", "效率工具"]
   },
   {
+    "id": "utools",
+    "name": "uTools",
+    "description": "一款国产跨平台效率启动器，以插件生态为核心，通过全局呼出快速调用搜索、翻译、剪贴板、截图、编码、文档处理等丰富插件，跨平台支持且好用。",
+    "officialUrl": "https://www.u-tools.cn/",
+    "iconUrl": "https://www.u-tools.cn/assets/favicon.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.u-tools.cn/download/" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["效率工具", "跨平台"]
+  },
+  {
     "id": "jetbrains-toolbox",
     "name": "JetBrains Toolbox",
     "description": "JetBrains 官方推出的 IDE 管理与安装工具，统一管理 IntelliJ IDEA、PyCharm、WebStorm、CLion、GoLand、Rider 等全部 JetBrains IDE 的安装、更新、项目切换与设置同步。",
@@ -323,24 +368,6 @@
     "tags": ["开发框架", "C++", "跨平台"]
   },
   {
-    "id": "electron",
-    "name": "Electron",
-    "description": "一个使用 JavaScript、HTML 和 CSS 构建跨平台桌面应用的开源框架，由 GitHub 与开源社区共同维护，融合 Chromium 渲染引擎与 Node.js 运行时，让 Web 技术栈也能直接打包为原生桌面应用。",
-    "officialUrl": "https://www.electronjs.org/",
-    "iconUrl": "https://www.electronjs.org/assets/img/logo.svg",
-    "installType": [
-      { "title": "GitHub Releases", "url": "https://github.com/electron/electron/releases" }
-    ],
-    "platforms": ["Windows", "macOS", "Linux"],
-    "blogs": [
-      { "title": "Electron 官方文档", "url": "https://www.electronjs.org/docs" },
-      { "title": "Electron 第三方资源合集", "url": "https://github.com/sindresorhus/awesome-electron" }
-    ],
-    "status": "active",
-    "repoUrl": "https://github.com/electron/electron",
-    "tags": ["开发框架", "开发工具", "跨平台"]
-  },
-  {
     "id": "vmware-workstation-pro",
     "name": "VMware Workstation Pro",
     "description": "一款功能强大的桌面虚拟机软件，允许用户在单台物理机上同时运行多个操作系统。支持 Windows 和 Linux 系统，提供快照、克隆、虚拟网络等高级功能，适用于开发、测试及生产环境。",
@@ -354,6 +381,24 @@
     "blogs": [],
     "status": "active",
     "repoUrl": "https://github.com/vmware",
+    "tags": ["虚拟机", "虚拟化", "跨平台"]
+  },
+  {
+    "id": "virtualbox",
+    "name": "Oracle VirtualBox",
+    "description": "Oracle 推出的免费、开源、跨平台桌面虚拟机软件，允许在单台物理机上同时运行多个操作系统，支持快照、克隆、共享文件夹等功能，轻量易用，是虚拟化入门与测试的首选。",
+    "officialUrl": "https://www.virtualbox.org/",
+    "iconUrl": "https://www.virtualbox.org/graphics/vbox_logo2.svg",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.virtualbox.org/wiki/Downloads" },
+      { "title": "非官方中文版网址下载", "url": "https://virtualbox.net.cn/wiki/Downloads" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "VirtualBox 官方文档", "url": "https://www.virtualbox.org/wiki/Documentation" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/virtualbox/virtualbox",
     "tags": ["虚拟机", "虚拟化", "跨平台"]
   },
   {

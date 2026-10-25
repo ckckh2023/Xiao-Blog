@@ -18,6 +18,21 @@
     "tags": ["开发工具", "跨平台"]
   },
   {
+    "id": "zulu-jdk",
+    "name": "Azul Zulu JDK",
+    "description": "Azul 推出的 OpenJDK 认证发行版，提供免费社区版与商业支持版，完全兼容 Oracle JDK，是 Java 应用最常用的运行时之一。",
+    "officialUrl": "https://www.azul.com/zh-hans/",
+    "iconUrl": "https://www.azul.com/wp-content/themes/azul/assets/img/logo.svg",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.azul.com/downloads/" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["Java", "运行时", "跨平台"]
+  },
+  {
     "id": "docker",
     "name": "Docker",
     "description": "一个开源的容器化平台，允许开发者将应用及其依赖打包成轻量、可移植的容器，在任何支持 Docker 的环境中以一致的方式运行。",
@@ -31,6 +46,40 @@
     "status": "active",
     "repoUrl": "https://github.com/docker/docker-ce",
     "tags": ["容器", "虚拟化", "开发工具", "跨平台"]
+  },
+  {
+    "id": "electron",
+    "name": "Electron",
+    "description": "一个使用 JavaScript、HTML 和 CSS 构建跨平台桌面应用的开源框架，由 GitHub 与开源社区共同维护，融合 Chromium 渲染引擎与 Node.js 运行时，让 Web 技术栈也能直接打包为原生桌面应用。",
+    "officialUrl": "https://www.electronjs.org/",
+    "iconUrl": "https://www.electronjs.org/assets/img/logo.svg",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/electron/electron/releases" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Electron 官方文档", "url": "https://www.electronjs.org/docs" },
+      { "title": "Electron 第三方资源合集", "url": "https://github.com/sindresorhus/awesome-electron" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/electron/electron",
+    "tags": ["开发框架", "开发工具", "跨平台"]
+  },
+  {
+    "id": "tauri",
+    "name": "Tauri",
+    "description": "一个使用 Rust 构建跨平台桌面应用的轻量级开源框架，复用系统 WebView 而非捆绑 Chromium，安装包体积极小、内存占用低、性能优异，是 Electron 的现代替代方案，支持全平台。",
+    "officialUrl": "https://tauri.app/zh-cn/",
+    "iconUrl": "https://tauri.app/favicon.ico",
+    "installType": [],
+    "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],
+    "blogs": [
+      { "title": "Tauri v2 版本官方文档", "url": "https://tauri.app/zh-cn/start/" },
+      { "title": "Tauri v1 版本官方文档", "url": "https://v1.tauri.app/zh-cn/v1/guides/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/tauri-apps/tauri",
+    "tags": ["开发框架", "Rust", "跨平台"]
   },
   {
     "id": "opencv",
@@ -206,6 +255,22 @@
     "tags": ["磁盘工具", "数据恢复", "系统工具"]
   },
   {
+    "id": "tuba-toolbox",
+    "name": "图吧工具箱",
+    "description": "一款集成 CPU-Z、GPU-Z、AIDA64、CrystalDiskInfo、DiskGenius 等数十款硬件检测与系统维护工具的绿色工具箱，免安装、无广告，装机、硬件检测与系统维护一站式利器。",
+    "officialUrl": "https://www.tbtool.cn/",
+    "iconUrl": "https://www.tbtool.cn/rc_images/dawnstd_logo.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.tbtool.cn/download/" },
+      { "title": "官方免安装版（123 云盘）", "url": "https://1812063199.share.123pan.cn/123pan/ZF4rVv-1aJAA" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["系统工具", "硬件检测"]
+  },
+  {
     "id": "ninite",
     "name": "Ninite",
     "description": "一款免费的 Windows 软件批量安装与自动更新服务网站。用户在官网勾选所需软件后，下载一个极小的 Ninite 安装器即可一键静默安装全部选定应用，并支持日后一键批量更新，全程无广告、无捆绑、无各种全家桶软件。",
@@ -299,6 +364,23 @@
     "status": "active",
     "repoUrl": null,
     "tags": ["安全工具", "系统工具"]
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "description": "一个开源的本地大模型运行框架，通过简单命令即可拉取并运行 Llama、Qwen、DeepSeek、Gemma 等主流开源大模型，提供 REST API 与命令行交互，是本地部署大模型的事实标准。",
+    "officialUrl": "https://ollama.com/",
+    "iconUrl": "https://ollama.com/public/ollama-nav.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://ollama.com/download" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "Ollama 官方文档", "url": "https://docs.ollama.com/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/ollama/ollama",
+    "tags": ["AI", "大模型", "跨平台"]
   },
   {
     "id": "comfyui",
