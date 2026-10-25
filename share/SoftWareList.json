@@ -388,7 +388,7 @@
     "name": "Oracle VirtualBox",
     "description": "Oracle 推出的免费、开源、跨平台桌面虚拟机软件，允许在单台物理机上同时运行多个操作系统，支持快照、克隆、共享文件夹等功能，轻量易用，是虚拟化入门与测试的首选。",
     "officialUrl": "https://www.virtualbox.org/",
-    "iconUrl": "https://www.virtualbox.org/graphics/vbox_logo2.svg",
+    "iconUrl": "https://ts3.tc.mm.bing.net/th/id/ODF.uOrUDXVrL_EwppDjfZVCAQ?w=32&h=32&qlt=94&pcl=fffffa&o=6&pid=1.2",
     "installType": [
       { "title": "官方网站下载", "url": "https://www.virtualbox.org/wiki/Downloads" },
       { "title": "非官方中文版网址下载", "url": "https://virtualbox.net.cn/wiki/Downloads" }

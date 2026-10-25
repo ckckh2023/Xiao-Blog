@@ -209,35 +209,40 @@
     "tags": ["浏览器扩展", "翻译汉化"]
   },
   {
-    "id": "rufus",
-    "name": "Rufus",
-    "description": "一款免费、开源、轻量级的 USB 启动盘制作工具，可将 ISO 镜像快速写入U盘，用于系统安装、BIOS 刷写等场景。",
-    "officialUrl": "https://rufus.ie/",
-    "iconUrl": "https://rufus.ie/favicon.ico",
+    "id": "codegeex",
+    "name": "CodeGeeX",
+    "description": "智谱 AI 推出的免费 AI 编程助手，基于 GLM 大模型，提供代码生成与补全、自动注释、代码翻译、单元测试生成、Bug 修复与代码审查等能力，支持 VS Code、JetBrains 全系列、HBuilderX、Visual Studio 等编辑器插件。",
+    "officialUrl": "https://codegeex.cn/",
+    "iconUrl": "https://ts3.tc.mm.bing.net/th/id/ODF.ZhcjNV4C6lmzprZznpdWNA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2",
     "installType": [
-      { "title": "官方网站", "url": "https://rufus.ie/downloads/" },
-      { "title": "GitHub Releases", "url": "https://github.com/pbatard/rufus/releases" }
+      { "title": "官方网站下载", "url": "https://codegeex.cn/downloadGuide" },
+      { "title": "VS Code 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=aminer.codegeex" },
+      { "title": "JetBrains 插件仓库", "url": "https://plugins.jetbrains.com/plugin/20587-codegeex-ai-coding-assistant" },
+      { "title": "HBuilderX 插件市场", "url": "https://ext.dcloud.net.cn/plugin?id=15497" },
+      { "title": "Visual Studio 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=aminer.CodeGeeXVisualStudio" }
     ],
-    "platforms": ["Windows"],
+    "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [],
     "status": "active",
-    "repoUrl": "https://github.com/pbatard/rufus",
-    "tags": ["启动盘", "系统工具"]
+    "repoUrl": "https://github.com/THUDM/CodeGeeX",
+    "tags": ["AI", "编程助手"]
   },
   {
-    "id": "wepe",
-    "name": "微PE工具箱",
-    "description": "一款免费、纯净、无捆绑软件的 WinPE 维护系统工具。它基于 Win10 PE 内核，全面支持 NVMe 盘，集成了分区助手、DiskGenius、WinNTSetup 等实用维护工具。",
-    "officialUrl": "https://www.wepe.com.cn/",
-    "iconUrl": "https://www.wepe.com.cn/images/download/u54.png?v12",
+    "id": "maple-mono",
+    "name": "Maple Mono",
+    "description": "开源圆角等宽字体，主要为中文开发者用户设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
+    "officialUrl": "https://font.subf.dev",
+    "iconUrl": "https://font.subf.dev/favicon.svg",
     "installType": [
-      { "title": "官方网站", "url": "https://www.wepe.com.cn/download.html" }
+      { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
+      { "title": "懒人包（GitHub Releases）", "url": "https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN-unhinted.zip" },
+      { "title": "懒人包（123云盘）", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-DeiM" }
     ],
-    "platforms": ["Windows"],
+    "platforms": ["Windows", "macOS", "Linux"],
     "blogs": [],
-    "status": "unknown",
-    "repoUrl": null,
-    "tags": ["启动盘", "系统工具"]
+    "status": "active",
+    "repoUrl": "https://github.com/subframe7536/maple-font",
+    "tags": ["字体", "开发工具", "跨平台"]
   },
   {
     "id": "diskgenius",
@@ -336,6 +341,37 @@
     "tags": ["办公软件", "安装部署", "激活工具"]
   },
   {
+    "id": "rufus",
+    "name": "Rufus",
+    "description": "一款免费、开源、轻量级的 USB 启动盘制作工具，可将 ISO 镜像快速写入U盘，用于系统安装、BIOS 刷写等场景。",
+    "officialUrl": "https://rufus.ie/",
+    "iconUrl": "https://rufus.ie/favicon.ico",
+    "installType": [
+      { "title": "官方网站", "url": "https://rufus.ie/downloads/" },
+      { "title": "GitHub Releases", "url": "https://github.com/pbatard/rufus/releases" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/pbatard/rufus",
+    "tags": ["启动盘", "系统工具"]
+  },
+  {
+    "id": "wepe",
+    "name": "微PE工具箱",
+    "description": "一款免费、纯净、无捆绑软件的 WinPE 维护系统工具。它基于 Win10 PE 内核，全面支持 NVMe 盘，集成了分区助手、DiskGenius、WinNTSetup 等实用维护工具。",
+    "officialUrl": "https://www.wepe.com.cn/",
+    "iconUrl": "https://www.wepe.com.cn/images/download/u54.png?v12",
+    "installType": [
+      { "title": "官方网站", "url": "https://www.wepe.com.cn/download.html" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "unknown",
+    "repoUrl": null,
+    "tags": ["启动盘", "系统工具"]
+  },
+  {
     "id": "heu-kms-activator",
     "name": "HEU_KMS_Activator",
     "description": "一款基于 MDL 论坛 KMS Server Emulator 开发的 Windows 和 Office 智能激活工具，支持 KMS/OEM 等多种激活方式，无需联网即可一键激活。",
@@ -399,42 +435,6 @@
     "status": "active",
     "repoUrl": "https://github.com/Comfy-Org/ComfyUI",
     "tags": ["AI", "图形图像", "跨平台"]
-  },
-  {
-    "id": "codegeex",
-    "name": "CodeGeeX",
-    "description": "智谱 AI 推出的免费 AI 编程助手，基于 GLM 大模型，提供代码生成与补全、自动注释、代码翻译、单元测试生成、Bug 修复与代码审查等能力，支持 VS Code、JetBrains 全系列、HBuilderX、Visual Studio 等编辑器插件。",
-    "officialUrl": "https://codegeex.cn/",
-    "iconUrl": "https://ts3.tc.mm.bing.net/th/id/ODF.ZhcjNV4C6lmzprZznpdWNA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2",
-    "installType": [
-      { "title": "官方网站下载", "url": "https://codegeex.cn/downloadGuide" },
-      { "title": "VS Code 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=aminer.codegeex" },
-      { "title": "JetBrains 插件仓库", "url": "https://plugins.jetbrains.com/plugin/20587-codegeex-ai-coding-assistant" },
-      { "title": "HBuilderX 插件市场", "url": "https://ext.dcloud.net.cn/plugin?id=15497" },
-      { "title": "Visual Studio 插件商店", "url": "https://marketplace.visualstudio.com/items?itemName=aminer.CodeGeeXVisualStudio" }
-    ],
-    "platforms": ["Windows", "macOS", "Linux"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": "https://github.com/THUDM/CodeGeeX",
-    "tags": ["AI", "编程助手"]
-  },
-  {
-    "id": "maple-mono",
-    "name": "Maple Mono",
-    "description": "开源圆角等宽字体，主要为中文开发者用户设计，支持连字、Nerd-Font 图标，中英文宽度完美 2:1，并提供细粒度的自定义选项。",
-    "officialUrl": "https://font.subf.dev",
-    "iconUrl": "https://font.subf.dev/favicon.svg",
-    "installType": [
-      { "title": "GitHub Releases", "url": "https://github.com/subframe7536/maple-font/releases/latest" },
-      { "title": "懒人包（GitHub Releases）", "url": "https://github.com/subframe7536/maple-font/releases/download/v7.9/MapleMono-NF-CN-unhinted.zip" },
-      { "title": "懒人包（123云盘）", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-DeiM" }
-    ],
-    "platforms": ["Windows", "macOS", "Linux"],
-    "blogs": [],
-    "status": "active",
-    "repoUrl": "https://github.com/subframe7536/maple-font",
-    "tags": ["字体", "开发工具", "跨平台"]
   },
   {
     "id": "manim",
