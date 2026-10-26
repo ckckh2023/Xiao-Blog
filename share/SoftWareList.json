@@ -595,7 +595,7 @@
   {
     "id": "chatbox",
     "name": "ChatBox",
-    "description": "一款通用 AI 聊天客户端，聚合主流模型，支持私有 API。",
+    "description": "一款通用 AI 聊天客户端，聚合主流模型，支持私有 API。现在通常使用更强的 Agent 而不是此类通用聊天工具",
     "officialUrl": "https://chatboxai.app/zh/",
     "iconUrl": "https://chatboxai.app/icon.png",
     "installType": [

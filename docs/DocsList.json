@@ -77,6 +77,7 @@
           { "id": "cloudflare-pages-deploy", "title": "Cloudflare Pages 部署教程" }
         ]
       },
+      { "id": "free-ssl-guide", "title": "自部署站点免费 SSL 证书申请教程" },
       { "id": "electron-guide", "title": "Electron 桌面应用框架的使用教程",
         "children": [
           { "id": "electron-web-prepare", "title": "Electron 打包含有 API 的网页前端的前提准备" }
