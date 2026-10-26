@@ -453,6 +453,19 @@
     "tags": ["Python", "动画制作", "开发工具"]
   },
   {
+    "id": "open-vsx",
+    "name": "Open VSX Registry",
+    "description": "Eclipse Foundation 维护的开源 VS Code 扩展市场，提供与微软 Visual Studio Marketplace 兼容的扩展 API，被 VSCodium、Gitpod、Eclipse Theia、Code-OSS 等编辑器采用，避免专有市场限制，是开源社区推荐的扩展来源。",
+    "officialUrl": "https://open-vsx.org/",
+    "iconUrl": "https://open-vsx.org/favicon.ico",
+    "installType": [],
+    "platforms": ["Web"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/eclipse-openvsx/openvsx",
+    "tags": ["开发工具", "插件"]
+  },
+  {
     "id": "metaso",
     "name": "秘塔 AI 搜索",
     "description": "一款国产 AI 搜索引擎，专注于学术搜索与科研场景，能自动总结搜索结果、生成结构化大纲并引用文献来源，为学术研究、文献调研与知识问答提供一站式智能解答。",
