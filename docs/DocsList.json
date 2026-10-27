@@ -13,6 +13,11 @@
           { "id": "apt-repository-guide", "title": "apt 软件仓库使用方法" },
           { "id": "snap-uninstall-guide", "title": "Snap 软件包完全移除教程" }
         ]
+      },
+      { "id": "desktop-environment-guide", "title": "桌面环境相关教程",
+        "children": [
+          { "id": "gnome-to-kde", "title": "从 GNOME 切换到 KDE Plasma 教程" }
+        ]
       }
     ]
   },

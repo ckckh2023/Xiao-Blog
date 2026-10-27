@@ -1,18 +1,18 @@
-本文以 Ubuntu 22.04 + Nginx 环境为例，介绍如何使用 **Let's Encrypt** 为网站免费申请 SSL 证书。全程免费，证书有效期 90 天，自动续期，一次配置长期无忧。
+本文以 Ubuntu 22.04 + Nginx 环境为例，介绍如何使用 **Let's Encrypt** 为网站免费申请 SSL 证书。全程免费，证书有效期 90 天，自动续期，仅需一次配置。
 
 > [!CAUTION]
-> 本教程主要适用于 Ubuntu Linux + Nginx + 公网 IP + 域名 DNS 直连该 IP 的环境。其他场景请见文末「适用场景」章节。
+> 本教程主要适用于 Ubuntu Linux + Nginx + 公网 IP + 域名 DNS 直连该 IP 的环境。其他场景请见文末的 `适用场景` 章节。
 
 ---
 
 ## 什么是 SSL 证书
 
-当用户访问 `http://你的域名` 时，所有数据以明文传输，任何中间节点都能窃听甚至篡改内容，而 SSL 证书的作用是在浏览器和服务器之间建立加密通道，把 `http` 变成 `https`.
+当用户访问 `http://你的域名` 时，所有数据以明文传输，任何中间节点都能窃听甚至篡改内容，而 SSL 证书的作用是在浏览器和服务器之间建立加密通道，把 `http` 变成 `https`。
 
 > [!TIP]
-> SSL 能提升网站的权威性，提升搜索引擎排名，如果你想向大众开放，这是不可避免的。
+> SSL 能提升网站的权威性，提升搜索引擎排名，如果你想向大众开放你的站点，这是不可避免的。
 
-过去申请 SSL 证书需要付费找 CA 机构，流程繁琐。`Let's Encrypt` 是一个免费、自动化、开放的证书颁发机构，通过 `certbot` 工具可以一行命令完成申请、部署和自动续期。
+过去申请 SSL 证书需要付费找 CA 机构，还流程繁琐。`Let's Encrypt` 是一个免费、自动化、开放的证书颁发机构，通过 `certbot` 工具可以一行命令完成申请、部署和自动续期。
 
 ---
 
@@ -134,7 +134,7 @@ curl -I http://your-domain.com
 执行以下命令：
 
 ```bash
-sudo certbot --nginx -d your-domain.com # your-domain.com 改成你的域名！
+sudo certbot --nginx -d your-domain.com # 此处 your-domain.com 改成你的域名！
 ```
 
 > [!TIP]
@@ -248,19 +248,19 @@ sudo certbot renew --dry-run
 Detail: Fetching http://your-domain.com/.well-known/acme-challenge/xxx: Timeout during connect
 ```
 
-原因：`Let's Encrypt` 验证服务器无法从公网访问你的 80 端口。
+**原因**：`Let's Encrypt` 验证服务器无法从公网访问你的 80 端口。
 
 ### 413 Request Entity Too Large
 
-原因：上传文件超过 Nginx 的 `client_max_body_size` 限制。
+**原因**：上传文件超过 Nginx 的 `client_max_body_size` 限制。
 
-在 Nginx 配置中调大 `client_max_body_size 100m;` 即可，可以继续从 `100m` 调大到 `1g`等。
+> 在 Nginx 配置中调大 `client_max_body_size 100m;` 即可，可以继续从 `100m` 调大到 `1g`等。
 
 ### 504 Gateway Timeout
 
-原因：后端处理时间超过 Nginx 的 `proxy_read_timeout`。调大超时时间：
+**原因**：后端处理时间超过 Nginx 的 `proxy_read_timeout`。调大超时时间：
 
-在 Nginx 配置中调大 `proxy_read_timeout 3600s; proxy_send_timeout 3600s;` 即可，可以继续从 `3600s` 调大。
+> 在 Nginx 配置中调大 `proxy_read_timeout 3600s; proxy_send_timeout 3600s;` 即可，可以继续从 `3600s` 调大。
 
 ---
 
@@ -286,7 +286,7 @@ Detail: Fetching http://your-domain.com/.well-known/acme-challenge/xxx: Timeout 
 ## 懒人总结
 
 > [!IMPORTANT]
-> 噢不不不，这个一点也不懒人，需要自己对着文章慢慢操作。
+> 噢不不不，干这个活一点也不懒人，请自己对着文章慢慢操作。
 
 ---
 
