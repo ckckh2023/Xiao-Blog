@@ -77,7 +77,7 @@
     "id": "DSH-VSCode-SideBar",
     "name": "DSH VSCode 侧边栏扩展插件",
     "full_name": "ckckh2023/DSH-VSCode-SideBar",
-    "url": "https://www.deepseek.com/harness/",
+    "url": "https://open-vsx.org/extension/ckckh2023/dsh-sidebar",
     "repo": "https://github.com/ckckh2023/DSH-VSCode-SideBar",
     "other_repo": [
       { "title": "Gitee", "url": "https://gitee.com/ckckh2023/DSH-VSCode-SideBar" },
