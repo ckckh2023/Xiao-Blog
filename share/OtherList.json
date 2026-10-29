@@ -466,6 +466,25 @@
     "tags": ["开发工具", "插件"]
   },
   {
+    "id": "ocs",
+    "name": "OCS 网课助手",
+    "description": "一款开源的网课自动学习与答题脚本/桌面软件，支持超星学习通、知到智慧树、智慧职教、职教云、中国大学MOOC、雨课堂等主流网课平台，可自动完成视频播放、章节测验、课件阅读与弹窗答题，并配备题库缓存与人工智能搜题答题能力，拥有千万下载量。",
+    "officialUrl": "https://docs.ocsjs.com/",
+    "iconUrl": "https://docs.ocsjs.com/logos/ocs.png",
+    "installType": [
+      { "title": "篡改猴脚本官方网站下载", "url": "https://docs.ocsjs.com/docs/script#install-script" },
+      { "title": "桌面版官方网站下载", "url": "https://docs.ocsjs.com/docs/app#download-list" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Web"],
+    "blogs": [
+      { "title": "OCS 官方文档", "url": "https://docs.ocsjs.com/docs/about" },
+      { "title": "官方自动答题教程", "url": "https://docs.ocsjs.com/docs/work" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/ocsjs/ocsjs",
+    "tags": ["网课", "效率工具", "跨平台"]
+  },
+  {
     "id": "metaso",
     "name": "秘塔 AI 搜索",
     "description": "一款国产 AI 搜索引擎，专注于学术搜索与科研场景，能自动总结搜索结果、生成结构化大纲并引用文献来源，为学术研究、文献调研与知识问答提供一站式智能解答。",
