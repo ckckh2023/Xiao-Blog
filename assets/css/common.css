@@ -429,6 +429,15 @@ html[data-theme-mode="dark"] .theme-toggle .icon-moon { display: inline; }
   color: #ffe08a;
   background: rgba(59, 50, 0, 0.5);
 }
+/* 蓝色信息公告样式 */
+.notice-bar-info {
+  color: #1a4f8a;
+  background: rgba(222, 235, 252, 0.6);
+}
+[data-theme="dark"] .notice-bar-info {
+  color: #9ec9f5;
+  background: rgba(20, 40, 70, 0.5);
+}
 /* 生日公告样式 */
 .notice-bar-birthday {
   color: #8a1c4b;
