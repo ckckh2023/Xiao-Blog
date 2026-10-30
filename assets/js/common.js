@@ -97,7 +97,7 @@
   function showNotice(message, options) {
     var body = document.body;
     if (!body || !message) return function () {};
-    var opts = Object.assign({ level: "warn", closable: true, autoHide: 0, linkTarget: "_blank" }, options || {});
+    var opts = Object.assign({ level: "info", closable: true, autoHide: 0, linkTarget: "_blank" }, options || {});
 
     var bar = utils.el("div", { class: "notice-bar notice-bar-" + opts.level, role: "alert" });
     /* 公告文本：有 link 时用 <a> 支持点击跳转；无 link 时用 <span> 保持原样 */
@@ -194,6 +194,37 @@
     });
   }
   global.maybeShowBirthdayNotice = maybeShowBirthdayNotice;
+
+  /* ---------- 放弃 Clarity 采集公告---------- */
+  var CLARITY_ABANDON_START = "2026-10-31";
+  var CLARITY_ABANDON_END   = "2026-11-07";
+  var CLARITY_ABANDON_DISMISS_KEY = "clarity_abandon_notice_dismissed";
+
+  function clarityAbandonDismissed(stamp) {
+    try { return localStorage.getItem(CLARITY_ABANDON_DISMISS_KEY) === stamp; }
+    catch (e) { return false; }
+  }
+  function dismissClarityAbandonNotice(stamp) {
+    try { localStorage.setItem(CLARITY_ABANDON_DISMISS_KEY, stamp); } catch (e) {}
+  }
+
+  function maybeShowClarityAbandonNotice() {
+    var now = new Date();
+    var start = new Date(CLARITY_ABANDON_START + "T00:00:00+08:00");
+    var end   = new Date(CLARITY_ABANDON_END   + "T23:59:59+08:00");
+    if (now < start || now > end) return;
+    var stamp = CLARITY_ABANDON_START + "_" + CLARITY_ABANDON_END;
+    if (clarityAbandonDismissed(stamp)) return;
+    var dismiss = function () { dismissClarityAbandonNotice(stamp); };
+    showNotice("站主已放弃使用 Microsoft Clarity 采集匿名会话热力图与点击数据，原因是部署流程极度麻烦且存在数据隐私风险。", {
+      level: "info",
+      link: root() + "about/",
+      linkTarget: "_self",
+      onClose: dismiss,
+      onLinkClick: dismiss
+    });
+  }
+  global.maybeShowClarityAbandonNotice = maybeShowClarityAbandonNotice;
 
   /* 带 ETag 条件请求的 GitHub API 获取
      有缓存时带 If-None-Match 重新校验；
@@ -792,6 +823,7 @@
     mountYear();
     mountFooterLogo();
     watchNavHeight();
+    maybeShowClarityAbandonNotice();
     maybeShowBirthdayNotice();
   });
 })(window);
