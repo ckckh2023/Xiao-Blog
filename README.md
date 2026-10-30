@@ -2,7 +2,7 @@
 
 中文 | [English](README.en.md)
 
-个人技术博客站点，部署于 Cloudflare Pages，**本项目零构建零依赖，源码即产物**。
+个人技术博客站点，部署于 Cloudflare Pages，**本项目零构建零依赖，源码即产物**，独创 Cloudflare Edge Functions 的 Github API 反代系统 与 D1 SQLite 留言板系统。
 
 > 在线访问：<https://xiao-blog.top>
 
