@@ -398,7 +398,7 @@
         renderSidebar(idPath),
         renderPagination(idPath)
       ]).then(function () {
-        renderDocFeedback();
+        renderDocFeedback(idPath);
       });
     });
   }
@@ -478,7 +478,26 @@
     '<path class="thumb-solid" d="M621.674667 408.021333c16.618667-74.24 28.224-127.936 34.837333-161.194666C673.152 163.093333 629.941333 85.333333 544.298667 85.333333c-77.226667 0-116.010667 38.378667-138.88 115.093334l-0.586667 2.24c-13.728 62.058667-34.72 110.165333-62.506667 144.586666a158.261333 158.261333 0 0 1-119.733333 58.965334l-21.909333 0.469333C148.437333 407.808 106.666667 450.816 106.666667 503.498667V821.333333c0 64.8 52.106667 117.333333 116.394666 117.333334h412.522667c84.736 0 160.373333-53.568 189.12-133.92l85.696-239.584c21.802667-60.96-9.536-128.202667-70.005333-150.186667a115.552 115.552 0 0 0-39.488-6.954667H621.674667z"/>' +
     "</svg>";
 
-  function renderDocFeedback() {
+  /* 点赞状态 localStorage 缓存 */
+  var FEEDBACK_TTL = 365 * 24 * 60 * 60 * 1000;
+  var FEEDBACK_KEY_PREFIX = "doc_feedback_liked_";
+
+  function readFeedbackLiked(key) {
+    try {
+      var ts = parseInt(localStorage.getItem(key), 10);
+      if (!ts || isNaN(ts)) return false;
+      if (Date.now() - ts > FEEDBACK_TTL) { localStorage.removeItem(key); return false; }
+      return true;
+    } catch (e) { return false; }
+  }
+  function writeFeedbackLiked(key, liked) {
+    try {
+      if (liked) localStorage.setItem(key, String(Date.now()));
+      else localStorage.removeItem(key);
+    } catch (e) {}
+  }
+
+  function renderDocFeedback(idPath) {
     var holder = document.getElementById("doc-feedback");
     if (!holder || holder.__feedbackBound) return;
     holder.innerHTML =
@@ -487,9 +506,17 @@
       FEEDBACK_THUMB_SVG +
       "</button>";
     var btn = holder.querySelector(".doc-feedback-btn");
+    /* 每篇文章独立 key */
+    var key = FEEDBACK_KEY_PREFIX + (idPath || []).map(encodeURIComponent).join("__");
+    var liked = readFeedbackLiked(key);
+    if (liked) {
+      holder.classList.add("active");
+      btn.setAttribute("aria-pressed", "true");
+    }
     btn.addEventListener("click", function () {
       var active = holder.classList.toggle("active");
       btn.setAttribute("aria-pressed", active ? "true" : "false");
+      writeFeedbackLiked(key, active);
       if (active) spawnFeedbackBurst(btn);
     });
     holder.__feedbackBound = true;
