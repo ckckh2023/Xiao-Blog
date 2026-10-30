@@ -27,6 +27,7 @@
       { "id": "git-remote-guide", "title": "Git 远程管理配置及用法" },
       { "id": "git-lfs-guide", "title": "Git LFS 大文件管理介绍" },
       { "id": "git-pr-guide", "title": "Git Pull Request 协作流程指南" },
+      { "id": "git-cherry-pick-guide", "title": "Git 使用 cherry-pick 重建分支指南" },
       { "id": "git-ssh-guide", "title": "Git SSH 配置及使用建议",
         "children": [
           { "id": "git-ssh-config", "title": "Git SSH 配置方法" },
