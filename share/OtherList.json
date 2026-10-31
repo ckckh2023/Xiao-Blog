@@ -365,8 +365,8 @@
     "installType": [
       { "title": "官方网站下载", "url": "https://www.ventoy.net/cn/download.html" },
       { "title": "GitHub Releases", "url": "https://github.com/ventoy/Ventoy/releases/latest" },
-      { "title": "Github Releases（南京大学镜像站", "url": "https://mirrors.nju.edu.cn/github-release/ventoy/Ventoy/" },
-      { "title": "123 云盘", "url": "https://1812899569.share.123pan.cn/123pan/rjSKVv-8YtN?pwd=vtoy#" },
+      { "title": "Github Releases（南京大学镜像站）", "url": "https://mirrors.nju.edu.cn/github-release/ventoy/Ventoy/" },
+      { "title": "123 云盘", "url": "https://1812899569.share.123pan.cn/123pan/rjSKVv-8YtN?pwd=vtoy" },
       { "title": "蓝奏云网盘", "url": "https://www.lanzoui.com/b01bd54gb" }
     ],
     "platforms": ["Windows", "Linux"],
