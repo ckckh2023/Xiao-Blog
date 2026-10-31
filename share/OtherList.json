@@ -357,6 +357,27 @@
     "tags": ["启动盘", "系统工具"]
   },
   {
+    "id": "ventoy",
+    "name": "Ventoy",
+    "description": "一款开源、免费、无需格式化 U 盘的 USB 启动盘制作工具。将多个 ISO/IMG/VHD 等镜像文件直接复制到 U 盘即可一次性放入无数个安装镜像，启动时自动列出菜单供选择，无需每次重写 U 盘，是制作多系统安装盘与维护盘的利器。",
+    "officialUrl": "https://www.ventoy.net/cn/index.html",
+    "iconUrl": "https://www.ventoy.net/static/img/ventoy.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.ventoy.net/cn/download.html" },
+      { "title": "GitHub Releases", "url": "https://github.com/ventoy/Ventoy/releases/latest" },
+      { "title": "Github Releases（南京大学镜像站", "url": "https://mirrors.nju.edu.cn/github-release/ventoy/Ventoy/" },
+      { "title": "123 云盘", "url": "https://1812899569.share.123pan.cn/123pan/rjSKVv-8YtN?pwd=vtoy#" },
+      { "title": "蓝奏云网盘", "url": "https://www.lanzoui.com/b01bd54gb" }
+    ],
+    "platforms": ["Windows", "Linux"],
+    "blogs": [
+      { "title": "Ventoy 官方文档", "url": "https://www.ventoy.net/cn/doc_start.html" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/ventoy/Ventoy",
+    "tags": ["启动盘", "系统工具"]
+  },
+  {
     "id": "wepe",
     "name": "微PE工具箱",
     "description": "一款免费、纯净、无捆绑软件的 WinPE 维护系统工具。它基于 Win10 PE 内核，全面支持 NVMe 盘，集成了分区助手、DiskGenius、WinNTSetup 等实用维护工具。",

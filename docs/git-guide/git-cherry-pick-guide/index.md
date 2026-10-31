@@ -120,6 +120,6 @@ git push --force-with-lease origin main
 
 ### `branch named 'main' already exists`
 
-漏了把旧 main 改名那一步，这样做的 `main` 分支被占用无法改名。
+漏了`把旧 main 分支`那一步，这样会导致 `main` 分支被占用无法改名。
 
-> 也许[此文档](https://xiao-blog.top/docs/article?id=git-guide&sub=git-remote-guide)对你还有点帮助。
+> 如果你想了解远程仓库相关知识，也许[此文档](https://xiao-blog.top/docs/article?id=git-guide&sub=git-remote-guide)对你还有点帮助。

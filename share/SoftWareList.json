@@ -600,7 +600,7 @@
     "iconUrl": "https://chatboxai.app/icon.png",
     "installType": [
       { "title": "官方网站下载", "url": "https://chatboxai.app/zh#download" },
-      { "title": "GitHub Release", "url": "https://github.com/chatboxai/chatbox/releases/latest" }
+      { "title": "GitHub Releases", "url": "https://github.com/chatboxai/chatbox/releases/latest" }
     ],
     "platforms": ["Windows", "macOS", "Linux", "Web", "Android", "iOS"],
     "blogs": [],
