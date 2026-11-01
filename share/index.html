@@ -80,7 +80,7 @@
     var softwareList = [];
     var otherList = [];
     var loadedState = {}; /* 已加载完成的分类 */
-    var loadingState = {}; /* 加载中的 Promise */
+    var loadingState = {}; /* 加载中的分类 */
     var filterState = { category: "software", platforms: [], tags: [], query: "", page: 1 };
     var PLATFORMS = ["Windows", "macOS", "Linux", "Web", "Android", "iOS"];
     var SHARE_PAGE_SIZE = 20;
@@ -90,7 +90,7 @@
       return cat === "other" ? fetchOtherList() : fetchShareList();
     }
 
-    /* 确保某分类数据已加载；返回的 Promise 以 true/false 表示成败，失败不缓存（下次切换分类可重试） */
+    /* 本函数返回的 Promise 以 true/false 表示成败，失败不缓存 */
     function ensureLoaded(cat) {
       if (loadedState[cat]) return Promise.resolve(true);
       if (!loadingState[cat]) {
@@ -310,7 +310,7 @@
     if (initName) filterState.query = initName;
     applyCategoryUI();
 
-    /* 动态 canonical 与  og:url */
+    /* 动态 canonical 与 og:url */
     var canonURL = "https://xiao-blog.top/share/?type=" + filterState.category;
     var canonicalEl = document.head.querySelector('link[rel="canonical"]');
     if (canonicalEl) canonicalEl.setAttribute("href", canonURL);
@@ -318,7 +318,7 @@
     if (ogUrlEl) ogUrlEl.setAttribute("content", canonURL);
 
     ensureLoaded(filterState.category).then(function (ok) {
-      if (!ok) return; /* 加载失败已在 ensureLoaded 中提示 */
+      if (!ok) return;
       renderTagList();
       applyFilter();
       var search = mountSearchBox("#share-search", {
