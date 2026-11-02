@@ -436,6 +436,24 @@
     "tags": ["文件传输", "跨平台"]
   },
   {
+    "id": "winscp",
+    "name": "WinSCP",
+    "description": "一款 Windows 平台下流行的开源 SFTP/SCP/FTP 客户端，提供图形界面与命令行两种使用方式，支持目录同步、脚本自动化、集成外部编辑器等功能，是远程文件管理与上传下载的常用工具。",
+    "officialUrl": "https://winscp.net/",
+    "iconUrl": "https://winscp.net/assets/images/logos/logo@240.jpg",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://winscp.net/eng/download.php" },
+      { "title": "Microsoft Store", "url": "https://apps.microsoft.com/detail/9p0pq8b65n8x" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "WinSCP 官方文档", "url": "https://winscp.net/eng/docs/lang:chs" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/winscp/winscp",
+    "tags": ["文件传输", "开发工具"]
+  },
+  {
     "id": "xiaomi-connect",
     "name": "小米互联服务",
     "description": "小米 HyperOS 推出的跨端智联服务，实现小米手机与各种设备之间的互联共享，小米手机持有者必备。",
