@@ -131,7 +131,9 @@
       { "title": "SourceForge", "url": "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/" }
     ],
     "platforms": ["Windows"],
-    "blogs": [],
+    "blogs": [
+      { "title": "本站官方文档", "url": "https://xiao-blog.top/docs/article?id=c-cpp-guide&sub=compile-introduction&sub2=gcc-guide" }
+    ],
     "status": "active",
     "repoUrl": "https://github.com/niXman/mingw-builds-binaries",
     "tags": ["编译构建", "C++", "开发工具"]
