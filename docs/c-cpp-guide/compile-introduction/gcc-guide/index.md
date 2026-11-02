@@ -62,6 +62,8 @@ g++ -o myapp main.cpp utils.cpp -I./include -L./lib -lmylib
 - 64 位电脑前缀为 `x86_64`，Windows 11/10 请选择 `posix-seh-ucrt-rt`，Windows 8/7 请选择 `posix-seh-msvcrt-rt`;
 - 32 位电脑前缀为 `i686`，Windows 11/10 请选择 `posix-dwarf-ucrt-rt`，Windows 8/7 请选择 `posix-dwarf-msvcrt-rt`;
 
+> [!CAUTION]
+> 如果你编写的是标准 C++ 代码，并且希望使用 `std::thread` 这种标准、可移植的方式来处理并发，那么 `posix` 版本是唯一正确的选择，不要选择 `win32` 版本，如 `x86_64-16.2.0-release-win32-seh-ucrt-rt_v14-rev1.7z`。
 
 此处仅提供 MinGW-w64 的安装和使用方法：
 
