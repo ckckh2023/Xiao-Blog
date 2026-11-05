@@ -57,6 +57,10 @@
   font-size: 13px;
   color: var(--text-muted);
 }
+a.about-stat {
+  text-decoration: none;
+  color: inherit;
+}
 .about-updated {
   font-size: 13px;
   color: var(--text-muted);
