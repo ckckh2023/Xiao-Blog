@@ -204,6 +204,7 @@ a.about-stat {
 /* ---------- 响应式 ---------- */
 @media (max-width: 768px) {
   .about-stats { grid-template-columns: repeat(2, 1fr); }
+  .about-stats .about-stat:last-child { grid-column: 1 / -1; }
   .about-grid { grid-template-columns: 1fr; }
   .about-card { padding: 18px 16px; }
 }
