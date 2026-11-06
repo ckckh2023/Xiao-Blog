@@ -460,6 +460,23 @@
     "tags": ["AI", "图形图像", "跨平台"]
   },
   {
+    "id": "ffmpeg",
+    "name": "FFmpeg",
+    "description": "一套完整的开源跨平台音视频处理方案，可用于录制、转换、剪辑、合并、推流与流媒体处理，支持几乎所有音视频格式与编解码器，是大量播放器、转码工具与音视频处理工具背后的基础组件。",
+    "officialUrl": "https://ffmpeg.org/",
+    "iconUrl": "https://ffmpeg.org/favicon.ico",
+    "installType": [
+      { "title": "官方下载页面", "url": "https://ffmpeg.org/download.html" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [
+      { "title": "FFmpeg 官方文档", "url": "https://ffmpeg.org/documentation.html" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/FFmpeg/FFmpeg",
+    "tags": ["音视频", "开发工具", "跨平台"]
+  },
+  {
     "id": "manim",
     "name": "Manim",
     "description": "3Blue1Brown 出品的 Python 程序化动画引擎，专注于制作解释性数学视频，通过编写 Python 代码即可精确控制每个几何元素与变换，渲染出高质量的数学动画和教学视频。",

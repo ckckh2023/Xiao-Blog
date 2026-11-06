@@ -575,6 +575,23 @@
     "tags": ["远程控制", "跨平台"]
   },
   {
+    "id": "rustdesk",
+    "name": "RustDesk",
+    "description": "一款开源的远程桌面与远程控制软件，支持自建服务器，数据完全自主可控，覆盖 Windows、macOS、Linux、Android 与 iOS，是 TeamViewer、向日葵等商业远程工具的开源替代方案。",
+    "officialUrl": "https://rustdesk.com/zh-cn/",
+    "iconUrl": "https://rustdesk.com/_astro/logo.BKb61-he.svg",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/rustdesk/rustdesk/releases/latest" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Web", "Android", "iOS"],
+    "blogs": [
+      { "title": "RustDesk 官方文档", "url": "https://rustdesk.com/docs/zh-cn/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/rustdesk/rustdesk",
+    "tags": ["远程控制", "跨平台", "开源"]
+  },
+  {
     "id": "echomusic",
     "name": "EchoMusic",
     "description": "一款专为桌面端打造的简约、精致、功能强大的第三方酷狗概念版音乐播放器，支持外部歌单导入及丰富的音频增强功能。",
@@ -770,8 +787,8 @@
     "iconUrl": "https://ts4.tc.mm.bing.net/th/id/ODF.v2guE0TMaatOGlvtC_LZYA",
     "installType": [
       { "title": "官方网站下载", "url": "https://fluentflyout.com/download/" },
-      { "title": "Microsoft Store", "url": "https://apps.microsoft.com/detail/9n45nsm4tnbp" },
-      { "title": "GitHub Releases", "url": "https://github.com/unchihugo/FluentFlyout/releases/latest" }
+      { "title": "官方网站下载（完全免费版本）", "url": "https://fluentflyout.com/files/latest/x64" },
+      { "title": "Microsoft Store", "url": "https://apps.microsoft.com/detail/9n45nsm4tnbp" }
     ],
     "platforms": ["Windows"],
     "blogs": [],
