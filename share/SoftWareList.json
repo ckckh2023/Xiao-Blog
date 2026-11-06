@@ -763,6 +763,23 @@
     "tags": ["系统工具", "界面美化"]
   },
   {
+    "id": "fluentflyout",
+    "name": "FluentFlyout",
+    "description": "一款面向 Windows 11 的开源现代弹窗应用，提供媒体控制、音量调节、下一曲提示与锁定键状态等 Fluent Design 弹窗，并支持任务栏媒体小组件与音频可视化，外观贴合系统原生风格。",
+    "officialUrl": "https://fluentflyout.com/",
+    "iconUrl": "https://ts4.tc.mm.bing.net/th/id/ODF.v2guE0TMaatOGlvtC_LZYA",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://fluentflyout.com/download/" },
+      { "title": "Microsoft Store", "url": "https://apps.microsoft.com/detail/9n45nsm4tnbp" },
+      { "title": "GitHub Releases", "url": "https://github.com/unchihugo/FluentFlyout/releases/latest" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/unchihugo/FluentFlyout",
+    "tags": ["系统工具", "界面美化"]
+  },
+  {
     "id": "ext2-volume-manager",
     "name": "Ext2 Volume Manager",
     "description": "一款 Windows 平台下的轻量级图形界面工具，作为 Ext2Fsd 文件系统驱动的管理前端。它帮助用户在 Windows 系统中挂载、管理并读写 Linux 原生的 ext2/ext3/ext4 分区，双系统用户必备。",
