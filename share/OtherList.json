@@ -493,6 +493,40 @@
     "tags": ["Python", "动画制作", "开发工具"]
   },
   {
+    "id": "opensteamtool",
+    "name": "OpenSteamTool",
+    "description": "开源的 Steam 优化工具，将 DLL 放入 Steam 根目录并配合 Lua 脚本即可解锁未拥有的游戏与 DLC，支持 Lua 热重载、manifest 自动下载与绑定、家庭共享限制绕过、Denuvo/SteamStub 兼容、成就统计与在线联机修复。仅供研究与教育目的，请遵守当地法律与平台服务条款。",
+    "officialUrl": null,
+    "iconUrl": "https://github.com/huanyuejue/OpenSteamTool/raw/main/docs/logo-animated.svg",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/huanyuejue/OpenSteamTool/releases/latest" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/huanyuejue/OpenSteamTool",
+    "tags": ["游戏工具", "优化工具"]
+  },
+  {
+    "id": "ocs",
+    "name": "OCS 网课助手",
+    "description": "一款开源的网课自动学习与答题脚本/桌面软件，支持学习通、智慧树、智慧职教、职教云、中国大学MOOC、雨课堂等主流网课平台，可自动完成视频播放、章节测验、课件阅读与弹窗答题，并配备题库缓存与人工智能搜题答题能力，拥有千万下载量。",
+    "officialUrl": "https://docs.ocsjs.com/",
+    "iconUrl": "https://docs.ocsjs.com/logos/ocs.png",
+    "installType": [
+      { "title": "官方网站下载（篡改猴脚本版本）", "url": "https://docs.ocsjs.com/docs/script#install-script" },
+      { "title": "官方网站下载（桌面版本）", "url": "https://docs.ocsjs.com/docs/app#download-list" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux", "Web"],
+    "blogs": [
+      { "title": "OCS 官方文档", "url": "https://docs.ocsjs.com/docs/about" },
+      { "title": "官方自动答题教程", "url": "https://docs.ocsjs.com/docs/work" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/ocsjs/ocsjs",
+    "tags": ["网课", "效率工具", "跨平台"]
+  },
+  {
     "id": "open-vsx",
     "name": "Open VSX Registry",
     "description": "Eclipse Foundation 维护的开源 VS Code 扩展市场，提供与微软 Visual Studio Marketplace 兼容的扩展 API，被 VSCodium、Gitpod、Eclipse Theia、Code-OSS 等编辑器采用，避免专有市场限制，是开源社区推荐的扩展来源。",
@@ -504,25 +538,6 @@
     "status": "active",
     "repoUrl": "https://github.com/eclipse-openvsx/openvsx",
     "tags": ["开发工具", "插件"]
-  },
-  {
-    "id": "ocs",
-    "name": "OCS 网课助手",
-    "description": "一款开源的网课自动学习与答题脚本/桌面软件，支持超星学习通、知到智慧树、智慧职教、职教云、中国大学MOOC、雨课堂等主流网课平台，可自动完成视频播放、章节测验、课件阅读与弹窗答题，并配备题库缓存与人工智能搜题答题能力，拥有千万下载量。",
-    "officialUrl": "https://docs.ocsjs.com/",
-    "iconUrl": "https://docs.ocsjs.com/logos/ocs.png",
-    "installType": [
-      { "title": "篡改猴脚本官方网站下载", "url": "https://docs.ocsjs.com/docs/script#install-script" },
-      { "title": "桌面版官方网站下载", "url": "https://docs.ocsjs.com/docs/app#download-list" }
-    ],
-    "platforms": ["Windows", "macOS", "Linux", "Web"],
-    "blogs": [
-      { "title": "OCS 官方文档", "url": "https://docs.ocsjs.com/docs/about" },
-      { "title": "官方自动答题教程", "url": "https://docs.ocsjs.com/docs/work" }
-    ],
-    "status": "active",
-    "repoUrl": "https://github.com/ocsjs/ocsjs",
-    "tags": ["网课", "效率工具", "跨平台"]
   },
   {
     "id": "metaso",
