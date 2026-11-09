@@ -764,6 +764,21 @@
     "tags": ["电路设计", "跨平台"]
   },
   {
+    "id": "gogogo",
+    "name": "影梭 GoGoGo",
+    "description": "一款基于 Android 调试 API 与百度地图实现的开源虚拟定位工具，支持地图选点、地点搜索、坐标输入、线路移动与悬浮摇杆，并提供收藏、历史记录与 GPX 导入导出，无需 Root 即可使用。",
+    "officialUrl": null,
+    "iconUrl": "https://ts4.tc.mm.bing.net/th/id/ODF.DR-ULTmx6opEuhnebyu0jw",
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/ZCShou/GoGoGo/releases/latest" }
+    ],
+    "platforms": ["Android"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": "https://github.com/ZCShou/GoGoGo",
+    "tags": ["虚拟定位", "开源工具"]
+  },
+  {
     "id": "windhawk",
     "name": "Windhawk",
     "description": "一款专为 Windows 设计的开源系统修改工具，允许用户通过安装模组来定制和增强系统行为与样式，注意 Windows 平台美化可能有风险。",
@@ -802,11 +817,13 @@
     "description": "一款 Windows 平台下的轻量级图形界面工具，作为 Ext2Fsd 文件系统驱动的管理前端。它帮助用户在 Windows 系统中挂载、管理并读写 Linux 原生的 ext2/ext3/ext4 分区，双系统用户必备。",
     "officialUrl": null,
     "iconUrl": "https://cdn.lo4d.com/t/icon/48/ext2-volume-manager.png",
-    "installType": [],
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/bobranten/Ext4Fsd/releases/latest" }
+    ],
     "platforms": ["Windows"],
     "blogs": [],
     "status": "deprecated",
-    "repoUrl": null,
+    "repoUrl": "https://github.com/bobranten/Ext4Fsd",
     "tags": ["磁盘工具", "系统工具"]
   }
 ]
