@@ -764,8 +764,8 @@
     "tags": ["电路设计", "跨平台"]
   },
   {
-    "id": "gogogo",
-    "name": "影梭 GoGoGo",
+    "id": "virtgo",
+    "name": "影梭",
     "description": "一款基于 Android 调试 API 与百度地图实现的开源虚拟定位工具，支持地图选点、地点搜索、坐标输入、线路移动与悬浮摇杆，并提供收藏、历史记录与 GPX 导入导出，无需 Root 即可使用。",
     "officialUrl": null,
     "iconUrl": "https://ts4.tc.mm.bing.net/th/id/ODF.DR-ULTmx6opEuhnebyu0jw",
