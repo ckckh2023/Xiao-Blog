@@ -514,7 +514,7 @@
     "officialUrl": "https://docs.ocsjs.com/",
     "iconUrl": "https://docs.ocsjs.com/logos/ocs.png",
     "installType": [
-      { "title": "官方网站下载（篡改猴脚本版本）", "url": "https://docs.ocsjs.com/docs/script#install-script" },
+      { "title": "官方网站下载（油猴脚本版本）", "url": "https://docs.ocsjs.com/docs/script#install-script" },
       { "title": "官方网站下载（桌面版本）", "url": "https://docs.ocsjs.com/docs/app#download-list" }
     ],
     "platforms": ["Windows", "macOS", "Linux", "Web"],
@@ -525,6 +525,24 @@
     "status": "active",
     "repoUrl": "https://github.com/ocsjs/ocsjs",
     "tags": ["网课", "效率工具", "跨平台"]
+  },
+  {
+    "id": "bibata-cursor",
+    "name": "Bibata Cursor",
+    "description": "一款开源、紧凑且遵循 Material Design 的鼠标光标主题集，提供黄黑白三种配色与多种尺寸，并分为圆角 Modern 与尖角 Original 两种风格，还附带右手版；是 Linux 社区最流行的光标主题之一，同时提供 Windows 安装包，并支持在线自定义配色与尺寸。",
+    "officialUrl": null,
+    "iconUrl": "https://cursor-space.com/images/packs/16/medium/left_ptr.png.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://bibata.live/" },
+      { "title": "GitHub Releases", "url": "https://github.com/ful1e5/Bibata_Cursor/releases/latest" },
+      { "title": "Arch Linux AUR（bibata-cursor-theme-bin）", "url": "https://aur.archlinux.org/packages/bibata-cursor-theme-bin" },
+      { "title": "Fedora COPR 仓库", "url": "https://copr.fedorainfracloud.org/coprs/peterwu/rendezvous/" }
+    ],
+    "platforms": ["Windows", "Linux"],
+    "blogs": [],
+    "status": "unkonwn",
+    "repoUrl": "https://github.com/ful1e5/Bibata_Cursor",
+    "tags": ["系统美化", "跨平台"]
   },
   {
     "id": "open-vsx",

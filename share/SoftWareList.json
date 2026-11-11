@@ -812,9 +812,9 @@
     "tags": ["系统工具", "界面美化"]
   },
   {
-    "id": "ext2-volume-manager",
-    "name": "Ext2 Volume Manager",
-    "description": "一款 Windows 平台下的轻量级图形界面工具，作为 Ext2Fsd 文件系统驱动的管理前端。它帮助用户在 Windows 系统中挂载、管理并读写 Linux 原生的 ext2/ext3/ext4 分区，双系统用户必备。",
+    "id": "ext4fsd",
+    "name": "Ext4Fsd（原 Ext2 Volume Manager）",
+    "description": "一款 Windows 平台下的轻量级图形界面工具，作为 Ext2Fsd 文件系统驱动的管理前端，由 Ext2 Volume Manager 针对 Windows 10/11 适配。它帮助用户在 Windows 系统中挂载、管理并读写 Linux 原生的 ext2/ext3/ext4 分区，双系统用户必备。",
     "officialUrl": null,
     "iconUrl": "https://cdn.lo4d.com/t/icon/48/ext2-volume-manager.png",
     "installType": [
