@@ -395,6 +395,25 @@
     "tags": ["启动盘", "系统工具"]
   },
   {
+    "id": "hotpe",
+    "name": "HotPE 工具箱",
+    "description": "一款纯净、强大、优雅的开源 Win11PE 工具箱，支持上网、声音、远程、下载、MTP、RNDIS、Legacy/UEFI 启动、NVMe 硬盘、BitLocker 解锁、网络共享与 U 盘本地启动等，内置主流无线网卡、有线网卡、声卡与磁盘驱动，并拥有强大的模块系统，支持最新硬件系统。",
+    "officialUrl": "https://www.hotpe.top/",
+    "iconUrl": "https://www.hotpe.top/favicon.ico",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.hotpe.top/download/" },
+      { "title": "官方 Release 网站", "url": "https://down.hotpe.top/Releases" },
+      { "title": "GitHub Releases", "url": "https://github.com/VirtualHotBar/HotPEToolBox/releases/latest" }
+    ],
+    "platforms": ["Windows"],
+    "blogs": [
+      { "title": "HotPE 官方文档", "url": "https://docs.hotpe.top/" }
+    ],
+    "status": "active",
+    "repoUrl": "https://github.com/VirtualHotBar/HotPEToolBox",
+    "tags": ["启动盘", "系统工具"]
+  },
+  {
     "id": "heu-kms-activator",
     "name": "HEU_KMS_Activator",
     "description": "一款基于 MDL 论坛 KMS Server Emulator 开发的 Windows 和 Office 智能激活工具，支持 KMS/OEM 等多种激活方式，无需联网即可一键激活。",
