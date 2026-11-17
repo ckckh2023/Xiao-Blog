@@ -18,6 +18,12 @@
     "url": "https://github.com/greedySnake001"
   },
   {
+	  "id": "SX726",
+	  "avatar": "https://github.com/SX726.png",
+    "bio": "经典大芬木工追击XXX的创作者，现在主要深入嵌入式方向，准备制作更大的大芬",
+    "url": "https://github.com/SX726"
+  },
+  {
 	  "id": "cloudy-rhh",
 	  "avatar": "https://github.com/cloudy-rhh.png",
     "bio": "喜爱探讨计算机知识，目前正在尝试深入嵌入式方向，参与过 TrashGo 项目的开发",
@@ -33,6 +39,12 @@
 	  "id": "Nimbulux",
 	  "avatar": "https://github.com/Nimbulux.png",
     "bio": "Arch Linux 与 LGPL 教徒，AI 受用者，BDWL 基岩荒地 MC 服务器玩家",
-    "url": "https://nimbulux.github.io/app/" 
+    "url": "https://nimbulux.github.io/app/"
+  },
+  {
+	  "id": "WaterGodFurina",
+	  "avatar": "https://github.com/WaterGodFurina.png",
+    "bio": "也是 AI 受用者，FCL 启动器文档撰写者，BDWL 基岩荒地 MC 服务器玩家，经常制造不知道是不是大芬的 AI 产物",
+    "url": "https://github.com/WaterGodFurina"
   }
 ]
