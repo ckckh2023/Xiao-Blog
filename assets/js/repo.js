@@ -135,13 +135,27 @@
     document.addEventListener("keydown", onKey);
   }
 
-  /* 项目源码按钮处理 */
+  /* 项目源码按钮 */
   function handleSourceRepo(repo, otherRepo) {
     var items = [{ title: "GitHub", url: repo }];
     if (Array.isArray(otherRepo)) {
       otherRepo.forEach(function (it) { items.push(it); });
     }
     openSelectDialog("选择项目源码仓库", items);
+  }
+
+  /* 下载按钮 */
+  function downloadBtn(idx) {
+    return '<button class="btn" type="button" data-download="' + idx + '">下载</button>';
+  }
+
+  function handleMulti(arr, title) {
+    if (!Array.isArray(arr) || !arr.length) return;
+    if (arr.length === 1) {
+      window.open(arr[0].url, "_blank", "noopener");
+      return;
+    }
+    openSelectDialog(title, arr);
   }
 
   /* ---------- 项目卡片渲染 ----------
@@ -174,12 +188,16 @@
     var meta = ['<span class="star"><span class="ico">' + STAR_SVG + "</span>" + String(p.stars || 0) + "</span>"];
     if (p.forks) meta.push('<span class="fork"><span class="ico">' + FORK_SVG + "</span>" + String(p.forks) + "</span>");
     meta.push("<span>#" + utils.escapeHTML(String(p.id)) + "</span>");
+    var downloadHTML = (Array.isArray(p.installType) && p.installType.length) ? downloadBtn(idx) : "";
     return '<article class="card project-card" data-project-id="' + utils.escapeHTML(String(p.id)) + '">' +
       '<div class="pc-title">' + highlight(p.name, q) + "</div>" +
       '<div class="pc-desc">' + highlight(descText, q) + "</div>" +
       tagsHTML +
       '<div class="pc-meta">' + meta.join("") + "</div>" +
-      '<div class="pc-actions">' + actions.join("") + "</div>" +
+      '<div class="pc-actions">' +
+        '<div class="pc-actions-left">' + actions.join("") + "</div>" +
+        downloadHTML +
+      "</div>" +
     "</article>";
   }
 
@@ -249,6 +267,13 @@
           var idx = parseInt(src.getAttribute("data-source"), 10);
           var item = projects[idx];
           if (item) handleSourceRepo(item.repo, item.other_repo);
+          return;
+        }
+        var dl = e.target.closest("[data-download]");
+        if (dl) {
+          var dIdx = parseInt(dl.getAttribute("data-download"), 10);
+          var dItem = projects[dIdx];
+          if (dItem) handleMulti(dItem.installType, "选择下载方式");
         }
       });
       container._projectBound = true;

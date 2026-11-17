@@ -62,9 +62,21 @@
 }
 .project-card .pc-actions {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: auto;
   padding-top: 14px;
+}
+.project-card .pc-actions-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.project-card .pc-actions > .btn {
+  flex-shrink: 0;
 }
 
 /* ---------- 选择弹窗 ---------- */

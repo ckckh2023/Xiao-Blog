@@ -8,6 +8,7 @@
     "other_repo": [
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BTIR-BrainTumor-ImageRecognition" }
     ],
+    "installType": [],
     "desc": "BTIR 是一个面向临床与科研的脑肿瘤 MRI 一站式分析平台。只需在浏览器中拖入 DICOM 或 NIfTI 文件夹，即可自动完成模态匹配、病灶分类与三维分割，并生成综合结论与 AI 解读。内置多用户隔离、异步任务队列与 3D 体渲染，开箱即用。",
     "stars": 6,
     "forks": 1,
@@ -22,6 +23,11 @@
     "other_repo": [
       { "title": "Gitee", "url": "https://gitee.com/ckckh2023/TrashGo_AIRecognition" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TrashGo_AIRecognition" }
+    ],
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/ckckh2023/TrashGo_AIRecognition/releases/latest" },
+      { "title": "Gitee Releases", "url": "https://gitee.com/ckckh2023/TrashGo_AIRecognition/releases/latest" },
+      { "title": "GitCode Releases", "url": "https://gitcode.com/ckckh2023/TrashGo_AIRecognition/releases/latest" }
     ],
     "desc": "TrashGo 是一款集多种图像信息识别功能于一体的智能工具，旨在帮助用户快速识别图像信息，并提供趣味互动体验。无论是垃圾分类、人脸识别，TrashGo 都能轻松应对。",
     "stars": 16,
@@ -38,6 +44,7 @@
       { "title": "Gitee", "url": "https://gitee.com/ckckh2023/Xiao-Blog" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/Xiao-Blog" }
     ],
+    "installType": [],
     "desc": "个人技术博客站点，部署于 Cloudflare Pages。内置文档知识库、项目展示、工具分享、留言板与好友页等模块。",
     "stars": 7,
     "forks": 4,
@@ -53,10 +60,31 @@
       { "title": "Gitee", "url": "https://gitee.com/ckckh2023/TsingHuaelt-VMIC" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/TsingHuaelt-VMIC" }
     ],
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/ckckh2023/TsingHuaelt-VMIC/releases/latest" },
+      { "title": "Gitee Releases", "url": "https://gitee.com/ckckh2023/TsingHuaelt-VMIC/releases/latest" },
+      { "title": "GitCode Releases", "url": "https://gitcode.com/ckckh2023/TsingHuaelt-VMIC/releases/latest" }
+    ],
     "desc": "让清英在线的网页录音只能拿到本插件注入的本地音频，而不是真实麦克风。本项目仅供研究自动化测试原理，违反学校平台规定的行为后果自负！",
     "stars": 10,
     "forks": 0,
     "tags": ["JavaScript", "HTML", "CSS"]
+  },
+  {
+    "id": "DeepSeek-API-Chat",
+    "name": "DeepSeek API 聊天",
+    "full_name": "ckckh2023/DeepSeek-API-Chat",
+    "url": "https://deepseek.xiao-blog.top",
+    "repo": "https://github.com/ckckh2023/DeepSeek-API-Chat",
+    "other_repo": [],
+    "installType": [
+      { "title": "GitHub Releases", "url": "https://github.com/ckckh2023/DeepSeek-API-Chat/releases/latest" },
+      { "title": "123云盘", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-n9rg" }
+    ],
+    "desc": "基于 DeepSeek Chat Demo 制作的 DeepSeek API 聊天软件，使用跨平台 WebView 运行环境，献给喜欢简单的每一个人。",
+    "stars": 1,
+    "forks": 0,
+    "tags": ["TypeScript", "CSS", "JavaScript", "HTML"]
   },
   {
     "id": "notepad--",
@@ -68,6 +96,7 @@
       { "title": "Gitee", "url": "https://gitee.com/ckckh2023/notepad--" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/notepad--" }
     ],
+    "installType": [],
     "desc": "NotePad-- 项目的 Qt 6 复刻版本，旨在引入更多高版本特性与本人开发的新功能，用于替代系统自带的文本编辑器与 NotePad++。",
     "stars": 0,
     "forks": 0,
@@ -77,11 +106,17 @@
     "id": "DSH-VSCode-SideBar",
     "name": "DSH VSCode 侧边栏扩展插件",
     "full_name": "ckckh2023/DSH-VSCode-SideBar",
-    "url": "https://open-vsx.org/extension/ckckh2023/dsh-sidebar",
+    "url": null,
     "repo": "https://github.com/ckckh2023/DSH-VSCode-SideBar",
     "other_repo": [
       { "title": "Gitee", "url": "https://gitee.com/ckckh2023/DSH-VSCode-SideBar" },
       { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/DSH-VSCode-SideBar" }
+    ],
+    "installType": [
+      { "title": "Open VSX", "url": "https://open-vsx.org/extension/ckckh2023/dsh-sidebar" },
+      { "title": "GitHub Releases", "url": "https://github.com/ckckh2023/DSH-VSCode-SideBar/releases/latest" },
+      { "title": "Gitee Releases", "url": "https://gitee.com/ckckh2023/DSH-VSCode-SideBar/releases/latest" },
+      { "title": "GitCode Releases", "url": "https://gitcode.com/ckckh2023/DSH-VSCode-SideBar/releases/latest" }
     ],
     "desc": "DeepSeek Harness 的 VSCode 侧边栏扩展插件，允许用户更方便地兼顾开发与对话。此插件目前仍使用 Web UI 而非自制 VSCode 原生 UI！",
     "stars": 0,
