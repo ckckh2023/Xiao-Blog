@@ -76,9 +76,12 @@
     "full_name": "ckckh2023/DeepSeek-API-Chat",
     "url": "https://deepseek.xiao-blog.top",
     "repo": "https://github.com/ckckh2023/DeepSeek-API-Chat",
-    "other_repo": [],
+    "other_repo": [
+      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/DeepSeek-API-Chat" }
+    ],
     "installType": [
       { "title": "GitHub Releases", "url": "https://github.com/ckckh2023/DeepSeek-API-Chat/releases/latest" },
+      { "title": "Gitee Releases", "url": "https://gitee.com/ckckh2023/DeepSeek-API-Chat/releases/latest" },
       { "title": "123云盘", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-n9rg" },
       { "title": "百度网盘", "url": "https://pan.baidu.com/s/1v_7pM502Ek31azc4Zv1uYw?pwd=3141"}
     ],
@@ -86,22 +89,6 @@
     "stars": 1,
     "forks": 0,
     "tags": ["TypeScript", "CSS", "JavaScript", "HTML", "Rust"]
-  },
-  {
-    "id": "notepad--",
-    "name": "NotePad--",
-    "full_name": "ckckh2023/notepad--",
-    "url": null,
-    "repo": "https://github.com/ckckh2023/notepad--",
-    "other_repo": [
-      { "title": "Gitee", "url": "https://gitee.com/ckckh2023/notepad--" },
-      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/notepad--" }
-    ],
-    "installType": [],
-    "desc": "NotePad-- 项目的 Qt 6 复刻版本，旨在引入更多高版本特性与本人开发的新功能，用于替代系统自带的文本编辑器与 NotePad++。",
-    "stars": 0,
-    "forks": 0,
-    "tags": ["C++", "HTML", "NSIS", "C", "CSS", "QMake", "Other"]
   },
   {
     "id": "DSH-VSCode-SideBar",
@@ -120,7 +107,7 @@
       { "title": "GitCode Releases", "url": "https://gitcode.com/ckckh2023/DSH-VSCode-SideBar/releases/latest" }
     ],
     "desc": "DeepSeek Harness 的 VSCode 侧边栏扩展插件，允许用户更方便地兼顾开发与对话。此插件目前仍使用 Web UI 而非自制 VSCode 原生 UI！",
-    "stars": 0,
+    "stars": 1,
     "forks": 0,
     "tags": ["JavaScript"]
   }
