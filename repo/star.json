@@ -1,20 +1,5 @@
 [
   {
-    "id": "BTIR-BrainTumor-ImageRecognition",
-    "name": "BTIR-脑肿瘤 MRI 图像分析",
-    "full_name": "ckckh2023/BTIR-BrainTumor-ImageRecognition",
-    "url": "https://btir.xiao-blog.top",
-    "repo": "https://github.com/ckckh2023/BTIR-BrainTumor-ImageRecognition",
-    "other_repo": [
-      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BTIR-BrainTumor-ImageRecognition" }
-    ],
-    "installType": [],
-    "desc": "BTIR 是一个面向临床与科研的脑肿瘤 MRI 一站式分析平台。只需在浏览器中拖入 DICOM 或 NIfTI 文件夹，即可自动完成模态匹配、病灶分类与三维分割，并生成综合结论与 AI 解读。内置多用户隔离、异步任务队列与 3D 体渲染，开箱即用。",
-    "stars": 6,
-    "forks": 1,
-    "tags": ["Python","JavaScript","CSS","HTML","Shell"]
-  },
-  {
     "id": "TrashGo_AIRecognition",
     "name": "TrashGo智识助手",
     "full_name": "ckckh2023/TrashGo_AIRecognition",
@@ -32,6 +17,21 @@
     "desc": "TrashGo 是一款集多种图像信息识别功能于一体的智能工具，旨在帮助用户快速识别图像信息，并提供趣味互动体验。无论是垃圾分类、人脸识别，TrashGo 都能轻松应对。",
     "stars": 16,
     "forks": 3,
-    "tags": ["C++","QML","CMake","C"]
+    "tags": ["C++", "QML", "CMake", "C"]
+  },
+  {
+    "id": "BTIR-BrainTumor-ImageRecognition",
+    "name": "BTIR-脑肿瘤 MRI 图像分析",
+    "full_name": "ckckh2023/BTIR-BrainTumor-ImageRecognition",
+    "url": "https://btir.xiao-blog.top",
+    "repo": "https://github.com/ckckh2023/BTIR-BrainTumor-ImageRecognition",
+    "other_repo": [
+      { "title": "GitCode", "url": "https://gitcode.com/ckckh2023/BTIR-BrainTumor-ImageRecognition" }
+    ],
+    "installType": [],
+    "desc": "BTIR 是一个面向临床与科研的脑肿瘤 MRI 一站式分析平台。只需在浏览器中拖入 DICOM 或 NIfTI 文件夹，即可自动完成模态匹配、病灶分类与三维分割，并生成综合结论与 AI 解读。内置多用户隔离、异步任务队列与 3D 体渲染，开箱即用。",
+    "stars": 6,
+    "forks": 1,
+    "tags": ["Python", "JavaScript", "CSS", "HTML", "Shell"]
   }
 ]
