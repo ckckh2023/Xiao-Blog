@@ -512,19 +512,19 @@
     "tags": ["Python", "动画制作", "开发工具"]
   },
   {
-    "id": "opensteamtool",
-    "name": "OpenSteamTool",
-    "description": "开源的 Steam 优化工具，将 DLL 放入 Steam 根目录并配合 Lua 脚本即可解锁未拥有的游戏与 DLC，支持 Lua 热重载、manifest 自动下载与绑定、家庭共享限制绕过、Denuvo/SteamStub 兼容、成就统计与在线联机修复。仅供研究与教育目的，请遵守当地法律与平台服务条款。",
-    "officialUrl": null,
-    "iconUrl": "https://github.com/huanyuejue/OpenSteamTool/raw/main/docs/logo-animated.svg",
+    "id": "fluent-steam-lua",
+    "name": "Fluent Steam Lua",
+    "description": "基于 WPF + Fluent Design 开发的现代化轻量级 Steam Lua 入库管理工具，支持已入库游戏封面与中文名展示、按 AppId 或游戏名搜索入库、DLC 清单查询与一键补全、从正版账号提取 Lua 清单/成就文件/Manifest、风灵月影修改器管理、内核安装/更新/卸载、云存档重定向以及免 Steam 启动。仅供研究与教育目的，请遵守当地法律与平台服务条款。",
+    "officialUrl": "https://huanyuejue.github.io/Fluent-Steam-Lua/",
+    "iconUrl": "https://raw.githubusercontent.com/huanyuejue/Fluent-Steam-Lua/refs/heads/main/Assets/app.ico",
     "installType": [
-      { "title": "GitHub Releases", "url": "https://github.com/huanyuejue/OpenSteamTool/releases/latest" }
+      { "title": "GitHub Releases", "url": "https://github.com/huanyuejue/Fluent-Steam-Lua/releases/latest" }
     ],
     "platforms": ["Windows"],
     "blogs": [],
     "status": "active",
-    "repoUrl": "https://github.com/huanyuejue/OpenSteamTool",
-    "tags": ["游戏工具", "优化工具"]
+    "repoUrl": "https://github.com/huanyuejue/Fluent-Steam-Lua",
+    "tags": ["游戏工具", "Steam"]
   },
   {
     "id": "ocs",
