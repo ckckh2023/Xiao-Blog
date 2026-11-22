@@ -470,6 +470,21 @@
     "tags": ["文件传输", "设备互联"]
   },
   {
+    "id": "i4tools",
+    "name": "爱思助手",
+    "description": "一款面向苹果设备的免费管理工具，提供 iPhone / iPad 验机、刷机、备份恢复、应用与铃声下载、投屏录屏等一站式功能，覆盖 Windows、macOS 与 Linux 桌面端。",
+    "officialUrl": "https://www.i4.cn/",
+    "iconUrl": "https://d-image.i4.cn/i4web/static2025/images/logo-i4.png",
+    "installType": [
+      { "title": "官方网站下载", "url": "https://www.i4.cn/pros/pc.html" }
+    ],
+    "platforms": ["Windows", "macOS", "Linux"],
+    "blogs": [],
+    "status": "active",
+    "repoUrl": null,
+    "tags": ["苹果设备", "设备管理"]
+  },
+  {
     "id": "clash-verge-rev",
     "name": "Clash Verge Rev",
     "description": "一款基于 Tauri 框架构建的现代化跨平台 Clash Meta 图形用户界面客户端，是原 Clash Verge 停更后由社区持续维护的延续版本，提供简洁美观的界面和强大的代理管理功能。",
