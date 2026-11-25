@@ -83,12 +83,13 @@
       { "title": "GitHub Releases", "url": "https://github.com/ckckh2023/DeepSeek-API-Chat/releases/latest" },
       { "title": "Gitee Releases", "url": "https://gitee.com/ckckh2023/DeepSeek-API-Chat/releases/latest" },
       { "title": "123 云盘", "url": "https://1851751239.share.123pan.cn/123pan/XH7Bvd-n9rg" },
-      { "title": "百度网盘", "url": "https://pan.baidu.com/s/1v_7pM502Ek31azc4Zv1uYw?pwd=3141"}
+      { "title": "百度网盘", "url": "https://pan.baidu.com/s/1v_7pM502Ek31azc4Zv1uYw?pwd=3141"},
+      { "title": "夸克网盘", "url": "https://pan.quark.cn/s/afb0f7ff3e64" }
     ],
     "desc": "基于 DeepSeek Chat Demo 制作的 DeepSeek API 聊天软件，使用跨平台 WebView 运行环境，献给喜欢简单的每一个人。",
-    "stars": 1,
-    "forks": 0,
-    "tags": ["TypeScript", "CSS", "JavaScript", "HTML", "Rust"]
+    "stars": 5,
+    "forks": 3,
+    "tags": ["TypeScript", "CSS", "JavaScript", "Rust", "HTML"]
   },
   {
     "id": "DSH-VSCode-SideBar",
