@@ -577,15 +577,18 @@
   },
   {
     "id": "uuyc",
-    "name": "UU远程",
+    "name": "UU 远程",
     "description": "网易官方推出的远程控制软件，提供跨设备远程桌面、文件传输、远程游戏与远程办公等能力，界面简洁、上手零门槛。",
     "officialUrl": "https://uuyc.163.com/",
     "iconUrl": "https://uuyc.163.com/favicon.ico",
     "installType": [
-      { "title": "官方网站", "url": "https://uuyc.163.com/" }
+      { "title": "官方网站下载", "url": "https://uuyc.163.com/" },
+      { "title": "官方网站下载（Linux 内测版本）", "url": "https://adl.netease.com/d/g/uuremote/c/Linux_test "}
     ],
-    "platforms": ["Windows", "macOS", "Android", "iOS"],
-    "blogs": [],
+    "platforms": ["Windows", "macOS", "Linux", "Android", "iOS"],
+    "blogs": [
+      { "title": "UU 远程 Linux 版本安装教程", "url": "https://page.weixin.qq.com/smartpage/p/b1_AdQAYgYXAA49f2vPV1sQDOfbGl9?scode=b1_AdQAYgYXAA49f2vPV1sQDOfbGl9" }
+    ],
     "status": "active",
     "repoUrl": null,
     "tags": ["远程控制", "跨平台"]
