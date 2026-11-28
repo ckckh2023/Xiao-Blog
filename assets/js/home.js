@@ -19,8 +19,8 @@
     bio: "没招了没招了没招了",
     location: "China",
     company: null,
-    followers: 12,
-    public_repos: 10
+    followers: 13,
+    public_repos: 12
   };
 
   /* 本地数据高优先级 */

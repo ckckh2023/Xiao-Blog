@@ -1,5 +1,7 @@
 /.wrangler
 /.codeartsdoer
+/codedocs
+/.security
 /.codegraph
 /.arts
 /.vscode

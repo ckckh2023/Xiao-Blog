@@ -564,7 +564,7 @@
     "officialUrl": "https://steampp.net/",
     "iconUrl": "https://steampp.net/svg/logo.png",
     "installType": [
-      { "title": "软件官网", "url": "https://steampp.net/download" },
+      { "title": "官方网站下载", "url": "https://steampp.net/download" },
       { "title": "GitHub Releases", "url": "https://github.com/BeyondDimension/SteamTools/releases" },
       { "title": "Steam Store", "url": "https://store.steampowered.com/app/2425030/Watt_Toolkit/" },
       { "title": "Microsoft Store", "url": "https://apps.microsoft.com/detail/9mtcfhs560ng?hl=zh-CN&gl=CN" }
